@@ -474,10 +474,10 @@ legend{
 
 
 .imagenes > div {
-  max-width: 300px;   /* fuerza salto de línea */
+  max-width: 400px;   /* fuerza salto de línea */
   text-align: center;
   flex: 1;            /* ocupa solo el centro */
-  margin-left: -20px;   /* 👈 acerca el texto a la imagen central */
+  margin-left: -120px;
 }
 
 .imagenes h2 {
@@ -505,6 +505,7 @@ a {
   width: 900px;
   
 } 
+
 
 
 
