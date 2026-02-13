@@ -203,7 +203,7 @@ button {
     display: block;
     margin: 20px auto;
     border-radius: 35px;
-    text-align: center;
+    text-align:left;
     
 }
 /* PÁRRAFOS */
@@ -548,6 +548,7 @@ a {
   width: 900px;
   
 }
+
 
 
 
