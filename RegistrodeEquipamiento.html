@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+                        <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <title>Formato de Detección de Necesidades CGPII IPN</title>
+                        
+                          <link rel="stylesheet" href="styles.css"> 
+                    
+                    </head>
+                    <body>
+                        <div class="imagenes">
+                                         <img src="Izquierda.png" class ="izquierda"  alt="IPN" title="SECRETARIA DE EDUCACIÓN PÚBLICA">
+                                           
+                                           
+                                            
+                                            
+                                         
+                                           <img src="Centro.png" class ="centro" alt="IPN" title="INSTITUTO POLITECNICO NACIONAL">
+                                           
+                                           <div><h2>Instituto Politécnico Nacional </h2>
+                                                <h2>"La Técnica al Servicio de la Patria" </h2>
+                                           </div>
+                                           
+                                           <img src="Derecha.png" class ="derecho" alt="IPN" title="COORDINACIÓN GENERAL DE PLANEACIÓN E INFORMACIÓN INSTITUCIONAL">
+                                         
+                    
+                      </div>
+                    
+                        <a href="index.html"><img src="Inicio.png" class ="A5000" alt="IPN" title="Inicio"> </a>
+                        
+                            
+                        <form id="miFormulario">
+                        <!--<h1>PROGRAMA INSTITUCIONAL DE DETECCIÓN DE NECESIDADES DE EQUIPAMIENTO Y OBRA (PIDN) 2026</h1>-->
+
+ <div class="paso activo" id="paso1">
+                                                
+                                                 <h2>CAPITULO 5000 Adquisición </h2>
+                                                     
+                                               <div class="bloque-inst">    
+                            <h3>Intrucciones</h3>
+                            <div>
+                               <ul>
+                                   <li>El formulario de solicitud está diseñado para capturar una sola vez. Después de su envío, no podrá ser modificado.</li>
+                                   <li>Todos los campos correspondientes a la sección de Información General y a la Información de Contacto, deben completarse obligatoriamente.</li>
+                                   <li>En la <strong>Tabla de Registro de Necesidades</strong>, las filas de llenado se generarán automáticamente al concluir la última fila existente.</li>
+                                   <li>Al registrar cada equipo, en la <strong>Tabla de Registro de Necesidades</strong>, deberán llenarse todos los campos de cada renglón. Si alguno queda sin completar, el formulario no podrá enviarse.</li>
+                                   <li>En el campo <strong>“Precio unitario de referencia”</strong> se deberá registrar un monto estimado, de fuentes confiables. No es obligatorio contar con una cotización formal.</li>
+                                   <li>Después de presionar ‘Guardar borrador’, ‘Continuar registro’ o ‘Enviar’, espere unos segundos hasta que el sistema muestre el mensaje correspondiente.</li>
+                                    <li>Si el formulario no está completo, presione “Guardar borrador”, espere unos segundos a que se genere su folio, Si presiona varias veces el botón “Guardar”, se generarán varios folios; conserve únicamente el último, ya que será el válido.</li>
+                         
+                               </ul>    
+                              
+                            </div>
+                            </div> 
+                         
+                             <!--<table class="datos">
+                             <tbody>
+                             <tr>
+                             <td>-->
+                            
+                            
+                              
+                         <div class="bloque-DatosDep">  
+                        <fieldset title="Info Gral">
+                                    <legend>Información General </legend>
+                        
+                        <div class="form_input IG">
+                          <label for="secretaria">Secretaría o Direccion General</label>
+                          <select id="secretaria" name="secretaria" placeholder="   " class="IGS" required>
+                                       <option value="">-- Selecciona un nivel--</option>
+                                      <option value="CII">Coordinación de Imagen Institucional</option>
+                                      <option value="CGPII">Coordinación General de Planeación e Información Institucional</option>
+                                      <option value="DG">Dirección General</option>             
+                                      <option value="AG">Oficina del Abogado General</option>
+                                      <option value="PD">Presidencia del Decanato</option>   
+                                      <option value="SACAD">Secretaría Académica</option>   
+                                      <option value="SADMIN">Secretaría de Administración</option>        
+                                      <option value="CENAC">Centro Nacional de Cálculo (CENAC)</option>          
+                                      <option value="SIIS">Secretaría de Innovación e Integración Social</option>     
+                                      <option value="SIP">Secretaría de Investigación y Posgrado</option>      
+                                      <option value="SSE">Secretaría de Servicios Educativos</option>       
+                                      <option value="SG">Secretaría General</option>    
+                                      <option value="ER">Estación de Radiodifusión XHIPN-FM 95.7 MHz</option>
+                                      <option value="POI">Patronato de Obras e Instalaciones (POI)</option>
+                                      <option value="COFAA">Comisión de Operación y Fomento de Actividades Académicas (COFAA)</option>          
+                    
+                                      </select>
+                          
+                        </div>
+                    
+                        <div class="form_input IG">
+                             <label for="direccion">Dirección o Coordinación</label>   
+                                 <select id="direccion" name="direccion" class="IGS" disabled required>
+                                 <option value="">-- Selecciona un dirección--</option>
+                                 </select>
+                        </div>
+                         
+                        <div class="form_input IG">
+                              <label for="nivel">Nivel/Área/otro</label>   
+                                 <select id="nivel" name="nivel" class="IGS" disabled required>
+                                 <option value="">-- Selecciona un nivel--</option>
+                                 </select>
+                                </div>
+                        <div class="form_input IG">    
+                                 <label for="dependencia">Dependencia</label>
+                                 <select name="dependencia" id="dependencia" class="IGS" disabled required>
+                                   <option value="">-- Selecciona una dependencia --</option>
+                                 </select>
+                        </div> 
+                    
+                      </fieldset>
+                      <!--  </td>
+                           
+                        <td>
+                        -->
+                          <fieldset title="Info titu">
+                       <legend>Información del Titular </legend>
+                    
+                    
+                        <div class="form_input TIT">
+                          <label for="titular">Titular</label>
+                          <input id="titular" name="titular" placeholder="Nombre completo" required>
+                        </div>
+                    
+                        <div class="form_input TIT">
+                          <label for="telefonoTitular">Extensión</label>
+                          <input id="telefonoTitular" name="telefonoTitular" placeholder="Extensión" type="tel" required>
+                        </div>
+                    
+                        <div class="form_input TIT">
+                          <label for="correoTitular">Correo</label>
+                          <input id="correoTitular" name="correoTitular" placeholder="correo " type="email" required>
+                        </div>
+                        
+                                            
+                    </fieldset>
+                    
+                    
+                    <fieldset title="Info Res">
+                    
+                      <legend>Información del Responsable de Registro </legend>
+                    
+                        
+                        <div class="form_input RES">
+                          <label for="responsable" class="RESL">Responsable </label>
+                          <input id="responsable" name="responsable" placeholder="Nombre completo " required>
+                        </div>
+                    
+                    
+                        <div class="form_input RES">
+                          <label for="telefonoResponsable" class="RESL">Extensión</label>
+                          <input id="telefonoResponsable" name="telefonoResponsable" placeholder="Extensión " type="tel" required>
+                        </div>
+                    
+                        <div class="form_input RES">
+                          <label for="correoResponsable" class="RESL">Correo</label>
+                          <input id="correoResponsable" name="correoResponsable" placeholder="Correo " type="email" required>
+                        </div>
+                      
+                    </fieldset>
+                    
+                    </div>
+                    
+                    
+        <button type="button" class="pagina" onclick="siguiente(1)">
+                       Tabla1
+        </button>
+</div>
+
+
+<div class="paso" id="paso2">    
+     <button type="button" class="pagina" onclick="anterior(2)">
+      Datos Generales
+    </button>
+
+    <button type="button" class="pagina" onclick="siguiente(2)">
+      Tabla2
+    </button>
+  
+                                          <fieldset class="TablaFS"> 
+                                            <legend class="TablaLeg" >Tabla 1.Usuarios</legend>
+                                          <table class="tabla_style Tabla1" title="Tabla 1.Usuarios">
+                                          <thead>
+                                                                         <tr>
+                                                                              <th title="Programas">
+                                                                                   Programas académicos, servicios o actividades que realiza la dependencia.   
+                                                                              </th>
+                                                          
+                                                                              <th title="Usuarios1">
+                                                                                   Número de Usuarios 2021
+                                                                              </th>   
+                                          
+                                                                              <th title="Usuarios2">
+                                                                                   Número de Usuarios 2022
+                                                                              </th>
+                                                                              <th  title="Usuarios3">
+                                                                                  Número de Usuarios 2023
+                                                                              </th>
+                                                                              <th title="Usuarios4">
+                                                                                  Número de Usuarios 2024
+                                                                              </th>
+                                          
+                                                                              <th title="Usuarios5">
+                                                                                   Número de Usuarios 2025
+                                                                              </th> 
+                                                                         </tr>
+                                                                  </thead>
+                                          
+                                                                  <tbody id="tablaBody">
+                                                                          
+                                          
+                                          
+                                                                        
+                                                                  </tbody>     
+                                          </table>
+                                          </fieldset>
+  </div>
+
+
+<div class="paso" id="paso3">  
+<button type="button" class="pagina" onclick="anterior(3)">
+      Tabla1
+    </button>
+
+    <button type="button" class="pagina" onclick="siguiente(3)">
+      Tabla3
+    </button>
+                               <fieldset class="TablaFS"> 
+                                 <legend class="TablaLeg" >Tabla 2. Infraestructura (De los Espacios Participantes)</legend>
+                               <table class="tabla_style Tabla2" title="Tabla2.Infraesctructura">
+                               <thead>
+                                                              <tr>
+                                                                   <th title="Edificio">
+                                                                        Nombre del Edificio    
+                                                                   </th>
+                                               
+                                                                   <th title="Nivel">
+                                                                        Nivel (Planta)
+                                                                   </th>   
+                               
+                                                                   <th title="Espacio">
+                                                                        Espacio (Aulas, Laboratorios, Área administrativa, etc.)
+                                                                   </th>
+                                                                   <th title="Largo">
+                                                                       Largo del espacio  (M)
+                                                                   </th>
+                                                                   <th title="Ancho">
+                                                                       Ancho del espacio  (M)
+                                                                   </th>
+                               
+                                                                   <th title="Alumnos">
+                                                                        Número de Alumnos o personas  atendidas por espacio (Capacidad, para cuantos)
+                                                                   </th> 
+                                                                   
+                                                                   <th title="HorasServicio">
+                                                                       Horas de servicio(Por semana)
+                                                                   </th>
+                               
+                                                                   
+                                                              </tr>
+                                                       </thead>
+                               
+                                                       <tbody id="tablaBody2">
+                                                               
+                               
+                               
+                                                             
+                                                       </tbody>     
+                               </table>
+                               </fieldset>
+
+  </div>
+
+<div class="paso" id="paso4">
+<button type="button"  class="pagina" onclick="anterior(4)">
+      Tabla2
+    </button>
+
+    <button type="button" class="pagina" onclick="siguiente(4)">
+      Tabla4
+    </button>
+
+                             <fieldset class="TablaFS"> 
+                             <legend class="TablaLeg" >Tabla 3. Infraestructura (General)</legend>
+                             <table class="tabla_style Tabla3" title="Tabla de Registro de Necesidades">
+                             <thead>
+                                                            <tr>
+                                                                 <th title="Edificio">
+                                                                      Nombre del Edificio    
+                                                                 </th>
+                                             
+                                                                 <th title="MetrosCuadrados">
+                                                                      Metros Cuadrados 
+                                                                 </th>   
+                                                                 
+                                                            </tr>
+                                                     </thead>
+                             
+                                                     <tbody id="tablaBody3">
+                                                             
+                             
+                             
+                                                           
+                                                     </tbody>     
+                             </table>
+                             </fieldset>
+
+  </div>
+
+
+<div class="paso" id="paso5">
+<button type="button" class="pagina" onclick="anterior(5)">
+      Tabla3
+    </button>
+                                <fieldset class="TablaFS"> 
+                                <legend class="TablaLeg" >Tabla 4 Demanda </legend>
+                                <table class="Tabla4" title="Tabla de Registro de Necesidades">
+                                <thead>
+                                                               <tr>
+                                                                    <th title="ProgramaAcadémico">
+                                                                         Programa Académico  , Programas académicos, servicios o actividades que realiza la dependencia.     
+                                                                    </th>
+                                                
+                                                                    <th title="Espacio">
+                                                                         Espacio
+                                                                    </th>   
+                                
+                                                                    <th title="Clave">
+                                                                         Clave CUCOP
+                                                                    </th>
+                                                                    <th title="Equipo">
+                                                                        Nombre genérico del equipo
+                                                                    </th>
+                                                                    <th title="Cantidad">
+                                                                        Cantidad Equipos solicitados 
+                                                                    </th>
+                                
+                                                                    <th title=" Especificaciones Técnicas del Equipo">
+                                                                         Características /Especificaciones Técnicas 
+                                                                    </th> 
+                                                                    
+                                                                    <th title="Justificación (Equipo no Existente, Sustitución o Complemento)">
+                                                                        Justificación Porque se requiere el equipo; las cantidades; las funciones que realizara; Mejora operativa obtenida
+                                                                    </th>
+                                
+                                                                    <th title="Precio unitario Adquisición Alternativa 1 (Sin IVA)">
+                                                                        Precio unitario Adquisición Alternativa 1 (Sin IVA)
+                                                                    </th>
+                                
+                                                                    <th title="Cotización de Adquisición">
+                                                                        Cotización de Adquisición
+                                                                    </th>
+                                                                    
+                                                                    <th title="Precio unitario Adquisición Alternativa 1 (Sin IVA)">
+                                                                        Precio unitario Adquisición Alternativa 1 (Sin IVA)
+                                                                    </th>
+                                
+                                                                    <th title="Cotización de Adquisición 2">
+                                                                        Cotización de Adquisición 2
+                                                                    </th>
+                                                                    
+                                                               </tr>
+                                                        </thead>
+                                
+                                                        <tbody id="tablaBody4">
+                                                                
+                                
+                                
+                                                              
+                                                        </tbody>     
+                                </table>
+                                </fieldset>
+                                <div class="bloque-botones">
+                                <button type="button" id="guardarBorrador">💾 Guardar borrador</button>
+                                
+                                <input type="text" id="folioInput" placeholder="Ingresa tu folio">    
+                                <button type="button" id="cargarBorrador">📂 Continuar registro</button>
+                                </div>
+ 
+
+
+
+    <!--    <button type="button" onclick="siguiente(4)">
+      Tabla4
+    </button>-->
+   <button type="submit">Enviar</button>
+
+<p id="aviso" class="Aviso"></p>
+</div>
+
+
+
+
+   
+</form>
+
+</body>
+
+<script src="codigo.js"></script>   
+
+
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

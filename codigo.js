@@ -1,18 +1,134 @@
 const tbody = document.getElementById("tablaBody");
-
-
+const tbody2 = document.getElementById("tablaBody2");
+const tbody3 = document.getElementById("tablaBody3");
+const tbody4 = document.getElementById("tablaBody4");
 //------------------------------------Construccion de tabla--------------------------
 
 
 for (let i = 1; i <= 10; i++) {
   const tr = document.createElement("tr");
-
+  const tr2 = document.createElement("tr");
+  const tr3 = document.createElement("tr");
+  const tr4 = document.createElement("tr");
   tr.innerHTML = `
-    <td id="nivelR${i}" class="input_tabla fijasCol" aria-label="Nivel/Area/Otro"></td>
+    <td>
+      <textarea
+        name="ProgramasR${i}"
+        class="auto-expand input_tabla obligatorio"
+        rows="1"
+        style="resize:none;"
+        aria-label="Programas académicos, servicios o actividades de la dependencia"
+        > </textarea>
+    </td>
+
+    <td>
+    <input type="number" name="Usuarios1R${i}" class="input_tabla " aria-label="Usuarios1"> </input>
+    </td>
+    <td>
+    <input type="number" name="Usuarios2R${i}" class="input_tabla " aria-label="Usuarios2"> </input>
+    </td>
+    <td> 
+    <input type="number" name="Usuarios3R${i}" class="input_tabla " aria-label="Usuarios3"> </input>
+     </td>
+    <td>
+    <input type="number" name="Usuarios4R${i}" class="input_tabla " aria-label="Usuarios4"> </input>
+    </td>
+    <td>
+    <input type="number" name="Usuarios5R${i}" class="input_tabla " aria-label="Usuarios5"> </input>
+    </td>
+  `;
+                                    
+
+
+
+
+
+tr2.innerHTML = `
+    <td>
+    <input name="EdificioR${i}" class="input_tabla" aria-label="Edificio"> </input>
+    </td>
+
+    <td>
+    <input name="NivelR${i}" class="input_tabla" aria-label="Nivel"> </input>
+    </td>
+
+    <td>
+    <input name="EspacioR${i}" class="input_tabla" aria-label="Espacio"> </input>
+    </td>    
     
     
-    <td id="dependenciaR${i}" class="input_tabla fijasCol" aria-label="Dependencia"></td>
     
+    
+
+      <td class="cantidadCol">
+
+      <input type="number" name="LargoR${i}" class="input_tabla " aria-label="Largo"> </input>  
+    
+      </td>
+
+      
+    
+      <td class="cantidadCol">
+
+              <input type="number" name="AnchoR${i}" class="input_tabla " aria-label="Ancho">
+              </input>  
+    
+      </td>
+      
+
+      <td class="cantidadCol">
+
+      <input type="number" name="AlumnosR${i}" class="input_tabla " aria-label="Numero de Alumnos"> </input>  
+    
+      </td>
+      
+
+   
+      <td class="cantidadCol">
+
+      <input type="number" name="HorasR${i}" class="input_tabla " aria-label="Horas de Servicio"> </input>  
+    
+      </td>
+
+  `;
+
+
+tr3.innerHTML = `
+    <td>
+    <input name="EdificioR${i}" class="input_tabla" aria-label="Edificio"> </input>
+    </td>
+
+    <td>
+    <input name="MetrosCuadradosR${i}" class="input_tabla" aria-label="MetrosCuadrados"> </input>
+    </td>
+
+     
+    
+
+  `;
+
+tr4.innerHTML = `
+    <td>
+      <textarea
+        name="ProgramaAcadémicoR${i}"
+        class="auto-expand input_tabla obligatorio"
+        rows="1"
+        style="resize:none;"
+        aria-label="Programa Académico"
+        > </textarea>
+    </td> 
+    
+    <td id="EspacioR${i}" class="input_tabla fijasCol" aria-label="Espacio"></td>
+    
+    <td>
+      <textarea
+        name="ClaveR${i}"
+        class="auto-expand input_tabla"
+        rows="1"
+        style="resize:none;"
+        aria-label="clave"
+        > </textarea>
+      </td>
     <td>
       <textarea
         name="nombredelEquipoR${i}"
@@ -30,18 +146,6 @@ for (let i = 1; i <= 10; i++) {
       <input type="number" name="cantidadR${i}" class="input_tabla " aria-label="Cantidad"> </input>  
     
       </td>
-
-    <td>
-      <textarea
-        name="marcaR${i}"
-        class="auto-expand input_tabla"
-        rows="1"
-        style="resize:none;"
-        aria-label="Marca"
-        > </textarea>
-      </td>
-
-    
 
 
     <td>
@@ -66,7 +170,6 @@ for (let i = 1; i <= 10; i++) {
     
     
      <td>
-
       <div class="precio-wrapper">
             <span class="peso">$</span>
             <input type="text"
@@ -80,18 +183,118 @@ for (let i = 1; i <= 10; i++) {
       </td>
     
     <td>
-      <select id="prioridadR${i}" name="prioridadR${i}" placeholder="   " class="tabla_select" aria-label="Prioridad">
-                   <option value="">-- Selecciona una prioridad--</option>
-                   <option value="Baja">Baja</option>
-                   <option value="Media">Media</option>
-                   <option value="Alta">Alta</option>
-      </select>
+    <div class="contenedorArchivo">
+                      <input 
+                       type="file" 
+                       name="CotizacionAdquisicionR${i}" 
+                       class="archivoInput"
+                       accept=".pdf,.xlsx,.doc,.docx,.png,.jpg">
+                 <span class="nombreArchivo"></span>
+                 <button type="button" class="borrarArchivo">
+                   ❌
+                 </button>
+     </div>            
     </td>
+
+
+  <td>
+   <div class="precio-wrapper">
+            <span class="peso">$</span>
+            <input type="text"
+                   name="precio2R${i}"
+                   class="input_tabla precio"
+                   oninput="formatearMiles(this)"
+                   inputmode="decimal" 
+                   aria-label="Precio 2"> 
+            </input>
+      </div>
+      </td>
+   
+  <td>
+    <div class="contenedorArchivo">
+                      <input 
+                       type="file" 
+                       name="CotizacionAdquisicion2R${i}" 
+                       class="archivoInput"
+                       accept=".pdf,.xlsx,.doc,.docx,.png,.jpg">
+                 <span class="nombreArchivo"></span>
+                 <button type="button" class="borrarArchivo">
+                   ❌
+                 </button>
+     </div>            
+</td>
+
 
   `;
 
+
+
+
+
+
+
+
   tbody.appendChild(tr);
+  tbody2.appendChild(tr2);
+  tbody3.appendChild(tr3);
+  tbody4.appendChild(tr4);
 }
+
+
+//----------------------------------------Archivos y su mecanismo-----------------------------------------------------
+
+
+
+document.addEventListener("change", (e) => {
+
+  if (!e.target.matches(".archivoInput")) return;
+
+  const input = e.target;
+  const contenedor = input.closest(".contenedorArchivo");
+
+  const nombre = contenedor.querySelector(".nombreArchivo");
+
+  if (input.files.length > 0) {
+
+    nombre.textContent = input.files[0].name;
+
+    input.style.display = "none";
+
+  }
+
+});
+
+document.addEventListener("click", (e) => {
+
+  if (!e.target.matches(".borrarArchivo")) return;
+
+  const contenedor = e.target.closest(".contenedorArchivo");
+
+  const input = contenedor.querySelector(".archivoInput");
+
+  const nombre = contenedor.querySelector(".nombreArchivo");
+
+  input.value = "";
+
+  input.style.display = "block";
+
+  nombre.textContent = "";
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //---------------------------Definicion de variables para selects de D Generales-------------------------------
@@ -112,10 +315,59 @@ document.getElementById("tablaBody").addEventListener("change", e => {
     agregarFila();
   }
 });
+document.getElementById("tablaBody2").addEventListener("change", e => {
+  if (!e.target.name?.startsWith("nombredelEquipoR")) return;
 
+  const filas = document.querySelectorAll("#tablaBody2 tr");
+  const ultimaFila = filas[filas.length - 1];
+
+  if (ultimaFila.contains(e.target)) {
+    agregarFila2();
+  }
+});
+document.getElementById("tablaBody3").addEventListener("change", e => {
+  if (!e.target.name?.startsWith("nombredelEquipoR")) return;
+
+  const filas = document.querySelectorAll("#tablaBody3 tr");
+  const ultimaFila = filas[filas.length - 1];
+
+  if (ultimaFila.contains(e.target)) {
+    agregarFila3();
+  }
+});
+document.getElementById("tablaBody4").addEventListener("change", e => {
+  if (!e.target.name?.startsWith("nombredelEquipoR")) return;
+
+  const filas = document.querySelectorAll("#tablaBody4 tr");
+  const ultimaFila = filas[filas.length - 1];
+
+  if (ultimaFila.contains(e.target)) {
+    agregarFila4();
+  }
+});
+
+
+
+
+
+
+//Recuerda agregar esta misma funcion para cada tabla en caso de que las 4 tablas queden en la misma pagina cosa que aun no decido
 //----------------------------------------rellenado automatico de Nivel y dependencia----------------------------------------------
 nivelInput.addEventListener("change", generarNivel);
 dependenciaInput.addEventListener("change", generarDependencia);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 function generarNivel() {
@@ -653,6 +905,10 @@ nivelInput.addEventListener("change", () => {
     dependenciaInput.appendChild(option);
   });
 });
+
+
+
+
 function actualizarObligatoriedadFila(fila) {
   const equipo = fila.querySelector(".obligatorio");
   if (!equipo) return;
@@ -672,7 +928,7 @@ function actualizarObligatoriedadFila(fila) {
 
 //----------------Esta parte se encarga de detectar un cambio en las celdas de la tabla y cuando recibre un cambio que no es 
 //----------------en la clase obligatorio este no reacciona, en caso afirmativo cambio el estado de required
-
+//--------------------------------------** *------------------------------------------/
 
 document.getElementById("tablaBody").addEventListener("input", function (e) {
   if (!e.target.classList.contains("obligatorio")) return;
@@ -681,19 +937,209 @@ document.getElementById("tablaBody").addEventListener("input", function (e) {
   actualizarObligatoriedadFila(fila);
 });
 
+
+
+document.getElementById("tablaBody2").addEventListener("input", function (e) {
+  if (!e.target.classList.contains("obligatorio")) return;
+
+  const fila = e.target.closest("tr");
+  actualizarObligatoriedadFila(fila);
+});
+
+
+document.getElementById("tablaBody3").addEventListener("input", function (e) {
+  if (!e.target.classList.contains("obligatorio")) return;
+
+  const fila = e.target.closest("tr");
+  actualizarObligatoriedadFila(fila);
+});
+
+
+
+document.getElementById("tablaBody4").addEventListener("input", function (e) {
+  if (!e.target.classList.contains("obligatorio")) return;
+
+  const fila = e.target.closest("tr");
+  actualizarObligatoriedadFila(fila);
+});
+
+
+
+
 //----------------------Agregar fila
+
+//-----------------------Agergar fila tabla 1
 
 function agregarFila(){
   const tbody = document.getElementById("tablaBody");
-  const i = obtenerNumeroFila();
+  const i = obtenerNumeroFila1();
+
 
   const fila = document.createElement("tr");
   fila.innerHTML = `
-    <td id="nivelR${i}" class="input_tabla fijasCol" aria-label="Nivel/Area/Otro"></td>
+    <td>
+      <textarea
+        name="ProgramasR${i}"
+        class="auto-expand input_tabla obligatorio"
+        rows="1"
+        style="resize:none;"
+        aria-label="Programas académicos, servicios o actividades de la dependencia"
+        > </textarea>
+    </td>
+
+    <td>
+    <input type="number" name="Usuarios1R${i}" class="input_tabla " aria-label="Usuarios1"> </input>
+    </td>
+    <td>
+    <input type="number" name="Usuarios2R${i}" class="input_tabla " aria-label="Usuarios2"> </input>
+    </td>
+    <td> 
+    <input type="number" name="Usuarios3R${i}" class="input_tabla " aria-label="Usuarios3"> </input>
+     </td>
+    <td>
+    <input type="number" name="Usuarios4R${i}" class="input_tabla " aria-label="Usuarios4"> </input>
+    </td>
+    <td>
+    <input type="number" name="Usuarios5R${i}" class="input_tabla " aria-label="Usuarios5"> </input>
+    </td>
+  `;
+
+  tbody.appendChild(fila);
+
+  generarNivel();
+  generarDependencia();
+  activarAutoExpand(fila);
+}    
+
+
+
+
+
+//-----------------------Agergar fila tabla 2
+
+
+function agregarFila2(){
+  const tbody = document.getElementById("tablaBody2");
+  const i = obtenerNumeroFila2();
+
+
+  const fila = document.createElement("tr");
+  fila.innerHTML = tr.innerHTML = `
+    <td>
+    <input name="EdificioR${i}" class="input_tabla" aria-label="Edificio"> </input>
+    </td>
+
+    <td>
+    <input name="NivelR${i}" class="input_tabla" aria-label="Nivel"> </input>
+    </td>
+
+    <td>
+    <input name="EspacioR${i}" class="input_tabla" aria-label="Espacio"> </input>
+    </td>    
     
     
-    <td id="dependenciaR${i}" class="input_tabla fijasCol" aria-label="Dependencia"></td>
     
+    
+
+      <td class="cantidadCol">
+
+      <input type="number" name="LargoR${i}" class="input_tabla " aria-label="Largo"> </input>  
+    
+      </td>
+
+      
+    
+      <td class="cantidadCol">
+
+              <input type="number" name="AnchoR${i}" class="input_tabla " aria-label="Ancho">
+              </input>  
+    
+      </td>
+      
+
+      <td class="cantidadCol">
+
+      <input type="number" name="AlumnosR${i}" class="input_tabla " aria-label="Numero de Alumnos"> </input>  
+    
+      </td>
+      
+
+   
+      <td class="cantidadCol">
+
+      <input type="number" name="HorasR${i}" class="input_tabla " aria-label="Horas de Servicio"> </input>  
+    
+      </td>
+
+  `;
+  tbody.appendChild(fila);
+
+  generarNivel();
+  generarDependencia();
+  activarAutoExpand(fila);
+}
+
+
+
+//-----------------------Agregar fila tabla 3
+
+function agregarFila3(){
+  const tbody = document.getElementById("tablaBody3");
+  const i = obtenerNumeroFila3();
+
+
+  const fila = document.createElement("tr");
+  fila.innerHTML = tr.innerHTML = `
+    <td>
+    <input name="EdificioR${i}" class="input_tabla" aria-label="Edificio"> </input>
+    </td>
+
+    <td>
+    <input name="MetrosCuadradosR${i}" class="input_tabla" aria-label="MetrosCuadrados"> </input>
+    </td>
+
+     
+    
+
+  `;
+
+  tbody.appendChild(fila);
+
+  generarNivel();
+  generarDependencia();
+  activarAutoExpand(fila);
+}
+
+//-----------------------Agergar fila tabla 4
+
+function agregarFila4(){
+  const tbody = document.getElementById("tablaBody4");
+  const i = obtenerNumeroFila4();
+
+
+  const fila = document.createElement("tr");
+  fila.innerHTML = tr.innerHTML = `
+    <td>
+      <textarea
+        name="ProgramaAcadémicoR${i}"
+        class="auto-expand input_tabla obligatorio"
+        rows="1"
+        style="resize:none;"
+        aria-label="Programa Académico"
+        > </textarea>
+    </td> 
+    
+    <td id="EspacioR${i}" class="input_tabla fijasCol" aria-label="Espacio"></td>
+    
+    <td>
+      <textarea
+        name="ClaveR${i}"
+        class="auto-expand input_tabla"
+        rows="1"
+        style="resize:none;"
+        aria-label="clave"
+        > </textarea>
+      </td>
     <td>
       <textarea
         name="nombredelEquipoR${i}"
@@ -711,17 +1157,6 @@ function agregarFila(){
       <input type="number" name="cantidadR${i}" class="input_tabla " aria-label="Cantidad"> </input>  
     
       </td>
-
-    <td>
-      <textarea
-        name="marcaR${i}"
-        class="auto-expand input_tabla"
-        rows="1"
-        style="resize:none;"
-        aria-label="Marca"
-        > </textarea>
-      </td>
-
 
 
     <td>
@@ -746,7 +1181,6 @@ function agregarFila(){
     
     
      <td>
-
       <div class="precio-wrapper">
             <span class="peso">$</span>
             <input type="text"
@@ -760,26 +1194,77 @@ function agregarFila(){
       </td>
     
     <td>
-      <select id="prioridadR${i}" name="prioridadR${i}" placeholder="   " class="tabla_select" aria-label="Prioridad">
-                   <option value="">-- Selecciona una prioridad--</option>
-                   <option value="Baja">Baja</option>
-                   <option value="Media">Media</option>
-                   <option value="Alta">Alta</option>
-      </select>
+    <div class="contenedorArchivo">
+                      <input 
+                       type="file" 
+                       name="CotizacionAdquisicionR${i}" 
+                       class="archivoInput"
+                       accept=".pdf,.xlsx,.doc,.docx,.png,.jpg">
+                 <span class="nombreArchivo"></span>
+                 <button type="button" class="borrarArchivo">
+                   ❌
+                 </button>
+     </div>            
     </td>
 
-    `;
+
+  <td>
+   <div class="precio-wrapper">
+            <span class="peso">$</span>
+            <input type="text"
+                   name="precio2R${i}"
+                   class="input_tabla precio"
+                   oninput="formatearMiles(this)"
+                   inputmode="decimal" 
+                   aria-label="Precio 2"> 
+            </input>
+      </div>
+      </td>
+   
+  <td>
+    <div class="contenedorArchivo">
+                      <input 
+                       type="file" 
+                       name="CotizacionAdquisicion2R${i}" 
+                       class="archivoInput"
+                       accept=".pdf,.xlsx,.doc,.docx,.png,.jpg">
+                 <span class="nombreArchivo"></span>
+                 <button type="button" class="borrarArchivo">
+                   ❌
+                 </button>
+     </div>            
+</td>
+
+
+  `;
 
   tbody.appendChild(fila);
 
   generarNivel();
   generarDependencia();
   activarAutoExpand(fila);
-}    
+}
 
-function obtenerNumeroFila(){
+
+
+
+
+function obtenerNumeroFila1(){
   return document.querySelectorAll("#tablaBody tr").length + 1;
 }
+function obtenerNumeroFila2(){
+  return document.querySelectorAll("#tablaBody2 tr").length + 1;
+}
+
+function obtenerNumeroFila3(){
+  return document.querySelectorAll("#tablaBody3 tr").length + 1;
+}
+function obtenerNumeroFila4(){
+  return document.querySelectorAll("#tablaBody4 tr").length + 1;
+}
+
+
+
 
 
 function formatearMiles(input) {
@@ -830,9 +1315,45 @@ function generarFolio() {
 
 
 
+
+
+
+
+
+
+
+
+//------------------------Separacion de tablas por ventana
+function siguiente(numero){
+
+  document
+    .getElementById(`paso${numero}`)
+    .classList.remove("activo");
+
+  document
+    .getElementById(`paso${numero+1}`)
+    .classList.add("activo");
+}
+
+function anterior(numero){
+
+  document
+    .getElementById(`paso${numero}`)
+    .classList.remove("activo");
+
+  document
+    .getElementById(`paso${numero-1}`)
+    .classList.add("activo");
+}
+
+
+
+
+
+
 //---------------------------GuardarBorrador--------------------------------------------------
 
-
+/*
   document.getElementById("guardarBorrador").addEventListener("click", async () => {
   const form = document.getElementById("miFormulario");
   const formData = new FormData(form);
@@ -877,7 +1398,7 @@ if (json.success) {
 
 
 
-
+*/
 
 
 
@@ -918,8 +1439,7 @@ function restaurarTabla(data) {
 }
 
 
-
-
+/*
 document.getElementById("cargarBorrador").addEventListener("click", async () => {
 //-------------------------- Borrador con  folio (Backend)   
   
@@ -944,16 +1464,17 @@ try {
 //----------------------------------------------------------------------------
 
   
-/*-------------BORRADOR LOCAL--------------------------------------------------  
-  const borrador = localStorage.getItem("borradorFormulario");
-  if (!borrador) {
-    alert("⚠️ No hay ningún borrador guardado");
-    return;
-  }
-*/
+//-------------BORRADOR LOCAL--------------------------------------------------  
+//  const borrador = localStorage.getItem("borradorFormulario");
+//  if (!borrador) {
+//    alert("⚠️ No hay ningún borrador guardado");
+//    return;
+//  }
 
   
   //  (Datos locales)  const data = JSON.parse(borrador);
+
+
 
   const data =json.data;
 
@@ -964,12 +1485,12 @@ try {
   const tbody = document.getElementById("tablaBody");
   tbody.innerHTML = "";
 
-  /* Reconstruir filas
-  const filas = data.__filas || 10;
-  for (let i = 1; i <= filas; i++) {
-    agregarFila();
-  }
-*/
+  // Reconstruir filas
+//  const filas = data.__filas || 10;
+//  for (let i = 1; i <= filas; i++) {
+//    agregarFila();
+//  }
+
 
 
 // Restaurar selects encadenados
@@ -1013,14 +1534,14 @@ setTimeout(() => {
   
 });
 
-
+*/
 
 
 
 
 
 //Guardado de Datos    
-    
+/*    
  const form = document.getElementById("miFormulario");
  const aviso = document.getElementById("aviso");   
     document.getElementById("miFormulario").addEventListener("submit", function(e){
@@ -1050,10 +1571,10 @@ setTimeout(() => {
                 });
                 aviso.textContent = " ";
                 const data = Object.fromEntries(formData);
-                /*fetch("https://script.google.com/macros/s/AKfycbylJPoK0gXZxnMQzAWlCLGbwMvi7OsMV-rKF3eEpNDSkpbzZ8R6kzFAadKFIonA97Of-Q/exec", {
-                                 method: "POST",
-                                 body: new FormData(this)
-                })*/
+                //fetch("https://script.google.com/macros/s/AKfycbylJPoK0gXZxnMQzAWlCLGbwMvi7OsMV-rKF3eEpNDSkpbzZ8R6kzFAadKFIonA97Of-Q/exec", {
+                //                 method: "POST",
+                //                 body: new FormData(this)
+               // })
                 
                  fetch("https://script.google.com/macros/s/AKfycbzxz08ox-WUn2YKXPyX0GqfEx2BIAJzB0ODKZSefiF4tTfE2wYhJg93WkZXsjja3I-40g/exec", {
                   method: "POST",
@@ -1075,8 +1596,7 @@ setTimeout(() => {
   .catch(() => alert("Error al enviar"));
 });
 
-
-
+*/
 
 
 
