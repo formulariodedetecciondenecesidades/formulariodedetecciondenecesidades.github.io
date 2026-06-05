@@ -2,6 +2,9 @@ const tbody = document.getElementById("tablaBody");
 const tbody2 = document.getElementById("tablaBody2");
 const tbody3 = document.getElementById("tablaBody3");
 const tbody4 = document.getElementById("tablaBody4");
+const tbody5 = document.getElementById("tablaBody5");
+const tbody6 = document.getElementById("tablaBody6");
+const tbody7 = document.getElementById("tablaBody7");
 //------------------------------------Construccion de tabla--------------------------
 
 
@@ -10,10 +13,14 @@ for (let i = 1; i <= 10; i++) {
   const tr2 = document.createElement("tr");
   const tr3 = document.createElement("tr");
   const tr4 = document.createElement("tr");
+  const tr5 = document.createElement("tr");
+  const tr6 = document.createElement("tr");
+  const tr7 = document.createElement("tr");
+ 
   tr.innerHTML = `
     <td>
       <textarea
-        name="ProgramasR${i}"
+        name="Programa_T1R${i}"
         class="auto-expand input_tabla obligatorio"
         rows="1"
         style="resize:none;"
@@ -22,19 +29,19 @@ for (let i = 1; i <= 10; i++) {
     </td>
 
     <td>
-    <input type="number" name="Usuarios1R${i}" class="input_tabla " aria-label="Usuarios1"> </input>
+    <input type="number" name="Usuarios1_T1R${i}" class="input_tabla " aria-label="Usuarios1"> </input>
     </td>
     <td>
-    <input type="number" name="Usuarios2R${i}" class="input_tabla " aria-label="Usuarios2"> </input>
+    <input type="number" name="Usuarios2_T1R${i}" class="input_tabla " aria-label="Usuarios2"> </input>
     </td>
     <td> 
-    <input type="number" name="Usuarios3R${i}" class="input_tabla " aria-label="Usuarios3"> </input>
+    <input type="number" name="Usuarios3_T1R${i}" class="input_tabla " aria-label="Usuarios3"> </input>
      </td>
     <td>
-    <input type="number" name="Usuarios4R${i}" class="input_tabla " aria-label="Usuarios4"> </input>
+    <input type="number" name="Usuarios4_T1R${i}" class="input_tabla " aria-label="Usuarios4"> </input>
     </td>
     <td>
-    <input type="number" name="Usuarios5R${i}" class="input_tabla " aria-label="Usuarios5"> </input>
+    <input type="number" name="Usuarios5_T1R${i}" class="input_tabla " aria-label="Usuarios5"> </input>
     </td>
   `;
                                     
@@ -45,15 +52,15 @@ for (let i = 1; i <= 10; i++) {
 
 tr2.innerHTML = `
     <td>
-    <input name="EdificioR${i}" class="input_tabla" aria-label="Edificio"> </input>
+    <input name="Edificio_T2R${i}" class="input_tabla" aria-label="Edificio"> </input>
     </td>
 
     <td>
-    <input name="NivelR${i}" class="input_tabla" aria-label="Nivel"> </input>
+    <input name="Nivel_T2R${i}" class="input_tabla" aria-label="Nivel"> </input>
     </td>
 
     <td>
-    <input name="EspacioR${i}" class="input_tabla" aria-label="Espacio"> </input>
+    <input name="Espacio_T2R${i}" class="input_tabla" aria-label="Espacio"> </input>
     </td>    
     
     
@@ -62,7 +69,7 @@ tr2.innerHTML = `
 
       <td class="cantidadCol">
 
-      <input type="number" name="LargoR${i}" class="input_tabla " aria-label="Largo"> </input>  
+      <input type="number" name="Largo_T2R${i}" class="input_tabla " aria-label="Largo"> </input>  
     
       </td>
 
@@ -70,7 +77,7 @@ tr2.innerHTML = `
     
       <td class="cantidadCol">
 
-              <input type="number" name="AnchoR${i}" class="input_tabla " aria-label="Ancho">
+              <input type="number" name="Ancho_T2R${i}" class="input_tabla " aria-label="Ancho">
               </input>  
     
       </td>
@@ -78,7 +85,7 @@ tr2.innerHTML = `
 
       <td class="cantidadCol">
 
-      <input type="number" name="AlumnosR${i}" class="input_tabla " aria-label="Numero de Alumnos"> </input>  
+      <input type="number" name="Alumnos_T2R${i}" class="input_tabla " aria-label="Numero de Alumnos"> </input>  
     
       </td>
       
@@ -86,7 +93,7 @@ tr2.innerHTML = `
    
       <td class="cantidadCol">
 
-      <input type="number" name="HorasR${i}" class="input_tabla " aria-label="Horas de Servicio"> </input>  
+      <input type="number" name="Horas_T2R${i}" class="input_tabla " aria-label="Horas de Servicio"> </input>  
     
       </td>
 
@@ -95,11 +102,11 @@ tr2.innerHTML = `
 
 tr3.innerHTML = `
     <td>
-    <input name="EdificioR${i}" class="input_tabla" aria-label="Edificio"> </input>
+    <input name="Edificio_T3R${i}" class="input_tabla" aria-label="Edificio"> </input>
     </td>
 
     <td>
-    <input name="MetrosCuadradosR${i}" class="input_tabla" aria-label="MetrosCuadrados"> </input>
+    <input name="MetrosCuadrados_T3R${i}" class="input_tabla" aria-label="MetrosCuadrados"> </input>
     </td>
 
      
@@ -110,7 +117,7 @@ tr3.innerHTML = `
 tr4.innerHTML = `
     <td>
       <textarea
-        name="ProgramaAcadémicoR${i}"
+        name="ProgramaAcadémico_T4R${i}"
         class="auto-expand input_tabla obligatorio"
         rows="1"
         style="resize:none;"
@@ -118,11 +125,11 @@ tr4.innerHTML = `
         > </textarea>
     </td> 
     
-    <td id="EspacioR${i}" class="input_tabla fijasCol" aria-label="Espacio"></td>
+    <td id="Espacio_T4R${i}" name="Espacio_T4R${i}" class="input_tabla fijasCol" aria-label="Espacio"></td>
     
     <td>
       <textarea
-        name="ClaveR${i}"
+        name="Clave_T4R${i}"
         class="auto-expand input_tabla"
         rows="1"
         style="resize:none;"
@@ -131,7 +138,7 @@ tr4.innerHTML = `
       </td>
     <td>
       <textarea
-        name="nombredelEquipoR${i}"
+        name="nombredelEquipo_T4R${i}"
         class="auto-expand input_tabla obligatorio"
         rows="1"
         style="resize:none;"
@@ -143,14 +150,14 @@ tr4.innerHTML = `
 
     <td class="cantidadCol">
 
-      <input type="number" name="cantidadR${i}" class="input_tabla " aria-label="Cantidad"> </input>  
+      <input type="number" name="cantidad_T4R${i}" class="input_tabla " aria-label="Cantidad"> </input>  
     
       </td>
 
 
     <td>
       <textarea
-        name="especificacionesR${i}"
+        name="especificaciones_T4R${i}"
         class="auto-expand input_tabla"
         rows="1"
         style="resize:none;"
@@ -159,7 +166,7 @@ tr4.innerHTML = `
     </td>
 
     <td>
-      <select id="justificacionR${i}" name="justificacionR${i}" class="tabla_select" aria-label="Justificación">
+      <select id="justificacion_T4R${i}" name="justificacion_T4R${i}" class="tabla_select" aria-label="Justificación">
                    <option value="">-- Selecciona una prioridad--</option>
                    <option value="Equipo no Existente">Equipo no Existente</option>
                    <option value="Sustitución">Sustitución</option>
@@ -173,7 +180,7 @@ tr4.innerHTML = `
       <div class="precio-wrapper">
             <span class="peso">$</span>
             <input type="text"
-                   name="precioR${i}"
+                   name="precio_T4R${i}"
                    class="input_tabla precio"
                    oninput="formatearMiles(this)"
                    inputmode="decimal" 
@@ -186,7 +193,7 @@ tr4.innerHTML = `
     <div class="contenedorArchivo">
                       <input 
                        type="file" 
-                       name="CotizacionAdquisicionR${i}" 
+                       name="CotizacionAdquisicion_T4R${i}" 
                        class="archivoInput"
                        accept=".pdf,.xlsx,.doc,.docx,.png,.jpg">
                  <span class="nombreArchivo"></span>
@@ -201,7 +208,7 @@ tr4.innerHTML = `
    <div class="precio-wrapper">
             <span class="peso">$</span>
             <input type="text"
-                   name="precio2R${i}"
+                   name="precio2_T4R${i}"
                    class="input_tabla precio"
                    oninput="formatearMiles(this)"
                    inputmode="decimal" 
@@ -214,7 +221,7 @@ tr4.innerHTML = `
     <div class="contenedorArchivo">
                       <input 
                        type="file" 
-                       name="CotizacionAdquisicion2R${i}" 
+                       name="CotizacionAdquisicion2_T4R${i}" 
                        class="archivoInput"
                        accept=".pdf,.xlsx,.doc,.docx,.png,.jpg">
                  <span class="nombreArchivo"></span>
@@ -224,8 +231,125 @@ tr4.innerHTML = `
      </div>            
 </td>
 
+`;
 
-  `;
+tr5.innerHTML = `
+    <td>
+      <textarea
+        name="ProgramaAcadémico_T5R${i}"
+        class="auto-expand input_tabla obligatorio"
+        rows="1"
+        style="resize:none;"
+        aria-label="Programa Académico"
+        > </textarea>
+    </td> 
+    
+    <td id="Espacio_T5R${i}" name="Espacio_T5R${i}" class="input_tabla fijasCol" aria-label="Espacio"></td>
+    
+    <td>
+      <textarea
+        name="nombredelEquipo_T5R${i}"
+        class="auto-expand input_tabla obligatorio"
+        rows="1"
+        style="resize:none;"
+        aria-label="Nombre del Equipo"
+        > </textarea>
+    </td>
+    
+    
+
+    
+
+    <td>
+      <textarea
+        name="especificaciones_T5R${i}"
+        class="auto-expand input_tabla"
+        rows="1"
+        style="resize:none;"
+        aria-label="Especificaciones"
+        > </textarea>
+    </td>
+
+      <td class="cantidadCol">
+
+      <input type="number" name="cantidadMal_estado_T5R${i}" class="input_tabla " aria-label="Cantidad en mal estado"> </input>  
+    
+      </td>
+
+    <td class="cantidadCol">
+
+      <input type="number" name="cantidadBuen_estado_T5R${i}" class="input_tabla " aria-label="Cantidad en buen estado"> </input>  
+    
+      </td>
+    <td class="cantidadCol">
+
+      <input type="number" name="cantidadRegular_estado_T5R${i}" class="input_tabla " aria-label="Cantidad en estado Regular"> </input>  
+    
+      </td>
+     
+
+`;
+
+
+
+
+
+
+
+tr6.innerHTML = `
+    <td>
+      <textarea
+        name="ProgramaAcadémico_T6R${i}"
+        class="auto-expand input_tabla obligatorio"
+        rows="1"
+        style="resize:none;"
+        aria-label="Programa Académico"
+        > </textarea>
+    </td> 
+    
+    <td id="Espacio_T6R${i}" name="Espacio_T6R${i}" class="input_tabla" aria-label="Espacio"></td>
+    
+    <td>
+      <textarea
+        name="nombredelEquipo_T6R${i}"
+        class="auto-expand input_tabla obligatorio"
+        rows="1"
+        style="resize:none;"
+        aria-label="Nombre del Equipo"
+        > </textarea>
+    </td>
+    
+    
+
+    
+
+    <td>
+      <textarea
+        name="especificaciones_T6R${i}"
+        class="auto-expand input_tabla"
+        rows="1"
+        style="resize:none;"
+        aria-label="Especificaciones"
+        > </textarea>
+    </td>
+
+  
+    <td class="cantidadCol">
+
+      <input type="number" name="cantidadBuen_estado_T6R${i}" class="input_tabla " aria-label="Cantidad en buen estado"> </input>  
+    
+      </td>
+    <td class="cantidadCol">
+
+      <input type="number" name="cantidadRegular_estado_T6R${i}" class="input_tabla " aria-label="Cantidad en estado Regular"> </input>  
+    
+      </td>
+     
+
+`;
+
+
+
 
 
 
@@ -238,6 +362,9 @@ tr4.innerHTML = `
   tbody2.appendChild(tr2);
   tbody3.appendChild(tr3);
   tbody4.appendChild(tr4);
+  tbody5.appendChild(tr5);
+  tbody6.appendChild(tr6);
+
 }
 
 
@@ -346,8 +473,27 @@ document.getElementById("tablaBody4").addEventListener("change", e => {
   }
 });
 
+document.getElementById("tablaBody5").addEventListener("change", e => {
+  if (!e.target.name?.startsWith("nombredelEquipoR")) return;
 
+  const filas = document.querySelectorAll("#tablaBody5 tr");
+  const ultimaFila = filas[filas.length - 1];
 
+  if (ultimaFila.contains(e.target)) {
+    agregarFila5();
+  }
+});
+
+document.getElementById("tablaBody6").addEventListener("change", e => {
+  if (!e.target.name?.startsWith("nombredelEquipoR")) return;
+
+  const filas = document.querySelectorAll("#tablaBody6 tr");
+  const ultimaFila = filas[filas.length - 1];
+
+  if (ultimaFila.contains(e.target)) {
+    agregarFila6();
+  }
+});
 
 
 
@@ -963,6 +1109,22 @@ document.getElementById("tablaBody4").addEventListener("input", function (e) {
   actualizarObligatoriedadFila(fila);
 });
 
+document.getElementById("tablaBody5").addEventListener("input", function (e) {
+  if (!e.target.classList.contains("obligatorio")) return;
+
+  const fila = e.target.closest("tr");
+  actualizarObligatoriedadFila(fila);
+});
+
+
+
+document.getElementById("tablaBody6").addEventListener("input", function (e) {
+  if (!e.target.classList.contains("obligatorio")) return;
+
+  const fila = e.target.closest("tr");
+  actualizarObligatoriedadFila(fila);
+});
+
 
 
 
@@ -1024,7 +1186,7 @@ function agregarFila2(){
 
 
   const fila = document.createElement("tr");
-  fila.innerHTML = tr.innerHTML = `
+  fila.innerHTML = `
     <td>
     <input name="EdificioR${i}" class="input_tabla" aria-label="Edificio"> </input>
     </td>
@@ -1089,7 +1251,7 @@ function agregarFila3(){
 
 
   const fila = document.createElement("tr");
-  fila.innerHTML = tr.innerHTML = `
+  fila.innerHTML = `
     <td>
     <input name="EdificioR${i}" class="input_tabla" aria-label="Edificio"> </input>
     </td>
@@ -1118,7 +1280,7 @@ function agregarFila4(){
 
 
   const fila = document.createElement("tr");
-  fila.innerHTML = tr.innerHTML = `
+  fila.innerHTML  = `
     <td>
       <textarea
         name="ProgramaAcadémicoR${i}"
@@ -1246,6 +1408,149 @@ function agregarFila4(){
 }
 
 
+function agregarFila5(){
+  const tbody = document.getElementById("tablaBody5");
+  const i = obtenerNumeroFila5();
+
+
+  const fila = document.createElement("tr");
+  fila.innerHTML = `
+    <td>
+      <textarea
+        name="ProgramaAcadémicoR${i}"
+        class="auto-expand input_tabla obligatorio"
+        rows="1"
+        style="resize:none;"
+        aria-label="Programa Académico"
+        > </textarea>
+    </td> 
+    
+    <td id="EspacioR${i}" class="input_tabla fijasCol" aria-label="Espacio"></td>
+    
+    <td>
+      <textarea
+        name="nombredelEquipoR${i}"
+        class="auto-expand input_tabla obligatorio"
+        rows="1"
+        style="resize:none;"
+        aria-label="Nombre del Equipo"
+        > </textarea>
+    </td>
+    
+    
+
+    
+
+    <td>
+      <textarea
+        name="especificacionesR${i}"
+        class="auto-expand input_tabla"
+        rows="1"
+        style="resize:none;"
+        aria-label="Especificaciones"
+        > </textarea>
+    </td>
+
+      <td class="cantidadCol">
+
+      <input type="number" name="cantidadMal_estadoR${i}" class="input_tabla " aria-label="Cantidad en mal estado"> </input>  
+    
+      </td>
+
+    <td class="cantidadCol">
+
+      <input type="number" name="cantidadBuen_estadoR${i}" class="input_tabla " aria-label="Cantidad en buen estado"> </input>  
+    
+      </td>
+    <td class="cantidadCol">
+
+      <input type="number" name="cantidadRegular_estadoR${i}" class="input_tabla " aria-label="Cantidad en estado Regular"> </input>  
+    
+      </td>
+     
+
+`;
+
+  tbody.appendChild(fila);
+
+  generarNivel();
+  generarDependencia();
+  activarAutoExpand(fila);
+}
+
+function agregarFila6(){
+  const tbody = document.getElementById("tablaBody6");
+  const i = obtenerNumeroFila6();
+
+
+  const fila = document.createElement("tr");
+  fila.innerHTML = `
+    <td>
+      <textarea
+        name="ProgramaAcadémicoR${i}"
+        class="auto-expand input_tabla obligatorio"
+        rows="1"
+        style="resize:none;"
+        aria-label="Programa Académico"
+        > </textarea>
+    </td> 
+    
+    <td id="EspacioR${i}" class="input_tabla fijasCol" aria-label="Espacio"></td>
+    
+    <td>
+      <textarea
+        name="nombredelEquipoR${i}"
+        class="auto-expand input_tabla obligatorio"
+        rows="1"
+        style="resize:none;"
+        aria-label="Nombre del Equipo"
+        > </textarea>
+    </td>
+    
+    
+
+    
+
+    <td>
+      <textarea
+        name="especificacionesR${i}"
+        class="auto-expand input_tabla"
+        rows="1"
+        style="resize:none;"
+        aria-label="Especificaciones"
+        > </textarea>
+    </td>
+
+      <td class="cantidadCol">
+
+      <input type="number" name="cantidadMal_estadoR${i}" class="input_tabla " aria-label="Cantidad en mal estado"> </input>  
+    
+      </td>
+
+    <td class="cantidadCol">
+
+      <input type="number" name="cantidadBuen_estadoR${i}" class="input_tabla " aria-label="Cantidad en buen estado"> </input>  
+    
+      </td>
+    <td class="cantidadCol">
+
+      <input type="number" name="cantidadRegular_estadoR${i}" class="input_tabla " aria-label="Cantidad en estado Regular"> </input>  
+    
+      </td>
+     
+
+`;
+
+  tbody.appendChild(fila);
+
+  generarNivel();
+  generarDependencia();
+  activarAutoExpand(fila);
+}
+
+
+
+
 
 
 
@@ -1263,6 +1568,12 @@ function obtenerNumeroFila4(){
   return document.querySelectorAll("#tablaBody4 tr").length + 1;
 }
 
+function obtenerNumeroFila5(){
+  return document.querySelectorAll("#tablaBody5 tr").length + 1;
+}
+function obtenerNumeroFila6(){
+  return document.querySelectorAll("#tablaBody6 tr").length + 1;
+}
 
 
 
@@ -1597,6 +1908,14 @@ setTimeout(() => {
 });
 
 */
+
+
+
+
+
+
+
+
 
 
 
