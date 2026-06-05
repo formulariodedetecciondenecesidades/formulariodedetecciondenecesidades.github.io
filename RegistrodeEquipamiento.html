@@ -31,14 +31,14 @@
                         
                             
                         <form id="miFormulario">
-                        <!--<h1>PROGRAMA INSTITUCIONAL DE DETECCIÓN DE NECESIDADES DE EQUIPAMIENTO Y OBRA (PIDN) 2026</h1>-->
-
+                        <h1>PROGRAMA INSTITUCIONAL DE DETECCIÓN DE NECESIDADES DE EQUIPAMIENTO Y OBRA (PIDN) 2026</h1>
+                        <h2>CAPITULO 5000 Adquisición </h2>
  <div class="paso activo" id="paso1">
                                                 
-                                                 <h2>CAPITULO 5000 Adquisición </h2>
-                                                     
+                                                 
+                                               <h3>Datos Generales </h3>      
                                                <div class="bloque-inst">    
-                            <h3>Intrucciones</h3>
+                            <h4>Intrucciones</h4>
                             <div>
                                <ul>
                                    <li>El formulario de solicitud está diseñado para capturar una sola vez. Después de su envío, no podrá ser modificado.</li>
@@ -173,11 +173,11 @@
      <button type="button" class="pagina" onclick="anterior(2)">
       Datos Generales
     </button>
-
+                                          
     <button type="button" class="pagina" onclick="siguiente(2)">
       Tabla2
     </button>
-  
+                                          <h3>Estadisticas-Espacios </h3>
                                           <fieldset class="TablaFS"> 
                                             <legend class="TablaLeg" >Tabla 1.Usuarios</legend>
                                           <table class="tabla_style Tabla1" title="Tabla 1.Usuarios">
@@ -222,10 +222,11 @@
 <button type="button" class="pagina" onclick="anterior(3)">
       Tabla1
     </button>
-
+                                
     <button type="button" class="pagina" onclick="siguiente(3)">
       Tabla3
     </button>
+                               <h3>Estadisticas-Espacios </h3>
                                <fieldset class="TablaFS"> 
                                  <legend class="TablaLeg" >Tabla 2. Infraestructura (De los Espacios Participantes)</legend>
                                <table class="tabla_style Tabla2" title="Tabla2.Infraesctructura">
@@ -276,11 +277,10 @@
 <button type="button"  class="pagina" onclick="anterior(4)">
       Tabla2
     </button>
-
-    <button type="button" class="pagina" onclick="siguiente(4)">
+<button type="button" class="pagina" onclick="siguiente(4)">
       Tabla4
     </button>
-
+                             <h3>Estadisticas-Espacios </h3>
                              <fieldset class="TablaFS"> 
                              <legend class="TablaLeg" >Tabla 3. Infraestructura (General)</legend>
                              <table class="tabla_style Tabla3" title="Tabla de Registro de Necesidades">
@@ -313,6 +313,11 @@
 <button type="button" class="pagina" onclick="anterior(5)">
       Tabla3
     </button>
+                                
+<button type="button" class="pagina" onclick="siguiente(5)">
+      Tabla5
+    </button>                   
+                                <h3>Demanda </h3>             
                                 <fieldset class="TablaFS"> 
                                 <legend class="TablaLeg" >Tabla 4 Demanda </legend>
                                 <table class="Tabla4" title="Tabla de Registro de Necesidades">
@@ -371,15 +376,737 @@
                                                         </tbody>     
                                 </table>
                                 </fieldset>
+
+</div>                                
+
+<div class="paso" id="paso6">
+<button type="button" class="pagina" onclick="anterior(6)">
+      Tabla4
+    </button>
+<button type="button" class="pagina" onclick="siguiente(6)">
+      Tabla6
+    </button>                    
+                                <h3>Oferta </h3>            
+                                <fieldset class="TablaFS"> 
+                                <legend class="TablaLeg" >Tabla 5.OFERTA Directa con la DEMANDA-Equipo existente con el que cuenta la dependencia </legend>
+                                <table class="Tabla5" title="Tabla de Registro de Necesidades">
+                                <thead>
+                                                               <tr>
+                                                                    <th title="ProgramaAcadémico">
+                                                                         Programa Académico  , Programas académicos, servicios o actividades que realiza la dependencia.     
+                                                                    </th>
+                                                
+                                                                    <th title="Espacio">
+                                                                         Espacio
+                                                                    </th>   
+                                
+                                                                    
+                                                                    <th title="Equipo">
+                                                                        Nombre genérico del equipo
+                                                                    </th>
+                                                                    
+                                                                    <th title=" Especificaciones y Desempeño Operativo">
+                                                                         Especificaciones y Desempeño Operativo 
+                                                                    </th> 
+                                                                    
+                                                                    <th title="Cuantos equipos en mal estado (obsoletos, a remplazar)">
+                                                                         Cuantos equipos en mal estado (obsoletos, a remplazar) 
+                                                                    </th>
+                                                                    <th title="Cuantos equipos  en buen estado (útiles)">
+                                                                         Cuantos equipos  en buen estado (útiles) 
+                                                                    </th>
+                                                                    
+                                                                    <th title="Cuantos equipos  en estado regular (útiles)">
+                                                                         Cuantos equipos  en estado regular (útiles) 
+                                                                    </th>
+                                                                     
+                                                               </tr>
+                                                        </thead>
+                                
+                                                        <tbody id="tablaBody5">
+                                                                
+                                
+                                
+                                                              
+                                                        </tbody>     
+                                </table>
+                                </fieldset>
+
+
+
+
+</div>                                
+
+<div class="paso" id="paso7">
+<button type="button" class="pagina" onclick="anterior(7)">
+      Tabla5
+    </button>
+<button type="button" class="pagina" onclick="siguiente(7)">
+      Tabla7
+    </button>                    
+                                <h3>Oferta </h3>            
+                                <fieldset class="TablaFS"> 
+                                <legend class="TablaLeg" >Tabla  6. Inventario de la dependencia (Capitulo 5000)</legend>
+                                <table class="Tabla6" title="Tabla de Registro de Necesidades">
+                                <thead>
+                                                               <tr>
+                                                                    <th title="ProgramaAcadémico">
+                                                                         Programa Académico  , Programas académicos, servicios o actividades que realiza la dependencia.     
+                                                                    </th>
+                                                
+                                                                    <th title="Espacio">
+                                                                         Espacio
+                                                                    </th>   
+                              
+                                                                    
+                                                                    
+                                                                    <th title="Equipo">
+                                                                        Nombre del componente
+                                                                    </th>
+                                                                    
+                                                                    <th title=" Estado y caraacteristicas del equipo">
+                                                                         Especificaciones y Desempeño Operativo 
+                                                                    </th> 
+                                                                    
+                                                                    
+                                                                    <th title="Cuantos equipos  en buen estado (útiles)">
+                                                                         Cuantos equipos  en buen estado (útiles) 
+                                                                    </th>
+                                                                    
+                                                                    <th title="Cuantos equipos  en estado regular (útiles)">
+                                                                         Cuantos equipos  en estado regular (útiles) 
+                                                                    </th>
+                                                                     
+                                                               </tr>
+                                                        </thead>
+                                
+                                                        <tbody id="tablaBody6">
+                                                                
+                                
+                                
+                                                              
+                                                        </tbody>     
+                                </table>
+                                </fieldset>
+
+</div>                                
+
+<div class="paso" id="paso8">
+<button type="button" class="pagina" onclick="anterior(8)">
+      Tabla6
+    </button>
+                                <h3>Observaciones Generales </h3>
+                                
+                                
+<!-- ------------------------------------------Tabla 1 Obs-->
+                                <fieldset class="TablaFS"> 
+                                <legend class="TablaLeg" >Tabla 1. Usuarios </legend>
+                                <table class="Tabla7" title="Tabla de Registro de Necesidades">
+                                <thead>
+                                   <tr>
+                                         <th title ="Columna">Columna</th>
+                                         <th title="Observación realizada por la DPO">Observación realizada por la DPO</th>
+                                         <th title ="Duda generada por la dependencia">Duda generada por la dependencia</th>
+                                   </tr>
+                                 </thead>   
+                                                               
+                                 <tbody >
+                                      <tr>
+                                           <td>(A) Programa Académico (Todos)</td>
+                                           <td><textarea
+                                                       name="ObsProgramaAcademicoDPO"
+                                                       class="auto-expand input_tabla obligatorio"
+                                                       rows="1"
+                                                       style="resize:none;"
+                                                       aria-label="Observaciones  de Programa Academico de la DPO"
+                                            > </textarea></td>
+
+                                           <td>
+                                             <textarea
+                                                       name="DudaProgramaAcademicoDep"
+                                                       class="auto-expand input_tabla obligatorio"
+                                                       rows="1"
+                                                       style="resize:none;"
+                                                       aria-label="Duda de Programa Academico de la Dependencia"
+                                            > </textarea></td>
+                                        </tr>
+
+                                      <tr>
+                                           <td>(B) Número de alumnos 2021</td>
+                                           <td><textarea
+                                                       name="ObsAlumnos2021DPO"
+                                                       class="auto-expand input_tabla obligatorio"
+                                                       rows="1"
+                                                       style="resize:none;"
+                                                       aria-label="Observaciones  de Número de alumnos 2021 de la DPO"
+                                            > </textarea></td>
+
+                                           <td>
+                                             <textarea
+                                                       name="DudaAlumnos2021DPO"
+                                                       class="auto-expand input_tabla obligatorio"
+                                                       rows="1"
+                                                       style="resize:none;"
+                                                       aria-label="Duda de Número de alumnos 2021 de la Dependencia"
+                                            > </textarea></td>
+                                     </tr> 
+                                     
+                                     
+                                     <tr>
+                                     <td>(C) Número de alumnos 2022</td>
+                                     <td>
+                                         <textarea
+                                             name="Observaciones de Numero de alumnos 2022 de la DPO"
+                                             class="auto-expand input_tabla obligatorio"
+                                             rows="1"
+                                             style="resize:none;"
+                                             aria-label="Observaciones de Numero de alumnos 2022 de la DPO"></textarea>
+                                     </td>
+                                     <td>
+                                         <textarea
+                                             name="Duda de Numero de alumnos 2022 de la Dependencia"
+                                             class="auto-expand input_tabla obligatorio"
+                                             rows="1"
+                                             style="resize:none;"
+                                             aria-label="Duda de Numero de alumnos 2022 de la Dependencia"></textarea>
+                         
+                         
+                         
+                                     </td>
+                                     </tr>
+
+                                       <tr>
+                                           <td>(D) Número de alumnos 2023</td>
+                                           <td>
+                                               <textarea
+                                                   name="Observaciones de Numero de alumnos 2023 de la DPO"
+                                                   class="auto-expand input_tabla obligatorio"
+                                                   rows="1"
+                                                   style="resize:none;"
+                                                   aria-label="Observaciones de Numero de alumnos 2023 de la DPO"></textarea>
+                                           </td>
+                                           <td>
+                                               <textarea
+                                                   name="Duda de Numero de alumnos 2023 de la Dependencia"
+                                                   class="auto-expand input_tabla obligatorio"
+                                                   rows="1"
+                                                   style="resize:none;"
+                                                   aria-label="Duda de Numero de alumnos 2023 de la Dependencia"></textarea>
+                                           </td>
+                                       </tr>
+                               
+                                       <tr>
+                                           <td>(E) Número de alumnos 2024</td>
+                                           <td>
+                                               <textarea
+                                                   name="Observaciones de Numero de alumnos 2024 de la DPO"
+                                                   class="auto-expand input_tabla obligatorio"
+                                                   rows="1"
+                                                   style="resize:none;"
+                                                   aria-label="Observaciones de Numero de alumnos 2024 de la DPO"></textarea>
+                                           </td>
+                                           <td>
+                                               <textarea
+                                                   name="Duda de Numero de alumnos 2024 de la Dependencia"
+                                                   class="auto-expand input_tabla obligatorio"
+                                                   rows="1"
+                                                   style="resize:none;"
+                                                   aria-label="Duda de Numero de alumnos 2024 de la Dependencia"></textarea>
+                                           </td>
+                                       </tr>
+                               
+                                       <tr>
+                                           <td>(F) Número de alumnos 2025</td>
+                                           <td>
+                                               <textarea
+                                                   name="Observaciones de Numero de alumnos 2025 de la DPO"
+                                                   class="auto-expand input_tabla obligatorio"
+                                                   rows="1"
+                                                   style="resize:none;"
+                                                   aria-label="Observaciones de Numero de alumnos 2025 de la DPO"></textarea>
+                                           </td>
+                                           <td>
+                                               <textarea
+                                                   name="Duda de Numero de alumnos 2025 de la Dependencia"
+                                                   class="auto-expand input_tabla obligatorio"
+                                                   rows="1"
+                                                   style="resize:none;"
+                                                   aria-label="Duda de Numero de alumnos 2025 de la Dependencia"></textarea>
+                                           </td>
+                                       </tr>
+
+                              </tbody>
+                              </table>
+                              </fieldset>
+
+
+
+
+                              <!-- ------------------------------------------Tabla 2 Obs-->
+                    <fieldset class="TablaFS"> 
+                                <legend class="TablaLeg" >Pagina Estadística- Espacios (Tabla 2. Infraestructura (De los Espacios Participantes)) </legend>
+                                 <table class="Tabla8" title="Tabla de Observaciones">
+                    <thead>
+                              <tr>
+                                     <th title ="Columna">Columna</th>
+                                     <th title="Observación realizada por la DPO">Observación realizada por la DPO</th>
+                                     <th title ="Duda generada por la dependencia">Duda generada por la dependencia</th>
+                              </tr>
+                    </thead>
+
+                    <tbody> 
+                              <tr>
+                                     <td>(P) Nombre del Edificio</td>
+                                     <td><textarea name="Observaciones de Nombre del Edificio de la DPO" 
+                                                   class="auto-expand input_tabla obligatorio" 
+                                                   rows="1" 
+                                                   style="resize:none;" 
+                                                   aria-label="Observaciones de Nombre del Edificio de la DPO"
+                                                   ></textarea>
+                                    </td>
+                                     <td><textarea name="Duda de Nombre del Edificio de la Dependencia"
+                                                   class="auto-expand input_tabla obligatorio" 
+                                                   rows="1" 
+                                                   style="resize:none;"
+                                                    aria-label="Duda de Nombre del Edificio de la Dependencia"
+                                                    ></textarea>
+                                    </td>
+                              </tr>
+
+                              <tr>
+                                     <td>Nivel (Planta)</td>
+                                     <td><textarea name="Observaciones de Nivel (Planta) de la DPO" 
+                                                    class="auto-expand input_tabla obligatorio" 
+                                                    rows="1" style="resize:none;" 
+                                                    aria-label="Observaciones de Nivel (Planta) de la DPO"
+                                                    ></textarea>
+                                    </td>
+                                      <td><textarea name="Duda de Nivel (Planta) de la Dependencia"
+                                                    class="auto-expand input_tabla obligatorio"
+                                                     rows="1"
+                                                      style="resize:none;" 
+                                                      aria-label="Duda de Nivel (Planta) de la Dependencia"
+                                                      ></textarea>
+                                     </td>
+                              </tr>
+
+                              <tr>
+                                     <td>Espacio (Aulas,Laboratorios,Area Administrativa,etc)</td>
+                                     <td><textarea name="Observaciones de Espacio de la DPO" 
+                                                    class="auto-expand input_tabla obligatorio" 
+                                                    rows="1" style="resize:none;" 
+                                                    aria-label="Observaciones de Espacio de la DPO"
+                                                    ></textarea>
+                                    </td>
+                                      <td><textarea name="Duda de Espacio de la Dependencia"
+                                                    class="auto-expand input_tabla obligatorio"
+                                                     rows="1"
+                                                      style="resize:none;" 
+                                                      aria-label="Duda de Espacio de la Dependencia"
+                                                      ></textarea>
+                                     </td>
+                              </tr>  
+                             
+
+
+                    </tbody>
+                    </table>
+
+                    </fieldset>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ------------------------------------------Tabla 3 Obs-->
+                    <fieldset class="TablaFS"> 
+                                <legend class="TablaLeg" >Pagina Estadística- Espacios (Tabla 3. Infraestructura (De los Espacios Participantes)) </legend>
+                                 <table class="Tabla8" title="Tabla de Observaciones">
+                    <thead>
+                              <tr>
+                                     <th title ="Columna">Columna</th>
+                                     <th title="Observación realizada por la DPO">Observación realizada por la DPO</th>
+                                     <th title ="Duda generada por la dependencia">Duda generada por la dependencia</th>
+                              </tr>
+                    </thead>
+
+                    <tbody> 
+                              <tr>
+                                     <td>(P) Nombre del Edificio</td>
+                                     <td><textarea name="Observaciones de Nombre del Edificio de la DPO" 
+                                                   class="auto-expand input_tabla obligatorio" 
+                                                   rows="1" 
+                                                   style="resize:none;" 
+                                                   aria-label="Observaciones de Nombre del Edificio de la DPO"
+                                                   ></textarea>
+                                    </td>
+                                     <td><textarea name="Duda de Nombre del Edificio de la Dependencia"
+                                                   class="auto-expand input_tabla obligatorio" 
+                                                   rows="1" 
+                                                   style="resize:none;"
+                                                    aria-label="Duda de Nombre del Edificio de la Dependencia"
+                                                    ></textarea>
+                                    </td>
+                              </tr>
+
+                              <tr>
+                                     <td>(Q) Metros Cuadrados</td>
+                                     <td><textarea name="Observaciones de Metros Cuadrados de la DPO" 
+                                                    class="auto-expand input_tabla obligatorio" 
+                                                    rows="1" style="resize:none;" 
+                                                    aria-label="Observaciones de Metros Cuadrados de la DPO"
+                                                    ></textarea>
+                                    </td>
+                                      <td><textarea name="Duda de Metros Cuadrados de la Dependencia"
+                                                    class="auto-expand input_tabla obligatorio"
+                                                     rows="1"
+                                                      style="resize:none;" 
+                                                      aria-label="Duda de Metros Cuadrados de la Dependencia"
+                                                      ></textarea>
+                                     </td>
+                              </tr>
+
+                    </tbody>
+                    </table>
+
+                    </fieldset>
+
+                    <!-- ------------------------------------------Tabla 4 Obs-->
+                    <fieldset class="TablaFS"> 
+                                <legend class="TablaLeg" >Pagina Estadística- Espacios (Tabla 4. Infraestructura (De los Espacios Participantes)) </legend>
+                                 <table class="Tabla8" title="Tabla de Observaciones">
+                    <thead>
+                              <tr>
+                                     <th title ="Columna">Columna</th>
+                                     <th title="Observación realizada por la DPO">Observación realizada por la DPO</th>
+                                     <th title ="Duda generada por la dependencia">Duda generada por la dependencia</th>
+                              </tr>
+                    </thead>
+
+                    <tbody> 
+                              
+                       <tr>
+                                     <td>(A) Programa Académico</td>
+                                     <td><textarea name="Observaciones de Programa Académico de la DPO" 
+                                                   class="auto-expand input_tabla obligatorio" 
+                                                   rows="1" style="resize:none;"
+                                                   ></textarea>
+                                    </td>
+                                     <td><textarea name="Duda de Programa Académico de la Dependencia" 
+                                                   class="auto-expand input_tabla obligatorio" 
+                                                   rows="1" 
+                                                   style="resize:none;"
+                                                   ></textarea>
+                                     </td>
+                        </tr>
+
+                        <tr>
+                                    <td>(B) Espacio</td>
+                                    <td><textarea name="Observaciones de Espacio de la DPO"
+                                                  class="auto-expand input_tabla obligatorio"
+                                                   rows="1"
+                                                    style="resize:none;"
+                                                    ></textarea>
+                                    </td>
+                                    <td><textarea name="Duda de Espacio de la Dependencia" 
+                                                  class="auto-expand input_tabla obligatorio"
+                                                   rows="1"
+                                                    style="resize:none;"></textarea></td>
+                         </tr>
+
+                         <tr>
+                                    <td>(C) Clave CUCOP</td>
+                                    <td><textarea name="Observaciones de Clave CUCOP de la DPO" class="auto-expand input_tabla obligatorio" rows="1" style="resize:none;"></textarea></td>
+                                    <td><textarea name="Duda de Clave CUCOP de la Dependencia" class="auto-expand input_tabla obligatorio" rows="1" style="resize:none;"></textarea></td>
+                         </tr>
+
+<tr>
+    <td>(D) Nombre del Componente</td>
+    <td><textarea name="Observaciones de Nombre del Componente de la DPO" class="auto-expand input_tabla obligatorio" rows="1" style="resize:none;"></textarea></td>
+    <td><textarea name="Duda de Nombre del Componente de la Dependencia" class="auto-expand input_tabla obligatorio" rows="1" style="resize:none;"></textarea></td>
+</tr>
+
+<tr>
+    <td>(E) Cantidad Equipos solicitados</td>
+    <td><textarea name="Observaciones de Cantidad Equipos solicitados de la DPO" class="auto-expand input_tabla obligatorio" rows="1" style="resize:none;"></textarea></td>
+    <td><textarea name="Duda de Cantidad Equipos solicitados de la Dependencia" class="auto-expand input_tabla obligatorio" rows="1" style="resize:none;"></textarea></td>
+</tr>
+
+<tr>
+    <td>(F) Características / Especificaciones Técnicas</td>
+    <td><textarea name="Observaciones de Características Técnicas de la DPO" class="auto-expand input_tabla obligatorio" rows="1" style="resize:none;"></textarea></td>
+    <td><textarea name="Duda de Características Técnicas de la Dependencia" class="auto-expand input_tabla obligatorio" rows="1" style="resize:none;"></textarea></td>
+</tr>
+
+<tr>
+    <td>(G) Justificación</td>
+    <td><textarea name="Observaciones de Justificación de la DPO" class="auto-expand input_tabla obligatorio" rows="1" style="resize:none;"></textarea></td>
+    <td><textarea name="Duda de Justificación de la Dependencia" class="auto-expand input_tabla obligatorio" rows="1" style="resize:none;"></textarea></td>
+</tr>
+
+<tr>
+    <td>(H) Precio unitario adquisición alternativa 1</td>
+    <td><textarea name="Observaciones de Precio unitario adquisición alternativa 1 de la DPO" class="auto-expand input_tabla obligatorio" rows="1" style="resize:none;"></textarea></td>
+    <td><textarea name="Duda de Precio unitario adquisición alternativa 1 de la Dependencia" class="auto-expand input_tabla obligatorio" rows="1" style="resize:none;"></textarea></td>
+</tr>
+
+<tr>
+    <td>(I) Nombre del Archivo de la cotización de Adquisición</td>
+    <td><textarea name="Observaciones de Archivo de Cotización 1 de la DPO" class="auto-expand input_tabla obligatorio" rows="1" style="resize:none;"></textarea></td>
+    <td><textarea name="Duda de Archivo de Cotización 1 de la Dependencia" class="auto-expand input_tabla obligatorio" rows="1" style="resize:none;"></textarea></td>
+</tr>
+
+<tr>
+    <td>(L) Precio unitario adquisición alternativa 2</td>
+    <td><textarea name="Observaciones de Precio unitario adquisición alternativa 2 de la DPO" class="auto-expand input_tabla obligatorio" rows="1" style="resize:none;"></textarea></td>
+    <td><textarea name="Duda de Precio unitario adquisición alternativa 2 de la Dependencia" class="auto-expand input_tabla obligatorio" rows="1" style="resize:none;"></textarea></td>
+</tr>
+
+<tr>
+    <td>(M) Nombre del Archivo de la cotización de Adquisición</td>
+    <td><textarea name="Observaciones de Archivo de Cotización 2 de la DPO" class="auto-expand input_tabla obligatorio" rows="1" style="resize:none;"></textarea></td>
+    <td><textarea name="Duda de Archivo de Cotización 2 de la Dependencia" class="auto-expand input_tabla obligatorio" rows="1" style="resize:none;"></textarea></td>
+</tr>    
+
+
+                    </tbody>
+                    </table>
+
+                    </fieldset>
+
+<!-- ------------------------------------------Tabla 5 Obs-->
+                    <fieldset class="TablaFS"> 
+                                <legend class="TablaLeg" >Pagina Estadística- Espacios (Tabla 5. Infraestructura (De los Espacios Participantes)) </legend>
+                                 <table class="Tabla8" title="Tabla de Observaciones">
+                    <thead>
+                              <tr>
+                                     <th title ="Columna">Columna</th>
+                                     <th title="Observación realizada por la DPO">Observación realizada por la DPO</th>
+                                     <th title ="Duda generada por la dependencia">Duda generada por la dependencia</th>
+                              </tr>
+                    </thead>
+
+                    <tbody> 
+                            <tr>
+    <td>(A) Programa Académico</td>
+    <td><textarea name="Observaciones Oferta Programa Académico" class="auto-expand input_tabla obligatorio" rows="1" style="resize:none;"></textarea></td>
+    <td><textarea name="Duda Oferta Programa Académico" class="auto-expand input_tabla obligatorio" rows="1" style="resize:none;"></textarea></td>
+</tr>
+
+<tr>
+    <td>(B) Espacio</td>
+    <td><textarea name="Observaciones Oferta Espacio" class="auto-expand input_tabla obligatorio" rows="1" style="resize:none;"></textarea></td>
+    <td><textarea name="Duda Oferta Espacio" class="auto-expand input_tabla obligatorio" rows="1" style="resize:none;"></textarea></td>
+</tr>
+
+<tr>
+    <td>(C) Nombre del componente</td>
+    <td><textarea name="Observaciones Oferta Componente" class="auto-expand input_tabla obligatorio" rows="1" style="resize:none;"></textarea></td>
+    <td><textarea name="Duda Oferta Componente" class="auto-expand input_tabla obligatorio" rows="1" style="resize:none;"></textarea></td>
+</tr>
+
+<tr>
+    <td>(D) Especificaciones y Desempeño Operativo</td>
+    <td><textarea name="Observaciones Oferta Especificaciones" class="auto-expand input_tabla obligatorio" rows="1" style="resize:none;"></textarea></td>
+    <td><textarea name="Duda Oferta Especificaciones" class="auto-expand input_tabla obligatorio" rows="1" style="resize:none;"></textarea></td>
+</tr>
+
+<tr>
+    <td>(E) Cuántos equipos en mal estado</td>
+    <td><textarea name="Observaciones Oferta Equipos Mal Estado" class="auto-expand input_tabla obligatorio" rows="1" style="resize:none;"></textarea></td>
+    <td><textarea name="Duda Oferta Equipos Mal Estado" class="auto-expand input_tabla obligatorio" rows="1" style="resize:none;"></textarea></td>
+</tr>
+
+<tr>
+    <td>(F) Cuántos equipos en buen estado</td>
+    <td><textarea name="Observaciones Oferta Equipos Buen Estado" class="auto-expand input_tabla obligatorio" rows="1" style="resize:none;"></textarea></td>
+    <td><textarea name="Duda Oferta Equipos Buen Estado" class="auto-expand input_tabla obligatorio" rows="1" style="resize:none;"></textarea></td>
+</tr>
+
+<tr>
+    <td>(G) Cuántos equipos en estado regular</td>
+    <td><textarea name="Observaciones Oferta Equipos Estado Regular" class="auto-expand input_tabla obligatorio" rows="1" style="resize:none;"></textarea></td>
+    <td><textarea name="Duda Oferta Equipos Estado Regular" class="auto-expand input_tabla obligatorio" rows="1" style="resize:none;"></textarea></td>
+</tr>
+            
+
+
+                    </tbody>
+                    </table>
+
+                    </fieldset>
+
+
+
+<!-- ------------------------------------------Tabla 6 Obs-->
+                    <fieldset class="TablaFS"> 
+                                <legend class="TablaLeg" >Pagina Estadística- Espacios (Tabla 6. Infraestructura (De los Espacios Participantes)) </legend>
+                                 <table class="Tabla8" title="Tabla de Observaciones">
+                    <thead>
+                              <tr>
+                                     <th title ="Columna">Columna</th>
+                                     <th title="Observación realizada por la DPO">Observación realizada por la DPO</th>
+                                     <th title ="Duda generada por la dependencia">Duda generada por la dependencia</th>
+                              </tr>
+                    </thead>
+
+                    <tbody> 
+                              <tr>
+    <td>(J) Programa Académico</td>
+
+    <td>
+        <textarea
+            name="Observaciones de Programa Académico de la DPO"
+            class="auto-expand input_tabla obligatorio"
+            rows="1"
+            style="resize:none;"
+            aria-label="Observaciones de Programa Académico de la DPO"></textarea>
+    </td>
+
+    <td>
+        <textarea
+            name="Duda de Programa Académico de la Dependencia"
+            class="auto-expand input_tabla obligatorio"
+            rows="1"
+            style="resize:none;"
+            aria-label="Duda de Programa Académico de la Dependencia"></textarea>
+    </td>
+</tr>
+
+<tr>
+    <td>(K) Espacio</td>
+
+    <td>
+        <textarea
+            name="Observaciones de Espacio de la DPO"
+            class="auto-expand input_tabla obligatorio"
+            rows="1"
+            style="resize:none;"
+            aria-label="Observaciones de Espacio de la DPO"></textarea>
+    </td>
+
+    <td>
+        <textarea
+            name="Duda de Espacio de la Dependencia"
+            class="auto-expand input_tabla obligatorio"
+            rows="1"
+            style="resize:none;"
+            aria-label="Duda de Espacio de la Dependencia"></textarea>
+    </td>
+</tr>
+
+<tr>
+    <td>(L) Nombre del componente</td>
+
+    <td>
+        <textarea
+            name="Observaciones de Nombre del componente de la DPO"
+            class="auto-expand input_tabla obligatorio"
+            rows="1"
+            style="resize:none;"
+            aria-label="Observaciones de Nombre del componente de la DPO"></textarea>
+    </td>
+
+    <td>
+        <textarea
+            name="Duda de Nombre del componente de la Dependencia"
+            class="auto-expand input_tabla obligatorio"
+            rows="1"
+            style="resize:none;"
+            aria-label="Duda de Nombre del componente de la Dependencia"></textarea>
+    </td>
+</tr>
+
+<tr>
+    <td>(M) Estado y características del equipo</td>
+
+    <td>
+        <textarea
+            name="Observaciones de Estado y características del equipo de la DPO"
+            class="auto-expand input_tabla obligatorio"
+            rows="1"
+            style="resize:none;"
+            aria-label="Observaciones de Estado y características del equipo de la DPO"></textarea>
+    </td>
+
+    <td>
+        <textarea
+            name="Duda de Estado y características del equipo de la Dependencia"
+            class="auto-expand input_tabla obligatorio"
+            rows="1"
+            style="resize:none;"
+            aria-label="Duda de Estado y características del equipo de la Dependencia"></textarea>
+    </td>
+</tr>
+
+<tr>
+    <td>(N) Cuántos equipos en buen estado (útiles)</td>
+
+    <td>
+        <textarea
+            name="Observaciones de Cuántos equipos en buen estado de la DPO"
+            class="auto-expand input_tabla obligatorio"
+            rows="1"
+            style="resize:none;"
+            aria-label="Observaciones de Cuántos equipos en buen estado de la DPO"></textarea>
+    </td>
+
+    <td>
+        <textarea
+            name="Duda de Cuántos equipos en buen estado de la Dependencia"
+            class="auto-expand input_tabla obligatorio"
+            rows="1"
+            style="resize:none;"
+            aria-label="Duda de Cuántos equipos en buen estado de la Dependencia"></textarea>
+    </td>
+</tr>
+
+<tr>
+    <td>(O) Cuántos equipos en estado regular (útiles)</td>
+
+    <td>
+        <textarea
+            name="Observaciones de Cuántos equipos en estado regular de la DPO"
+            class="auto-expand input_tabla obligatorio"
+            rows="1"
+            style="resize:none;"
+            aria-label="Observaciones de Cuántos equipos en estado regular de la DPO"></textarea>
+    </td>
+
+    <td>
+        <textarea
+            name="Duda de Cuántos equipos en estado regular de la Dependencia"
+            class="auto-expand input_tabla obligatorio"
+            rows="1"
+            style="resize:none;"
+            aria-label="Duda de Cuántos equipos en estado regular de la Dependencia"></textarea>
+    </td>
+</tr>    
+
+
+
+                    </tbody>
+                    </table>
+
+                    </fieldset>
+
+         
+                                
                                 <div class="bloque-botones">
                                 <button type="button" id="guardarBorrador">💾 Guardar borrador</button>
                                 
                                 <input type="text" id="folioInput" placeholder="Ingresa tu folio">    
                                 <button type="button" id="cargarBorrador">📂 Continuar registro</button>
                                 </div>
- 
-
-
 
     <!--    <button type="button" onclick="siguiente(4)">
       Tabla4
@@ -403,6 +1130,19 @@
 
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
