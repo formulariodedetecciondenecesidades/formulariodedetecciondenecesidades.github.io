@@ -25,7 +25,7 @@ h1 {
     text-transform: uppercase;
     color: #000;
 }
-h2 {
+h2,h3 {
     text-align: center;
     margin: 10px 0;
     text-transform: uppercase;
@@ -33,7 +33,7 @@ h2 {
 }
 
 
-h3, p, li {
+p, li {
     margin: 10px 0;
     color: #000;
     width: 100%;
@@ -184,7 +184,7 @@ td {
 /* BOTONES */
 button {
     width: 100%;
-    max-width: 800px;
+    max-width: 100px;
     height:40px;
     display: block;
     margin: 20px auto;
@@ -264,6 +264,7 @@ p {
     border:1px;
 }
 */
+/*
 .tabla_style th:nth-child(1),
 .tabla_style td:nth-child(1){
     width: 8%;
@@ -310,10 +311,13 @@ p {
     width: 8%;
     min-width: 96px;
 }th {
-  white-space: normal;   /* permite saltos de línea */
+  white-space: normal;      /* permite saltos de línea 
   word-break: break-word;
-  text-align: center;    /* opcional */
+  text-align: center;      /*  opcional 
 }
+
+
+*/
 .datos td{
      vertical-align: top;
      background-color: #DCDCDE;
@@ -374,7 +378,7 @@ legend{
   margin-left: 5px;
 }
 .bloque-botones {
-  display: flex;
+  display: inline-flex;
   gap: 10px;
  /** max-width: 1200px;**/
   margin-left: 5%;
@@ -651,51 +655,134 @@ a {
 
 
 
-.Tabla th:nth-child(1),
-.Tabla td:nth-child(1){
+.Tabla5 th:nth-child(1),
+.Tabla5 td:nth-child(1){
     width: 8%;
     min-width: 96px;
 }
-.Tabla th:nth-child(2),
-.Tabla td:nth-child(2){
+.Tabla5 th:nth-child(2),
+.Tabla5 td:nth-child(2){
     width: 8%;
     min-width: 110px;
 }
-.Tabla th:nth-child(3),
-.Tabla td:nth-child(3){
+.Tabla5 th:nth-child(3),
+.Tabla5 td:nth-child(3){
     width: 12.8%;
     min-width: 154px;
 }
-.Tabla th:nth-child(4),
-.Tabla td:nth-child(4){
+.Tabla5 th:nth-child(4),
+.Tabla5 td:nth-child(4){
     width: 8.2%;
     min-width: 98px;
 }
-.Tabla th:nth-child(5),
-.Tabla td:nth-child(5){
+.Tabla5 th:nth-child(5),
+.Tabla5 td:nth-child(5){
     width: 9%;
     min-width: 108px;
 }
 
-.Tabla th:nth-child(6),
-.Tabla td:nth-child(6){
+.Tabla5 th:nth-child(6),
+.Tabla5 td:nth-child(6){
     width: 14%;
     min-width: 168px;
 }
-.Tabla th:nth-child(7),
-.Tabla td:nth-child(7){
+.Tabla5 th:nth-child(7),
+.Tabla5 td:nth-child(7){
     width: 12%;
     min-width: 144px;
 }
-.Tabla th:nth-child(8),
-.Tabla td:nth-child(8){
+.Tabla5 th:nth-child(8),
+.Tabla5 td:nth-child(8){
     width: 12%;
     min-width: 144px;
 }
-.Tabla th:nth-child(9),
-.Tabla td:nth-child(9){
+.Tabla5 th:nth-child(9),
+.Tabla5 td:nth-child(9){
     width: 8%;
     min-width: 96px;
+}th {
+  white-space: normal;   /* permite saltos de línea */
+  word-break: break-word;
+  text-align: center;    /* opcional */
+}
+
+
+.Tabla6 th:nth-child(1),
+.Tabla6 td:nth-child(1){
+    width: 8%;
+    min-width: 96px;
+}
+.Tabla6 th:nth-child(2),
+.Tabla6 td:nth-child(2){
+    width: 8%;
+    min-width: 110px;
+}
+.Tabla6 th:nth-child(3),
+.Tabla6 td:nth-child(3){
+    width: 12.8%;
+    min-width: 154px;
+}
+.Tabla6 th:nth-child(4),
+.Tabla6 td:nth-child(4){
+    width: 8.2%;
+    min-width: 98px;
+}
+.Tabla6 th:nth-child(5),
+.Tabla6 td:nth-child(5){
+    width: 9%;
+    min-width: 108px;
+}
+
+.Tabla6 th:nth-child(6),
+.Tabla6 td:nth-child(6){
+    width: 14%;
+    min-width: 168px;
+}
+.Tabla6 th:nth-child(7),
+.Tabla6 td:nth-child(7){
+    width: 12%;
+    min-width: 144px;
+}
+.Tabla6 th:nth-child(8),
+.Tabla6 td:nth-child(8){
+    width: 12%;
+    min-width: 144px;
+}
+.Tabla6 th:nth-child(9),
+.Tabla6 td:nth-child(9){
+    width: 8%;
+    min-width: 96px;
+}th {
+  white-space: normal;   /* permite saltos de línea */
+  word-break: break-word;
+  text-align: center;    /* opcional */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.Tabla7 th:nth-child(1),
+.Tabla7 td:nth-child(1){
+    width: 30%;
+    min-width: 96px;
+}
+.Tabla7 th:nth-child(2),
+.Tabla7 td:nth-child(2){
+    width: 30%;
+    min-width: 110px;
+}
+.Tabla7 th:nth-child(3),
+.Tabla7 td:nth-child(3){
+    width: 30%;
+    min-width: 154px;
 }th {
   white-space: normal;   /* permite saltos de línea */
   word-break: break-word;
@@ -730,7 +817,7 @@ a {
 
 .pagina {
     width: 100%;
-    max-width: 800px;
+    max-width: 200px;
     height:40px;
     display: inline;
     margin: 20px auto;
