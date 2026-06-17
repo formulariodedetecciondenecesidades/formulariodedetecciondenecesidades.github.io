@@ -106,18 +106,15 @@ tr3.innerHTML = `
     </td>
 
     <td>
-    <input name="MetrosCuadrados_T3R${i}" class="input_tabla" aria-label="MetrosCuadrados"> </input>
+    <input type="number" name="MetrosCuadrados_T3R${i}" class="input_tabla" aria-label="MetrosCuadrados"> </input>
     </td>
-
-     
-    
 
   `;
 
 tr4.innerHTML = `
     <td>
       <textarea
-        name="ProgramaAcadémico_T4R${i}"
+        name="ProgramaAcademico_T4R${i}"
         class="auto-expand input_tabla obligatorio"
         rows="1"
         style="resize:none;"
@@ -125,8 +122,15 @@ tr4.innerHTML = `
         > </textarea>
     </td> 
     
-    <td id="Espacio_T4R${i}" name="Espacio_T4R${i}" class="input_tabla fijasCol" aria-label="Espacio"></td>
-    
+    <td>
+         <textarea
+        name="Espacio_T4R${i}"
+        class="auto-expand input_tabla obligatorio"
+        rows="1"
+        style="resize:none;"
+        aria-label="Espacio"
+        > </textarea>
+    </td>    
     <td>
       <textarea
         name="Clave_T4R${i}"
@@ -236,7 +240,7 @@ tr4.innerHTML = `
 tr5.innerHTML = `
     <td>
       <textarea
-        name="ProgramaAcadémico_T5R${i}"
+        name="ProgramaAcademico_T5R${i}"
         class="auto-expand input_tabla obligatorio"
         rows="1"
         style="resize:none;"
@@ -244,8 +248,17 @@ tr5.innerHTML = `
         > </textarea>
     </td> 
     
-    <td id="Espacio_T5R${i}" name="Espacio_T5R${i}" class="input_tabla fijasCol" aria-label="Espacio"></td>
     
+    <td >
+    <textarea
+        name="Espacio_T5R${i}"
+        class="auto-expand input_tabla obligatorio"
+        rows="1"
+        style="resize:none;"
+        aria-label="Espacio"
+        > </textarea></td>
+
+
     <td>
       <textarea
         name="nombredelEquipo_T5R${i}"
@@ -299,7 +312,7 @@ tr5.innerHTML = `
 tr6.innerHTML = `
     <td>
       <textarea
-        name="ProgramaAcadémico_T6R${i}"
+        name="ProgramaAcademico_T6R${i}"
         class="auto-expand input_tabla obligatorio"
         rows="1"
         style="resize:none;"
@@ -307,8 +320,16 @@ tr6.innerHTML = `
         > </textarea>
     </td> 
     
-    <td id="Espacio_T6R${i}" name="Espacio_T6R${i}" class="input_tabla" aria-label="Espacio"></td>
-    
+    <td>
+    <textarea
+        name="Espacio_T6R${i}"
+        class="auto-expand input_tabla obligatorio"
+        rows="1"
+        style="resize:none;"
+        aria-label="Espacio"
+        > </textarea></td>
+
+
     <td>
       <textarea
         name="nombredelEquipo_T6R${i}"
@@ -433,7 +454,7 @@ const dependenciaInput = document.getElementById("dependencia");
 
 //-----------------------------------Agregar fila cuando se agrega un equipo---------------------------------------
 document.getElementById("tablaBody").addEventListener("change", e => {
-  if (!e.target.name?.startsWith("nombredelEquipoR")) return;
+  if (!e.target.name?.startsWith("Programa_T1R")) return;
 
   const filas = document.querySelectorAll("#tablaBody tr");
   const ultimaFila = filas[filas.length - 1];
@@ -443,7 +464,7 @@ document.getElementById("tablaBody").addEventListener("change", e => {
   }
 });
 document.getElementById("tablaBody2").addEventListener("change", e => {
-  if (!e.target.name?.startsWith("nombredelEquipoR")) return;
+  if (!e.target.name?.startsWith("Edificio_T2R")) return;
 
   const filas = document.querySelectorAll("#tablaBody2 tr");
   const ultimaFila = filas[filas.length - 1];
@@ -453,7 +474,7 @@ document.getElementById("tablaBody2").addEventListener("change", e => {
   }
 });
 document.getElementById("tablaBody3").addEventListener("change", e => {
-  if (!e.target.name?.startsWith("nombredelEquipoR")) return;
+  if (!e.target.name?.startsWith("Edificio_T3R")) return;
 
   const filas = document.querySelectorAll("#tablaBody3 tr");
   const ultimaFila = filas[filas.length - 1];
@@ -463,7 +484,7 @@ document.getElementById("tablaBody3").addEventListener("change", e => {
   }
 });
 document.getElementById("tablaBody4").addEventListener("change", e => {
-  if (!e.target.name?.startsWith("nombredelEquipoR")) return;
+  if (!e.target.name?.startsWith("nombredelEquipo_T4R")) return;
 
   const filas = document.querySelectorAll("#tablaBody4 tr");
   const ultimaFila = filas[filas.length - 1];
@@ -474,7 +495,7 @@ document.getElementById("tablaBody4").addEventListener("change", e => {
 });
 
 document.getElementById("tablaBody5").addEventListener("change", e => {
-  if (!e.target.name?.startsWith("nombredelEquipoR")) return;
+  if (!e.target.name?.startsWith("nombredelEquipo_T5R")) return;
 
   const filas = document.querySelectorAll("#tablaBody5 tr");
   const ultimaFila = filas[filas.length - 1];
@@ -485,7 +506,7 @@ document.getElementById("tablaBody5").addEventListener("change", e => {
 });
 
 document.getElementById("tablaBody6").addEventListener("change", e => {
-  if (!e.target.name?.startsWith("nombredelEquipoR")) return;
+  if (!e.target.name?.startsWith("nombredelEquipo_T6R")) return;
 
   const filas = document.querySelectorAll("#tablaBody6 tr");
   const ultimaFila = filas[filas.length - 1];
@@ -1072,7 +1093,7 @@ function actualizarObligatoriedadFila(fila) {
 }
 
 
-//----------------Esta parte se encarga de detectar un cambio en las celdas de la tabla y cuando recibre un cambio que no es 
+//----------------Esta parte se encarga de detectar un cambio en las celdas de la tabla y cuando recibe un cambio que no es 
 //----------------en la clase obligatorio este no reacciona, en caso afirmativo cambio el estado de required
 //--------------------------------------** *------------------------------------------/
 
@@ -1141,7 +1162,7 @@ function agregarFila(){
   fila.innerHTML = `
     <td>
       <textarea
-        name="ProgramasR${i}"
+        name="Programa_T1R${i}"
         class="auto-expand input_tabla obligatorio"
         rows="1"
         style="resize:none;"
@@ -1150,26 +1171,26 @@ function agregarFila(){
     </td>
 
     <td>
-    <input type="number" name="Usuarios1R${i}" class="input_tabla " aria-label="Usuarios1"> </input>
+    <input type="number" name="Usuarios1_T1R${i}" class="input_tabla " aria-label="Usuarios1"> </input>
     </td>
     <td>
-    <input type="number" name="Usuarios2R${i}" class="input_tabla " aria-label="Usuarios2"> </input>
+    <input type="number" name="Usuarios2_T1R${i}" class="input_tabla " aria-label="Usuarios2"> </input>
     </td>
     <td> 
-    <input type="number" name="Usuarios3R${i}" class="input_tabla " aria-label="Usuarios3"> </input>
+    <input type="number" name="Usuarios3_T1R${i}" class="input_tabla " aria-label="Usuarios3"> </input>
      </td>
     <td>
-    <input type="number" name="Usuarios4R${i}" class="input_tabla " aria-label="Usuarios4"> </input>
+    <input type="number" name="Usuarios4_T1R${i}" class="input_tabla " aria-label="Usuarios4"> </input>
     </td>
     <td>
-    <input type="number" name="Usuarios5R${i}" class="input_tabla " aria-label="Usuarios5"> </input>
+    <input type="number" name="Usuarios5_T1R${i}" class="input_tabla " aria-label="Usuarios5"> </input>
     </td>
   `;
 
   tbody.appendChild(fila);
 
-  generarNivel();
-  generarDependencia();
+ // generarNivel();
+ // generarDependencia();
   activarAutoExpand(fila);
 }    
 
@@ -1188,15 +1209,15 @@ function agregarFila2(){
   const fila = document.createElement("tr");
   fila.innerHTML = `
     <td>
-    <input name="EdificioR${i}" class="input_tabla" aria-label="Edificio"> </input>
+    <input name="Edificio_T2R${i}" class="input_tabla" aria-label="Edificio"> </input>
     </td>
 
     <td>
-    <input name="NivelR${i}" class="input_tabla" aria-label="Nivel"> </input>
+    <input name="Nivel_T2R${i}" class="input_tabla" aria-label="Nivel"> </input>
     </td>
 
     <td>
-    <input name="EspacioR${i}" class="input_tabla" aria-label="Espacio"> </input>
+    <input name="Espacio_T2R${i}" class="input_tabla" aria-label="Espacio"> </input>
     </td>    
     
     
@@ -1205,7 +1226,7 @@ function agregarFila2(){
 
       <td class="cantidadCol">
 
-      <input type="number" name="LargoR${i}" class="input_tabla " aria-label="Largo"> </input>  
+      <input type="number" name="Largo_T2R${i}" class="input_tabla " aria-label="Largo"> </input>  
     
       </td>
 
@@ -1213,7 +1234,7 @@ function agregarFila2(){
     
       <td class="cantidadCol">
 
-              <input type="number" name="AnchoR${i}" class="input_tabla " aria-label="Ancho">
+              <input type="number" name="Ancho_T2R${i}" class="input_tabla " aria-label="Ancho">
               </input>  
     
       </td>
@@ -1221,7 +1242,7 @@ function agregarFila2(){
 
       <td class="cantidadCol">
 
-      <input type="number" name="AlumnosR${i}" class="input_tabla " aria-label="Numero de Alumnos"> </input>  
+      <input type="number" name="Alumnos_T2R${i}" class="input_tabla " aria-label="Numero de Alumnos"> </input>  
     
       </td>
       
@@ -1229,15 +1250,15 @@ function agregarFila2(){
    
       <td class="cantidadCol">
 
-      <input type="number" name="HorasR${i}" class="input_tabla " aria-label="Horas de Servicio"> </input>  
+      <input type="number" name="Horas_T2R${i}" class="input_tabla " aria-label="Horas de Servicio"> </input>  
     
       </td>
 
   `;
   tbody.appendChild(fila);
 
-  generarNivel();
-  generarDependencia();
+//  generarNivel();
+//  generarDependencia();
   activarAutoExpand(fila);
 }
 
@@ -1253,11 +1274,11 @@ function agregarFila3(){
   const fila = document.createElement("tr");
   fila.innerHTML = `
     <td>
-    <input name="EdificioR${i}" class="input_tabla" aria-label="Edificio"> </input>
+    <input name="Edificio_T3R${i}" class="input_tabla" aria-label="Edificio"> </input>
     </td>
 
     <td>
-    <input name="MetrosCuadradosR${i}" class="input_tabla" aria-label="MetrosCuadrados"> </input>
+    <input name="MetrosCuadrados_T3R${i}" class="input_tabla" aria-label="MetrosCuadrados"> </input>
     </td>
 
      
@@ -1267,8 +1288,8 @@ function agregarFila3(){
 
   tbody.appendChild(fila);
 
-  generarNivel();
-  generarDependencia();
+//  generarNivel();
+//  generarDependencia();
   activarAutoExpand(fila);
 }
 
@@ -1283,7 +1304,7 @@ function agregarFila4(){
   fila.innerHTML  = `
     <td>
       <textarea
-        name="ProgramaAcadémicoR${i}"
+        name="ProgramaAcademico_T4R${i}"
         class="auto-expand input_tabla obligatorio"
         rows="1"
         style="resize:none;"
@@ -1291,11 +1312,18 @@ function agregarFila4(){
         > </textarea>
     </td> 
     
-    <td id="EspacioR${i}" class="input_tabla fijasCol" aria-label="Espacio"></td>
-    
+    <td>
+         <textarea
+        name="Espacio_T4R${i}"
+        class="auto-expand input_tabla obligatorio"
+        rows="1"
+        style="resize:none;"
+        aria-label="Espacio"
+        > </textarea>
+    </td>
     <td>
       <textarea
-        name="ClaveR${i}"
+        name="Clave_T4R${i}"
         class="auto-expand input_tabla"
         rows="1"
         style="resize:none;"
@@ -1304,7 +1332,7 @@ function agregarFila4(){
       </td>
     <td>
       <textarea
-        name="nombredelEquipoR${i}"
+        name="nombredelEquipo_T4R${i}"
         class="auto-expand input_tabla obligatorio"
         rows="1"
         style="resize:none;"
@@ -1316,14 +1344,14 @@ function agregarFila4(){
 
     <td class="cantidadCol">
 
-      <input type="number" name="cantidadR${i}" class="input_tabla " aria-label="Cantidad"> </input>  
+      <input type="number" name="cantidad_T4R${i}" class="input_tabla " aria-label="Cantidad"> </input>  
     
       </td>
 
 
     <td>
       <textarea
-        name="especificacionesR${i}"
+        name="especificaciones_T4R${i}"
         class="auto-expand input_tabla"
         rows="1"
         style="resize:none;"
@@ -1332,7 +1360,7 @@ function agregarFila4(){
     </td>
 
     <td>
-      <select id="justificacionR${i}" name="justificacionR${i}" class="tabla_select" aria-label="Justificación">
+      <select id="justificacion_T4R${i}" name="justificacion_T4R${i}" class="tabla_select" aria-label="Justificación">
                    <option value="">-- Selecciona una prioridad--</option>
                    <option value="Equipo no Existente">Equipo no Existente</option>
                    <option value="Sustitución">Sustitución</option>
@@ -1346,7 +1374,7 @@ function agregarFila4(){
       <div class="precio-wrapper">
             <span class="peso">$</span>
             <input type="text"
-                   name="precioR${i}"
+                   name="precio_T4R${i}"
                    class="input_tabla precio"
                    oninput="formatearMiles(this)"
                    inputmode="decimal" 
@@ -1359,7 +1387,7 @@ function agregarFila4(){
     <div class="contenedorArchivo">
                       <input 
                        type="file" 
-                       name="CotizacionAdquisicionR${i}" 
+                       name="CotizacionAdquisicion_T4R${i}" 
                        class="archivoInput"
                        accept=".pdf,.xlsx,.doc,.docx,.png,.jpg">
                  <span class="nombreArchivo"></span>
@@ -1374,7 +1402,7 @@ function agregarFila4(){
    <div class="precio-wrapper">
             <span class="peso">$</span>
             <input type="text"
-                   name="precio2R${i}"
+                   name="precio2_T4R${i}"
                    class="input_tabla precio"
                    oninput="formatearMiles(this)"
                    inputmode="decimal" 
@@ -1387,7 +1415,7 @@ function agregarFila4(){
     <div class="contenedorArchivo">
                       <input 
                        type="file" 
-                       name="CotizacionAdquisicion2R${i}" 
+                       name="CotizacionAdquisicion2_T4R${i}" 
                        class="archivoInput"
                        accept=".pdf,.xlsx,.doc,.docx,.png,.jpg">
                  <span class="nombreArchivo"></span>
@@ -1402,11 +1430,10 @@ function agregarFila4(){
 
   tbody.appendChild(fila);
 
-  generarNivel();
-  generarDependencia();
+//  generarNivel();
+//  generarDependencia();
   activarAutoExpand(fila);
 }
-
 
 function agregarFila5(){
   const tbody = document.getElementById("tablaBody5");
@@ -1417,7 +1444,7 @@ function agregarFila5(){
   fila.innerHTML = `
     <td>
       <textarea
-        name="ProgramaAcadémicoR${i}"
+        name="ProgramaAcademico_T5R${i}"
         class="auto-expand input_tabla obligatorio"
         rows="1"
         style="resize:none;"
@@ -1425,11 +1452,18 @@ function agregarFila5(){
         > </textarea>
     </td> 
     
-    <td id="EspacioR${i}" class="input_tabla fijasCol" aria-label="Espacio"></td>
+    <td >
+    <textarea
+        name="Espacio_T5R${i}"
+        class="auto-expand input_tabla obligatorio"
+        rows="1"
+        style="resize:none;"
+        aria-label="Espacio"
+        > </textarea></td>
     
     <td>
       <textarea
-        name="nombredelEquipoR${i}"
+        name="nombredelEquipo_T5R${i}"
         class="auto-expand input_tabla obligatorio"
         rows="1"
         style="resize:none;"
@@ -1443,7 +1477,7 @@ function agregarFila5(){
 
     <td>
       <textarea
-        name="especificacionesR${i}"
+        name="especificaciones_T5R${i}"
         class="auto-expand input_tabla"
         rows="1"
         style="resize:none;"
@@ -1453,18 +1487,18 @@ function agregarFila5(){
 
       <td class="cantidadCol">
 
-      <input type="number" name="cantidadMal_estadoR${i}" class="input_tabla " aria-label="Cantidad en mal estado"> </input>  
+      <input type="number" name="cantidadMal_estado_T5R${i}" class="input_tabla " aria-label="Cantidad en mal estado"> </input>  
     
       </td>
 
     <td class="cantidadCol">
 
-      <input type="number" name="cantidadBuen_estadoR${i}" class="input_tabla " aria-label="Cantidad en buen estado"> </input>  
+      <input type="number" name="cantidadBuen_estado_T5R${i}" class="input_tabla " aria-label="Cantidad en buen estado"> </input>  
     
       </td>
     <td class="cantidadCol">
 
-      <input type="number" name="cantidadRegular_estadoR${i}" class="input_tabla " aria-label="Cantidad en estado Regular"> </input>  
+      <input type="number" name="cantidadRegular_estado_T5R${i}" class="input_tabla " aria-label="Cantidad en estado Regular"> </input>  
     
       </td>
      
@@ -1473,8 +1507,8 @@ function agregarFila5(){
 
   tbody.appendChild(fila);
 
-  generarNivel();
-  generarDependencia();
+//  generarNivel();
+//  generarDependencia();
   activarAutoExpand(fila);
 }
 
@@ -1487,7 +1521,7 @@ function agregarFila6(){
   fila.innerHTML = `
     <td>
       <textarea
-        name="ProgramaAcadémicoR${i}"
+        name="ProgramaAcademico_T6R${i}"
         class="auto-expand input_tabla obligatorio"
         rows="1"
         style="resize:none;"
@@ -1495,11 +1529,18 @@ function agregarFila6(){
         > </textarea>
     </td> 
     
-    <td id="EspacioR${i}" class="input_tabla fijasCol" aria-label="Espacio"></td>
+    <td>
+    <textarea
+        name="Espacio_T6R${i}"
+        class="auto-expand input_tabla obligatorio"
+        rows="1"
+        style="resize:none;"
+        aria-label="Espacio"
+        > </textarea></td>
     
     <td>
       <textarea
-        name="nombredelEquipoR${i}"
+        name="nombredelEquipo_T6R${i}"
         class="auto-expand input_tabla obligatorio"
         rows="1"
         style="resize:none;"
@@ -1513,7 +1554,7 @@ function agregarFila6(){
 
     <td>
       <textarea
-        name="especificacionesR${i}"
+        name="especificaciones_T6R${i}"
         class="auto-expand input_tabla"
         rows="1"
         style="resize:none;"
@@ -1521,20 +1562,16 @@ function agregarFila6(){
         > </textarea>
     </td>
 
-      <td class="cantidadCol">
-
-      <input type="number" name="cantidadMal_estadoR${i}" class="input_tabla " aria-label="Cantidad en mal estado"> </input>  
-    
-      </td>
+      
 
     <td class="cantidadCol">
 
-      <input type="number" name="cantidadBuen_estadoR${i}" class="input_tabla " aria-label="Cantidad en buen estado"> </input>  
+      <input type="number" name="cantidadBuen_estado_T6R${i}" class="input_tabla " aria-label="Cantidad en buen estado"> </input>  
     
       </td>
     <td class="cantidadCol">
 
-      <input type="number" name="cantidadRegular_estadoR${i}" class="input_tabla " aria-label="Cantidad en estado Regular"> </input>  
+      <input type="number" name="cantidadRegular_estado_T6R${i}" class="input_tabla " aria-label="Cantidad en estado Regular"> </input>  
     
       </td>
      
@@ -1543,8 +1580,8 @@ function agregarFila6(){
 
   tbody.appendChild(fila);
 
-  generarNivel();
-  generarDependencia();
+//  generarNivel();
+//  generarDependencia();
   activarAutoExpand(fila);
 }
 
@@ -1659,12 +1696,15 @@ function anterior(numero){
 
 
 
+const direccionEnlace="https://script.google.com/macros/s/AKfycby6l6JY_ZsTBX2NW-U5CQhCTi1LdMxpAZfyp7ZbngXK5tMVdgGIamNDXJ9by9N_xDdnVg/exec"
+
+let folioActual=null;
 
 
 
 //---------------------------GuardarBorrador--------------------------------------------------
 
-/*
+
   document.getElementById("guardarBorrador").addEventListener("click", async () => {
   const form = document.getElementById("miFormulario");
   const formData = new FormData(form);
@@ -1672,22 +1712,43 @@ function anterior(numero){
   const data = {};
 
   formData.forEach((value, key) => {
+    if (value instanceof File) return;
     data[key] = value;
   });
 
   // Guardamos también el número de filas actuales
-  data.__filas = document.querySelectorAll("#tablaBody tr").length;
- 
-  const folio = generarFolio();
-  data.__folio = folio;
+  data.__filas1 = document.querySelectorAll("#tablaBody tr").length;
+  data.__filas2 = document.querySelectorAll("#tablaBody2 tr").length;
+  data.__filas3 = document.querySelectorAll("#tablaBody3 tr").length;
+  data.__filas4 = document.querySelectorAll("#tablaBody4 tr").length;
+  data.__filas5 = document.querySelectorAll("#tablaBody5 tr").length;
+  data.__filas6 = document.querySelectorAll("#tablaBody6 tr").length;
+  
+  if(folioActual==null){
+             folioActual = generarFolio();
+  }
+  data.__folio = folioActual;
 
+
+
+ // formData.append(
+ //   "payload",
+ //   JSON.stringify({
+ //       action: "guardarBorrador",
+ //       data
+ //   })
+//);
 
 try {
-    const res = await fetch("https://script.google.com/macros/s/AKfycbzxz08ox-WUn2YKXPyX0GqfEx2BIAJzB0ODKZSefiF4tTfE2wYhJg93WkZXsjja3I-40g/exec", {
+    const res = await fetch(direccionEnlace, {
       method: "POST",
       body: JSON.stringify({action: "guardarBorrador", data})
     });
-    
+
+ //   const res = await fetch(direccionEnlace, {
+ //       method: "POST",
+ //       body: formData
+ //   });
   //              localStorage.setItem("borradorFormulario", JSON.stringify(data));
 
 //  alert("✅ Borrador guardado correctamente");
@@ -1697,7 +1758,7 @@ try {
 
   const json = await res.json();
 if (json.success) {
-      alert(`✅ Borrador guardado correctamente. Tu folio es: ${folio}`);
+      alert(`✅ Borrador guardado correctamente. Tu folio es: ${folioActual}`);
     } else {
       alert("⚠️ Error al guardar el borrador: " + json.message);
     }
@@ -1709,7 +1770,6 @@ if (json.success) {
 
 
 
-*/
 
 
 
@@ -1722,35 +1782,112 @@ function setSelectValue(selectId, value) {
 }
 
 function restaurarTabla(data) {
-  const filas = data.__filas || 10;
-  const tbody = document.getElementById("tablaBody");
-  tbody.innerHTML = "";
+ 
+ 
 
-  for (let i = 1; i <= filas; i++) {
+ 
+
+
+  const filas1 = data.__filas1 || 10;
+  const filas2 = data.__filas2 || 10;
+  const filas3 = data.__filas3 || 10;
+  const filas4 = data.__filas4 || 10;
+  const filas5 = data.__filas5 || 10;
+  const filas6 = data.__filas6 || 10;
+  
+  
+  const tbody = document.getElementById("tablaBody");
+  const tbody2 = document.getElementById("tablaBody2");
+  const tbody3 = document.getElementById("tablaBody3");
+  const tbody4 = document.getElementById("tablaBody4");
+  const tbody5 = document.getElementById("tablaBody5");
+  const tbody6 = document.getElementById("tablaBody6");
+ 
+ 
+  tbody.innerHTML = "";
+  tbody2.innerHTML = "";
+  tbody3.innerHTML = "";
+  tbody4.innerHTML = "";
+  tbody5.innerHTML = "";
+  tbody6.innerHTML = "";
+  
+  for (let i = 1; i <= filas1; i++) {
     agregarFila();
   }
+  for (let i = 1; i <= filas2; i++) {
+    agregarFila2();
+  }
+  for (let i = 1; i <= filas3; i++) {
+    agregarFila3();
+  }
+  for (let i = 1; i <= filas4; i++) {
+    agregarFila4();
+  }
+  for (let i = 1; i <= filas5; i++) {
+    agregarFila5();
+  }
+  for (let i = 1; i <= filas6; i++) {
+    agregarFila6();
+  }
+
 
   Object.keys(data).forEach(name => {
-    if (name === "__filas") return;
-    if (!name.includes("R")) return; // solo campos de la tabla
-
+    if (name.includes("__filas")) return;
+     if (!name.includes("R")) return; // solo campos de la tabla
     const campo = document.querySelector(`[name="${name}"]`);
     if (!campo) return;
+    if (campo.type === "file") {
+    console.log("Archivo omitido:", name);
+    return;
+  }
 
+  if (
+    data[name] !== null &&
+    typeof data[name] === "object"
+  ) {
+    console.log("Objeto omitido:", name, data[name]);
+    return;
+  }
     campo.value = data[name];
-
+    
     if (campo.tagName === "TEXTAREA") {
       campo.style.height = "auto";
       campo.style.height = campo.scrollHeight + "px";
     }
   });
-
-  generarNivel();
-  generarDependencia();
+  // generarNivel();
+  // generarDependencia();
 }
 
 
 /*
+
+
+
+
+    formData.append(
+    "payload",
+    JSON.stringify({
+        action: "guardarBorrador",
+        data
+    })
+);
+
+try {
+    const res = await fetch(direccionEnlace, {
+        method: "POST",
+        body: formData
+    });
+
+    */
+
+
+
+
+
+
+
+
 document.getElementById("cargarBorrador").addEventListener("click", async () => {
 //-------------------------- Borrador con  folio (Backend)   
   
@@ -1761,10 +1898,12 @@ document.getElementById("cargarBorrador").addEventListener("click", async () => 
   }
 
 try {
-    const res = await fetch("https://script.google.com/macros/s/AKfycbzxz08ox-WUn2YKXPyX0GqfEx2BIAJzB0ODKZSefiF4tTfE2wYhJg93WkZXsjja3I-40g/exec", {
+    const res = await fetch(direccionEnlace, {
       method: "POST",
       body: JSON.stringify({action: "cargarBorrador", folio})
     });
+
+
     const json = await res.json();
 
     if (!json.success) {
@@ -1794,15 +1933,24 @@ try {
 
   // Limpiar tabla
   const tbody = document.getElementById("tablaBody");
+  const tbody2 = document.getElementById("tablaBody2");
+  const tbody3 = document.getElementById("tablaBody3");
+  const tbody4 = document.getElementById("tablaBody4");
+  const tbody5 = document.getElementById("tablaBody5");
+  const tbody6 = document.getElementById("tablaBody6");
   tbody.innerHTML = "";
-
+  tbody2.innerHTML = "";
+  tbody3.innerHTML = "";
+  tbody4.innerHTML = "";
+  tbody5.innerHTML = "";
+  tbody6.innerHTML = "";
   // Reconstruir filas
 //  const filas = data.__filas || 10;
 //  for (let i = 1; i <= filas; i++) {
 //    agregarFila();
 //  }
-
-
+  
+      folioActual = folio;
 
 // Restaurar selects encadenados
 setSelectValue("secretaria", data.secretaria);
@@ -1815,7 +1963,7 @@ setTimeout(() => {
 
     setTimeout(() => {
       setSelectValue("dependencia", data.dependencia);
-
+/*
       const titular = document.getElementById("titular");   
       titular.value = data.titular;
       const telTitular = document.getElementById("telefonoTitular");   
@@ -1828,6 +1976,27 @@ setTimeout(() => {
       telResponsable.value = data.telefonoResponsable;
       const CorreoResponsable = document.getElementById("correoResponsable");   
       CorreoResponsable.value = data.correoResponsable;
+*/
+      Object.keys(data).forEach(name => {
+                          if (name.includes("__filas")) return;
+                          if (name.includes("R")) return; //quitamos los campos de la tabla
+                          if(name.includes("secretaria")) return;
+                          if(name.includes("direccion")) return; 
+                          if(name.includes("nivel")) return; 
+                          if(name.includes("dependencia")) return; 
+                          const campo = document.querySelector(`[name="${name}"]`);
+                          if (!campo) return;
+                          
+    campo.value = data[name];
+
+    if (campo.tagName === "TEXTAREA") {
+      campo.style.height = "auto";
+      campo.style.height = campo.scrollHeight + "px";
+    }
+  });
+
+
+
 
       
       // ⬇️ Ahora sí, restaurar la tabla
@@ -1835,6 +2004,22 @@ setTimeout(() => {
       document.querySelectorAll("#tablaBody tr").forEach(fila => {
                            actualizarObligatoriedadFila(fila);
       });
+      document.querySelectorAll("#tablaBody2 tr").forEach(fila => {
+                           actualizarObligatoriedadFila(fila);
+      });
+      document.querySelectorAll("#tablaBody3 tr").forEach(fila => {
+                           actualizarObligatoriedadFila(fila);
+      });
+      document.querySelectorAll("#tablaBody4 tr").forEach(fila => {
+                           actualizarObligatoriedadFila(fila);
+      });
+      document.querySelectorAll("#tablaBody5 tr").forEach(fila => {
+                           actualizarObligatoriedadFila(fila);
+      });
+      document.querySelectorAll("#tablaBody6 tr").forEach(fila => {
+                           actualizarObligatoriedadFila(fila);
+      });
+
     }, 0);
   }, 0);
 }, 0);
@@ -1845,30 +2030,193 @@ setTimeout(() => {
   
 });
 
+
+document.getElementById("cargarRespuesta").addEventListener("click", async () => {
+//-------------------------- Borrador con  folio (Backend)   
+  
+  const folio = document.getElementById("folioInput").value.trim();
+  if (!folio) {
+    alert("⚠️ Ingresa un folio válido");
+    return;
+  }
+
+try {
+    const res = await fetch(direccionEnlace, {
+      method: "POST",
+      body: JSON.stringify({action: "cargarRespuesta", folio})
+    });
+
+
+    const json = await res.json();
+
+    if (!json.success) {
+      alert("⚠️ " + json.message);
+      return;
+    }
+
+//----------------------------------------------------------------------------
+
+  
+//-------------BORRADOR LOCAL--------------------------------------------------  
+//  const borrador = localStorage.getItem("borradorFormulario");
+//  if (!borrador) {
+//    alert("⚠️ No hay ningún borrador guardado");
+//    return;
+//  }
+
+  
+  //  (Datos locales)  const data = JSON.parse(borrador);
+
+
+
+  const data =json.data;
+
+  
+  const form = document.getElementById("miFormulario");
+
+  // Limpiar tabla
+  const tbody = document.getElementById("tablaBody");
+  const tbody2 = document.getElementById("tablaBody2");
+  const tbody3 = document.getElementById("tablaBody3");
+  const tbody4 = document.getElementById("tablaBody4");
+  const tbody5 = document.getElementById("tablaBody5");
+  const tbody6 = document.getElementById("tablaBody6");
+  tbody.innerHTML = "";
+  tbody2.innerHTML = "";
+  tbody3.innerHTML = "";
+  tbody4.innerHTML = "";
+  tbody5.innerHTML = "";
+  tbody6.innerHTML = "";
+  // Reconstruir filas
+//  const filas = data.__filas || 10;
+//  for (let i = 1; i <= filas; i++) {
+//    agregarFila();
+//  }
+
+folioActual=folio;
+
+// Restaurar selects encadenados
+setSelectValue("secretaria", data.secretaria);
+
+setTimeout(() => {
+  setSelectValue("direccion", data.direccion);
+
+  setTimeout(() => {
+    setSelectValue("nivel", data.nivel);
+
+    setTimeout(() => {
+      setSelectValue("dependencia", data.dependencia);
+/*
+      const titular = document.getElementById("titular");   
+      titular.value = data.titular;
+      const telTitular = document.getElementById("telefonoTitular");   
+      telTitular.value = data.telefonoTitular;
+      const CorreoTitular = document.getElementById("correoTitular");   
+      CorreoTitular.value = data.correoTitular;
+      const responsable = document.getElementById("responsable");   
+      responsable.value = data.responsable;
+      const telResponsable = document.getElementById("telefonoResponsable");   
+      telResponsable.value = data.telefonoResponsable;
+      const CorreoResponsable = document.getElementById("correoResponsable");   
+      CorreoResponsable.value = data.correoResponsable;
 */
+      Object.keys(data).forEach(name => {
+                          if (name.includes("__filas")) return;
+                          if (name.includes("R")) return; //quitamos los campos de la tabla
+                          if(name.includes("secretaria")) return;
+                          if(name.includes("direccion")) return; 
+                          if(name.includes("nivel")) return; 
+                          if(name.includes("dependencia")) return; 
+                          const campo = document.querySelector(`[name="${name}"]`);
+                          if (!campo) return;
+                          
+    campo.value = data[name];
+
+    if (campo.tagName === "TEXTAREA") {
+      campo.style.height = "auto";
+      campo.style.height = campo.scrollHeight + "px";
+    }
+  });
+
+
+
+
+      
+      // ⬇️ Ahora sí, restaurar la tabla
+      restaurarTabla(data);
+      document.querySelectorAll("#tablaBody tr").forEach(fila => {
+                           actualizarObligatoriedadFila(fila);
+      });
+      document.querySelectorAll("#tablaBody2 tr").forEach(fila => {
+                           actualizarObligatoriedadFila(fila);
+      });
+      document.querySelectorAll("#tablaBody3 tr").forEach(fila => {
+                           actualizarObligatoriedadFila(fila);
+      });
+      document.querySelectorAll("#tablaBody4 tr").forEach(fila => {
+                           actualizarObligatoriedadFila(fila);
+      });
+      document.querySelectorAll("#tablaBody5 tr").forEach(fila => {
+                           actualizarObligatoriedadFila(fila);
+      });
+      document.querySelectorAll("#tablaBody6 tr").forEach(fila => {
+                           actualizarObligatoriedadFila(fila);
+      });
+
+    }, 0);
+  }, 0);
+}, 0);
+  alert("📂 Respuesta cargada correctamente");
+} catch (e) {
+    alert("⚠️ Error de conexión al cargar la respuesta");
+}
+  
+});
+
+
+
+
+
+
+
 
 
 
 
 
 //Guardado de Datos    
-/*    
+  
  const form = document.getElementById("miFormulario");
  const aviso = document.getElementById("aviso");   
-    document.getElementById("miFormulario").addEventListener("submit", function(e){
-                e.preventDefault();
-                if (!this.checkValidity()) {
-                    this.reportValidity(); // muestra mensajes
-                    return;  
-                }
+
+
+
+document.getElementById("Enviar").addEventListener("click", async () => {
+   
+//document.getElementById("Enviar").addEventListener("submit", function(e){
+                //e.preventDefault();
+                //if (!this.checkValidity()) {
+                //    this.reportValidity(); // muestra mensajes
+                //    return;  
+               // }
                  const confirmar = confirm("¿Estás seguro de que deseas enviar el formulario?");
 
                 if (!confirmar) {
                   // ❌ Usuario canceló
                   return;
                 }
-                const formData = new FormData(this);
-                const selectsTexto = [
+       //**
+       
+
+
+
+//const formData = new FormData(this);
+
+const formData = new FormData(form);
+
+  const data = {};
+
+const selectsTexto = [
                       "secretaria",
                       "direccion",
                       "nivel",
@@ -1881,12 +2229,210 @@ setTimeout(() => {
                         }
                 });
                 aviso.textContent = " ";
-                const data = Object.fromEntries(formData);
-                //fetch("https://script.google.com/macros/s/AKfycbylJPoK0gXZxnMQzAWlCLGbwMvi7OsMV-rKF3eEpNDSkpbzZ8R6kzFAadKFIonA97Of-Q/exec", {
-                //                 method: "POST",
-                //                 body: new FormData(this)
-               // })
-                
+
+  
+
+
+  for (const [key, value] of formData.entries()) {
+
+    if (!(value instanceof File)) {
+        data[key] = value;
+        continue;
+    }
+
+    if (value.size === 0) {
+        data[key] = "";
+        continue;
+    }
+
+    const base64 = await new Promise(resolve => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.readAsDataURL(value);
+    });
+
+
+    data[key] = {
+        nombre: value.name,
+        tipo: value.type,
+        contenido: base64
+    };
+    
+}
+
+
+data.secretaria = document.getElementById("secretaria").options[
+    document.getElementById("secretaria").selectedIndex
+].value;
+
+data.direccion = document.getElementById("direccion").options[
+    document.getElementById("direccion").selectedIndex
+].value;
+
+data.nivel = document.getElementById("nivel").options[
+    document.getElementById("nivel").selectedIndex
+].value;
+
+data.dependencia = document.getElementById("dependencia").options[
+    document.getElementById("dependencia").selectedIndex
+].value;
+
+
+data.secretariaT = document.getElementById("secretaria").options[
+    document.getElementById("secretaria").selectedIndex
+].text;
+
+data.direccionT = document.getElementById("direccion").options[
+    document.getElementById("direccion").selectedIndex
+].text;
+
+data.nivelT = document.getElementById("nivel").options[
+    document.getElementById("nivel").selectedIndex
+].text;
+
+data.dependenciaT = document.getElementById("dependencia").options[
+    document.getElementById("dependencia").selectedIndex
+].text;
+
+/*
+  formData.forEach((value, key) => {
+       if (!(value instanceof File)) {
+             data[key] = value;
+             continue;
+       }
+       if (value.size === 0) {
+            data[key] = "";
+            continue;
+       }
+
+       const base64 = await new Promise((resolve) => {
+       const reader = new FileReader();
+
+       reader.onload = () => resolve(reader.result);
+
+       reader.readAsDataURL(value);
+       });
+
+       data[key] = {
+             nombre: value.name,
+             tipo: value.type,
+             contenido: base64
+       };
+  });
+*/
+  // Guardamos también el número de filas actuales
+  data.__filas1 = document.querySelectorAll("#tablaBody tr").length;
+  data.__filas2 = document.querySelectorAll("#tablaBody2 tr").length;
+  data.__filas3 = document.querySelectorAll("#tablaBody3 tr").length;
+  data.__filas4 = document.querySelectorAll("#tablaBody4 tr").length;
+  data.__filas5 = document.querySelectorAll("#tablaBody5 tr").length;
+  data.__filas6 = document.querySelectorAll("#tablaBody6 tr").length;
+  
+  if(folioActual==null){
+      folioActual = generarFolio();
+  }
+  data.__folio = folioActual;
+  data.__envioDependencia = true;
+
+
+formData.append(
+    "payload",
+    JSON.stringify({
+        action: "EnviarFormulario",
+        data
+    })
+);  
+
+
+//--------------------------CON ARCHIVOS
+
+try {
+
+    const res = await fetch(direccionEnlace, {
+        method: "POST",
+        body: formData
+    });
+
+   /*const texto = await res.text();
+
+   console.log(texto);
+
+   alert(texto);
+*/
+  const json = await res.json();
+
+   
+
+
+    if (json.success) {
+
+        alert(`✅ Registro de solicitud correctamente Enviada. Tu folio es: ${folioActual}`);
+
+        aviso.textContent = "✅ Tu respuesta fue enviada correctamente";
+        aviso.style.color = "green";
+
+        form.reset();
+
+    } else {
+
+        alert("⚠️ Error al enviar los datos: " + json.message);
+
+    }
+
+} catch (e) {
+
+    console.error(e);
+    alert("⚠️ Error de conexión: " + e.message);
+
+}
+
+  });
+
+
+/*
+try {
+    const res = await fetch(direccionEnlace, {
+      method: "POST",
+      body: JSON.stringify({action: "EnviarFormulario", data})
+    });
+    
+ 
+
+
+
+
+
+
+  
+// ---------------Nuevo------------------------------------------- 
+
+  const json = await res.json();
+if (json.success) {
+      alert(`✅ Registro de solicitud correctamente Enviada. Tu folio es: ${folio}`);
+      aviso.textContent = "✅ Tu respuesta fue enviada correctamente";
+      aviso.style.color = "green";
+      form.reset();
+      alert("Datos enviados correctamente");
+      form.reset();
+    } else {
+      alert("⚠️ Error al enviar los datos: " + json.message);
+      aviso.textContent = "⚠️ " + res.message;
+      aviso.style.color = "red";
+      return;
+    }
+  } catch (e) {
+    //alert("⚠️ Error de conexión al enviar los datos");
+     alert("⚠️ Error de conexión: " + e.message)
+  }
+
+
+
+
+*/
+
+
+/*
+              
                  fetch("https://script.google.com/macros/s/AKfycbzxz08ox-WUn2YKXPyX0GqfEx2BIAJzB0ODKZSefiF4tTfE2wYhJg93WkZXsjja3I-40g/exec", {
                   method: "POST",
                   body: JSON.stringify(data)
@@ -1905,8 +2451,6 @@ setTimeout(() => {
                  this.reset();
   })
   .catch(() => alert("Error al enviar"));
-});
-
 */
 
 
@@ -1923,10 +2467,7 @@ setTimeout(() => {
 
 
 
-
-
-
-
+//Ultimo archivo>
 
 
 
