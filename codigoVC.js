@@ -1479,7 +1479,7 @@ function agregarFila(){
   fila1.innerHTML = `
     <td>
       <textarea
-        name="Programa_T1.1R${i}"
+        name="Programa_T1_1R${i}"
         class="auto-expand input_tabla obligatorio"
         rows="1"
         style="resize:none;"
@@ -1488,22 +1488,22 @@ function agregarFila(){
     </td>
 
     <td>
-    <input type="number" name="Usuarios1_T1.1R${i}" class="input_tabla " aria-label="Usuarios1"> </input>
+    <input type="number" name="Usuarios1_T1_1R${i}" class="input_tabla " aria-label="Usuarios1"> </input>
     </td>
     <td>
-    <input type="number" name="Usuarios2_T1.1R${i}" class="input_tabla " aria-label="Usuarios2"> </input>
+    <input type="number" name="Usuarios2_T1_1R${i}" class="input_tabla " aria-label="Usuarios2"> </input>
     </td>
     <td> 
-    <input type="number" name="Usuarios3_T1.1R${i}" class="input_tabla " aria-label="Usuarios3"> </input>
+    <input type="number" name="Usuarios3_T1_1R${i}" class="input_tabla " aria-label="Usuarios3"> </input>
      </td>
     <td>
-    <input type="number" name="Usuarios4_T1.1R${i}" class="input_tabla " aria-label="Usuarios4"> </input>
+    <input type="number" name="Usuarios4_T1_1R${i}" class="input_tabla " aria-label="Usuarios4"> </input>
     </td>
     <td>
-    <input type="number" name="Usuarios5_T1.1R${i}" class="input_tabla " aria-label="Usuarios5"> </input>
+    <input type="number" name="Usuarios5_T1_1R${i}" class="input_tabla " aria-label="Usuarios5"> </input>
     </td>
     <td>
-    <input type="number" name="Usuarios6_T1.1R${i}" class="input_tabla " aria-label="Usuarios6"> </input>
+    <input type="number" name="Usuarios6_T1_1R${i}" class="input_tabla " aria-label="Usuarios6"> </input>
     </td>
   `;
 
@@ -2032,7 +2032,7 @@ function obtenerNumeroFila1(){
   return document.querySelectorAll("#tablaBody tr").length + 1;
 }
 function obtenerNumeroFila1_1(){
-  return document.querySelectorAll("#tablaBody1.1 tr").length + 1;
+  return document.querySelectorAll("#tablaBody1_1 tr").length + 1;
 }
 
 
