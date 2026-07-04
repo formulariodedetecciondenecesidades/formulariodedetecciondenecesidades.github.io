@@ -1435,7 +1435,7 @@ document.getElementById("tablaBody6").addEventListener("input", function (e) {
 function agregarFila(){
 
   const tbody = document.getElementById("tablaBody");
-  const tbody1 = document.getElementById("tablaBody1");
+  const tbody1 = document.getElementById("tablaBody1_1");
   const i = obtenerNumeroFila1();
   const j = obtenerNumeroFila1_1();
 
@@ -1476,7 +1476,7 @@ function agregarFila(){
     </td>
   `;
 
-  tr1.innerHTML = `
+  fila1.innerHTML = `
     <td>
       <textarea
         name="Programa_T1.1R${i}"
@@ -2263,6 +2263,7 @@ function restaurarTabla(data) {
   
   
   const tbody = document.getElementById("tablaBody");
+  const tbody1 = document.getElementById("tablaBody1_1");
   const tbody2 = document.getElementById("tablaBody2");
   const tbody3 = document.getElementById("tablaBody3");
   const tbodyC = document.getElementById("tablaCotizaciones"); 
@@ -2272,6 +2273,7 @@ function restaurarTabla(data) {
  
  
   tbody.innerHTML = "";
+  tbody1.innerHTML = "";
   tbody2.innerHTML = "";
   tbody3.innerHTML = "";
   tbodyC.innerHTML = "";
