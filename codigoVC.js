@@ -2143,7 +2143,7 @@ function anterior(numero){
 
 
 
-const direccionEnlace="https://script.google.com/macros/s/AKfycby6l6JY_ZsTBX2NW-U5CQhCTi1LdMxpAZfyp7ZbngXK5tMVdgGIamNDXJ9by9N_xDdnVg/exec"
+const direccionEnlace="https://script.google.com/macros/s/AKfycbx1Nm-sOOH1HONP8WYkTxMubYvykUmJnvoIXaAImQPKB1VKBeEShKzU32Y-ymTurxq5/exec"
 
 let folioActual=null;
 let edicionActual=null;
