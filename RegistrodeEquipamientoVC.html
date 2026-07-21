@@ -36,24 +36,6 @@
                       <!--  <input id="folio" name="folio" placeholder="Folio" disabled> -->
  <div class="paso activo" id="paso1">
                                                 
-                                                 
-                                               <h3>Datos Generales </h3>      
-                                               <div class="bloque-inst">    
-                            <h4>Intrucciones</h4>
-                            <div>
-                               <ul>
-                                   <li>El formulario de solicitud está diseñado para capturar una sola vez. Después de su envío, no podrá ser modificado.</li>
-                                   <li>Todos los campos correspondientes a la sección de Información General y a la Información de Contacto, deben completarse obligatoriamente.</li>
-                                   <li>En la <strong>Tabla de Registro de Necesidades</strong>, las filas de llenado se generarán automáticamente al concluir la última fila existente.</li>
-                                   <li>Al registrar cada equipo, en la <strong>Tabla de Registro de Necesidades</strong>, deberán llenarse todos los campos de cada renglón. Si alguno queda sin completar, el formulario no podrá enviarse.</li>
-                                   <li>En el campo <strong>“Precio unitario de referencia”</strong> se deberá registrar un monto estimado, de fuentes confiables. No es obligatorio contar con una cotización formal.</li>
-                                   <li>Después de presionar ‘Guardar borrador’, ‘Continuar registro’ o ‘Enviar’, espere unos segundos hasta que el sistema muestre el mensaje correspondiente.</li>
-                                    <li>Si el formulario no está completo, presione “Guardar borrador”, espere unos segundos a que se genere su folio, Si presiona varias veces el botón “Guardar”, se generarán varios folios; conserve únicamente el último, ya que será el válido.</li>
-                         
-                               </ul>    
-                              
-                            </div>
-                            </div> 
                          
                              <!--<table class="datos">
                              <tbody>
@@ -63,11 +45,13 @@
                             
                               
                          <div class="bloque-DatosDep">  
-                        <fieldset title="Info Gral">
+<!--
+                            <fieldset title="Info Gral">
                                     <legend>Información General </legend>
                         
                         <div class="form_input IG">
-                          <label for="secretaria">Secretaría o Direccion General</label>
+                        
+                            <label for="secretaria">Secretaría o Direccion General</label>
                           <select id="secretaria" name="secretaria" placeholder="   " class="IGS" required>
                                        <option value="">-- Selecciona un nivel--</option>
                                       <option value="CII">Coordinación de Imagen Institucional</option>
@@ -103,22 +87,26 @@
                                  <option value="">-- Selecciona un nivel--</option>
                                  </select>
                                 </div>
-                        <div class="form_input IG">    
-                                 <label for="dependencia">Dependencia</label>
-                                 <select name="dependencia" id="dependencia" class="IGS" disabled required>
-                                   <option value="">-- Selecciona una dependencia --</option>
-                                 </select>
-                        </div> 
+                            
+                                
                     
                       </fieldset>
+                    -->
                       <!--  </td>
                            
                         <td>
                         -->
                           <fieldset title="Info titu">
                        <legend>Información del Titular </legend>
-                    
-                    
+                        
+                        <div class="form_input TIT">    
+                                 <label for="dependencia">Dependencia</label>
+                                 <select name="dependencia" id="dependencia" class="IGS" required>
+                                   <option value="">-- Selecciona una dependencia --</option>
+                                                    
+                                </select>
+                        </div> 
+                        
                         <div class="form_input TIT">
                           <label for="titular">Titular</label>
                           <input id="titular" name="titular" placeholder="Nombre completo" required>
@@ -342,6 +330,9 @@
                                                                       Metros Cuadrados 
                                                                  </th>   
                                                                  
+                                                                 <th title ="Planos">
+                                                                        Planos
+                                                                 </th>
                                                             </tr>
                                                      </thead>
                              
@@ -464,7 +455,7 @@
                                                                     </th>
                                                                     
                                                                     <th title="Nombre del Archivo de la Cotización de Adquisición">
-                                                                        Nombre del Archivo de la Cotización de Adquisición (En caso de haberla subido en la tabla anterior)
+                                                                        Nombre de la Cotización (En la tabla anterior)
                                                                     </th>
 
 
@@ -477,7 +468,7 @@
                                                                     </th>
                                 
                                                                     <th title="Nombre del Archivo de la Cotización de Adquisición 2">
-                                                                        Nombre del Archivo de la Cotización de Adquisición 2 (En caso de haberla subido en la tabla anterior)
+                                                                        Nombre de la Cotización (En la tabla anterior)
                                                                     </th>   
 
                                                                     <th title="Cotización de Adquisición 2">
@@ -503,7 +494,7 @@
       Tabla4
     </button>
 <button type="button" class="pagina" onclick="siguiente(7)">
-      Tabla6
+      Observaciones y Dudas
     </button>                    
                                 <h3>Oferta </h3>            
                                 <fieldset class="TablaFS"> 
@@ -555,6 +546,7 @@
 
 
 </div>                                
+<!--                                <h3>Oferta </h3>            
 
 <div class="paso" id="paso8">
 <button type="button" class="pagina" onclick="anterior(8)">
@@ -563,7 +555,6 @@
 <button type="button" class="pagina" onclick="siguiente(8)">
      Observaciones y Dudas
     </button>                    
-                                <h3>Oferta </h3>            
                                 <fieldset class="TablaFS"> 
                                 <legend class="TablaLeg" >Tabla  6. Inventario de la dependencia (Capitulo 5000)</legend>
                                 <table class="Tabla6" title="Tabla de Registro de Necesidades">
@@ -609,10 +600,10 @@
                                 </fieldset>
 
 </div>                                
-
-<div class="paso" id="paso9">
-<button type="button" class="pagina" onclick="anterior(9)">
-      Tabla6
+-->
+<div class="paso" id="paso8">
+<button type="button" class="pagina" onclick="anterior(8)">
+      Tabla5
     </button>
                                 <h3>Observaciones Generales </h3>
                                 
@@ -1455,7 +1446,7 @@
     <!--    <button type="button" onclick="siguiente(4)">
       Tabla4
     </button>-->
-   <button type="submit" id="Enviar">Enviar</button>
+   <button  class="BotonChico"type="submit" id="Enviar">Enviar</button>
 
 <p id="aviso" class="Aviso"></p>
 
@@ -1476,7 +1467,6 @@
 
 
 </html>
-
 
 
 
