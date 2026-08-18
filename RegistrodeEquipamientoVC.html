@@ -26,15 +26,65 @@
                                          
                     
                       </div>
-                    
+                    <!--
                         <a href="index.html"><img src="Inicio.png" class ="A5000" alt="IPN" title="Inicio"> </a>
-                        
+                    -->    
                             
                         <form id="miFormulario">
-                        <h1>PROGRAMA INSTITUCIONAL DE DETECCIÓN DE NECESIDADES DE EQUIPAMIENTO Y OBRA (PIDN) 2026</h1>
+                        <h1>FORMATO DE DETECCIÓN DE NECESIDADES </h1>
+                        <h2 id="dependenciaSolicitud"> </h2> 
                         <h2>CAPITULO 5000 Adquisición </h2>
+
                       <!--  <input id="folio" name="folio" placeholder="Folio" disabled> -->
- <div class="paso activo" id="paso1">
+
+                                <div class="bloque-botones">
+                                <button type="button" id="guardarBorrador">💾 Guardar borrador</button>
+                                
+                                <input type="text" id="folioInput" placeholder="Ingresa tu folio">    
+                                <button type="button" id="cargarBorrador">📂 Continuar registro</button>
+                                <button type="button" id="cargarRespuesta">📂Cargar Respuesta de Solicitud</button>   
+                                <button  class="BotonChico"type="submit" id="Enviar">Enviar</button>
+                                
+                            </div>
+<br>
+                            
+                                <div class="bloque-botones">
+                                
+                                <label for="tipoDeSolicitud">Tipo de Equipamento</label>
+                          <select id="tipoDeSolicitud" name="tipoDeSolicitud" placeholder="   " class="TS" required>
+                                       <option value="">-- Selecciona un tipo de equipamento--</option>
+                                      <option value="Equipamento General (Capitulo 5000)">Equipamento General (Capitulo 5000)</option>
+                                      <option value="Bienes Tics">Bienes Tics</option>
+                                      <option value="Flota Vehicular">Flota Vehicular</option>             
+                                      
+                    
+                                      </select>
+
+   
+                                 <label for="dependencia">Dependencia</label>
+                                 <select name="dependencia" id="dependencia" class="IGS" required>
+                                   <option value=""> Favor de Cargar una solicitud, dependencia no Encontrada</option>
+                                                    
+                                </select>
+                        
+                            </div>
+<br>
+
+                             
+
+
+
+
+    <!--    <button type="button" onclick="siguiente(4)">
+      Tabla4
+    </button>-->
+   
+
+
+
+
+
+                      <div class="paso " id="paso1">
                                                 
                          
                              <!--<table class="datos">
@@ -99,13 +149,6 @@
                           <fieldset title="Info titu">
                        <legend>Información del Titular </legend>
                         
-                        <div class="form_input TIT">    
-                                 <label for="dependencia">Dependencia</label>
-                                 <select name="dependencia" id="dependencia" class="IGS" required>
-                                   <option value="">-- Selecciona una dependencia --</option>
-                                                    
-                                </select>
-                        </div> 
                         
                         <div class="form_input TIT">
                           <label for="titular">Titular</label>
@@ -152,21 +195,90 @@
                     </div>
                     
                     
-        <button type="button" class="pagina" onclick="siguiente(1)">
+        <button type="button" class="pagina" onclick="siguiente(1,2)">
                        Tabla1
         </button>
+        <button type="button" class="pagina" onclick="siguiente(1,3)">
+                  Tabla2
+        </button>    
+
+        <button type="button" class="pagina" onclick="siguiente(1,4)">
+                 Tabla3
+         </button>
+     
+    
+
+         <button type="button" class="pagina" onclick="siguiente(1,5)">
+           Cotizaciones
+         </button>
+     
+         <button type="button" class="pagina" onclick="siguiente(1,6)">
+           Tabla4
+         </button>
+     
+         <button type="button" class="pagina" onclick="siguiente(1,7)">
+           Tabla5
+         </button>
+
+         <button type="button" class="pagina" onclick="siguiente(1,8)">
+           Observaciones
+         </button>
 </div>
 
 
-<div class="paso" id="paso2">    
-     <button type="button" class="pagina" onclick="anterior(2)">
+<div class="paso activo" id="paso2">    
+  <!--  <button type="button" class="pagina" onclick="siguiente(2,1)">
       Datos Generales
-    </button>
-                                          
-    <button type="button" class="pagina" onclick="siguiente(2)">
-      Tabla2
-    </button>
-                                          <h3>Estadisticas-Espacios </h3>
+    </button>    
+    -->
+
+
+ 
+          
+                    <div class="pestañas">
+                      <button type="button" class="pagina botonActivo" >
+                  
+                        Tabla1. Usuarios.
+                      
+                      </button>
+                  
+                      <button type="button" class="pagina" onclick="siguiente(2,3)">
+                        Tabla2. Infraestructura de los espacio de los espacios participantes.
+                      </button>
+                       
+                      
+                  
+                      <button type="button" class="pagina" onclick="siguiente(2,4)">
+                        Tabla3. Infraestructura de los espacio de los espacios participantes.
+                      </button>
+                   
+                      <button type="button" class="pagina" onclick="siguiente(2,5)">
+                        Cotizaciones. (en caso de haber una cotizacion para varios equipos) 
+                      </button>
+                  
+                      <button type="button" class="pagina" onclick="siguiente(2,6)">
+                        Tabla4. Demanda
+                      </button>
+                  
+                      <button type="button" class="pagina" onclick="siguiente(2,7)">
+                        Tabla5. Oferta Directa con la Demanda-Equipo existente con el que cuenta la dependencia.
+                      </button>
+                      <button type="button" class="pagina" onclick="siguiente(2,8)">
+                      
+                        Observaciones
+                      
+                      </button>
+                  
+                      </div>
+               
+    
+                      <!--    <button type="button" class="pagina" onclick="soloActivar(8)">
+      Fijar y Suprimir Ventana de Observaciones
+    </button>-->
+
+
+
+    <h3 >Estadisticas-Espacios </h3>
                                           <fieldset class="TablaFS"> 
                                             <legend class="TablaLeg" >Tabla 1.Usuarios</legend>
                                           <table class="tabla_style Tabla1" title="Tabla 1.Usuarios">
@@ -193,8 +305,21 @@
                                                                               <th id="UsuariosHAnio3" title="Matrícula Hombres 3">
                                                                                   
                                                                               </th>
-                                                                              <th  id="UsuariosMAnio3" title="Matrícula Mujeres 3">
+                                                                              <th  id="UsuariosMAnio3" title="Matrícula Mujeres 3">  
+                                                                              </th>
+
+                                                                              
+                                                                              <th id="UsuariosHAnio4" title="Matrícula Hombres 4">
                                                                                   
+                                                                              </th>
+                                                                              <th  id="UsuariosMAnio4" title="Matrícula Mujeres 4">  
+                                                                              </th>
+
+                                                                              
+                                                                              <th id="UsuariosHAnio5" title="Matrícula Hombres 5">
+                                                                                  
+                                                                              </th>
+                                                                              <th  id="UsuariosMAnio5" title="Matrícula Mujeres 5">  
                                                                               </th>
 
                                                                          </tr>
@@ -235,6 +360,22 @@
                                                                                   
                                                                               </th>
 
+
+                                                                              <th id="UsuariosAHAnio4" title="Número de Profesores y Administrativos Hombres 4">
+                                                                                  
+                                                                              </th>
+                                                                              <th  id="UsuariosAMAnio4" title="Número de Profesores y Administrativos Mujeres 4">
+                                                                                  
+                                                                              </th>
+
+                                                                              <th id="UsuariosAHAnio5" title="Número de Profesores y Administrativos Hombres 5">
+                                                                                  
+                                                                              </th>
+                                                                              <th  id="UsuariosAMAnio5" title="Número de Profesores y Administrativos Mujeres 5">
+                                                                                  
+                                                                              </th>
+
+
                                                                          </tr>
                                                                   </thead>
                                           
@@ -255,14 +396,42 @@
 
 
 <div class="paso" id="paso3">  
-<button type="button" class="pagina" onclick="anterior(3)">
-      Tabla1
+<!--
+    <button type="button" class="pagina" onclick="siguiente(3,1)">
+      Datos Generales
+    </button>    
+-->
+ <div class="pestañas">
+ 
+    <button type="button" class="pagina" onclick="siguiente(3,2)">
+      Tabla1. Usuarios
     </button>
-                                
-    <button type="button" class="pagina" onclick="siguiente(3)">
-      Tabla3
+     
+    <button type="button" class="pagina botonActivo" >
+      Tabla2. Infraestructura de los espacio de los espacios participantes.
     </button>
-                               <h3>Estadisticas-Espacios </h3>
+
+    <button type="button" class="pagina" onclick="siguiente(3,4)">
+      Tabla3. Infraestructura General y planos.
+    </button>
+
+    <button type="button" class="pagina" onclick="siguiente(3,5)">
+      Cotizaciones (en caso de haber una cotizacion para varios equipos)
+    </button> 
+
+    <button type="button" class="pagina" onclick="siguiente(3,6)">
+      Tabla4. Demanda
+    </button>
+
+    <button type="button" class="pagina" onclick="siguiente(3,7)">
+      Tabla5. Oferta Directa con la Demanda-Equipo existente con el que cuenta la dependencia 
+    </button>
+    <button type="button" class="pagina" onclick="siguiente(3,8)">
+      Observaciones
+    </button>
+ 
+ </div>
+                                 <h3>Estadisticas-Espacios </h3>
                                <fieldset class="TablaFS"> 
                                  <legend class="TablaLeg" >Tabla 2. Infraestructura (De los Espacios Participantes)</legend>
                                <table class="tabla_style Tabla2" title="Tabla2.Infraesctructura">
@@ -310,12 +479,46 @@
   </div>
 
 <div class="paso" id="paso4">
-<button type="button"  class="pagina" onclick="anterior(4)">
-      Tabla2
+<!--    
+<button type="button" class="pagina" onclick="siguiente(4,1)">
+      Datos Generales
+    </button>    
+-->
+  <div class="pestañas">
+ 
+    <button type="button" class="pagina" onclick="siguiente(4,2)">
+      Tabla1. Usuarios
     </button>
-<button type="button" class="pagina" onclick="siguiente(4)">
-      Cotizaciones Generales
+     
+    <button type="button" class="pagina" onclick="siguiente(4,3)">
+      Tabla2. Infraestructura de los espacio de los espacios participantes.
     </button>
+    
+    
+
+    <button type="button" class="pagina botonActivo" >
+      Tabla3. Infraestructura General y planos.
+    </button>
+
+    <button type="button" class="pagina" onclick="siguiente(4,5)">
+      Cotizaciones (en caso de haber una cotizacion para varios equipos)
+    </button> 
+
+    <button type="button" class="pagina" onclick="siguiente(4,6)">
+      Tabla4. Demanda.
+    </button>
+
+    <button type="button" class="pagina" onclick="siguiente(4,7)">
+      Tabla5. Oferta Directa con la Demanda-Equipo existente con el que cuenta la dependencia.
+    </button>
+    <button type="button" class="pagina" onclick="siguiente(4,8)">
+      Observaciones
+    </button>
+
+</div>
+
+
+
                              <h3>Estadisticas-Espacios </h3>
                              <fieldset class="TablaFS"> 
                              <legend class="TablaLeg" >Tabla 3. Infraestructura (General)</legend>
@@ -348,13 +551,49 @@
   </div>
 
 <div class="paso" id="paso5">
-<button type="button" class="pagina" onclick="anterior(5)">
-      Tabla3
+
+<!--<button type="button" class="pagina" onclick="siguiente(5,1)">
+      Datos Generales
+    </button>    
+-->
+     <div class="pestañas">
+ 
+    <button type="button" class="pagina" onclick="siguiente(5,2)">
+      Tabla1. Usuarios
     </button>
-                                
-<button type="button" class="pagina" onclick="siguiente(5)">
-      Tabla4
-    </button>                   
+     
+    <button type="button" class="pagina" onclick="siguiente(5,3)">
+      Tabla2.Infraestructura de los espacio de los espacios participantes.
+    </button>
+    
+
+    <button type="button" class="pagina" onclick="siguiente(5,4)">
+      Tabla3. Infraestructura General y planos.
+    </button>
+
+    <button type="button" class="pagina botonActivo" >
+      Cotizaciones.(en caso de haber una cotizacion para varios equipos)
+    </button> 
+
+    <button type="button" class="pagina" onclick="siguiente(5,6)">
+      Tabla4. Demanda.
+    </button>
+
+    <button type="button" class="pagina" onclick="siguiente(5,7)">
+      Tabla5.Oferta Directa con la Demanda-Equipo existente con el que cuenta la dependencia.
+    </button>
+    <button type="button" class="pagina" onclick="siguiente(5,8)">
+      Observaciones
+    </button>
+    
+
+</div>
+
+
+
+
+
+
                                 <h3>Demanda </h3>             
                                 <fieldset class="TablaFS"> 
                                 <legend class="TablaLeg" >Cotizaciones </legend>
@@ -409,13 +648,46 @@
 
 
 <div class="paso" id="paso6">
-<button type="button" class="pagina" onclick="anterior(6)">
-      Cotizaciones
+<!--    
+<button type="button" class="pagina" onclick="siguiente(6,1)">
+      Datos Generales
+    </button>    
+-->
+     <div class="pestañas">
+ 
+    <button type="button" class="pagina" onclick="siguiente(6,2)">
+      Tabla1.Usuarios
     </button>
-                                
-<button type="button" class="pagina" onclick="siguiente(6)">
-      Tabla5
-    </button>                   
+     
+    <button type="button" class="pagina" onclick="siguiente(6,3)">
+      Tabla2. Infraestructura de los espacio de los espacios participantes.
+    </button>
+    
+
+    <button type="button" class="pagina" onclick="siguiente(6,4)">
+      Tabla3. Infraestructura General y planos.
+    </button>
+
+    <button type="button" class="pagina" onclick="siguiente(6,5)">
+      Cotizaciones.(en caso de haber una cotizacion para varios equipos)
+    </button> 
+
+    <button type="button" class="pagina botonActivo" >
+      Tabla4. Demanda.
+    </button>
+
+    <button type="button" class="pagina" onclick="siguiente(6,7)">
+      Tabla5. Oferta Directa con la Demanda-Equipo existente con el que cuenta la dependencia.
+    </button>
+    <button type="button" class="pagina" onclick="siguiente(6,8)">
+      Observaciones
+    </button>                    
+</div>
+
+
+
+
+
                                 <h3>Demanda </h3>             
                                 <fieldset class="TablaFS"> 
                                 <legend class="TablaLeg" >Tabla 4 Demanda </legend>
@@ -488,14 +760,49 @@
                                 </fieldset>
 
 </div>                                
+   
+ 
+
+
+
 
 <div class="paso" id="paso7">
-<button type="button" class="pagina" onclick="anterior(7)">
-      Tabla4
+<!--    
+<button type="button" class="pagina" onclick="siguiente(7,1)">
+      Datos Generales
+    </button>    
+-->
+     <div class="pestañas">
+ 
+    <button type="button" class="pagina" onclick="siguiente(7,2)">
+      Tabla1. Usuarios
     </button>
-<button type="button" class="pagina" onclick="siguiente(7)">
-      Observaciones y Dudas
-    </button>                    
+     
+    <button type="button" class="pagina" onclick="siguiente(7,3)">
+      Tabla2. Infraestructura de los espacio de los espacios participantes.
+    </button>
+    
+
+    <button type="button" class="pagina" onclick="siguiente(7,4)">
+      Tabla3.Infraestructura General y planos.
+    </button>
+
+    <button type="button" class="pagina" onclick="siguiente(7,5)">
+      Cotizaciones. (en caso de haber una cotizacion para varios equipos)
+    </button> 
+
+    <button type="button" class="pagina" onclick="siguiente(7,6)">
+      Tabla4. Demanda.
+    </button>
+
+    <button type="button" class="pagina botonActivo" >
+      Tabla5. Oferta Directa con la Demanda-Equipo existente con el que cuenta la dependencia.
+    </button>
+    <button type="button" class="pagina" onclick="siguiente(7,8)">
+      Observaciones
+    </button>                      
+  </div >
+ 
                                 <h3>Oferta </h3>            
                                 <fieldset class="TablaFS"> 
                                 <legend class="TablaLeg" >Tabla 5.OFERTA Directa con la DEMANDA-Equipo existente con el que cuenta la dependencia </legend>
@@ -601,10 +908,49 @@
 
 </div>                                
 -->
-<div class="paso" id="paso8">
-<button type="button" class="pagina" onclick="anterior(8)">
-      Tabla5
+
+
+
+<div class="paso observaciones" id="paso8">
+<!--
+    <button type="button" class="pagina" onclick="siguiente(8,1)">
+      Datos Generales
+    </button>    
+-->  
+
+
+
+
+ <div class="pestañas">
+ 
+    <button type="button" class="pagina" onclick="siguiente(8,2)">
+      Tabla1. Usuarios
     </button>
+     
+    <button type="button" class="pagina" onclick="siguiente(8,3)">
+      Tabla 2. Infraestructura de los espacio de los espacios participantes.
+    </button>
+    
+
+    <button type="button" class="pagina" onclick="siguiente(8,4)">
+      Tabla3.Infraestructura General y planos.
+    </button>
+
+    <button type="button" class="pagina" onclick="siguiente(8,5)">
+      Cotizaciones. (en caso de haber una cotizacion para varios equipos)
+    </button> 
+
+    <button type="button" class="pagina" onclick="siguiente(8,6)">
+      Tabla4. Demanda.
+    </button>
+
+    <button type="button" class="pagina" onclick="siguiente(8,7)">
+      Tabla5. Oferta Directa con la Demanda-Equipo existente con el que cuenta la dependencia.
+    </button>
+    <button type="button" class="pagina botonActivo" >
+      Observaciones
+    </button>   
+    </div>
                                 <h3>Observaciones Generales </h3>
                                 
                                 
@@ -642,9 +988,13 @@
                                         </tr>
 
                                       <tr>
-                                           <td>(B) Número de alumnos 2021</td>
+
+
+
+
+                                           <td id="UsuariosHAnio1Obs"> </td>
                                            <td><textarea
-                                                       name="ObsAlumnos2021DPO"
+                                                       name="ObsAlumnosHAnio1DPO"
                                                        class="auto-expand input_tabla obligatorio"
                                                        rows="1"
                                                        style="resize:none;"
@@ -653,7 +1003,7 @@
 
                                            <td>
                                              <textarea
-                                                       name="DudaAlumnos2021DPO"
+                                                       name="DudaAlumnosHAnio1DPO"
                                                        class="auto-expand input_tabla obligatorio"
                                                        rows="1"
                                                        style="resize:none;"
@@ -663,10 +1013,10 @@
                                      
                                      
                                      <tr>
-                                     <td>(C) Número de alumnos 2022</td>
-                                     <td>
+                                     <td id="UsuariosMAnio1Obs"></td>
+                                     <td >
                                          <textarea
-                                             name="ObsAlumnos2022DPO"
+                                             name="ObsAlumnosMAnio1DPO"
                                              class="auto-expand input_tabla obligatorio"
                                              rows="1"
                                              style="resize:none;"
@@ -674,7 +1024,7 @@
                                      </td>
                                      <td>
                                          <textarea
-                                             name="DudaAlumnos2022Dep"
+                                             name="DudaAlumnosMAnio1Dep"
                                              class="auto-expand input_tabla obligatorio"
                                              rows="1"
                                              style="resize:none;"
@@ -686,10 +1036,10 @@
                                      </tr>
 
                                        <tr>
-                                           <td>(D) Número de alumnos 2023</td>
+                                           <td id="UsuariosHAnio2Obs"></td>
                                            <td>
                                                <textarea
-                                                   name="ObsAlumnos2023DPO"   
+                                                   name="ObsAlumnosHAnio2DPO"   
                                                    class="auto-expand input_tabla obligatorio"
                                                    rows="1"
                                                    style="resize:none;"
@@ -697,7 +1047,7 @@
                                            </td>
                                            <td>
                                                <textarea
-                                                   name="DudaAlumnos2023Dep"
+                                                   name="DudaAlumnosHAnio2Dep"
                                                    class="auto-expand input_tabla obligatorio"
                                                    rows="1"
                                                    style="resize:none;"
@@ -706,10 +1056,10 @@
                                        </tr>
                                
                                        <tr>
-                                           <td>(E) Número de alumnos 2024</td>
+                                           <td id="UsuariosMAnio2Obs"></td>
                                            <td>
                                                <textarea
-                                                   name="ObsAlumnos2024DPO"
+                                                   name="ObsAlumnosMAnio2DPO"
                                                    class="auto-expand input_tabla obligatorio"
                                                    rows="1"
                                                    style="resize:none;"
@@ -717,7 +1067,7 @@
                                            </td>
                                            <td>
                                                <textarea
-                                                   name="DudaAlumnos2024Dep"
+                                                   name="DudaAlumnosMAnio2Dep"
                                                    class="auto-expand input_tabla obligatorio"
                                                    rows="1"
                                                    style="resize:none;"
@@ -726,10 +1076,10 @@
                                        </tr>
                                
                                        <tr>
-                                           <td>(F) Número de alumnos 2025</td>
+                                           <td id="UsuariosHAnio3Obs"></td>
                                            <td>
                                                <textarea
-                                                   name="ObsAlumnos2025DPO"
+                                                   name="ObsAlumnosHAnio3DPO"
                                                    class="auto-expand input_tabla obligatorio"
                                                    rows="1"
                                                    style="resize:none;"
@@ -737,13 +1087,360 @@
                                            </td>
                                            <td>
                                                <textarea
-                                                   name="DudaAlumnos2025Dep"
+                                                   name="DudaAlumnosHAnio3Dep"
                                                    class="auto-expand input_tabla obligatorio"
                                                    rows="1"
                                                    style="resize:none;"
                                                    aria-label="Duda de Numero de alumnos 2025 de la Dependencia"></textarea>
                                            </td>
                                        </tr>
+
+
+                                       <tr>
+                                           <td id="UsuariosMAnio3Obs"></td>
+                                           <td>
+                                               <textarea
+                                                   name="ObsAlumnosMAnio3DPO"
+                                                   class="auto-expand input_tabla obligatorio"
+                                                   rows="1"
+                                                   style="resize:none;"
+                                                   aria-label="Observaciones de Numero de alumnos 2025 de la DPO"></textarea>
+                                           </td>
+                                           <td>
+                                               <textarea
+                                                   name="DudaAlumnosMAnio3Dep"
+                                                   class="auto-expand input_tabla obligatorio"
+                                                   rows="1"
+                                                   style="resize:none;"
+                                                   aria-label="Duda de Numero de alumnos 2025 de la Dependencia"></textarea>
+                                           </td>
+                                       </tr>
+
+                                       
+                                         
+
+                                       <tr>
+                                           <td id="UsuariosHAnio4Obs"></td>
+                                           <td>
+                                               <textarea
+                                                   name="ObsAlumnosHAnio4DPO"
+                                                   class="auto-expand input_tabla obligatorio"
+                                                   rows="1"
+                                                   style="resize:none;"
+                                                   aria-label="Observaciones de Numero de alumnos 2025 de la DPO"></textarea>
+                                           </td>
+                                           <td>
+                                               <textarea
+                                                   name="DudaAlumnosHAnio4Dep"
+                                                   class="auto-expand input_tabla obligatorio"
+                                                   rows="1"
+                                                   style="resize:none;"
+                                                   aria-label="Duda de Numero de alumnos 2025 de la Dependencia"></textarea>
+                                           </td>
+                                       </tr>
+
+
+                                       <tr>
+                                           <td id="UsuariosMAnio4Obs"></td>
+                                           <td>
+                                               <textarea
+                                                   name="ObsAlumnosMAnio4DPO"
+                                                   class="auto-expand input_tabla obligatorio"
+                                                   rows="1"
+                                                   style="resize:none;"
+                                                   aria-label="Observaciones de Numero de alumnos 2025 de la DPO"></textarea>
+                                           </td>
+                                           <td>
+                                               <textarea
+                                                   name="DudaAlumnosMAnio4Dep"
+                                                   class="auto-expand input_tabla obligatorio"
+                                                   rows="1"
+                                                   style="resize:none;"
+                                                   aria-label="Duda de Numero de alumnos 2025 de la Dependencia"></textarea>
+                                           </td>
+                                       </tr>
+
+                                       <tr>
+                                           <td id="UsuariosHAnio5Obs"></td>
+                                           <td>
+                                               <textarea
+                                                   name="ObsAlumnosHAnio5DPO"
+                                                   class="auto-expand input_tabla obligatorio"
+                                                   rows="1"
+                                                   style="resize:none;"
+                                                   aria-label="Observaciones de Numero de alumnos 2025 de la DPO"></textarea>
+                                           </td>
+                                           <td>
+                                               <textarea
+                                                   name="DudaAlumnosHAnio5Dep"
+                                                   class="auto-expand input_tabla obligatorio"
+                                                   rows="1"
+                                                   style="resize:none;"
+                                                   aria-label="Duda de Numero de alumnos 2025 de la Dependencia"></textarea>
+                                           </td>
+                                       </tr>
+
+
+                                       <tr>
+                                           <td id="UsuariosMAnio5Obs"></td>
+                                           <td>
+                                               <textarea
+                                                   name="ObsAlumnosMAnio5DPO"
+                                                   class="auto-expand input_tabla obligatorio"
+                                                   rows="1"
+                                                   style="resize:none;"
+                                                   aria-label="Observaciones de Numero de alumnos 2025 de la DPO"></textarea>
+                                           </td>
+                                           <td>
+                                               <textarea
+                                                   name="DudaAlumnosMAnio5Dep"
+                                                   class="auto-expand input_tabla obligatorio"
+                                                   rows="1"
+                                                   style="resize:none;"
+                                                   aria-label="Duda de Numero de alumnos 2025 de la Dependencia"></textarea>
+                                           </td>
+                                       </tr>
+
+
+
+
+                                                                             <tr>
+                                           <td>Número de Profesores Superior y Posgrado</td>
+                                           <td><textarea
+                                                       name="ObsNumProfSupPosgDPO"
+                                                       class="auto-expand input_tabla obligatorio"
+                                                       rows="1"
+                                                       style="resize:none;"
+                                                       aria-label="Observaciones  de Programa Academico de la DPO"
+                                            > </textarea></td>
+
+                                           <td>
+                                             <textarea
+                                                       name="DudaNumProfSupPosgDep"
+                                                       class="auto-expand input_tabla obligatorio"
+                                                       rows="1"
+                                                       style="resize:none;"
+                                                       aria-label="Duda de Programa Academico de la Dependencia"
+                                            > </textarea></td>
+                                        </tr>
+
+                                      <tr>
+
+
+                                           <td id="UsuariosAHAnio1Obs"> </td>
+                                           <td><textarea
+                                                       name="ObsUsuariosAHAnio1DPO"
+                                                       class="auto-expand input_tabla obligatorio"
+                                                       rows="1"
+                                                       style="resize:none;"
+                                                       aria-label="Observaciones  de Número de alumnos 2021 de la DPO"
+                                            > </textarea></td>
+
+                                           <td>
+                                             <textarea
+                                                       name="DudaUsuariosAHAnio1DPO"
+                                                       class="auto-expand input_tabla obligatorio"
+                                                       rows="1"
+                                                       style="resize:none;"
+                                                       aria-label="Duda de Número de alumnos 2021 de la Dependencia"
+                                            > </textarea></td>
+                                     </tr> 
+                                     
+                                     
+                                     <tr>
+                                     <td id="UsuariosAMAnio1Obs"></td>
+                                     <td >
+                                         <textarea
+                                             name="ObsUsuariosAMAnio1DPO"
+                                             class="auto-expand input_tabla obligatorio"
+                                             rows="1"
+                                             style="resize:none;"
+                                             aria-label="Observaciones de Numero de alumnos 2022 de la DPO"></textarea>
+                                     </td>
+                                     <td>
+                                         <textarea
+                                             name="DudaUsuariosAMAnio1Dep"
+                                             class="auto-expand input_tabla obligatorio"
+                                             rows="1"
+                                             style="resize:none;"
+                                             aria-label="Duda de Numero de alumnos 2022 de la Dependencia"></textarea>
+                         
+                         
+                         
+                                     </td>
+                                     </tr>
+
+                                       <tr>
+                                           <td id="UsuariosAHAnio2Obs"></td>
+                                           <td>
+                                               <textarea
+                                                   name="ObsUsuariosAHAnio2DPO"   
+                                                   class="auto-expand input_tabla obligatorio"
+                                                   rows="1"
+                                                   style="resize:none;"
+                                                   aria-label="Observaciones de Numero de alumnos 2023 de la DPO"></textarea>
+                                           </td>
+                                           <td>
+                                               <textarea
+                                                   name="DudaUsuariosAHAnio2Dep"
+                                                   class="auto-expand input_tabla obligatorio"
+                                                   rows="1"
+                                                   style="resize:none;"
+                                                   aria-label="Duda de Numero de alumnos 2023 de la Dependencia"></textarea>
+                                           </td>
+                                       </tr>
+                               
+                                       <tr>
+                                           <td id="UsuariosAMAnio2Obs"></td>
+                                           <td>
+                                               <textarea
+                                                   name="ObsUsuariosAMAnio2DPO"
+                                                   class="auto-expand input_tabla obligatorio"
+                                                   rows="1"
+                                                   style="resize:none;"
+                                                   aria-label="Observaciones de Numero de alumnos 2024 de la DPO"></textarea>
+                                           </td>
+                                           <td>
+                                               <textarea
+                                                   name="DudaUsuariosAMAnio2Dep"
+                                                   class="auto-expand input_tabla obligatorio"
+                                                   rows="1"
+                                                   style="resize:none;"
+                                                   aria-label="Duda de Numero de alumnos 2024 de la Dependencia"></textarea>
+                                           </td>
+                                       </tr>
+                               
+                                       <tr>
+                                           <td id="UsuariosAHAnio3Obs"></td>
+                                           <td>
+                                               <textarea
+                                                   name="ObsUsuariosAHAnio3DPO"
+                                                   class="auto-expand input_tabla obligatorio"
+                                                   rows="1"
+                                                   style="resize:none;"
+                                                   aria-label="Observaciones de Numero de alumnos 2025 de la DPO"></textarea>
+                                           </td>
+                                           <td>
+                                               <textarea
+                                                   name="DudaUsuariosAHAnio3Dep"
+                                                   class="auto-expand input_tabla obligatorio"
+                                                   rows="1"
+                                                   style="resize:none;"
+                                                   aria-label="Duda de Numero de alumnos 2025 de la Dependencia"></textarea>
+                                           </td>
+                                       </tr>
+
+
+                                       <tr>
+                                           <td id="UsuariosAMAnio3Obs"></td>
+                                           <td>
+                                               <textarea
+                                                   name="ObsUsuariosAMAnio3DPO"
+                                                   class="auto-expand input_tabla obligatorio"
+                                                   rows="1"
+                                                   style="resize:none;"
+                                                   aria-label="Observaciones de Numero de alumnos 2025 de la DPO"></textarea>
+                                           </td>
+                                           <td>
+                                               <textarea
+                                                   name="DudaUsuariosAMAnio3Dep"
+                                                   class="auto-expand input_tabla obligatorio"
+                                                   rows="1"
+                                                   style="resize:none;"
+                                                   aria-label="Duda de Numero de alumnos 2025 de la Dependencia"></textarea>
+                                           </td>
+                                       </tr>
+
+
+
+
+                                       <tr>
+                                           <td id="UsuariosAHAnio4Obs"></td>
+                                           <td>
+                                               <textarea
+                                                   name="ObsUsuariosAHAnio4DPO"
+                                                   class="auto-expand input_tabla obligatorio"
+                                                   rows="1"
+                                                   style="resize:none;"
+                                                   aria-label="Observaciones de Numero de alumnos 2025 de la DPO"></textarea>
+                                           </td>
+                                           <td>
+                                               <textarea
+                                                   name="DudaUsuariosAHAnio4Dep"
+                                                   class="auto-expand input_tabla obligatorio"
+                                                   rows="1"
+                                                   style="resize:none;"
+                                                   aria-label="Duda de Numero de alumnos 2025 de la Dependencia"></textarea>
+                                           </td>
+                                       </tr>
+
+
+                                       <tr>
+                                           <td id="UsuariosAMAnio4Obs"></td>
+                                           <td>
+                                               <textarea
+                                                   name="ObsUsuariosAMAnio4DPO"
+                                                   class="auto-expand input_tabla obligatorio"
+                                                   rows="1"
+                                                   style="resize:none;"
+                                                   aria-label="Observaciones de Numero de alumnos 2025 de la DPO"></textarea>
+                                           </td>
+                                           <td>
+                                               <textarea
+                                                   name="DudaUsuariosAMAnio4Dep"
+                                                   class="auto-expand input_tabla obligatorio"
+                                                   rows="1"
+                                                   style="resize:none;"
+                                                   aria-label="Duda de Numero de alumnos 2025 de la Dependencia"></textarea>
+                                           </td>
+                                       </tr>
+
+
+                                       <tr>
+                                           <td id="UsuariosAHAnio5Obs"></td>
+                                           <td>
+                                               <textarea
+                                                   name="ObsUsuariosAHAnio5DPO"
+                                                   class="auto-expand input_tabla obligatorio"
+                                                   rows="1"
+                                                   style="resize:none;"
+                                                   aria-label="Observaciones de Numero de alumnos 2025 de la DPO"></textarea>
+                                           </td>
+                                           <td>
+                                               <textarea
+                                                   name="DudaUsuariosAHAnio5Dep"
+                                                   class="auto-expand input_tabla obligatorio"
+                                                   rows="1"
+                                                   style="resize:none;"
+                                                   aria-label="Duda de Numero de alumnos 2025 de la Dependencia"></textarea>
+                                           </td>
+                                       </tr>
+
+
+                                       <tr>
+                                           <td id="UsuariosAMAnio5Obs"></td>
+                                           <td>
+                                               <textarea
+                                                   name="ObsUsuariosAMAnio5DPO"
+                                                   class="auto-expand input_tabla obligatorio"
+                                                   rows="1"
+                                                   style="resize:none;"
+                                                   aria-label="Observaciones de Numero de alumnos 2025 de la DPO"></textarea>
+                                           </td>
+                                           <td>
+                                               <textarea
+                                                   name="DudaUsuariosAMAnio5Dep"
+                                                   class="auto-expand input_tabla obligatorio"
+                                                   rows="1"
+                                                   style="resize:none;"
+                                                   aria-label="Duda de Numero de alumnos 2025 de la Dependencia"></textarea>
+                                           </td>
+                                       </tr>
+
+
+
+
+
 
                               </tbody>
                               </table>
@@ -752,9 +1449,16 @@
 
 
 
+
+
+
+                              
+
+
+
                               <!-- ------------------------------------------Tabla 2 Obs-->
                     <fieldset class="TablaFS"> 
-                                <legend class="TablaLeg" >Pagina Estadística- Espacios (Tabla 2. Infraestructura (De los Espacios Participantes)) </legend>
+                                <legend class="TablaLeg" >Tabla 2. Infraestructura (De los Espacios Participantes) </legend>
                                  <table class="Tabla7" title="Tabla de Observaciones">
                     <thead>
                               <tr>
@@ -905,7 +1609,7 @@
 
 <!-- ------------------------------------------Tabla 3 Obs-->
                     <fieldset class="TablaFS"> 
-                                <legend class="TablaLeg" >Pagina Estadística- Espacios (Tabla 3. Infraestructura (De los Espacios Participantes)) </legend>
+                                <legend class="TablaLeg" >Tabla 3. Infraestructura (De los Espacios Participantes) </legend>
                                  <table class="Tabla7" title="Tabla de Observaciones">
                     <thead>
                               <tr>
@@ -958,7 +1662,7 @@
 
                     <!-- ------------------------------------------Tabla 4 Obs-->
                     <fieldset class="TablaFS"> 
-                                <legend class="TablaLeg" >Pagina Estadística- Espacios (Tabla 4. Infraestructura (De los Espacios Participantes)) </legend>
+                                <legend class="TablaLeg" >Tabla 4. Infraestructura (De los Espacios Participantes)</legend>
                                  <table class="Tabla7" title="Tabla de Observaciones">
                     <thead>
                               <tr>
@@ -1150,7 +1854,7 @@
 
 <!-- ------------------------------------------Tabla 5 Obs-->
                     <fieldset class="TablaFS"> 
-                                <legend class="TablaLeg" >Pagina Estadística- Espacios (Tabla 5. Infraestructura (De los Espacios Participantes)) </legend>
+                                <legend class="TablaLeg" >Tabla 5. Infraestructura (De los Espacios Participantes) </legend>
                                  <table class="Tabla7" title="Tabla de Observaciones">
                     <thead>
                               <tr>
@@ -1282,9 +1986,9 @@
 
 
 <!-- ------------------------------------------Tabla 6 Obs-->
-                    <fieldset class="TablaFS"> 
-                                <legend class="TablaLeg" >Pagina Estadística- Espacios (Tabla 6. Infraestructura (De los Espacios Participantes)) </legend>
-                                 <table class="Tabla7" title="Tabla de Observaciones">
+                    <fieldset class="TablaFS paso"> 
+                                <legend class="TablaLeg paso" >Tabla 6. Infraestructura (De los Espacios Participantes)</legend>
+                                 <table class="Tabla7 paso" title="Tabla de Observaciones">
                     <thead>
                               <tr>
                                      <th title ="Columna">Columna</th>
@@ -1435,22 +2139,8 @@
 
          
                                 
-                                <div class="bloque-botones">
-                                <button type="button" id="guardarBorrador">💾 Guardar borrador</button>
-                                
-                                <input type="text" id="folioInput" placeholder="Ingresa tu folio">    
-                                <button type="button" id="cargarBorrador">📂 Continuar registro</button>
-                                <button type="button" id="cargarRespuesta">📂Cargar Respuesta de Solicitud</button>   
-                            </div>
-
-    <!--    <button type="button" onclick="siguiente(4)">
-      Tabla4
-    </button>-->
-   <button  class="BotonChico"type="submit" id="Enviar">Enviar</button>
 
 <p id="aviso" class="Aviso"></p>
-
-
 </div>
 
 
@@ -1467,14 +2157,6 @@
 
 
 </html>
-
-
-
-
-
-
-
-
 
 
 
