@@ -10,15 +10,16 @@
                     </head>
                     <body>
                         <div class="imagenes">
-                                         <img src="Izquierda.png" class ="izquierda"  alt="IPN" title="SECRETARIA DE EDUCACIÓN PÚBLICA">
-                                           
+                                    <!--    <img src="Izquierda.png" class ="izquierda"  alt="IPN" title="SECRETARIA DE EDUCACIÓN PÚBLICA">
+                                        -->   
                                            
                                             
                                             
                                          
                                            <img src="Centro.png" class ="centro" alt="IPN" title="INSTITUTO POLITECNICO NACIONAL">
                                            
-                                           <div><h2>Instituto Politécnico Nacional </h2>
+                                           <div class="lema">
+                                                <h2>Instituto Politécnico Nacional </h2>
                                                 <h2>"La Técnica al Servicio de la Patria" </h2>
                                            </div>
                                            
@@ -37,19 +38,13 @@
 
                       <!--  <input id="folio" name="folio" placeholder="Folio" disabled> -->
 
-                                <div class="bloque-botones">
-                                <button type="button" id="guardarBorrador">💾 Guardar borrador</button>
-                                
-                                <input type="text" id="folioInput" placeholder="Ingresa tu folio">    
-                                <button type="button" id="cargarBorrador">📂 Continuar registro</button>
-                                <button type="button" id="cargarRespuesta">📂Cargar Respuesta de Solicitud</button>   
-                                <button  class="BotonChico"type="submit" id="Enviar">Enviar</button>
-                                
-                            </div>
-<br>
-                            
-                                <div class="bloque-botones">
-                                
+                   <div class="bloque-botones filtroInicial">
+                            <label for="dependencia">Dependencia</label>
+                                 <select name="dependencia" id="dependencia" class="IGS" required>
+                                   <option value=""> Favor de Cargar una solicitud, dependencia no Encontrada</option>
+                                                    
+                                </select>                      
+
                                 <label for="tipoDeSolicitud">Tipo de Equipamento</label>
                           <select id="tipoDeSolicitud" name="tipoDeSolicitud" placeholder="   " class="TS" required>
                                        <option value="">-- Selecciona un tipo de equipamento--</option>
@@ -61,14 +56,29 @@
                                       </select>
 
    
-                                 <label for="dependencia">Dependencia</label>
-                                 <select name="dependencia" id="dependencia" class="IGS" required>
-                                   <option value=""> Favor de Cargar una solicitud, dependencia no Encontrada</option>
-                                                    
-                                </select>
-                        
+                    </div>
+
+<br>
+
+   
+                            <div class="bloque-botones BotIzquierda">
+                                <button type="button" id="guardarBorrador">💾 Guardar borrador</button>
+                                
+                                <button type="button" id="cargarBorrador">📂 Continuar registro</button>
+                                
+                                
+                            </div>
+                            
+                             <div class="bloque-botones Botderecha">
+                                
+                                <input class="paso" type="text" id="folioInput" placeholder="Ingresa tu folio">    
+                                <button type="button" id="cargarRespuesta">📂Cargar Respuesta de Solicitud</button>   
+                                <button  class="BotonChico"type="submit" id="Enviar">Enviar</button>
+                                
                             </div>
 <br>
+                            
+   
 
                              
 
@@ -249,7 +259,8 @@
                       
                   
                       <button type="button" class="pagina" onclick="siguiente(2,4)">
-                        Tabla3. Infraestructura de los espacio de los espacios participantes.
+                        Tabla3. 
+                        Infraestructura de los espacio de los espacios participantes.
                       </button>
                    
                       <button type="button" class="pagina" onclick="siguiente(2,5)">
@@ -261,7 +272,8 @@
                       </button>
                   
                       <button type="button" class="pagina" onclick="siguiente(2,7)">
-                        Tabla5. Oferta Directa con la Demanda-Equipo existente con el que cuenta la dependencia.
+                        Tabla5.
+                         Oferta Directa con la Demanda-Equipo existente con el que cuenta la dependencia.
                       </button>
                       <button type="button" class="pagina" onclick="siguiente(2,8)">
                       
