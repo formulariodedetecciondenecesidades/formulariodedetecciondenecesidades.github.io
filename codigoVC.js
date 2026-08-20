@@ -349,7 +349,7 @@ tr4.innerHTML = `
     <td>
       <textarea
         name="especificaciones_T4R${i}"
-        class="auto-expand input_tabla"
+        class="auto-expand input_tabla expandible"
         rows="1"
         style="resize:none;"
         aria-label="Especificaciones"
@@ -358,7 +358,7 @@ tr4.innerHTML = `
 
     <td>
       <textarea id="justificacion_T4R${i}" name="justificacion_T4R${i}"
-                   class="auto-expand input_tabla"
+                   class="auto-expand input_tabla expandible"
                    rows="1"
                    style="resize:none;"  aria-label="Justificación">
                    
@@ -1684,7 +1684,7 @@ function agregarFila4(){
     <td>
       <textarea
         name="especificaciones_T4R${i}"
-        class="auto-expand input_tabla"
+        class="auto-expand input_tabla expandible"
         rows="1"
         style="resize:none;"
         aria-label="Especificaciones"
@@ -1693,7 +1693,7 @@ function agregarFila4(){
 
     <td>
       <textarea id="justificacion_T4R${i}" name="justificacion_T4R${i}"
-                   class="auto-expand input_tabla"
+                   class="auto-expand input_tabla expandible"
                    rows="1"
                    style="resize:none;"  aria-label="Justificación">
                    
@@ -2311,16 +2311,32 @@ function restaurarTabla(data) {
 document.getElementById("cargarBorrador").addEventListener("click", async () => {
 //-------------------------- Borrador con  folio (Backend)   
   
+
+
+
+  const folio = document.getElementById("folioInput").value.trim();
+  //-----------------------------nuevo----------------
+  const dependencia = document.getElementById("dependencia").value.trim();
+   
+  const tipoDeEquipamento = document.getElementById("tipoDeSolicitud").value.trim();
+
+   if (!dependencia) {
+    alert("⚠️ Ingresa una dependencia válida");
+    return;
+   }
+
+
+/*
   const folio = document.getElementById("folioInput").value.trim();
   if (!folio) {
     alert("⚠️ Ingresa un folio válido");
     return;
   }
-
+*/
 try {
     const res = await fetch(direccionEnlace, {
       method: "POST",
-      body: JSON.stringify({action: "cargarBorrador", folio})
+      body: JSON.stringify({action: "cargarBorrador", dependencia,tipoDeEquipamento})
     });
 
 
@@ -2721,19 +2737,19 @@ const selectsTexto = [
 
     if((data[key]!="")&&(key.includes("CotizacionAdquisicionG1"))){
             ExistenciaDeCotizaciones=true;
-           alert(data[key].nombre);     
+       //    alert(data[key].nombre);     
     }
     if((data[key]!="")&&(key.includes("CotizacionAdquisicionG2"))){
             ExistenciaDeCotizacionesA2=true;
-           alert(data[key].nombre);     
+         //     alert(data[key].nombre);     
     }
     if((data[key]!="")&&(key.includes("CotizacionAdquisicion_T4R"))){
             ExistenciaDeCotizaciones_T4=true;
-           alert(data[key].nombre);     
+           //     alert(data[key].nombre);     
     }
     if((data[key]!="")&&(key.includes("CotizacionAdquisicion2_T4R"))){
             ExistenciaDeCotizacionesA2_T4=true;
-           alert(data[key].nombre);     
+           //      alert(data[key].nombre);     
     }
 
 }
@@ -2988,7 +3004,7 @@ const config = await res.json();
 
 
 
-document.querySelectorAll("#miFormulario textarea").forEach(campo => {
+document.querySelectorAll("#miFormulario .expandible").forEach(campo => {
 
     campo.addEventListener("focus", function () {
         this.classList.add("campo-ampliado");
@@ -3123,4 +3139,5 @@ function dividirData(data, partes = 4) {
 
     return resultado;
 }
+
 
