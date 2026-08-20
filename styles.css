@@ -114,22 +114,6 @@ textarea {
 }
 
 /* IMÁGENES ENCABEZADO */
-.imagenes {
-    /*
-    display: flex;
-    gap: 0px;*/
-  /*  display: grid;
-    grid-template-columns: 20% 55% 20%; /* siempre dos columnas 
-    gap: 10px;*/
-/* width:100%; */
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 20px; /* separa de bordes */
-    gap:20px;
-    background-color:#fff;
-}
-
 .imagenes img {
     width: 100%;
 
@@ -378,13 +362,19 @@ legend{
   margin-left: 5px;
 }
 .bloque-botones {
-  display: inline-flex;
-  gap: 10px;
+  display: inline-block;
+  gap: 5px;
  /** max-width: 1200px;**/
   margin-left: 5%;
   margin-bottom: 10px;
-  align-items: center;
-}
+  }
+.filtroInicial select{
+     display: block;
+     margin-bottom:10px;
+     margin-top:10px;
+     width:400px;
+    }
+
 .Just{
     text-align: justify;
     font-size:large;
@@ -478,20 +468,29 @@ legend{
 }
 
 
-.imagenes > div {
-  max-width: 400px;   /* fuerza salto de línea */
-  text-align: center;
-  flex: 1;            /* ocupa solo el centro */
-  margin-left: -120px;
+
+.imagenes {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #fff;
+}
+
+.imagenes .lema {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+    text-align: center;
 }
 
 .imagenes h2 {
-  margin: 0px;
-  margin-top: 5px;
-  margin-left: -20px;  
-  line-height: 1.2;
-  font-size: 1.1rem;
-  white-space: normal;
+    margin: 5px 0;
+    line-height: 1.2;
+    font-size: 1.1rem;
+    text-align: center;
 }
 
 a {
@@ -926,7 +925,7 @@ th {
     border: 1px solid #000;
 
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
 
     text-align: center;
@@ -947,11 +946,11 @@ th {
 
 
 .EdicionEncabezado{
-    width: 100%;
+    width: 40%;
     max-width: 400px;
     max-height: 40px;
-    align-items:center;
     display:inline-block;
+    align-items: flex-start;
     margin-bottom: 40px;
 }
 
@@ -976,6 +975,7 @@ th {
     resize: none;
     overflow: auto;
     box-shadow: 0 10px 40px rgba(0,0,0,.35);
+    
 }
 
 
@@ -994,7 +994,26 @@ th {
 
     border-radius: 7px 7px 0 0;
 }
- 
+ .Botderecha{
+    float: right;
+    width: 180px;
+    margin-left: 15px;
+ }
+.pestañas button {
+    height: 50px;
+    padding: 5px 8px;
+    
+    display: flex;
+    align-items: flex-start; /* arriba */
+    justify-content: flex-start; /* izquierda */
+
+    text-align: left;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    box-sizing: border-box;
+}
+
+
 /*
 #contenedorTablas {
     display: flex;
@@ -1015,6 +1034,7 @@ th {
 }
 
 */
+
 
 
 
