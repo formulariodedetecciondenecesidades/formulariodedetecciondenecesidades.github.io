@@ -19,8 +19,8 @@
                                            <img src="Centro.png" class ="centro" alt="IPN" title="INSTITUTO POLITECNICO NACIONAL">
                                            
                                            <div class="lema">
-                                                <h2>Instituto Politécnico Nacional </h2>
-                                                <h2>"La Técnica al Servicio de la Patria" </h2>
+                                                <h2 class="IPN">Instituto Politécnico Nacional </h2>
+                                                <h2 class="IPN">"La Técnica al Servicio de la Patria" </h2>
                                            </div>
                                            
                                            <img src="Derecha.png" class ="derecho" alt="IPN" title="COORDINACIÓN GENERAL DE PLANEACIÓN E INFORMACIÓN INSTITUCIONAL">
@@ -32,6 +32,9 @@
                     -->    
                             
                         <form id="miFormulario">
+                        
+                         
+
                         <h1>FORMATO DE DETECCIÓN DE NECESIDADES </h1>
                         <h2 id="dependenciaSolicitud"> </h2> 
                         <h2>CAPITULO 5000 Adquisición </h2>
@@ -39,19 +42,23 @@
                       <!--  <input id="folio" name="folio" placeholder="Folio" disabled> -->
 
                    <div class="bloque-botones filtroInicial">
-                            <label for="dependencia">Dependencia</label>
+                                
+                                <input  type="text" id="folioInput" placeholder="Ingresa tu folio">
+                                
+                                <div  class="paso">
+                                <label   for="dependencia">Dependencia</label>
                                  <select name="dependencia" id="dependencia" class="IGS" required>
-                                   <option value=""> Favor de Cargar una solicitud, dependencia no Encontrada</option>
+                                   <option  value="">-Elija la dependencia a la que pertenece su solicitud-</option>
                                                     
                                 </select>                      
-
+                                </div>
                                 <label for="tipoDeSolicitud">Tipo de Equipamento</label>
                           <select id="tipoDeSolicitud" name="tipoDeSolicitud" placeholder="   " class="TS" required>
                                        <option value="">-- Selecciona un tipo de equipamento--</option>
                                       <option value="Equipamento General (Capitulo 5000)">Equipamento General (Capitulo 5000)</option>
                                       <option value="Bienes Tics">Bienes Tics</option>
                                       <option value="Flota Vehicular">Flota Vehicular</option>             
-                                      
+                                      <option value="Equipo de Laboratorio">Equipo de Laboratorio</option>
                     
                                       </select>
 
@@ -68,10 +75,14 @@
                                 
                                 
                             </div>
-                            
+                            <div class="bloque-botones">
+                                   <button type="button" id="cargarDependencia">
+                                                    Cargar Dependencia
+                            </button>
+                            </div>
                              <div class="bloque-botones Botderecha">
                                 
-                                <input class="paso" type="text" id="folioInput" placeholder="Ingresa tu folio">    
+                                    
                                 <button type="button" id="cargarRespuesta">📂Cargar Respuesta de Solicitud</button>   
                                 <button  class="BotonChico"type="submit" id="Enviar">Enviar</button>
                                 
@@ -242,7 +253,9 @@
     </button>    
     -->
 
-
+                                          <h3 >Estadisticas-Espacios </h3>
+                                          <fieldset class="TablaFS"> 
+                                            <legend class="TablaLeg" >Tabla 1.Usuarios</legend>
  
           
                     <div class="pestañas">
@@ -253,18 +266,17 @@
                       </button>
                   
                       <button type="button" class="pagina" onclick="siguiente(2,3)">
-                        Tabla2. Infraestructura de los espacio de los espacios participantes.
+                        Tabla2. Infraestructura de los espacios participantes.
                       </button>
                        
                       
                   
                       <button type="button" class="pagina" onclick="siguiente(2,4)">
-                        Tabla3. 
-                        Infraestructura de los espacio de los espacios participantes.
+                        Tabla 3. Infraestructura (General)
                       </button>
                    
                       <button type="button" class="pagina" onclick="siguiente(2,5)">
-                        Cotizaciones. (en caso de haber una cotizacion para varios equipos) 
+                        Cotizaciones. 
                       </button>
                   
                       <button type="button" class="pagina" onclick="siguiente(2,6)">
@@ -290,12 +302,14 @@
 
 
 
-    <h3 >Estadisticas-Espacios </h3>
-                                          <fieldset class="TablaFS"> 
-                                            <legend class="TablaLeg" >Tabla 1.Usuarios</legend>
+    
                                           <table class="tabla_style Tabla1" title="Tabla 1.Usuarios">
                                           <thead>
                                                                          <tr>
+                                                                              <th title="Numero de Fila">
+                                                                                                                        
+                                                                              </th>    
+
                                                                               <th title="Programas">
                                                                                    Programas académicos, servicios o actividades que realiza la dependencia.   
                                                                               </th>
@@ -338,7 +352,98 @@
                                                                   </thead>
                                           
                                                                   <tbody id="tablaBody">
+
+
                                                                           
+<!----------------------------------------------------------------------------------Ejemplo  Tabla 1----------------------------------------------------------->
+                                                                  
+
+                                                                         <tr>
+                                                                             <td title="Numero de Fila" class="ejemplo">
+                                                                                                                        
+                                                                              </td> 
+
+                                                                             <td title="ProgramasE1" id="ProgramasE1" class="ejemplo">
+                                                                                   
+                                                                              </td>
+                                                          
+                                                                              <td id="UsuariosHAnio1E1" title="Matrícula Hombres 1" class="ejemplo">
+                                                                                
+                                                                              </td>   
+                                          
+                                                                              <td id="UsuariosMAnio1E1" title="Matrícula Mujeres 1" class="ejemplo">
+                                                                                   
+                                                                              </td>
+                                                                              <td id="UsuariosHAnio2E1" title="Matrícula Hombres 2" class="ejemplo">
+                                                                                  
+                                                                              </td>
+                                                                              <td  id="UsuariosMAnio2E1" title="Matrícula Mujeres 2" class="ejemplo">
+                                                                                  
+                                                                              </td>
+                                          
+                                                                              <td id="UsuariosHAnio3E1" title="Matrícula Hombres 3" class="ejemplo">
+                                                                                
+                                                                             </td>
+                                                                              <td  id="UsuariosMAnio3E1" title="Matrícula Mujeres 3" class="ejemplo">  
+                                                                             </td>
+                                                                             <td id="UsuariosHAnio4E1" title="Matrícula Hombres 4" class="ejemplo">
+                                                                               
+                                                                             </td>
+                                                                              <td  id="UsuariosMAnio4E1" title="Matrícula Mujeres 4" class="ejemplo">  
+                                                                             </td>
+                                                                             <td id="UsuariosHAnio5E1" title="Matrícula Hombres 5" class="ejemplo">
+                                                                                 
+                                                                             </td>
+                                                                              <td  id="UsuariosMAnio5E1" title="Matrícula Mujeres 5" class="ejemplo">  
+                                                                             </td>
+
+                                                                         </tr> 
+
+                                                                            <tr>
+                                                                               <td title="Numero de Fila" class="ejemplo">
+                                                                                                                        
+                                                                              </td>
+                                                                              <td title="ProgramasE2" id="ProgramasE2" class="ejemplo">
+                                                                                   
+                                                                              </td>
+                                                          
+                                                                              <td id="UsuariosHAnio1E2" title="Matrícula Hombres 1" class="ejemplo">
+                                                                                
+                                                                              </td>   
+                                          
+                                                                              <td id="UsuariosMAnio1E2" title="Matrícula Mujeres 1" class="ejemplo">
+                                                                                   
+                                                                              </td>
+                                                                              <td id="UsuariosHAnio2E2" title="Matrícula Hombres 2" class="ejemplo">
+                                                                                  
+                                                                              </td>
+                                                                              <td  id="UsuariosMAnio2E2" title="Matrícula Mujeres 2" class="ejemplo">
+                                                                                  
+                                                                              </td>
+                                          
+                                                                              <td id="UsuariosHAnio3E2" title="Matrícula Hombres 3" class="ejemplo">
+                                                                                
+                                                                             </td>
+                                                                              <td  id="UsuariosMAnio3E2" title="Matrícula Mujeres 3" class="ejemplo">  
+                                                                             </td>
+                                                                             <td id="UsuariosHAnio4E2" title="Matrícula Hombres 4" class="ejemplo">
+                                                                               
+                                                                             </td>
+                                                                              <td  id="UsuariosMAnio4E2" title="Matrícula Mujeres 4" class="ejemplo">  
+                                                                             </td>
+                                                                             <td id="UsuariosHAnio5E2" title="Matrícula Hombres 5" class="ejemplo">
+                                                                                 
+                                                                             </td>
+                                                                              <td  id="UsuariosMAnio5E2" title="Matrícula Mujeres 5" class="ejemplo">  
+                                                                             </td>
+
+                                                                         </tr>
+                                                                          
+
+                                                                         
+
+
+
                                           
                                           
                                                                         
@@ -347,8 +452,12 @@
                                           <table class="tabla_style Tabla1" title="Tabla 1.1 Profesores y Administrativos">
                                           <thead>
                                                                          <tr>
-                                                                              <th title="Número de Profesores Superior y Posgrado  ">
-                                                                                   Número de Profesores Superior y Posgrado     
+                                                                              <td title="Numero de Fila"  class="ejemplo">
+                                                                                                                        
+                                                                              </td>
+
+                                                                              <th title="División, Departamento o Jefatura.  ">
+                                                                                   División, Departamento o Jefatura.     
                                                                               </th>
                                                           
                                                                               <th id="UsuariosAHAnio1" title="Número de Profesores y Administrativos Hombres 1">
@@ -392,9 +501,83 @@
                                                                   </thead>
                                           
                                                                   <tbody id="tablaBody1_1">
-                                                                          
-                                          
-                                          
+                                                                          <tr>
+                                                                              <td title="Numero de Fila" class="ejemplo">
+                                                                                                                        
+                                                                              </td>
+
+                                                                               <td title="Número de Profesores Superior y Posgrado  "    id="NumProfE1" class="ejemplo">
+                                                                                   Número de Profesores Superior y Posgrado     
+                                                                              </td>
+                                                          
+                                                                              <td   id="UsuariosAHAnio1E1" title="Número de Profesores y Administrativos Hombres 1"  class="ejemplo" >
+                                                                              </td>
+                                                                                <td id="UsuariosAMAnio1E1" title="Número de Profesores y Administrativos Mujeres 1" class="ejemplo">
+                                                                                   
+                                                                              </td>
+                                                                              <td   id="UsuariosAHAnio2E1" title="Número de Profesores y Administrativos Hombres 2" class="ejemplo">
+                                                                                  
+                                                                             </td>
+                                                                              <td   id="UsuariosAMAnio2E1" title="Número de Profesores y Administrativos Mujeres 2" class="ejemplo">
+                                                                                  
+                                                                             </td>
+                                                                             <td    id="UsuariosAHAnio3E1" title="Número de Profesores y Administrativos Hombres 3" class="ejemplo">
+                                                                                  
+                                                                             </td>
+                                                                              <td   id="UsuariosAMAnio3E1" title="Número de Profesores y Administrativos Mujeres 3"class="ejemplo">
+                                                                                  
+                                                                             </td>
+                                                                              <td id="UsuariosAHAnio4E1" title="Número de Profesores y Administrativos Hombres 4"class="ejemplo">
+                                                                                  
+                                                                             </td>
+                                                                              <td   id="UsuariosAMAnio4E1" title="Número de Profesores y Administrativos Mujeres 4"class="ejemplo">
+                                                                                  
+                                                                             </td>
+                                                                              <td  id="UsuariosAHAnio5E1" title="Número de Profesores y Administrativos Hombres 5"class="ejemplo">
+                                                                                  
+                                                                             </td>
+                                                                              <td   id="UsuariosAMAnio5E1" title="Número de Profesores y Administrativos Mujeres 5"class="ejemplo">
+                                                                                  
+                                                                             </td>
+
+                                                                         </tr>
+                                                                         <tr>
+                                                                              <td title="Numero de Fila" class="ejemplo">
+                                                                                                                        
+                                                                              </td>
+                                                                              <td title="Número de Profesores Superior y Posgrado  " id="NumProfE2" class="ejemplo">
+                                                                                   Número de Profesores Superior y Posgrado     
+                                                                              </td>
+                                                          
+                                                                              <td id="UsuariosAHAnio1E2" title="Número de Profesores y Administrativos Hombres 1" class="ejemplo">
+                                                                              </td>
+                                                                                <td id="UsuariosAMAnio1E2" title="Número de Profesores y Administrativos Mujeres 1" class="ejemplo">
+                                                                              
+                                                                              </td>
+                                                                              <td id="UsuariosAHAnio2E2" title="Número de Profesores y Administrativos Hombres 2" class="ejemplo">
+                                                                                 
+                                                                             </td>
+                                                                              <td  id="UsuariosAMAnio2E2" title="Número de Profesores y Administrativos Mujeres 2" class="ejemplo">
+                                                                                 
+                                                                             </td>
+                                                                             <td id="UsuariosAHAnio3E2" title="Número de Profesores y Administrativos Hombres 3" class="ejemplo">
+                                                                                  
+                                                                             </td>
+                                                                              <td  id="UsuariosAMAnio3E2" title="Número de Profesores y Administrativos Mujeres 3" class="ejemplo">
+                                                                                  
+                                                                             </td>
+                                                                              <td id="UsuariosAHAnio4E2" title="Número de Profesores y Administrativos Hombres 4" class="ejemplo">
+                                                                                  
+                                                                             </td>
+                                                                              <td  id="UsuariosAMAnio4E2" title="Número de Profesores y Administrativos Mujeres 4" class="ejemplo">
+                                                                                  
+                                                                             </td>
+                                                                              <td id="UsuariosAHAnio5E2" title="Número de Profesores y Administrativos Hombres 5" class="ejemplo">
+                                                                                  
+                                                                             </td>
+                                                                              <td  id="UsuariosAMAnio5E2" title="Número de Profesores y Administrativos Mujeres 5" class="ejemplo">
+                                                                                  
+                                                                             </td>
                                                                         
                                                                   </tbody>     
                                           </table>
@@ -413,6 +596,10 @@
       Datos Generales
     </button>    
 -->
+
+                               <h3>Estadisticas-Espacios </h3>
+                               <fieldset class="TablaFS"> 
+                                 <legend class="TablaLeg" >Tabla 2. Infraestructura de los Espacios Participantes.</legend>
  <div class="pestañas">
  
     <button type="button" class="pagina" onclick="siguiente(3,2)">
@@ -420,7 +607,7 @@
     </button>
      
     <button type="button" class="pagina botonActivo" >
-      Tabla2. Infraestructura de los espacio de los espacios participantes.
+      Tabla2. Infraestructura de los espacios participantes.
     </button>
 
     <button type="button" class="pagina" onclick="siguiente(3,4)">
@@ -428,7 +615,7 @@
     </button>
 
     <button type="button" class="pagina" onclick="siguiente(3,5)">
-      Cotizaciones (en caso de haber una cotizacion para varios equipos)
+      Cotizaciones.
     </button> 
 
     <button type="button" class="pagina" onclick="siguiente(3,6)">
@@ -443,12 +630,13 @@
     </button>
  
  </div>
-                                 <h3>Estadisticas-Espacios </h3>
-                               <fieldset class="TablaFS"> 
-                                 <legend class="TablaLeg" >Tabla 2. Infraestructura (De los Espacios Participantes)</legend>
+                                 
                                <table class="tabla_style Tabla2" title="Tabla2.Infraesctructura">
                                <thead>
                                                               <tr>
+                                                                   <th title="Numero de Fila">
+                                                                                                                        
+                                                                  </th>
                                                                    <th title="Edificio">
                                                                         Nombre del Edificio    
                                                                    </th>
@@ -480,8 +668,65 @@
                                                        </thead>
                                
                                                        <tbody id="tablaBody2">
-                                                               
+                                                               <tr>
+                                                                   <td title="Numero de Fila" class="ejemplo">
+                                                                                                                        
+                                                                   </td>
+
+                                                                   <td title="Edificio" id="Edificio_T2E1" class="ejemplo">
+                                                                         
+                                                                   </td>
+                                               
+                                                                   <td title="Nivel" id="Nivel_T2E1" class="ejemplo">
+                                                                      
+                                                                   </td>   
                                
+                                                                   <td title="Espacio" id="Espacio_T2E1" class="ejemplo">
+                                                                   </td>
+                                                                   <td title="Largo" id="Largo_T2E1" class="ejemplo">
+                                                                   </td>
+                                                                   <td title="Ancho" id="Ancho_T2E1" class="ejemplo">
+                                                                   </td>
+                               
+                                                                   <td title="Alumnos" id="Alumnos_T2E1" class="ejemplo">
+                                                                   </td> 
+                                                                   
+                                                                   <td title="HorasServicio" id="Horas_T2E1" class="ejemplo">
+                                                                   </td>
+                               
+                                                                   
+                                                              </tr>
+                               
+                                                              <tr>
+                                                                 <td title="Numero de Fila" class="ejemplo">
+                                                                                                                        
+                                                                              </td>
+                                                                   <td title="Edificio" id="Edificio_T2E2" class="ejemplo">
+                                                                          
+                                                                   </td>
+                                               
+                                                                   <td title="Nivel" id="Nivel_T2E2" class="ejemplo">
+                                                                        
+                                                                   </td>   
+                               
+                                                                   <td title="Espacio" id="Espacio_T2E2" class="ejemplo">
+                                                                        
+                                                                   </td>
+                                                                   <td title="Largo" id="Largo_T2E2" class="ejemplo">
+                                                                   </td>
+                                                                   <td title="Ancho" id="Ancho_T2E2" class="ejemplo">
+                                                                       
+                                                                   </td>
+                               
+                                                                   <td title="Alumnos" id="Alumnos_T2E2" class="ejemplo">
+                                                                       
+                                                                   </td> 
+                                                                   
+                                                                   <td title="HorasServicio" id="Horas_T2E2" class="ejemplo">
+                                                                       
+                                                                   </td>
+                                                              </tr>
+
                                
                                                              
                                                        </tbody>     
@@ -496,6 +741,11 @@
       Datos Generales
     </button>    
 -->
+                             <h3>Estadisticas-Espacios </h3>
+                             <fieldset class="TablaFS"> 
+                             <legend class="TablaLeg" >Tabla 3. Infraestructura (General)</legend>     
+     
+
   <div class="pestañas">
  
     <button type="button" class="pagina" onclick="siguiente(4,2)">
@@ -503,7 +753,7 @@
     </button>
      
     <button type="button" class="pagina" onclick="siguiente(4,3)">
-      Tabla2. Infraestructura de los espacio de los espacios participantes.
+      Tabla2. Infraestructura de los espacios participantes.
     </button>
     
     
@@ -513,7 +763,7 @@
     </button>
 
     <button type="button" class="pagina" onclick="siguiente(4,5)">
-      Cotizaciones (en caso de haber una cotizacion para varios equipos)
+      Cotizaciones. 
     </button> 
 
     <button type="button" class="pagina" onclick="siguiente(4,6)">
@@ -531,12 +781,13 @@
 
 
 
-                             <h3>Estadisticas-Espacios </h3>
-                             <fieldset class="TablaFS"> 
-                             <legend class="TablaLeg" >Tabla 3. Infraestructura (General)</legend>
+                             
                              <table class="tabla_style Tabla3" title="Tabla de Registro de Necesidades">
                              <thead>
                                                             <tr>
+                                                                 <th title="Numero de Fila">
+                                                                                                                        
+                                                                 </th>
                                                                  <th title="Edificio">
                                                                       Nombre del Edificio    
                                                                  </th>
@@ -552,7 +803,35 @@
                                                      </thead>
                              
                                                      <tbody id="tablaBody3">
-                                                             
+                                                             <tr>
+                                                                <td title="Numero de Fila" class="ejemplo">
+                                                                                                                        
+                                                                              </td>
+
+                                                                 <td title="Edificio" id="Edificio_T3E1" class="ejemplo">
+                                                                          
+                                                                 </td>
+                                             
+                                                                 <td title="MetrosCuadrados" id="MetrosCuadrados_T3E1" class="ejemplo">
+                                                                       
+                                                                 </td>   
+                                                                 
+                                                                 
+                                                            </tr>
+                                                            <tr>
+                                                                 <td title="Numero de Fila" class="ejemplo">
+                                                                                                                        
+                                                                              </td>
+                                                                 <td title="Edificio" id="Edificio_T3E2" class="ejemplo">
+                                                                       
+                                                                 </td>
+                                             
+                                                                 <td title="MetrosCuadrados" id="MetrosCuadrados_T3E2" class="ejemplo">
+                                                                       
+                                                                 </td>   
+                                                                 
+                                                                 
+                                                            </tr>
                              
                              
                                                            
@@ -568,6 +847,14 @@
       Datos Generales
     </button>    
 -->
+<p class="Just C5000">Nota: En caso de que una misma cotización incluya varios equipos, deberá adjuntarse el documento una sola vez;
+   sin embargo se deberá selecionar el nombre de la cotización en cada requerimento al que corresponda en la "Tabla4.Demanda" </p>
+
+                                <h3>Demanda </h3>             
+                                <fieldset class="TablaFS"> 
+                                <legend class="TablaLeg" >Cotizaciones </legend>      
+
+
      <div class="pestañas">
  
     <button type="button" class="pagina" onclick="siguiente(5,2)">
@@ -575,7 +862,7 @@
     </button>
      
     <button type="button" class="pagina" onclick="siguiente(5,3)">
-      Tabla2.Infraestructura de los espacio de los espacios participantes.
+      Tabla2.Infraestructura de los espacios participantes.
     </button>
     
 
@@ -584,7 +871,7 @@
     </button>
 
     <button type="button" class="pagina botonActivo" >
-      Cotizaciones.(en caso de haber una cotizacion para varios equipos)
+      Cotizaciones.
     </button> 
 
     <button type="button" class="pagina" onclick="siguiente(5,6)">
@@ -606,12 +893,13 @@
 
 
 
-                                <h3>Demanda </h3>             
-                                <fieldset class="TablaFS"> 
-                                <legend class="TablaLeg" >Cotizaciones </legend>
+                                
                                 <table class="TablaCotizaciones" title="Tabla de Registro de Necesidades">
                                 <thead>
                                                                <tr>
+                                                                     <th title="Numero de Fila">
+                                                                                                                        
+                                                                 </th>
                                                                     <th title="Nombre Cotizacion de Adquisicion General Alternativa 1">
                                                                          Nombre  de la Cotizacion de Adquisicion General Alternativa 1     
                                                                     </th>    
@@ -641,8 +929,8 @@
                                 
                                                         <tbody id="tablaCotizaciones">
                                                                 
-                                
-                                
+
+                                                          
                                                               
                                                         </tbody>     
 
@@ -664,7 +952,11 @@
 <button type="button" class="pagina" onclick="siguiente(6,1)">
       Datos Generales
     </button>    
--->
+ -->
+                           <h3>Demanda </h3>             
+                                <fieldset class="TablaFS"> 
+                                <legend class="TablaLeg" >Tabla 4 Demanda </legend>
+
      <div class="pestañas">
  
     <button type="button" class="pagina" onclick="siguiente(6,2)">
@@ -672,7 +964,7 @@
     </button>
      
     <button type="button" class="pagina" onclick="siguiente(6,3)">
-      Tabla2. Infraestructura de los espacio de los espacios participantes.
+      Tabla2. Infraestructura de los espacios participantes.
     </button>
     
 
@@ -681,7 +973,7 @@
     </button>
 
     <button type="button" class="pagina" onclick="siguiente(6,5)">
-      Cotizaciones.(en caso de haber una cotizacion para varios equipos)
+      Cotizaciones.
     </button> 
 
     <button type="button" class="pagina botonActivo" >
@@ -700,14 +992,15 @@
 
 
 
-                                <h3>Demanda </h3>             
-                                <fieldset class="TablaFS"> 
-                                <legend class="TablaLeg" >Tabla 4 Demanda </legend>
+                                
                                 <table class="Tabla4" title="Tabla de Registro de Necesidades">
                                 <thead>
-                                                               <tr>
+                                                               <tr> 
+                                                                     <th title="Numero de Fila">
+                                                                                                                        
+                                                                     </th>
                                                                     <th title="ProgramaAcadémico">
-                                                                         Programa Académico  , Programas académicos, servicios o actividades que realiza la dependencia.     
+                                                                         Programas académicos, Departamentos, jefaturas, servicios o actividades que realiza la dependencia.     
                                                                     </th>
                                                 
                                                                     <th title="Espacio">
@@ -743,7 +1036,7 @@
                                                                     </th>
 
 
-                                                                    <th title="Cotización de Adquisición">
+                                                                    <th title="Cotización de Adquisición" class="paso">
                                                                         Cotización de Adquisición
                                                                     </th>
                                                                     
@@ -755,7 +1048,7 @@
                                                                         Nombre de la Cotización (En la tabla anterior)
                                                                     </th>   
 
-                                                                    <th title="Cotización de Adquisición 2">
+                                                                    <th title="Cotización de Adquisición 2" class="paso">
                                                                         Cotización de Adquisición 2
                                                                     </th>
                                                                     
@@ -764,6 +1057,128 @@
                                 
                                                         <tbody id="tablaBody4">
                                                                 
+
+                                                                 <tr>
+                                                                     <td title="Numero de Fila" class="ejemplo">
+                                                                                                                        
+                                                                     </td>
+                                                                    <td title="ProgramaAcadémico" id="ProgramaAcademico_T4E1" class="ejemplo">
+                                                                         Programa Académico  , Programas académicos, servicios o actividades que realiza la dependencia.     
+                                                                    </td>                                                                                                             
+                                                                                                              
+                                                                    <td title="Espacio" title="Espacio" id="Espacio_T4E1" class="ejemplo">
+                                                                         Espacio                                                                                                             
+                                                                    </td>                                                                                                                
+                                                                                                                                             
+                                                                    <td title="Clave"  id="Clave_T4E1" class="ejemplo">
+                                                                         Clave CUCOP                                                                                                             
+                                                                    </td>                                                                                                             
+                                                                    <td title="Equipo"  id="Equipo_T4E1" class="ejemplo">
+                                                                        Nombre genérico del equipo                                                                                                             
+                                                                    </td>                                                                                                             
+                                                                    <td title="Cantidad"  id="Cantidad_T4E1" class="ejemplo">
+                                                                        Cantidad Equipos solicitados                                                                                                              
+                                                                    </td>                                                                                                             
+                                                                                                                                             
+                                                                    <td title=" Especificaciones Técnicas del Equipo" id="Especificaciones_T4E1" class="ejemplo">
+                                                                         Características /Especificaciones Técnicas                                                                                                              
+                                                                    </td>                                                                                                              
+                                                                                                                                                                                 
+                                                                    <td title="Justificación (Equipo no Existente, Sustitución o Complemento)" id="Justificacion_T4E1" class="ejemplo">
+                                                                        Justificación Porque se requiere el equipo; las cantidades; las funciones que realizara; Mejora operativa obtenida
+                                                                    </td>                                                                                                             
+                                                                                                                                                                                 
+                                                                                                                                                                                                                          
+                                                                                                                                                                                                                          
+                                                                    <td title="Precio unitario Adquisición Alternativa 1 (Sin IVA)" id="PrecioUnitario_T4E1" class="ejemplo">
+                                                                        Precio unitario Adquisición Alternativa 1 (Sin IVA)                                                                                                                                                                                                                          
+                                                                    </td>                                                                                                             
+                                                                                                                                                                                 
+                                                                    <td title="Nombre del Archivo de la Cotización de Adquisición" id="NombreArch_T4E1" class="ejemplo">
+                                                                        Nombre de la Cotización (En la tabla anterior)                                                                                                             
+                                                                    </td>                                                                                                             
+                                                                                                                                                                                                                          
+                                                                                                                                                                                                                          
+                                                                    <td title="Cotización de Adquisición" id="Cotizacion_T4E1" class="ejemplo paso">
+                                                                        Cotización de Adquisición                                                                                                             
+                                                                    </td>                                                                                                             
+                                                                                                                                                                                 
+                                                                    <td title="Precio unitario Adquisición Alternativa 2 (Sin IVA)" id="PrecioUnitario2_T4E1" class="ejemplo">
+                                                                        Precio unitario Adquisición Alternativa 2 (Sin IVA)                                                                                                             
+                                                                    </td>                                                                                                             
+                                                                                                                                             
+                                                                    <td title="Nombre del Archivo de la Cotización de Adquisición 2" id="NombreArch2_T4E1" class="ejemplo">
+                                                                        Nombre de la Cotización 2 (En la tabla anterior)                                                                                                             
+                                                                    </td>                                                                                                                
+                                                                                                             
+                                                                    <td title="Cotización de Adquisición 2" id="Cotizacion2_T4E1" class="ejemplo paso">
+                                                                        Cotización de Adquisición 2                                                                                                             
+                                                                    </td>                                                                                                             
+                                                                                                                                                                                 
+                                                               </tr>                                                                                                              
+
+
+                                                               <tr>
+                                                                     <td title="Numero de Fila" class="ejemplo">
+                                                                                                                        
+                                                                    </td>
+                                                                    <td title="ProgramaAcadémico" id="ProgramaAcademico_T4E2" class="ejemplo">
+                                                                         Programa Académico  , Programas académicos, servicios o actividades que realiza la dependencia.     
+                                                                    </td>                                                                                                             
+                                                                                                              
+                                                                    <td title="Espacio" title="Espacio" id="Espacio_T4E2" class="ejemplo">
+                                                                         Espacio                                                                                                             
+                                                                    </td>                                                                                                                
+                                                                                                                                             
+                                                                    <td title="Clave"  id="Clave_T4E2" class="ejemplo">
+                                                                         Clave CUCOP                                                                                                             
+                                                                    </td>                                                                                                             
+                                                                    <td title="Equipo"  id="Equipo_T4E2" class="ejemplo">
+                                                                        Nombre genérico del equipo                                                                                                             
+                                                                    </td>                                                                                                             
+                                                                    <td title="Cantidad"  id="Cantidad_T4E2" class="ejemplo">
+                                                                        Cantidad Equipos solicitados                                                                                                              
+                                                                    </td>                                                                                                             
+                                                                                                                                             
+                                                                    <td title=" Especificaciones Técnicas del Equipo" id="Especificaciones_T4E2" class="ejemplo">
+                                                                         Características /Especificaciones Técnicas                                                                                                              
+                                                                    </td>                                                                                                              
+                                                                                                                                                                                 
+                                                                    <td title="Justificación (Equipo no Existente, Sustitución o Complemento)" id="Justificacion_T4E2" class="ejemplo">
+                                                                        Justificación Porque se requiere el equipo; las cantidades; las funciones que realizara; Mejora operativa obtenida
+                                                                    </td>                                                                                                             
+                                                                                                                                                                                 
+                                                                                                                                                                                                                          
+                                                                                                                                                                                                                          
+                                                                    <td title="Precio unitario Adquisición Alternativa 1 (Sin IVA)" id="PrecioUnitario_T4E2" class="ejemplo">
+                                                                        Precio unitario Adquisición Alternativa 1 (Sin IVA)                                                                                                                                                                                                                          
+                                                                    </td>                                                                                                             
+                                                                                                                                                                                 
+                                                                    <td title="Nombre del Archivo de la Cotización de Adquisición" id="NombreArch_T4E2" class="ejemplo">
+                                                                        Nombre de la Cotización (En la tabla anterior)                                                                                                             
+                                                                    </td>                                                                                                             
+                                                                                                                                                                                                                          
+                                                                                                                                                                                                                          
+                                                                    <td title="Cotización de Adquisición" id="Cotizacion_T4E2" class="ejemplo paso">
+                                                                        Cotización de Adquisición                                                                                                             
+                                                                    </td>                                                                                                             
+                                                                                                                                                                                 
+                                                                    <td title="Precio unitario Adquisición Alternativa 2 (Sin IVA)" id="PrecioUnitario2_T4E2" class="ejemplo">
+                                                                        Precio unitario Adquisición Alternativa 2 (Sin IVA)                                                                                                             
+                                                                    </td>                                                                                                             
+                                                                                                                                             
+                                                                    <td title="Nombre del Archivo de la Cotización de Adquisición 2" id="NombreArch2_T4E2" class="ejemplo">
+                                                                        Nombre de la Cotización 2 (En la tabla anterior)                                                                                                             
+                                                                    </td>                                                                                                                
+                                                                                                             
+                                                                    <td title="Cotización de Adquisición 2" id="Cotizacion2_T4E2" class="ejemplo paso">
+                                                                        Cotización de Adquisición 2                                                                                                             
+                                                                    </td>                                                                                                             
+                                                                                                                                                                                 
+                                                               </tr>
+
+
+
                                 
                                 
                                                               
@@ -784,14 +1199,18 @@
       Datos Generales
     </button>    
 -->
+                                <h3>Oferta </h3>            
+                                <fieldset class="TablaFS"> 
+                                <legend class="TablaLeg" >Tabla 5.OFERTA Directa con la DEMANDA-Equipo existente con el que cuenta la dependencia </legend>    
      <div class="pestañas">
  
+
     <button type="button" class="pagina" onclick="siguiente(7,2)">
       Tabla1. Usuarios
     </button>
      
     <button type="button" class="pagina" onclick="siguiente(7,3)">
-      Tabla2. Infraestructura de los espacio de los espacios participantes.
+      Tabla2. Infraestructura de los espacios participantes.
     </button>
     
 
@@ -800,7 +1219,7 @@
     </button>
 
     <button type="button" class="pagina" onclick="siguiente(7,5)">
-      Cotizaciones. (en caso de haber una cotizacion para varios equipos)
+      Cotizaciones.
     </button> 
 
     <button type="button" class="pagina" onclick="siguiente(7,6)">
@@ -815,14 +1234,15 @@
     </button>                      
   </div >
  
-                                <h3>Oferta </h3>            
-                                <fieldset class="TablaFS"> 
-                                <legend class="TablaLeg" >Tabla 5.OFERTA Directa con la DEMANDA-Equipo existente con el que cuenta la dependencia </legend>
+                                
                                 <table class="Tabla5" title="Tabla de Registro de Necesidades">
                                 <thead>
                                                                <tr>
-                                                                    <th title="ProgramaAcadémico">
-                                                                         Programa Académico  , Programas académicos, servicios o actividades que realiza la dependencia.     
+                                                                 <th title="Numero de Fila">
+                                                                                                                        
+                                                                 </th>
+                                                                    <th title="ProgramaAcadémico" >
+                                                                         Programas académicos, Departamentos, jefaturas, servicios o actividades que realiza la dependencia.     
                                                                     </th>
                                                 
                                                                     <th title="Espacio">
@@ -850,10 +1270,78 @@
                                                                     </th>
                                                                      
                                                                </tr>
+
                                                         </thead>
                                 
                                                         <tbody id="tablaBody5">
-                                                                
+                                                                 <tr>
+                                                                    <td title="Numero de Fila"  class="ejemplo">
+                                                                                                                        
+                                                                 </td>
+                                                                    <td title="ProgramaAcadémico" id="ProgramaAcademico_T5E1" class="ejemplo" >                                                                                                                                                                                              
+                                                                         Programa Académico  , Programas académicos, servicios o actividades que realiza la dependencia.                                                                                                                                                                                                   
+                                                                    </td>                                                                                                                                                                                              
+                                                                                                                                                                                                                                              
+                                                                    <td title="Espacio" id="Espacio_T5E1" class="ejemplo">                                                                                                                                                                                              
+                                                                         Espacio                                                                                                                                                                                              
+                                                                    </td>                                                                                                                                                                                                 
+                                                                                                                                                                                                                              
+                                                                                                                                                                                                                                                                  
+                                                                    <td title="Equipo" id="Equipo_T5E1" class="ejemplo">                                                                                                                                                                                              
+                                                                        Nombre genérico del equipo                                                                                                                                                                                              
+                                                                    </td>                                                                                                                                                                                              
+                                                                                                                                                                                                                                                                  
+                                                                    <td title=" Especificaciones y Desempeño Operativo" id="Especificaciones_T5E1" class="ejemplo">                                                                                                                                                                                              
+                                                                         Especificaciones y Desempeño Operativo                                                                                                                                                                                               
+                                                                    </td>                                                                                                                                                                                               
+                                                                                                                                                                                                                                                                  
+                                                                    <td title="Cuantos equipos en mal estado (obsoletos, a remplazar)" id="MalEstado_T5E1" class="ejemplo">                                                                                                                                                                                              
+                                                                         Cuantos equipos en mal estado (obsoletos, a remplazar)                                                                                                                                                                                               
+                                                                    </td>                                                                                                                                                                                              
+                                                                    <td title="Cuantos equipos  en buen estado (útiles)" id="BuenEstado_T5E1" class="ejemplo">                                                                                                                                                                                              
+                                                                         Cuantos equipos  en buen estado (útiles)                                                                                                                                                                                               
+                                                                    </td>                                                                                                                                                                                              
+                                                                                                                                                                                                                                                                  
+                                                                    <td title="Cuantos equipos  en estado regular (útiles)" id="EstadoRegular_T5E1" class="ejemplo">                                                                                                                                                                                              
+                                                                         Cuantos equipos  en estado regular (útiles)                                                                                                                                                                                               
+                                                                    </td>                                                                                                                                                                                              
+                                                                                                                                                                                                                                                                   
+                                                               </tr>                                                                                                                                                                                              
+                                                               
+                                                               
+                                                               <tr>
+                                                                     <td title="Numero de Fila" class="ejemplo">
+                                                                                                                        
+                                                                 </td>
+                                                                    <td title="ProgramaAcadémico" id="ProgramaAcademico_T5E2" class="ejemplo" >
+                                                                         Programa Académico  , Programas académicos, servicios o actividades que realiza la dependencia.     
+                                                                    </td>
+                                                
+                                                                    <td title="Espacio" id="Espacio_T5E2" class="ejemplo">
+                                                                         Espacio
+                                                                    </td>   
+                                
+                                                                    
+                                                                    <td title="Equipo" id="Equipo_T5E2" class="ejemplo">
+                                                                        Nombre genérico del equipo
+                                                                    </td>
+                                                                    
+                                                                    <td title=" Especificaciones y Desempeño Operativo" id="Especificaciones_T5E2" class="ejemplo">
+                                                                         Especificaciones y Desempeño Operativo 
+                                                                    </td> 
+                                                                    
+                                                                    <td title="Cuantos equipos en mal estado (obsoletos, a remplazar)" id="MalEstado_T5E2" class="ejemplo">
+                                                                         Cuantos equipos en mal estado (obsoletos, a remplazar) 
+                                                                    </td>
+                                                                    <td title="Cuantos equipos  en buen estado (útiles)" id="BuenEstado_T5E2" class="ejemplo">
+                                                                         Cuantos equipos  en buen estado (útiles) 
+                                                                    </td>
+                                                                    
+                                                                    <td title="Cuantos equipos  en estado regular (útiles)" id="EstadoRegular_T5E2" class="ejemplo">
+                                                                         Cuantos equipos  en estado regular (útiles) 
+                                                                    </td>
+                                                                     
+                                                               </tr>
                                 
                                 
                                                               
@@ -930,7 +1418,11 @@
     </button>    
 -->  
 
-
+                             <h3>Observaciones Generales </h3>
+                                
+                                
+<!-- ------------------------------------------Tabla 1 Obs-->
+                                
 
 
  <div class="pestañas">
@@ -940,7 +1432,7 @@
     </button>
      
     <button type="button" class="pagina" onclick="siguiente(8,3)">
-      Tabla 2. Infraestructura de los espacio de los espacios participantes.
+      Tabla 2. Infraestructura de los espacios participantes.
     </button>
     
 
@@ -949,7 +1441,7 @@
     </button>
 
     <button type="button" class="pagina" onclick="siguiente(8,5)">
-      Cotizaciones. (en caso de haber una cotizacion para varios equipos)
+      Cotizaciones.
     </button> 
 
     <button type="button" class="pagina" onclick="siguiente(8,6)">
@@ -963,12 +1455,10 @@
       Observaciones
     </button>   
     </div>
-                                <h3>Observaciones Generales </h3>
-                                
-                                
-<!-- ------------------------------------------Tabla 1 Obs-->
-                                <fieldset class="TablaFS"> 
+                               
+                                 <fieldset class="TablaFS"> 
                                 <legend class="TablaLeg" >Tabla 1. Usuarios </legend>
+
                                 <table class="Tabla7" title="Tabla de Registro de Necesidades">
                                 <thead>
                                    <tr>
@@ -980,7 +1470,7 @@
                                                                
                                  <tbody >
                                       <tr>
-                                           <td>(A) Programa Académico (Todos)</td>
+                                           <td>Programas académicos, Departamentos, jefaturas, servicios o actividades que realiza la dependencia.</td>
                                            <td><textarea
                                                        name="ObsProgramaAcademicoDPO"
                                                        class="auto-expand input_tabla obligatorio"
@@ -1217,7 +1707,7 @@
 
 
                                                                              <tr>
-                                           <td>Número de Profesores Superior y Posgrado</td>
+                                           <td>División, Departamento o Jefatura.</td>
                                            <td><textarea
                                                        name="ObsNumProfSupPosgDPO"
                                                        class="auto-expand input_tabla obligatorio"
@@ -1470,7 +1960,7 @@
 
                               <!-- ------------------------------------------Tabla 2 Obs-->
                     <fieldset class="TablaFS"> 
-                                <legend class="TablaLeg" >Tabla 2. Infraestructura (De los Espacios Participantes) </legend>
+                                <legend class="TablaLeg" >Tabla 2. Infraestructura de los Espacios Participantes.</legend>
                                  <table class="Tabla7" title="Tabla de Observaciones">
                     <thead>
                               <tr>
@@ -1482,7 +1972,7 @@
 
                     <tbody> 
                               <tr>
-                                     <td>(P) Nombre del Edificio</td>
+                                     <td> Nombre del Edificio</td>
                                      <td><textarea name="ObsEdificioDPO_T2" 
                                                    class="auto-expand input_tabla obligatorio" 
                                                    rows="1" 
@@ -1534,7 +2024,7 @@
                               </tr>  
                               
                               <tr>
-                                     <td>Largo del espacio (M)</td>
+                                     <td>Largo del espacio (mts.)</td>
                                      <td><textarea name="ObsLargoDPO_T2" 
                                                     class="auto-expand input_tabla obligatorio" 
                                                     rows="1" style="resize:none;" 
@@ -1551,7 +2041,7 @@
                               </tr>
 
                               <tr>
-                                     <td>Ancho del espacio (M)</td>
+                                     <td>Ancho del espacio (mts.)</td>
                                      <td><textarea name="ObsAnchoDPO_T2" 
                                                     class="auto-expand input_tabla obligatorio" 
                                                     rows="1" style="resize:none;" 
@@ -1621,7 +2111,7 @@
 
 <!-- ------------------------------------------Tabla 3 Obs-->
                     <fieldset class="TablaFS"> 
-                                <legend class="TablaLeg" >Tabla 3. Infraestructura (De los Espacios Participantes) </legend>
+                                <legend class="TablaLeg" >Tabla3. Infraestructura General y planos.</legend>
                                  <table class="Tabla7" title="Tabla de Observaciones">
                     <thead>
                               <tr>
@@ -1633,7 +2123,7 @@
 
                     <tbody> 
                               <tr>
-                                     <td>(P) Nombre del Edificio</td>
+                                     <td>Nombre del Edificio</td>
                                      <td><textarea name="ObsEdificioDPO_T3" 
                                                    class="auto-expand input_tabla obligatorio" 
                                                    rows="1" 
@@ -1651,7 +2141,7 @@
                               </tr>
 
                               <tr>
-                                     <td>(Q) Metros Cuadrados</td>
+                                     <td>Metros Cuadrados</td>
                                      <td><textarea name="ObsMetrosCuadradosDPO_T3" 
                                                     class="auto-expand input_tabla obligatorio" 
                                                     rows="1" style="resize:none;" 
@@ -1674,7 +2164,7 @@
 
                     <!-- ------------------------------------------Tabla 4 Obs-->
                     <fieldset class="TablaFS"> 
-                                <legend class="TablaLeg" >Tabla 4. Infraestructura (De los Espacios Participantes)</legend>
+                                <legend class="TablaLeg" >Tabla 4.Demanda</legend>
                                  <table class="Tabla7" title="Tabla de Observaciones">
                     <thead>
                               <tr>
@@ -1687,7 +2177,7 @@
                     <tbody> 
                               
                                             <tr>
-                                                          <td>(A) Programa Académico</td>
+                                                          <td> Programas académicos, Departamentos, jefaturas, servicios o actividades que realiza la dependencia.</td>
                                                           <td><textarea name="ObsProgramaAcademicoDPO_T4" 
                                                                         class="auto-expand input_tabla obligatorio" 
                                                                         rows="1" style="resize:none;"
@@ -1702,7 +2192,7 @@
                                              </tr>
                     
                                              <tr>
-                                                         <td>(B) Espacio</td>
+                                                         <td> Espacio</td>
                                                          <td><textarea name="ObsEspacioDPO_T4"
                                                                        class="auto-expand input_tabla obligatorio"
                                                                         rows="1"
@@ -1716,7 +2206,7 @@
                                               </tr>
                     
                                               <tr>
-                                                         <td>(C) Clave CUCOP</td>
+                                                         <td> Clave CUCOP</td>
                                                          <td> <textarea 
                                                                         name="ObsClaveCUCOPDPO_T4"
                                                                         class="auto-expand input_tabla obligatorio" 
@@ -1732,7 +2222,7 @@
                                               </tr>
                     
                                               <tr>
-                                                  <td>(D) Nombre del Componente</td>
+                                                  <td>Nombre del Componente</td>
                                                   <td><textarea 
                                                                name="ObsComponenteDPO_T4"
                                                                class="auto-expand input_tabla obligatorio"
@@ -1747,7 +2237,7 @@
                                               </tr>
                                               
                                               <tr>
-                                                  <td>(E) Cantidad Equipos solicitados</td>
+                                                  <td> Cantidad Equipos solicitados</td>
                                               <td><textarea 
                                                             name="ObsCantidadDPO_T4"
                                                             class="auto-expand input_tabla obligatorio"
@@ -1762,7 +2252,7 @@
                                           </tr>
                                           
                                           <tr>
-                                              <td>(F) Características / Especificaciones Técnicas</td>
+                                              <td> Características / Especificaciones Técnicas</td>
                                               <td><textarea 
                                                             name="ObsCaracteristicasDPO_T4" 
                                                             class="auto-expand input_tabla obligatorio"
@@ -1778,7 +2268,7 @@
                                           </tr>
                                           
                                           <tr>
-                                              <td>(G) Justificación</td>
+                                              <td> Justificación</td>
                                               <td><textarea 
                                                              name="ObsJustificacionDPO_T4"
                                                               class="auto-expand input_tabla obligatorio"
@@ -1794,7 +2284,7 @@
                                           </tr>
                                           
                                           <tr>
-                                              <td>(H) Precio unitario adquisición alternativa 1</td>
+                                              <td> Precio unitario adquisición alternativa 1</td>
                                               <td><textarea 
                                                 name="ObsPrecio1DPO_T4"
                                                  class="auto-expand input_tabla obligatorio"
@@ -1810,7 +2300,7 @@
                                           </tr>
                                           
                                           <tr>
-                                              <td>(I) Cotización de Adquisición</td>
+                                              <td> Cotización de Adquisición</td>
                                               <td><textarea 
                                                             name="ObsCotizacion1DPO_T4"
                                                              class="auto-expand input_tabla obligatorio"
@@ -1826,7 +2316,7 @@
                                           </tr>
                                           
                                           <tr>
-                                              <td>(L) Precio unitario adquisición alternativa 2</td>
+                                              <td> Precio unitario adquisición alternativa 2</td>
                                               <td><textarea 
                                                 name="ObsPrecio2DPO_T4"
                                                  class="auto-expand input_tabla obligatorio"
@@ -1843,7 +2333,7 @@
                                           </tr>
                                           
                                           <tr>
-                                              <td>(M) Cotización de Adquisición</td>
+                                              <td> Cotización de Adquisición</td>
                                               <td><textarea 
                                                               name="ObsCotizacion2DPO_T4"
                                                               class="auto-expand input_tabla obligatorio"
@@ -1866,7 +2356,7 @@
 
 <!-- ------------------------------------------Tabla 5 Obs-->
                     <fieldset class="TablaFS"> 
-                                <legend class="TablaLeg" >Tabla 5. Infraestructura (De los Espacios Participantes) </legend>
+                                <legend class="TablaLeg" >Tabla5. Oferta Directa con la Demanda-Equipo existente con el que cuenta la dependencia. </legend>
                                  <table class="Tabla7" title="Tabla de Observaciones">
                     <thead>
                               <tr>
@@ -1878,7 +2368,7 @@
 
                     <tbody> 
                             <tr>
-                                                  <td>(A) Programa Académico</td>
+                                                  <td>Programas académicos, Departamentos, jefaturas, servicios o actividades que realiza la dependencia.</td>
                                                   <td><textarea 
                                                                 name="ObsProgramaAcademico_T5"
                                                                  class="auto-expand input_tabla obligatorio"
@@ -1893,7 +2383,7 @@
                                               </tr>
                                               
                                               <tr>
-                                                  <td>(B) Espacio</td>
+                                                  <td>Espacio</td>
                                                   <td><textarea 
                                                                 name="ObsEspacio_T5"  
                                                                 class="auto-expand input_tabla obligatorio"
@@ -1909,7 +2399,7 @@
                                               </tr>
                                               
                                               <tr>
-                                                  <td>(C) Nombre del componente</td>
+                                                  <td>Nombre del componente</td>
                                                   <td><textarea 
                                                                 name="ObsComponente_T5"  
                                                                 class="auto-expand input_tabla obligatorio" 
@@ -1925,7 +2415,7 @@
                                               </tr>
                                               
                                               <tr>
-                                                  <td>(D) Especificaciones y Desempeño Operativo</td>
+                                                  <td>Especificaciones y Desempeño Operativo</td>
                                                   <td><textarea 
                                                                name="ObsEspecificaciones_T5"   
                                                                class="auto-expand input_tabla obligatorio" 
@@ -1941,7 +2431,7 @@
                                               </tr>
                                               
                                               <tr>
-                                                  <td>(E) Cuántos equipos en mal estado</td>
+                                                  <td> Cuántos equipos en mal estado</td>
                                                   <td><textarea 
                                                                name="ObsMalEstado_T5"  
                                                                class="auto-expand input_tabla obligatorio" 
@@ -1957,7 +2447,7 @@
                                               </tr>
                                               
                                               <tr>
-                                                  <td>(F) Cuántos equipos en buen estado</td>
+                                                  <td> Cuántos equipos en buen estado</td>
                                                   <td><textarea 
                                                                  name="ObsBuenEstado_T5" 
                                                                  class="auto-expand input_tabla obligatorio"
@@ -1973,7 +2463,7 @@
                                               </tr>
                                               
                                               <tr>
-                                                  <td>(G) Cuántos equipos en estado regular</td>
+                                                  <td> Cuántos equipos en estado regular</td>
                                                   <td><textarea 
                                                                 name="ObsEstadoRegular_T5" 
                                                                 class="auto-expand input_tabla obligatorio" 
@@ -2011,7 +2501,7 @@
 
                     <tbody> 
                                     <tr>
-                                       <td>(J) Programa Académico</td>
+                                       <td>Programa Académico</td>
                                    
                                        <td>
                                            <textarea
@@ -2153,9 +2643,10 @@
                                 
 
 <p id="aviso" class="Aviso"></p>
+
 </div>
 
-
+<div id="fecha" class="Botderecha"> 24 de agosto</div>
 
 
    
