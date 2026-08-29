@@ -7,9 +7,21 @@ const tbodyC = document.getElementById("tablaCotizaciones");
 const tbody5 = document.getElementById("tablaBody5");
 /*const tbody6 = document.getElementById("tablaBody6");
 */
+
+
 const tbody7 = document.getElementById("tablaBody7");
 let urlCotizacionesActuales={};
 //------------------------------------Construccion de tabla--------------------------
+
+
+
+
+
+
+
+
+
+
 
 
 for (let i = 1; i <= 10; i++) {
@@ -28,7 +40,10 @@ for (let i = 1; i <= 10; i++) {
     
 
   tr.innerHTML = `
-    <td>
+     <td>
+      ${i}
+    </td>
+     <td>
       <textarea
         name="Programa_T1R${i}"
         class="auto-expand input_tabla obligatorio"
@@ -77,6 +92,9 @@ for (let i = 1; i <= 10; i++) {
   `;
     
   tr1.innerHTML = `
+      <td>
+      ${i}
+    </td>
     <td>
       <textarea
         name="Programa_T1_1R${i}"
@@ -132,6 +150,9 @@ for (let i = 1; i <= 10; i++) {
 
 tr2.innerHTML = `
     <td>
+      ${i}
+    </td>
+    <td>
     <input name="Edificio_T2R${i}" class="input_tabla" aria-label="Edificio"> </input>
     </td>
 
@@ -183,6 +204,9 @@ if(i===1){
 
 tr3.innerHTML = `
     <td>
+      ${i}
+    </td>
+    <td>
     <input name="Edificio_T3R${i}" class="input_tabla" aria-label="Edificio"> </input>
     </td>
 
@@ -195,18 +219,24 @@ tr3.innerHTML = `
                        type="file"
                        id= "Planos_T3"
                        name="Planos_T3" 
-                       class="archivoInput"
+                       class="archivoInput archivoMultipleInput"
                        accept=".pdf,.xlsx,.doc,.docx,.png,.jpg,.rar,.zip" multiple>
                  <span class="nombreArchivo"></span>
-                 <button type="button" class="borrarArchivo">
-                   ❌
-                 </button>
-     </div>
+                 
+                 
+         </div>
     </td>
   `;
+
+  //<button type="button" class="borrarArchivo">
+//                   ❌
+ //                </button>
 }else{
       
   tr3.innerHTML = `
+    <td>
+      ${i}
+    </td>
     <td>
     <input name="Edificio_T3R${i}" class="input_tabla" aria-label="Edificio"> </input>
     </td>
@@ -218,7 +248,9 @@ tr3.innerHTML = `
   `;
 }
 trC.innerHTML = `
-     
+     <td>
+      ${i}
+    </td>
      <td>
           <input 
                 name="nombreCotizacion_TCR${i}" 
@@ -271,7 +303,7 @@ trC.innerHTML = `
                        type="file" 
                        id="CotizacionAdquisicionG2_TCR${i}"
                        name="CotizacionAdquisicionG2_TCR${i}" 
-                       class="archivoInput"
+                       class="archivoInput "
                        accept=".pdf,.xlsx,.doc,.docx,.png,.jpg">
                  <span class="nombreArchivo"></span>
                  <button type="button" class="borrarArchivo">
@@ -299,6 +331,9 @@ trC.innerHTML = `
 
 
 tr4.innerHTML = `
+    <td>
+      ${i}
+    </td>
     <td>
       <textarea
         name="ProgramaAcademico_T4R${i}"
@@ -392,8 +427,8 @@ tr4.innerHTML = `
     
     
     
-    <td>
-    <div class="contenedorArchivo">
+    <td class="paso">
+    <div class="contenedorArchivo paso">
                       <input 
                        type="file" 
                        name="CotizacionAdquisicion_T4R${i}" 
@@ -432,8 +467,8 @@ tr4.innerHTML = `
     </td>
 
 
-  <td>
-    <div class="contenedorArchivo">
+  <td class="paso">
+    <div class="contenedorArchivo paso">
                       <input 
                        type="file" 
                        name="CotizacionAdquisicion2_T4R${i}" 
@@ -450,6 +485,9 @@ tr4.innerHTML = `
 
 tr5.innerHTML = `
     <td>
+      ${i}
+    </td>
+     <td>
       <textarea
         name="ProgramaAcademico_T5R${i}"
         class="auto-expand input_tabla obligatorio"
@@ -694,8 +732,155 @@ document.addEventListener("change", (e) => {
 
 });
 */
+//-------------------------------------------------------------------------------
 
 
+/*
+document.addEventListener("change", (e) => {
+
+    if (!e.target.matches(".archivoInput")) return;
+
+    const input = e.target;
+    const contenedor = input.closest(".contenedorArchivo");
+    const nombre = contenedor.querySelector(".nombreArchivo");
+
+    if (input.files.length === 0) return;
+
+    // Agregar el nombre de cada archivo
+    [...input.files].forEach(file => {
+
+        const archivoNombre = document.createElement("div");
+
+        archivoNombre.textContent = file.name;
+
+        nombre.appendChild(archivoNombre);
+    });
+
+
+    // Si NO es de los que aceptan archivos sucesivos,
+    // aquí terminamos.
+    if (input.matches(".archivoMultipleInput")){
+          const nuevoInput = input.cloneNode();
+
+          nuevoInput.value = "";
+          nuevoInput.style.display = "";
+
+    contenedor.appendChild(nuevoInput);
+    };
+
+
+    // Este input conserva el archivo seleccionado
+    input.style.display = "none";
+
+
+    // Crear otro input para seleccionar el siguiente
+    
+
+});
+
+
+document.addEventListener("click", (e) => {
+
+    if (!e.target.matches(".borrarArchivo")) return;
+
+    const contenedor = e.target.closest(".contenedorArchivo");
+    const inputs = contenedor.querySelectorAll(".archivoInput");
+    const nombre = contenedor.querySelector(".nombreArchivo");
+
+    // Dejamos únicamente el último input
+    const inputPrincipal = inputs[inputs.length - 1];
+
+    // Eliminamos los demás inputs que contienen archivos
+    inputs.forEach(input => {
+        if (input !== inputPrincipal) {
+            input.remove();
+        }
+    });
+
+    // Limpiamos el input que dejamos
+    inputPrincipal.value = "";
+    inputPrincipal.style.display = "block";
+
+    // Limpiamos los nombres
+    nombre.textContent = "";
+});
+
+*/
+
+
+
+
+document.addEventListener("change", (e) => {
+
+    if (!e.target.matches(".archivoInput")) return;
+
+    const input = e.target;
+    const contenedor = input.closest(".contenedorArchivo");
+    const nombres = contenedor.querySelector(".nombreArchivo");
+
+    if (input.files.length === 0) return;
+
+    const file = input.files[0];
+
+    // Crear renglón para este archivo
+    const item = document.createElement("div");
+    item.classList.add("archivoItem");
+
+    // Guardamos referencia al input que contiene este archivo
+    item.inputArchivo = input;
+
+    item.innerHTML = `
+       <div class="contnombre">
+        <span>${file.name}</span>
+        <button type="button" class="borrarArchivo">
+            ❌
+        </button>
+        </div>
+    `;
+
+    nombres.appendChild(item);
+
+
+    // Solo hacemos esto con los múltiples
+    if (input.matches(".archivoMultipleInput")) {
+
+        // Ocultamos el input que ya tiene el archivo
+        input.style.display = "none";
+
+        // Creamos uno nuevo vacío
+        const nuevoInput = input.cloneNode();
+
+        nuevoInput.value = "";
+        nuevoInput.style.display = "block";
+
+        contenedor.appendChild(nuevoInput);
+    }
+});
+
+
+
+
+document.addEventListener("click", (e) => {
+
+    if (!e.target.matches(".borrarArchivo")) return;
+
+    const item = e.target.closest(".archivoItem");
+
+    // Recuperamos el input correspondiente
+    const input = item.inputArchivo;
+
+    // Eliminamos el input que contiene ESE archivo
+    input.remove();
+
+    // Eliminamos su nombre de la pantalla
+    item.remove();
+});
+
+
+
+
+//------------------------------------------------------------------------
+/*
 document.addEventListener("change", (e) => {
   if (!e.target.matches(".archivoInput")) return;
 
@@ -707,10 +892,21 @@ document.addEventListener("change", (e) => {
     nombre.innerHTML = [...input.files]
       .map(file => file.name)
       .join("<br>");
-
-    input.style.display = "none";
+//----------------
+      if (e.target.matches(".archivoMultipleInput")){
+           const nuevoInput = input.cloneNode();
+           nuevoInput.value = "";
+           contenedor.appendChild(nuevoInput);
+      }; 
+//---------------------------- 
+      input.style.display = "none";
   }
 });
+
+*/
+
+
+/*
 document.addEventListener("click", (e) => {
 
   if (!e.target.matches(".borrarArchivo")) return;
@@ -728,7 +924,7 @@ document.addEventListener("click", (e) => {
   nombre.textContent = "";
 
 });
-
+*/
 
 
 
@@ -936,225 +1132,336 @@ textareas.forEach(textarea => {
 
 
 const opciones = ["Unidad Politécnica de Gestión con Perspectiva de Género (UPGPG)",
-                                                    "Defensoría de los Derechos Politécnicos",
-                                                    "Defensoría de los Derechos Politécnicos",
-"Secretaría General",
+                  "Defensoría de los Derechos Politécnicos",
+                  "Secretaría General",
+                  //Direcion General
+                  "Dirección General",
+                  "Coordinación Politécnica para la Sustentabilidad",
+                  //Abogado General
+                  "Oficina del Abogado General",
+                  "Dirección de Asuntos Jurídicos",
+                  "Dirección de Convenios y Trámite Registral",  
+                  "Dirección de Legislación, Consulta y Transparencia",    
+                  //Presidencia del decanato 
+                  "Presidencia del Decanato",
 
-//Direcion General
-
-"Dirección General",
-
-"Coordinación Politécnica para la Sustentabilidad",
-
-
-
-//Abogado General
-"Oficina del Abogado General",
-
-"Dirección de Asuntos Jurídicos",
-  
-"Dirección de Convenios y Trámite Registral",  
-
-"Dirección de Legislación, Consulta y Transparencia",  
-
-  
-//Presidencia del decanato
-"Presidencia del Decanato",
-
-//Secretaria Academica
-'Centro de Estudios Tecnológicos (CET 1)"Walter Cross Buchanan"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 1)  "Gonzalo Vázquez Vela"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 2)  "Miguel Bernard"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 3)  "Estanislao Ramírez Ruiz"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 4)  "Lázaro Cárdenas"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 5)  "Benito Juárez"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 6)  "Miguel Othón De Mendizábal"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 7)  "Cuauhtémoc"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 8)  "Narciso Bassols"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 9)  "Juan De Dios Bátiz"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 10) "Carlos Vallejo Márquez"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 11) "Wilfrido Massieu"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 12) "José María Morelos"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 13) "Ricardo Flores Magón"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 14) "Luis Enrique Erro"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 15) "Diódoro Antúnez Echegaray"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 16) "Hidalgo"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 17) "León, Guanajuato"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 18) "Zacatecas"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 19) "Leona Vicario"',
-       'Centro de Estudios Científicos y Tecnológicos (CECyT 20) "Natalia Serdán Alatriste"',
-"Dirección de Educación Media Superior",
-"Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Zacatenco",
-    "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Culhuacán",
-    "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Azcapotzalco",
-    "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Ticomán",
-    "Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Zacatenco",
-    "Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Tecamachalco", 
-    "Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Ticomán",
-    "Escuela Superior de Ingeniería Textil (ESIT)",
-    "Escuela Superior de Ingeniería Química E Industrias Extractivas (ESIQIE)",
-    "Escuela Superior de Física y Matemáticas (ESFM)",
-    "Escuela Superior de Cómputo (ESCOM)",
-    "Escuela Nacional de Ciencias Biológicas (ENCB)",
-    "Escuela Superior de Medicina (ESM)",
-    "Escuela Nacional de Medicina y Homeopatía (ENMH)",
-    "Escuela Superior de Enfermería y Obstetricia (ESEO)",
-    "Centro Interdisciplinario de Ciencias de la Salud (CICS)Unidad Milpa Alta",
-    "Centro Interdisciplinario de Ciencias de la Salud (CICS) Unidad Santo Tomás",
-    "Escuela Superior de Comercio y Administración (ESCA) Unidad Santo Tomás",
-    "Escuela Superior de Comercio y Administración (ESCA) Unidad Tepepan",
-    "Escuela Superior de Economía (ESE)",
-    "Escuela Superior de Turismo (EST)",
-    "Escuela Nacional de Biblioteconomía y Archivonomía (ENBA)",
-    "Unidad Profesional Interdisciplinaria en Ingeniería y Tecnologías Avanzadas (UPIITA)",
-    "Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas (UPIICSA)",
-    "Unidad Profesional Interdisciplinaria de Biotecnología (UPIBI)",
-    "Unidad Profesional Interdisciplinaria de Ingeniería Campus Hidalgo (UPIIH)",
-    "Unidad Profesional Interdisciplinaria de Ingeniería, Campus Guanajuato (UPIIG)",
-    "Unidad Profesional Interdisciplinaria de Ingeniería, Campus Zacatecas (UPIIZ)",
-    "Unidad Profesional Interdisciplinaria de Energía y Movilidad (UPIEM)",
-    "Unidad Profesional Interdisciplinaria de Ingeniería Campus Palenque (UPIIP)",
-    "Unidad Profesional Interdisciplinaria de Ingeniería Campus Coahuila (UPIIC)",
-    "Unidad Profesional Interdisciplinaria de Ingeniería Campus Tlaxcala (UPIIT)",
-    'Unidad Profesional Interdisciplinaria de Ingeniería, Campus "Alejo Peralta" Puebla (UPIIAP)',
-"Dirección de Educación Superior",
-    
-"Dirección de Educación Virtual",
-    
-"Dirección de Formación e Innovación Educativa",
-
-"Dirección de Formación en Lenguas Extranjeras",
-    
-"Centro de Lenguas Extranjeras (CENLEX), Unidad Zacatenco",
-               "Centro de Lenguas Extranjeras (CENLEX), Unidad Santo Tomás",           
-    
-"Secretaría Académica",
-    
-    
-    
-
-    
-    
-    
-
-
-           
+                  //Secretaria Academica
+                 'Centro de Estudios Tecnológicos (CET 1)"Walter Cross Buchanan"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECyT 1)  "Gonzalo Vázquez Vela"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECyT 2)  "Miguel Bernard"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECyT 3)  "Estanislao Ramírez Ruiz"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECyT 4)  "Lázaro Cárdenas"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECyT 5)  "Benito Juárez"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECyT 6)  "Miguel Othón De Mendizábal"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECyT 7)  "Cuauhtémoc"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECyT 8)  "Narciso Bassols"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECyT 9)  "Juan De Dios Bátiz"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECyT 10) "Carlos Vallejo Márquez"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECyT 11) "Wilfrido Massieu"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECyT 12) "José María Morelos"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECyT 13) "Ricardo Flores Magón"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECyT 14) "Luis Enrique Erro"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECyT 15) "Diódoro Antúnez Echegaray"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECyT 16) "Hidalgo"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECyT 17) "León, Guanajuato"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECyT 18) "Zacatecas"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECyT 19) "Leona Vicario"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECyT 20) "Natalia Serdán Alatriste"',
+                 "Dirección de Educación Media Superior",
+                 "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Zacatenco",
+                 "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Culhuacán",
+                 "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Azcapotzalco",
+                 "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Ticomán",
+                 "Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Zacatenco",
+                 "Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Tecamachalco", 
+                 "Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Ticomán",
+                 "Escuela Superior de Ingeniería Textil (ESIT)",
+                 "Escuela Superior de Ingeniería Química E Industrias Extractivas (ESIQIE)",
+                 "Escuela Superior de Física y Matemáticas (ESFM)",
+                 "Escuela Superior de Cómputo (ESCOM)",
+                 "Escuela Nacional de Ciencias Biológicas (ENCB)",
+                 "Escuela Superior de Medicina (ESM)",
+                 "Escuela Nacional de Medicina y Homeopatía (ENMH)",
+                 "Escuela Superior de Enfermería y Obstetricia (ESEO)",
+                 "Centro Interdisciplinario de Ciencias de la Salud (CICS)Unidad Milpa Alta",
+                 "Centro Interdisciplinario de Ciencias de la Salud (CICS) Unidad Santo Tomás",
+                 "Escuela Superior de Comercio y Administración (ESCA) Unidad Santo Tomás",
+                 "Escuela Superior de Comercio y Administración (ESCA) Unidad Tepepan",
+                 "Escuela Superior de Economía (ESE)",
+                 "Escuela Superior de Turismo (EST)",
+                 "Escuela Nacional de Biblioteconomía y Archivonomía (ENBA)",
+                 "Unidad Profesional Interdisciplinaria en Ingeniería y Tecnologías Avanzadas (UPIITA)",
+                 "Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas (UPIICSA)",
+                 "Unidad Profesional Interdisciplinaria de Biotecnología (UPIBI)",
+                 "Unidad Profesional Interdisciplinaria de Ingeniería Campus Hidalgo (UPIIH)",
+                 "Unidad Profesional Interdisciplinaria de Ingeniería, Campus Guanajuato (UPIIG)",
+                 "Unidad Profesional Interdisciplinaria de Ingeniería, Campus Zacatecas (UPIIZ)",
+                 "Unidad Profesional Interdisciplinaria de Energía y Movilidad (UPIEM)",
+                 "Unidad Profesional Interdisciplinaria de Ingeniería Campus Palenque (UPIIP)",
+                 "Unidad Profesional Interdisciplinaria de Ingeniería Campus Coahuila (UPIIC)",
+                 "Unidad Profesional Interdisciplinaria de Ingeniería Campus Tlaxcala (UPIIT)",
+                 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus "Alejo Peralta" Puebla (UPIIAP)',
+                 "Dirección de Educación Superior",
+                 "Dirección de Educación Virtual",
+                 "Dirección de Formación e Innovación Educativa",
+                 "Dirección de Formación en Lenguas Extranjeras",
+                 "Centro de Lenguas Extranjeras (CENLEX), Unidad Zacatenco",
+                 "Centro de Lenguas Extranjeras (CENLEX), Unidad Santo Tomás",           
+                 "Secretaría Académica",
+                     
+                                  
+                 //Secretaria Administrativa
+                 "Secretaría de Administración",
+                 "Dirección de Capital Humano",
+                 "Dirección de Programación y Presupuesto",
+                 "Dirección de Recursos Financieros",
+                 "Dirección de Recursos Materiales e Infraestructua",
+                 "Dirección de Servicios Generales",
+                 "Coordinación de Centros de Desarrollo Infantil",
                  
-//Secretaria Administrativa
-"Secretaría de Administración",
-"Dirección de Capital Humano",
-"Dirección de Programación y Presupuesto",
-"Dirección de Recursos Financieros",
-"Dirección de Recursos Materiales e Infraestructua",
-"Dirección de Servicios Generales",
-"Coordinación de Centros de Desarrollo Infantil",
-
-
-
-//Secretaria de Inovacion e Integracion Social
-
-"Centro de Vinculación y Desarrollo Regional (CVDR),Unidad Cajeme -Sonora",
-    "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Campeche",
-    "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Cancún",
-    "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Culiacán",
-    "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Durango",
-    "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Los Mochis",
-    "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Mazatlán",
-    "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Morelia",
-    "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Oaxaca",
-    "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Tampico",
-    "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Tijuana",
-    "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Tlaxcala", 
-    "Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Cuidad Juárez, Chihuahua",
-    "Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Papantla, Veracruz",
-    "Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Puebla",
-"Dirección de Vinculación y Desarrollo Regional",
-"Secretaría de Innovación e Integración Social",
-"Dirección de Egresados y Servicio Social",
-"Dirección de Relaciones Internacionales",
-"Dirección de Servicios Empresariales y Transferencia Tecnológica",
-"Dirección de Incubación de Empresas Tecnológicas",
-"Dirección de Prospectiva e Inteligencia Tecnológica Tecnópoli",
+                 //Secretaria de Inovacion e Integracion Social
+                 
+                 "Centro de Vinculación y Desarrollo Regional (CVDR),Unidad Cajeme -Sonora",
+                 "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Campeche",
+                 "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Cancún",
+                 "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Culiacán",
+                 "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Durango",
+                 "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Los Mochis",
+                 "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Mazatlán",
+                 "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Morelia",
+                 "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Oaxaca",
+                 "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Tampico",
+                 "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Tijuana",
+                 "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Tlaxcala", 
+                 "Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Cuidad Juárez, Chihuahua",
+                 "Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Papantla, Veracruz",
+                 "Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Puebla",
+                 "Dirección de Vinculación y Desarrollo Regional",
+                 "Secretaría de Innovación e Integración Social",
+                 "Dirección de Egresados y Servicio Social",
+                 "Dirección de Relaciones Internacionales",
+                 "Dirección de Servicios Empresariales y Transferencia Tecnológica",
+                 "Dirección de Incubación de Empresas Tecnológicas",
+                 "Dirección de Prospectiva e Inteligencia Tecnológica Tecnópoli",
+                 
 
 
 
 
-
-//Secretaria de Investigacion y Posgrado
-"Dirección de Investigación",
-"Secretaría de Investigación y Posgrado",
-"Dirección de Posgrado",
-"Dirección de Difusión de Ciencia y Tecnología",
-"Centro de Desarrollo Aeroespacial (CDA)",
-"Centro de Nanociencias y Micro y Nanotecnologías (CNMN)",
-"Centro Interdisciplinario de Ciencias Marinas (CICIMAR)",
-   "Centro Interdisciplinario de Investigación y Estudios Sobre Medio Ambiente Y Desarrollo (CIIEMAD)",
-   "Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Durango",
-   "Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Sinaloa",
-   "Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Michoacán",
-   "Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Oaxaca",
-   "Centro de Desarrollo de Productos Bióticos (CEPROBI)",
-   "Centro de Biotecnología Genómica (CBG)",
-   "Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Legaría",
-   "Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Altamira",
-   "Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Querétaro",
-   "Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada  (CICATA), Unidad Morelos",
-   "Centro de Investigación en Computación (CIC)",
-   "Centro de Investigación y Desarrollo de Tecnología Digital (CITEDI)",
-   "Centro de Investigaciones Económicas, Administrativas y Sociales (CIECAS)",
-   "Centro de Investigación en Biotecnología Aplicada, IPN -Tlaxcala (CIBA)",
-   "Centro de Innovación y Desarrollo Tecnológico En Cómputo (CIDETEC)",
-   "Centro de Investigación e Innovación Tecnológica (CIITEC)",
-   "Centro Mexicano para la Producción Más Limpia (CMP+L)",
-
+                 //Secretaria de Investigacion y Posgrado
+                 "Dirección de Investigación",
+                 "Secretaría de Investigación y Posgrado",
+                 "Dirección de Posgrado",
+                 "Dirección de Difusión de Ciencia y Tecnología",
+                 "Centro de Desarrollo Aeroespacial (CDA)",
+                 "Centro de Nanociencias y Micro y Nanotecnologías (CNMN)",
+                 "Centro Interdisciplinario de Ciencias Marinas (CICIMAR)",
+                 "Centro Interdisciplinario de Investigación y Estudios Sobre Medio Ambiente Y Desarrollo (CIIEMAD)",
+                 "Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Durango",
+                 "Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Sinaloa",
+                 "Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Michoacán",
+                 "Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Oaxaca",
+                 "Centro de Desarrollo de Productos Bióticos (CEPROBI)",
+                 "Centro de Biotecnología Genómica (CBG)",
+                 "Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Legaría",
+                 "Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Altamira",
+                 "Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Querétaro",
+                 "Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada  (CICATA), Unidad Morelos",
+                 "Centro de Investigación en Computación (CIC)",
+                 "Centro de Investigación y Desarrollo de Tecnología Digital (CITEDI)",
+                 "Centro de Investigaciones Económicas, Administrativas y Sociales (CIECAS)",
+                 "Centro de Investigación en Biotecnología Aplicada, IPN -Tlaxcala (CIBA)",
+                 "Centro de Innovación y Desarrollo Tecnológico En Cómputo (CIDETEC)",
+                 "Centro de Investigación e Innovación Tecnológica (CIITEC)",
+                 "Centro Mexicano para la Producción Más Limpia (CMP+L)",
 
 
 
 
+                 "Secretaría de Servicios Educativos",
+                 "Dirección de Administración Escolar",
+                 "Dirección de Difusión Cultural",
+                 "Dirección de Actividades Deportivas",
+                 "Dirección de Bibliotecas y Publicaciones",
+                 "Dirección de Apoyos a Estudiantes",
+
+
+                 //Coordinacion General de Planeacion e Informacion Institucional
+                 
+                 "Coordinación General de Planeación e Información Institucional",
+                 "Dirección de Planeación y Organización",
+                 "Dirección de Información Institucional",
 
 
 
-
-"Secretaría de Servicios Educativos",
-"Dirección de Administración Escolar",
-"Dirección de Difusión Cultural",
-"Dirección de Actividades Deportivas",
-"Dirección de Bibliotecas y Publicaciones",
-"Dirección de Apoyos a Estudiantes",
-
-
-//Coordinacion General de Planeacion e Informacion Institucional
-
-"Coordinación General de Planeación e Información Institucional",
-
-"Dirección de Planeación y Organización",
-
-"Dirección de Información Institucional",
-
-
-
-// Coordinación de Imagen Institucional
-
-"Coordinación de Imagen Institucional",
-
-
-//Centro Nacional de Calculo
-
-"Centro Nacional de Cálculo (CENAC)",
-"Dirección de cómputo y comunicaciones",                 
-"Dirección de sistemas informáticos",
-
+                 // Coordinación de Imagen Institucional
+                 
+                 "Coordinación de Imagen Institucional",
+                 
+                 
+                 //Centro Nacional de Calculo
+                 
+                 "Centro Nacional de Cálculo (CENAC)",
+                 "Dirección de cómputo y comunicaciones",                 
+                 "Dirección de sistemas informáticos",
+                 
+                   
+                 //Estacion de Radio
+                 
+                 "Estación de Radiodifusión Radio IPN XHIPN-FM 95.7 MHZ.",
+                 
+                 "Patronato de Obras e Instalaciones  (POI)",
+                 "Comisión de Operación y Fomento de Actividades Académicas (COFAA)"
+                 ];
+                 
   
-//Estacion de Radio
+const dependencias =new Map( [
+              [ "FDN-UPGPG-001","Unidad Politécnica de Gestión con Perspectiva de Género (UPGPG)"],                                                                                                     
+              [ "FDN-DDP-002","Defensoría de los Derechos Politécnicos"],                                                                                                     
+              [ "FDN-SG-003","Secretaría General"],                                                                                                                                                                                                           
+              [ "FDN-DG-004","Dirección General"],                                                                                                     
+              [ "FDN-CPS-005","Coordinación Politécnica para la Sustentabilidad"],                                                                                                     
+              [ "FDN-OAG-006","Oficina del Abogado General"],                                                                                                     
+              [ "FDN-DAJ-007","Dirección de Asuntos Jurídicos"],                                                                                                                                                                                  
+              [ "FDN-DCT-008","Dirección de Convenios y Trámite Registral"],                                                                                                       
+              [ "FDN-LCT-009","Dirección de Legislación, Consulta y Transparencia"],                                                                                                 
+              [ "FDN-PD-010","Presidencia del Decanato"],                                                                                                 
+              [ "FDN-CET1-011",'Centro de Estudios Tecnológicos (CET 1)"Walter Cross Buchanan"'],                                                                                                 
+              [ "FDN-CECyT1-012", 'Centro de Estudios Científicos y Tecnológicos (CECyT 1) "Gonzalo Vázquez Vela"'],
+              [ "FDN-CECyT2-013", 'Centro de Estudios Científicos y Tecnológicos (CECyT 2) "Miguel Bernard"'],
+              [ "FDN-CECyT3-014", 'Centro de Estudios Científicos y Tecnológicos (CECyT 3) "Estanislao Ramírez Ruiz"'],
+              [ "FDN-CECyT4-015", 'Centro de Estudios Científicos y Tecnológicos (CECyT 4) "Lázaro Cárdenas"'],
+              [ "FDN-CECyT5-016", 'Centro de Estudios Científicos y Tecnológicos (CECyT 5) "Benito Juárez"'],
+              [ "FDN-CECyT6-017", 'Centro de Estudios Científicos y Tecnológicos (CECyT 6) "Miguel Othón De Mendizábal"'],
+              [ "FDN-CECyT7-018", 'Centro de Estudios Científicos y Tecnológicos (CECyT 7) "Cuauhtémoc"'],
+              [ "FDN-CECyT8-019", 'Centro de Estudios Científicos y Tecnológicos (CECyT 8) "Narciso Bassols"'],
+              [ "FDN-CECyT9-020", 'Centro de Estudios Científicos y Tecnológicos (CECyT 9) "Juan De Dios Bátiz"'],
+              [ "FDN-CECyT10-021", 'Centro de Estudios Científicos y Tecnológicos (CECyT 10) "Carlos Vallejo Márquez"'],
+              [ "FDN-CECyT11-022", 'Centro de Estudios Científicos y Tecnológicos (CECyT 11) "Wilfrido Massieu"'],
+              [ "FDN-CECyT12-023", 'Centro de Estudios Científicos y Tecnológicos (CECyT 12) "José María Morelos"'],
+              [ "FDN-CECyT13-024", 'Centro de Estudios Científicos y Tecnológicos (CECyT 13) "Ricardo Flores Magón"'],
+              [ "FDN-CECyT14-025", 'Centro de Estudios Científicos y Tecnológicos (CECyT 14) "Luis Enrique Erro"'],
+              [ "FDN-CECyT15-026", 'Centro de Estudios Científicos y Tecnológicos (CECyT 15) "Diódoro Antúnez Echegaray"'],
+              [ "FDN-CECyT16-027", 'Centro de Estudios Científicos y Tecnológicos (CECyT 16) "Hidalgo"'],
+              [ "FDN-CECyT17-028", 'Centro de Estudios Científicos y Tecnológicos (CECyT 17) "León, Guanajuato"'],
+              [ "FDN-CECyT18-029", 'Centro de Estudios Científicos y Tecnológicos (CECyT 18) "Zacatecas"'],
+              [ "FDN-CECyT19-030", 'Centro de Estudios Científicos y Tecnológicos (CECyT 19) "Leona Vicario"'],
+              [ "FDN-CECyT20-031", 'Centro de Estudios Científicos y Tecnológicos (CECyT 20) "Natalia Serdán Alatriste"'],
+              [ "FDN-DIEMS-032", "Dirección de Educación Media Superior"],
+              [ "FDN-ESIME-Zacatenco-033", "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Zacatenco"],
+              [ "FDN-ESIME-Culhuacán-034", "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Culhuacán"],
+              [ "FDN-ESIME-Azcapotzalco-035", "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Azcapotzalco"],
+              [ "FDN-ESIME-Ticomán-036", "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Ticomán"],
+              [ "FDN-ESIA-Zacatenco-037", "Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Zacatenco"],
+              [ "FDN-ESIA-Tecamachalco-038", "Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Tecamachalco"],
+              [ "FDN-ESIA-Ticoman-039", "Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Ticomán"],
+              [ "FDN-ESIT-040", "Escuela Superior de Ingeniería Textil (ESIT)"],
+              [ "FDN-ESIQIE-041", "Escuela Superior de Ingeniería Química E Industrias Extractivas (ESIQIE)"],
+              [ "FDN-ESFM-042", "Escuela Superior de Física y Matemáticas (ESFM)"],
+              [ "FDN-ESCOM-043", "Escuela Superior de Cómputo (ESCOM)"],
+              [ "FDN-ENCB-044", "Escuela Nacional de Ciencias Biológicas (ENCB)"],
+              [ "FDN-ESM-045", "Escuela Superior de Medicina (ESM)"],
+              [ "FDN-ENMH-046", "Escuela Nacional de Medicina y Homeopatía (ENMH)"],
+              [ "FDN-ESEO-047", "Escuela Superior de Enfermería y Obstetricia (ESEO)","Escuela Superior de Enfermería y Obstetricia (ESEO)"],
+              [ "FDN-CICS-MilpaAlta-048", "Centro Interdisciplinario de Ciencias de la Salud (CICS)Unidad Milpa Alta"],
+              [ "FDN-CICS-SantoTomas-049", "Centro Interdisciplinario de Ciencias de la Salud (CICS) Unidad Santo Tomás"],
+              [ "FDN-ESCA-SantoTomas-050", "Escuela Superior de Comercio y Administración (ESCA) Unidad Santo Tomás"],
+              [ "FDN-ESCA-Tepepan-051", "Escuela Superior de Comercio y Administración (ESCA) Unidad Tepepan"],
+              [ "FDN-ESE-052", "Escuela Superior de Economía (ESE)"],
+              [ "FDN-EST-053", "Escuela Superior de Turismo (EST)"],
+              [ "FDN-ENBA-054", "Escuela Nacional de Biblioteconomía y Archivonomía (ENBA)"],
+              [ "FDN-UPIITA-055", "Unidad Profesional Interdisciplinaria en Ingeniería y Tecnologías Avanzadas (UPIITA)"],
+              [ "FDN-UPIICSA-056", "Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas (UPIICSA)"],
+              [ "FDN-UPIBI-057", "Unidad Profesional Interdisciplinaria de Biotecnología (UPIBI)"],
+              [ "FDN-UPIIH-Hidalgo-058", "Unidad Profesional Interdisciplinaria de Ingeniería Campus Hidalgo (UPIIH)"],
+              [ "FDN-UPIIG-Guanajuato-59", "Unidad Profesional Interdisciplinaria de Ingeniería, Campus Guanajuato (UPIIG)"],
+              [ "FDN-UPIIZ-Zacatecas-60", "Unidad Profesional Interdisciplinaria de Ingeniería, Campus Zacatecas (UPIIZ)"],
+              [ "FDN-UPIEM-061", "Unidad Profesional Interdisciplinaria de Energía y Movilidad (UPIEM)"],
+              [ "FDN-UPIIP-Palenque-062", "Unidad Profesional Interdisciplinaria de Ingeniería Campus Palenque (UPIIP)"],
+              [ "FDN-UPIIC-Coahuila-063", "Unidad Profesional Interdisciplinaria de Ingeniería Campus Coahuila (UPIIC)"],
+              [ "FDN-UPIIT-Tlaxcala-064", "Unidad Profesional Interdisciplinaria de Ingeniería Campus Tlaxcala (UPIIT)"],
+              [ 'FDN-UPIIAP-Puebla-065', 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus "Alejo Peralta" Puebla (UPIIAP)'],
+              [ "FDN-DES-066", "Dirección de Educación Superior"],
+              [ "FDN-DEV-067", "Dirección de Educación Virtual"],
+              [ "FDN-DFIE-068", "Dirección de Formación e Innovación Educativa"],
+              [ "FDN-DFLE-069", "Dirección de Formación en Lenguas Extranjeras"],
+              [ "FDN-CENLEX-Zacatenco-70", "Centro de Lenguas Extranjeras (CENLEX), Unidad Zacatenco"],
+              [ "FDN-CENLEX-SantoTomas-071", "Centro de Lenguas Extranjeras (CENLEX), Unidad Santo Tomás"],
+              [ "FDN-SA-072", "Secretaría Académica"],
+              [ "FDN-SAD-073", "Secretaría de Administración"],
+              [ "FDN-DCH-074", "Dirección de Capital Humano"],
+              [ "FDN-DPP-075", "Dirección de Programación y Presupuesto"],
+              [ "FDN-DRF-076", "Dirección de Recursos Financieros"],
+              [ "FDN-DRMI-077", "Dirección de Recursos Materiales e Infraestructua"],
+              [ "FDN-DSG-078", "Dirección de Servicios Generales"],
+              [ "FDN-CCDI-079", "Coordinación de Centros de Desarrollo Infantil"],
+              [ "FDN-CVDR-Cajeme-080", "Centro de Vinculación y Desarrollo Regional (CVDR),Unidad Cajeme -Sonora"],
+              [ "FDN-CVDR-Campeche-81", "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Campeche"],
+              [ "FDN-CVDR-Cancun-082", "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Cancún"],
+              [ "FDN-CVDR-Culiacan-083", "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Culiacán"],
+              [ "FDN-CVDR-Durango-084", "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Durango"],
+              [ "FDN-CVDR-LosMochis-085", "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Los Mochis"],
+              [ "FDN-CVDR-Mazatlan-086", "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Mazatlán"],
+              [ "FDN-CVDR-Morelia-087", "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Morelia"],
+              [ "FDN-CVDR-Oaxaca-088", "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Oaxaca"],
+              [ "FDN-CVDR-Tampico-089", "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Tampico"],
+              [ "FDN-CVDR-Tijuana-090", "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Tijuana"],
+              [ "FDN-CVDR-Tlaxcala-091", "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Tlaxcala"],
+              [ "FDN-CIITA-Ciudad Juarez-092", "Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Cuidad Juárez, Chihuahua"],
+              [ "FDN-CIITA-Papantla-093", "Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Papantla, Veracruz"],
+              [ "FDN-CIITA-Puebla-094", "Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Puebla"],
+              [ "FDN-DVDR-095", "Dirección de Vinculación y Desarrollo Regional"],
+              [ "FDN-SIIS-096", "Secretaría de Innovación e Integración Social"],
+              [ "FDN-DESS-097", "Dirección de Egresados y Servicio Social"],
+              [ "FDN-DRI-098", "Dirección de Relaciones Internacionales"],
+              [ "FDN-DSETT-099", "Dirección de Servicios Empresariales y Transferencia Tecnológica"],
+              [ "FDN-DIET-100", "Dirección de Incubación de Empresas Tecnológicas"],
+              [ "FDN-DPIT-101 - Tecnópoli", "Dirección de Prospectiva e Inteligencia Tecnológica Tecnópoli"],
+              [ "FDN-DI-102", "Dirección de Investigación"],
+              [ "FDN-SIP-103", "Secretaría de Investigación y Posgrado"],
+              [ "FDN-DP-104", "Dirección de Posgrado"],
+              [ "FDN-DDCyT-105", "Dirección de Difusión de Ciencia y Tecnología"],
+              [ "FDN-CDA-106", "Centro de Desarrollo Aeroespacial (CDA)"],
+              [ "FDN-CNMN-107", "Centro de Nanociencias y Micro y Nanotecnologías (CNMN)"],
+              [ "FDN-CICIMAR-108", "Centro Interdisciplinario de Ciencias Marinas (CICIMAR)"],
+              [ "FDN-CIIEMAD-109", "Centro Interdisciplinario de Investigación y Estudios Sobre Medio Ambiente Y Desarrollo (CIIEMAD)"],
+              [ "FDN-CIIDIR-Durango-110", "Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Durango"],
+              [ "FDN-CIIDIR-Sinaloa-111", "Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Sinaloa"],
+              [ "FDN-CIIDIR-Michoacán-112", "Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Michoacán"],
+              [ "FDN-CIIDIR-Oaxaca-113", "Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Oaxaca"], 
+              [ "FDN-CEPROBI-114", "Centro de Desarrollo de Productos Bióticos (CEPROBI)"],
+              [ "FDN-CBG-115", "Centro de Biotecnología Genómica (CBG)"],
+              [ "FDN-CICATA-Legaria-116", "Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Legaría"],
+              [ "FDN-CICATA-Altamira-117", "Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Altamira"],
+              [ "FDN-CICATA-Querétaro-118", "Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Querétaro"],
+              [ "FDN-CICATA-Morelos-119", "Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada  (CICATA), Unidad Morelos"],
+              [ "FDN-CIC-120", "Centro de Investigación en Computación (CIC)"],
+              [ "FDN-CITEDI-121", "Centro de Investigación y Desarrollo de Tecnología Digital (CITEDI)"],
+              [ "FDN-CIECAS-122", "Centro de Investigaciones Económicas, Administrativas y Sociales (CIECAS)"],
+              [ "FDN-CIBA-Tlaxcala-123", "Centro de Investigación en Biotecnología Aplicada, IPN -Tlaxcala (CIBA)"],
+              [ "FDN-CIDETEC-124", "Centro de Innovación y Desarrollo Tecnológico En Cómputo (CIDETEC)"],
+              [ "FDN-CIITEC-125", "Centro de Investigación e Innovación Tecnológica (CIITEC)"],
+              [ "FDN-CMP+L-126", "Centro Mexicano para la Producción Más Limpia (CMP+L)"],
+              [ "FDN-SSE-127", "Secretaría de Servicios Educativos"],
+              [ "FDN-DAE-128", "Dirección de Administración Escolar"],
+              [ "FDN-DDC-129", "Dirección de Difusión Cultural"],
+              [ "FDN-DAD-130", "Dirección de Actividades Deportivas"],
+              [ "FDN-DBP-131", "Dirección de Bibliotecas y Publicaciones"],
+              [ "FDN-DAE-132", "Dirección de Apoyos a Estudiantes"],
+              [ "FDN-CGPII-133", "Coordinación General de Planeación e Información Institucional"],
+              [ "FDN-DPO-134", "Dirección de Planeación y Organización"],
+              [ "FDN-DII-135", "Dirección de Información Institucional"],
+              [ "FDN-CII-136", "Coordinación de Imagen Institucional"],
+              [ "FDN-CENAC-137", "Centro Nacional de Cálculo (CENAC)"],
+              [ "FDN-DCC-138", "Dirección de cómputo y comunicaciones"],
+              [ "FDN-DSI-139", "Dirección de sistemas informáticos"],
+              [ "FDN-Radio-IPN-140", "Estación de Radiodifusión Radio IPN XHIPN-FM 95.7 MHZ."],
+              [ "FDN-POI-141", "Patronato de Obras e Instalaciones  (POI)"],
+              [ "FDN-COFAA-142", "Comisión de Operación y Fomento de Actividades Académicas (COFAA)"]
+              ]);
 
-"Estación de Radiodifusión Radio IPN XHIPN-FM 95.7 MHZ.",
 
-"Patronato de Obras e Instalaciones  (POI)",
-"Comisión de Operación y Fomento de Actividades Académicas (COFAA)"
-];
-
-
-
+                 
   opciones.forEach(value => {
     const option = document.createElement("option");
     option.value = value;
@@ -1163,6 +1470,17 @@ const opciones = ["Unidad Politécnica de Gestión con Perspectiva de Género (U
   });
 
 
+
+
+
+
+
+
+
+
+
+
+  
 
 
 function actualizarObligatoriedadFila(fila) {
@@ -1268,6 +1586,9 @@ function agregarFila(){
   const fila1 = document.createElement("tr");
   fila.innerHTML = `
     <td>
+      ${i}
+    </td>
+    <td>
       <textarea
         name="Programa_T1R${i}"
         class="auto-expand input_tabla obligatorio"
@@ -1319,9 +1640,10 @@ function agregarFila(){
   `;
 
   fila1.innerHTML = `
+    
     <td>
       <textarea
-        name="Programa_T1_1R${i}"
+        name="Programa_T1_1R${j}"
         class="auto-expand input_tabla obligatorio"
         rows="1"
         style="resize:none;"
@@ -1330,37 +1652,37 @@ function agregarFila(){
     </td>
 
     <td>
-    <input type="number" name="Usuarios1_T1_1R${i}" class="input_tabla " aria-label="Usuarios1"> </input>
+    <input type="number" name="Usuarios1_T1_1R${j}" class="input_tabla " aria-label="Usuarios1"> </input>
     </td>
     <td>
-    <input type="number" name="Usuarios2_T1_1R${i}" class="input_tabla " aria-label="Usuarios2"> </input>
+    <input type="number" name="Usuarios2_T1_1R${j}" class="input_tabla " aria-label="Usuarios2"> </input>
     </td>
     <td> 
-    <input type="number" name="Usuarios3_T1_1R${i}" class="input_tabla " aria-label="Usuarios3"> </input>
+    <input type="number" name="Usuarios3_T1_1R${j}" class="input_tabla " aria-label="Usuarios3"> </input>
      </td>
     <td>
-    <input type="number" name="Usuarios4_T1_1R${i}" class="input_tabla " aria-label="Usuarios4"> </input>
+    <input type="number" name="Usuarios4_T1_1R${j}" class="input_tabla " aria-label="Usuarios4"> </input>
     </td>
     <td>
-    <input type="number" name="Usuarios5_T1_1R${i}" class="input_tabla " aria-label="Usuarios5"> </input>
+    <input type="number" name="Usuarios5_T1_1R${j}" class="input_tabla " aria-label="Usuarios5"> </input>
     </td>
     <td>
-    <input type="number" name="Usuarios6_T1_1R${i}" class="input_tabla " aria-label="Usuarios6"> </input>
+    <input type="number" name="Usuarios6_T1_1R${j}" class="input_tabla " aria-label="Usuarios6"> </input>
     </td>
     <td>
-    <input type="number" name="Usuarios7_T1_1R${i}" class="input_tabla " aria-label="Usuarios7"> </input>
-    </td>
-
-    <td>
-    <input type="number" name="Usuarios8_T1_1R${i}" class="input_tabla " aria-label="Usuarios8"> </input>
+    <input type="number" name="Usuarios7_T1_1R${j}" class="input_tabla " aria-label="Usuarios7"> </input>
     </td>
 
     <td>
-    <input type="number" name="Usuarios9_T1_1R${i}" class="input_tabla " aria-label="Usuarios9"> </input>
+    <input type="number" name="Usuarios8_T1_1R${j}" class="input_tabla " aria-label="Usuarios8"> </input>
     </td>
 
     <td>
-    <input type="number" name="Usuarios10_T1_1R${i}" class="input_tabla " aria-label="Usuarios10"> </input>
+    <input type="number" name="Usuarios9_T1_1R${j}" class="input_tabla " aria-label="Usuarios9"> </input>
+    </td>
+
+    <td>
+    <input type="number" name="Usuarios10_T1_1R${j}" class="input_tabla " aria-label="Usuarios10"> </input>
     </td>
   `;
 
@@ -1388,6 +1710,9 @@ function agregarFila2(){
 
   const fila = document.createElement("tr");
   fila.innerHTML = `
+    <td>
+      ${i}
+    </td>
     <td>
     <input name="Edificio_T2R${i}" class="input_tabla" aria-label="Edificio"> </input>
     </td>
@@ -1456,6 +1781,9 @@ function agregarFila3(){
  
  if(i===1){
   fila.innerHTML = `
+  <td>
+      ${i}
+    </td>
     <td>
     <input name="Edificio_T3R${i}" class="input_tabla" aria-label="Edificio"> </input>
     </td>
@@ -1469,12 +1797,10 @@ function agregarFila3(){
                        type="file"
                        id= "Planos_T3"
                        name="Planos_T3" 
-                       class="archivoInput"
+                       class="archivoInput archivoMultipleInput"
                        accept=".pdf,.xlsx,.doc,.docx,.png,.jpg,.rar,.zip" multiple>
                  <span class="nombreArchivo"></span>
-                 <button type="button" class="borrarArchivo">
-                   ❌
-                 </button>
+                 
      </div>
     </td>
      
@@ -1482,9 +1808,17 @@ function agregarFila3(){
 
   `;
 
+//<button type="button" class="borrarArchivo">
+ //                  ❌
+//                 </button>
+
+
 }else{
       
   fila.innerHTML = `
+    <td>
+      ${i}
+    </td>
     <td>
     <input name="Edificio_T3R${i}" class="input_tabla" aria-label="Edificio"> </input>
     </td>
@@ -1525,7 +1859,9 @@ function agregarFilaC(){
 
 
 fila.innerHTML = `   
-        
+        <td>
+      ${i}
+    </td>
         <td>
              <input 
                    name="nombreCotizacion_TCR${i}" 
@@ -1545,7 +1881,7 @@ fila.innerHTML = `
                        type="file"
                        id= "CotizacionAdquisicionG1_TCR${i}"
                        name="CotizacionAdquisicionG1_TCR${i}" 
-                       class="archivoInput"
+                       class="archivoInput "
                        accept=".pdf,.xlsx,.doc,.docx,.png,.jpg">
                  <span class="nombreArchivo"></span>
                  <button type="button" class="borrarArchivo">
@@ -1583,7 +1919,7 @@ fila.innerHTML = `
                        type="file" 
                        id="CotizacionAdquisicionG2_TCR${i}"
                        name="CotizacionAdquisicionG2_TCR${i}" 
-                       class="archivoInput"
+                       class="archivoInput "
                        accept=".pdf,.xlsx,.doc,.docx,.png,.jpg">
                  <span class="nombreArchivo"></span>
                  <button type="button" class="borrarArchivo">
@@ -1634,6 +1970,9 @@ function agregarFila4(){
 
   const fila = document.createElement("tr");
   fila.innerHTML  = `
+    <td>
+      ${i}
+    </td>
     <td>
       <textarea
         name="ProgramaAcademico_T4R${i}"
@@ -1727,8 +2066,8 @@ function agregarFila4(){
     
     
     
-    <td>
-    <div class="contenedorArchivo">
+    <td class="paso">
+    <div class="contenedorArchivo paso">
                       <input 
                        type="file" 
                        name="CotizacionAdquisicion_T4R${i}" 
@@ -1767,8 +2106,8 @@ function agregarFila4(){
     </td>
 
 
-  <td>
-    <div class="contenedorArchivo">
+  <td class="paso">
+    <div class="contenedorArchivo paso">
                       <input 
                        type="file" 
                        name="CotizacionAdquisicion2_T4R${i}" 
@@ -1798,7 +2137,10 @@ function agregarFila5(){
 
   const fila = document.createElement("tr");
   fila.innerHTML = `
-    <td>
+  <td>
+      ${i}
+    </td>  
+  <td>
       <textarea
         name="ProgramaAcademico_T5R${i}"
         class="auto-expand input_tabla obligatorio"
@@ -2096,7 +2438,7 @@ if(document
 
 
 
-const direccionEnlace="https://script.google.com/macros/s/AKfycbwmLlYirlReeDyBZl4FBrwW-5ml2KpmodF-zKiGmcAWX45lYHUgqtRDt9RNo2AZMQxCSQ/exec"
+const direccionEnlace="https://script.google.com/macros/s/AKfycbxMWW1L4i_8R0b8GM9M-Hn3WOYriq_-GKdkYoauB5PfN8N-XOlG85jMrzuama1AnPr_/exec"
 
 let folioActual=null;
 let edicionActual=null;
@@ -2172,7 +2514,11 @@ const res = await fetch(direccionEnlace, {
            json1: partes[0],
            json2: partes[1],
            json3: partes[2],
-           json4: partes[3]
+           json4: partes[3],
+           json5: partes[4],   
+           json6: partes[5],
+           json7: partes[6],
+           json8:partes[7]
        })
     });
   
@@ -2180,7 +2526,7 @@ const res = await fetch(direccionEnlace, {
 
   const json = await res.json();
 if (json.success) {
-      alert(`✅ Borrador guardado correctamente. Tu folio es: ${folioActual}`);
+      alert(`✅ Borrador  de la dependencia ${data.dependencia} guardado correctamente. Recuerda que tu solicitud esta para : ${data.tipoDeSolicitud}`);
     } else {
       alert("⚠️ Error al guardar el borrador: " + json.message);
     }
@@ -2301,12 +2647,53 @@ function restaurarTabla(data) {
 
 
 
+//-------------------------------------CargarDep---------------------------------
+
+//const folioValor = document.getElementById("folioInput");
+
+//const folio = folioValor.value.trim();
+
+//  const folio = document.getElementById("folioInput").value.trim();
+  
+
+//folioActual=folio;
+alert("ANtes de cargar dep: "+folioActual);
+
+function obtenerDependencia(folioA) {
+     
+ // const clave = extraerClaveDependencia(folio);
+
+    return dependencias.get(folioA) ?? "Dependencia no encontrada";
+}
+
+function cargarDep(){
+
+const    folio = document.getElementById("folioInput").value.trim();
+
+   folioActual=folio;
+    if (!folio) {
+        alert("Escribe un folio primero.");
+        return;
+    }
+
+    const dependenciaB = obtenerDependencia(folio);
+
+    setSelectValue("dependencia", dependenciaB);    
+       
+             
+}
+// document.querySelector("#dependencia").value = ;
+
+
+
+document.getElementById("cargarDependencia").addEventListener("click", cargarDep);
 
 
 
 
+//------------------------------------
 
-
+alert("ANtes de cargar Borrador"+folioActual);
 
 document.getElementById("cargarBorrador").addEventListener("click", async () => {
 //-------------------------- Borrador con  folio (Backend)   
@@ -2314,7 +2701,7 @@ document.getElementById("cargarBorrador").addEventListener("click", async () => 
 
 
 
-  const folio = document.getElementById("folioInput").value.trim();
+
   //-----------------------------nuevo----------------
   const dependencia = document.getElementById("dependencia").value.trim();
    
@@ -2394,8 +2781,10 @@ try {
 //  for (let i = 1; i <= filas; i++) {
 //    agregarFila();
 //  }
-  
-      folioActual = folio;
+
+alert("despues de cargar Borrador"+folioActual);
+
+//      folioActual = folio;
       edicionActual=data.edicion;
 // Restaurar selects encadenados
 /*setSelectValue("secretaria", data.secretaria);
@@ -2408,6 +2797,8 @@ setTimeout(() => {
 
     setTimeout(() => {
 */
+//-------------------------------  activa selects
+// folioValor.value=data.folio;
       setSelectValue("dependencia", data.dependencia);
       Object.keys(data).forEach(name => {
                           if (name.includes("__filas")) return;
@@ -2415,7 +2806,8 @@ setTimeout(() => {
                           if(name.includes("secretaria")) return;
                           if(name.includes("direccion")) return; 
                           if(name.includes("nivel")) return; 
-                          if(name.includes("dependencia")) return; 
+                          if(name.includes("dependencia")) return;
+//                          if(name.includes("folio")) return; 
                           const campo = document.querySelector(`[name="${name}"]`);
                           if (!campo) return;
                           
@@ -2427,7 +2819,8 @@ setTimeout(() => {
     }
   });
 
-
+let folioValor = document.getElementById("folioInput");
+ folioValor.value=folioActual;
 
 
       
@@ -2889,7 +3282,11 @@ const res = await fetch(direccionEnlace, {
         json1: partes[0],
            json2: partes[1],
            json3: partes[2],
-           json4: partes[3]
+           json4: partes[3],
+           json5: partes[4],   
+           json6: partes[5],
+           json7: partes[6],
+           json8:partes[7]
     })
 });
 
@@ -2947,6 +3344,82 @@ const res = await fetch(direccionEnlace,{
     })
 });
 const config = await res.json();
+let ejemplos=config.ejemplos;
+    for(let index=1;index<3;index++){
+   document.getElementById(`ProgramasE${index}`).textContent=ejemplos[`ProgramasE${index}`];   
+   document.getElementById(`UsuariosHAnio1E${index}`).textContent=ejemplos[`UsuariosHAnio1E${index}`];
+   document.getElementById(`UsuariosMAnio1E${index}`).textContent=ejemplos[`UsuariosMAnio1E${index}`];
+   document.getElementById(`UsuariosHAnio2E${index}`).textContent=ejemplos[`UsuariosHAnio2E${index}`];
+   document.getElementById(`UsuariosMAnio2E${index}`).textContent=ejemplos[`UsuariosMAnio2E${index}`];
+   document.getElementById(`UsuariosHAnio3E${index}`).textContent=ejemplos[`UsuariosHAnio3E${index}`];
+   document.getElementById(`UsuariosMAnio3E${index}`).textContent=ejemplos[`UsuariosMAnio3E${index}`];
+   document.getElementById(`UsuariosHAnio4E${index}`).textContent=ejemplos[`UsuariosHAnio4E${index}`];
+   document.getElementById(`UsuariosMAnio4E${index}`).textContent=ejemplos[`UsuariosMAnio4E${index}`];
+   document.getElementById(`UsuariosHAnio5E${index}`).textContent=ejemplos[`UsuariosHAnio5E${index}`];
+   document.getElementById(`UsuariosMAnio5E${index}`).textContent=ejemplos[`UsuariosMAnio5E${index}`];
+
+ document.getElementById(`NumProfE${index}`        ).textContent     =ejemplos[`NumProfE${index}`        ]
+ document.getElementById(`UsuariosAHAnio1E${index}`).textContent=ejemplos[`UsuariosAHAnio1E${index}`]
+ document.getElementById(`UsuariosAMAnio1E${index}`).textContent=ejemplos[`UsuariosAMAnio1E${index}`]
+ document.getElementById(`UsuariosAHAnio2E${index}`).textContent=ejemplos[`UsuariosAHAnio2E${index}`]
+ document.getElementById(`UsuariosAMAnio2E${index}`).textContent=ejemplos[`UsuariosAMAnio2E${index}`]
+ document.getElementById(`UsuariosAHAnio3E${index}`).textContent=ejemplos[`UsuariosAHAnio3E${index}`]
+ document.getElementById(`UsuariosAMAnio3E${index}`).textContent=ejemplos[`UsuariosAMAnio3E${index}`]
+ document.getElementById(`UsuariosAHAnio4E${index}`).textContent=ejemplos[`UsuariosAHAnio4E${index}`]
+ document.getElementById(`UsuariosAMAnio4E${index}`).textContent=ejemplos[`UsuariosAMAnio4E${index}`]
+ document.getElementById(`UsuariosAHAnio5E${index}`).textContent=ejemplos[`UsuariosAHAnio5E${index}`]
+ document.getElementById(`UsuariosAMAnio5E${index}`).textContent=ejemplos[`UsuariosAMAnio5E${index}`]
+
+document.getElementById(`Edificio_T2E${index}`).textContent= ejemplos[`Edificio_T2E${index}`];
+document.getElementById(`Nivel_T2E${index}`   ).textContent= ejemplos[`Nivel_T2E${index}`   ];
+document.getElementById(`Espacio_T2E${index}` ).textContent= ejemplos[`Espacio_T2E${index}` ];
+document.getElementById(`Largo_T2E${index}`   ).textContent= ejemplos[`Largo_T2E${index}`   ];
+document.getElementById(`Ancho_T2E${index}`   ).textContent= ejemplos[`Ancho_T2E${index}`   ];
+document.getElementById(`Alumnos_T2E${index}` ).textContent= ejemplos[`Alumnos_T2E${index}` ];
+document.getElementById(`Horas_T2E${index}`   ).textContent= ejemplos[`Horas_T2E${index}`   ];
+
+document.getElementById(`Edificio_T3E${index}`).textContent       = ejemplos[`Edificio_T3E${index}`];
+document.getElementById(`MetrosCuadrados_T3E${index}`).textContent= ejemplos[`MetrosCuadrados_T3E${index}`];
+
+
+document.getElementById(`ProgramaAcademico_T4E${index}`).textContent= ejemplos[`ProgramaAcademico_T4E${index}`];              
+document.getElementById(`Espacio_T4E${index}`).textContent= ejemplos[`Espacio_T4E${index}`];         
+document.getElementById(`Clave_T4E${index}`).textContent= ejemplos[`Clave_T4E${index}`];       
+document.getElementById(`Equipo_T4E${index}`).textContent= ejemplos[`Equipo_T4E${index}`];        
+document.getElementById(`Cantidad_T4E${index}`).textContent= ejemplos[`Cantidad_T4E${index}`];         
+document.getElementById(`Especificaciones_T4E${index}`).textContent= ejemplos[`Especificaciones_T4E${index}`];         
+document.getElementById(`Justificacion_T4E${index}`).textContent= ejemplos[`Justificacion_T4E${index}`];      
+document.getElementById(`PrecioUnitario_T4E${index}`).textContent= ejemplos[`PrecioUnitario_T4E${index}`];      
+document.getElementById(`NombreArch_T4E${index}`).textContent= ejemplos[`NombreArch_T4E${index}`];     
+document.getElementById(`Cotizacion_T4E${index}`).textContent= ejemplos[`Cotizacion_T4E${index}`];       
+document.getElementById(`PrecioUnitario2_T4E${index}`).textContent= ejemplos[`PrecioUnitario2_T4E${index}`];
+document.getElementById(`NombreArch2_T4E${index}`).textContent= ejemplos[`NombreArch2_T4E${index}`];  
+document.getElementById(`Cotizacion2_T4E${index}`).textContent=ejemplos[`Cotizacion2_T4E${index}`];
+
+
+document.getElementById(`ProgramaAcademico_T5E${index}`).textContent=ejemplos[`ProgramaAcademico_T5E${index}`];
+document.getElementById(`Espacio_T5E${index}`).textContent=ejemplos[`Espacio_T5E${index}`]                     ;
+document.getElementById(`Equipo_T5E${index}`).textContent=ejemplos[`Equipo_T5E${index}`]                        ;
+document.getElementById(`Especificaciones_T5E${index}`).textContent=ejemplos[`Especificaciones_T5E${index}`]  ;
+document.getElementById(`MalEstado_T5E${index}`).textContent=ejemplos[`MalEstado_T5E${index}`]               ;
+document.getElementById(`BuenEstado_T5E${index}`).textContent=ejemplos[`BuenEstado_T5E${index}`]                ;
+document.getElementById(`EstadoRegular_T5E${index}`).textContent=ejemplos[`EstadoRegular_T5E${index}`]            ;
+
+
+
+
+}    
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+                             
+
+
     document.getElementById("UsuariosHAnio1").textContent = config.encabezado1;
     document.getElementById("UsuariosMAnio1").textContent = config.encabezado2;
     document.getElementById("UsuariosHAnio2").textContent = config.encabezado3;
@@ -3123,7 +3596,7 @@ campo.addEventListener("blur", function () {
 
 
 
-function dividirData(data, partes = 4) {
+function dividirData(data, partes = 8) {
 
     const json = JSON.stringify(data);
 
