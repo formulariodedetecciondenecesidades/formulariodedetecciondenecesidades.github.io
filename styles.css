@@ -983,17 +983,27 @@ th {
 
 
 
-
-
-
-.EdicionEncabezado{
-    width: 40%;
-    max-width: 400px;
-    max-height: 40px;
-    display:inline-block;
-    align-items: flex-start;
-    margin-bottom: 40px;
+.anio{
+    display:flex;
 }
+.EdicionEncabezado{
+    float: right;
+    align-items: center;
+     margin-bottom:10px;
+     margin-top:10px;
+     width:400px;
+}
+.EdicionEncabezado input{
+   align-self: center;
+}
+
+.filtroInicial select{
+     display: block;
+     margin-bottom:10px;
+     margin-top:10px;
+     width:400px;
+    }
+
 
 .BotonChico,.EdicionAnio{
     align-self:center;
@@ -1035,11 +1045,17 @@ th {
 
     border-radius: 7px 7px 0 0;
 }
- .Botderecha{
-    float: right;
-    width: 180px;
+.BotIzquierda{
+    width: 450px;
+    height: 20px;
     margin-left: 15px;
  }
+ .Botderecha {
+    float: right;
+    width: 300px;
+    margin-left: 15px;
+ }
+
 .pestañas button {
     height: 50px;
     padding: 5px 8px;
@@ -1055,6 +1071,15 @@ th {
 }
 .ejemplo{
     background-color: #ffde21;
+}
+.DEP{
+    display:flex;
+    gap:10px;
+    align-items: baseline;
+}
+.DEP input{
+    height:50px;
+
 }
 
 
