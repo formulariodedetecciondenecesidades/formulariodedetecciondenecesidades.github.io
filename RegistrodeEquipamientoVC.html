@@ -42,9 +42,11 @@
                       <!--  <input id="folio" name="folio" placeholder="Folio" disabled> -->
 
                    <div class="bloque-botones filtroInicial">
-                                
-                                <input  type="text" id="folioInput" placeholder="Ingresa tu folio">
-                                
+                           <div class="DEP">     
+                                <input  type="text" id="folioInput" placeholder="Ingresa tu folio">  <button type="button" id="cargarDependencia">
+                                                    Cargar Dependencia
+                            </button>
+                            </div>                                
                                 <div  class="paso">
                                 <label   for="dependencia">Dependencia</label>
                                  <select name="dependencia" id="dependencia" class="IGS" required>
@@ -59,32 +61,37 @@
                                       <option value="Bienes Tics">Bienes Tics</option>
                                       <option value="Flota Vehicular">Flota Vehicular</option>             
                                       <option value="Equipo de Laboratorio">Equipo de Laboratorio</option>
-                    
                                       </select>
 
    
                     </div>
+                     <div class="bloque-botones Botderecha">
+                                <button type="button" id="guardarBorrador">💾 Guardar borrador </button>          
+
+                                
+<!--                                <label for="cargarBorrador">Continuar llenando nuestro borrador Inconcluso de la solicitud.</label> -->
+                                <button type="button" id="cargarBorrador">📂 Cargar borrador de la Solicitud <!--/ Correcion de Observaciones.--></button>
+                                
+                                
+                            </div>
+
+
+
 
 <br>
 
    
-                            <div class="bloque-botones BotIzquierda">
-                                <button type="button" id="guardarBorrador">💾 Guardar borrador</button>
-                                
-                                <button type="button" id="cargarBorrador">📂 Continuar registro</button>
-                                
-                                
-                            </div>
+                            
+
                             <div class="bloque-botones">
-                                   <button type="button" id="cargarDependencia">
-                                                    Cargar Dependencia
-                            </button>
+                                  
                             </div>
                              <div class="bloque-botones Botderecha">
                                 
-                                    
-                                <button type="button" id="cargarRespuesta">📂Cargar Respuesta de Solicitud</button>   
-                                <button  class="BotonChico"type="submit" id="Enviar">Enviar</button>
+                                <button type="button" id="cargarRespuesta">📂Cargar respuesta de solicitud<!--( Observaciones de la DPO)--></button>    
+                                
+                                   
+                                <button  class="BotonChico"type="submit" id="Enviar">Enviar </button>
                                 
                             </div>
 <br>
@@ -266,25 +273,25 @@
                       </button>
                   
                       <button type="button" class="pagina" onclick="siguiente(2,3)">
-                        Tabla2. Infraestructura de los espacios participantes.
+                        Tabla 2. Infraestructura de los espacios participantes.
                       </button>
                        
                       
                   
                       <button type="button" class="pagina" onclick="siguiente(2,4)">
-                        Tabla 3. Infraestructura (General)
+                        Tabla 3. Infraestructura general y planos
                       </button>
                    
                       <button type="button" class="pagina" onclick="siguiente(2,5)">
-                        Cotizaciones. 
+                       Tabla de Cotizaciones. 
                       </button>
                   
                       <button type="button" class="pagina" onclick="siguiente(2,6)">
-                        Tabla4. Demanda
+                        Tabla 4. Demanda
                       </button>
                   
                       <button type="button" class="pagina" onclick="siguiente(2,7)">
-                        Tabla5.
+                        Tabla 5.
                          Oferta Directa con la Demanda-Equipo existente con el que cuenta la dependencia.
                       </button>
                       <button type="button" class="pagina" onclick="siguiente(2,8)">
@@ -452,9 +459,9 @@
                                           <table class="tabla_style Tabla1" title="Tabla 1.1 Profesores y Administrativos">
                                           <thead>
                                                                          <tr>
-                                                                              <td title="Numero de Fila"  class="ejemplo">
+                                                                              <th title="Numero de Fila"  class="ejemplo">
                                                                                                                         
-                                                                              </td>
+                                                                              </th>
 
                                                                               <th title="División, Departamento o Jefatura.  ">
                                                                                    División, Departamento o Jefatura.     
@@ -603,27 +610,27 @@
  <div class="pestañas">
  
     <button type="button" class="pagina" onclick="siguiente(3,2)">
-      Tabla1. Usuarios
+      Tabla 1. Usuarios
     </button>
      
     <button type="button" class="pagina botonActivo" >
-      Tabla2. Infraestructura de los espacios participantes.
+      Tabla 2. Infraestructura de los espacios participantes.
     </button>
 
     <button type="button" class="pagina" onclick="siguiente(3,4)">
-      Tabla3. Infraestructura General y planos.
+      Tabla 3. Infraestructura General y planos.
     </button>
 
     <button type="button" class="pagina" onclick="siguiente(3,5)">
-      Cotizaciones.
+     Tabla de Cotizaciones.
     </button> 
 
     <button type="button" class="pagina" onclick="siguiente(3,6)">
-      Tabla4. Demanda
+      Tabla 4. Demanda
     </button>
 
     <button type="button" class="pagina" onclick="siguiente(3,7)">
-      Tabla5. Oferta Directa con la Demanda-Equipo existente con el que cuenta la dependencia 
+      Tabla 5. Oferta Directa con la Demanda-Equipo existente con el que cuenta la dependencia 
     </button>
     <button type="button" class="pagina" onclick="siguiente(3,8)">
       Observaciones
@@ -743,27 +750,27 @@
 -->
                              <h3>Estadisticas-Espacios </h3>
                              <fieldset class="TablaFS"> 
-                             <legend class="TablaLeg" >Tabla 3. Infraestructura (General)</legend>     
+                             <legend class="TablaLeg" >Tabla 3. Infraestructura general y planos.</legend>     
      
 
   <div class="pestañas">
  
     <button type="button" class="pagina" onclick="siguiente(4,2)">
-      Tabla1. Usuarios
+      Tabla 1. Usuarios
     </button>
      
     <button type="button" class="pagina" onclick="siguiente(4,3)">
-      Tabla2. Infraestructura de los espacios participantes.
+      Tabla 2. Infraestructura de los espacios participantes.
     </button>
     
     
 
     <button type="button" class="pagina botonActivo" >
-      Tabla3. Infraestructura General y planos.
+      Tabla 3. Infraestructura general y planos.
     </button>
 
     <button type="button" class="pagina" onclick="siguiente(4,5)">
-      Cotizaciones. 
+      Tabla de Cotizaciones. 
     </button> 
 
     <button type="button" class="pagina" onclick="siguiente(4,6)">
@@ -852,34 +859,34 @@
 
                                 <h3>Demanda </h3>             
                                 <fieldset class="TablaFS"> 
-                                <legend class="TablaLeg" >Cotizaciones </legend>      
+                                <legend class="TablaLeg" >Tabla de Cotizaciones </legend>      
 
 
      <div class="pestañas">
  
     <button type="button" class="pagina" onclick="siguiente(5,2)">
-      Tabla1. Usuarios
+      Tabla 1. Usuarios
     </button>
      
     <button type="button" class="pagina" onclick="siguiente(5,3)">
-      Tabla2.Infraestructura de los espacios participantes.
+      Tabla 2.Infraestructura de los espacios participantes.
     </button>
     
 
     <button type="button" class="pagina" onclick="siguiente(5,4)">
-      Tabla3. Infraestructura General y planos.
+      Tabla 3. Infraestructura General y planos.
     </button>
 
     <button type="button" class="pagina botonActivo" >
-      Cotizaciones.
+      Tabla de Cotizaciones.
     </button> 
 
     <button type="button" class="pagina" onclick="siguiente(5,6)">
-      Tabla4. Demanda.
+      Tabla 4. Demanda.
     </button>
 
     <button type="button" class="pagina" onclick="siguiente(5,7)">
-      Tabla5.Oferta Directa con la Demanda-Equipo existente con el que cuenta la dependencia.
+      Tabla 5.Oferta Directa con la Demanda-Equipo existente con el que cuenta la dependencia.
     </button>
     <button type="button" class="pagina" onclick="siguiente(5,8)">
       Observaciones
@@ -891,9 +898,7 @@
 
 
 
-
-
-                                
+                              
                                 <table class="TablaCotizaciones" title="Tabla de Registro de Necesidades">
                                 <thead>
                                                                <tr>
@@ -908,12 +913,14 @@
                                                                          Cotizacion de Adquisicion General Alternativa 1     
                                                                     </th>
                                                 
+
                                                                     <th title="Año">
                                                                          Año
                                                                     </th>   
                                 
-                                                                    <th title="Nombre Cotizacion de Adquisicion General Alternativa 1">
-                                                                         Nombre  de la Cotizacion de Adquisicion General Alternativa 1     
+                                                                    
+                                                                    <th title="Nombre Cotizacion de Adquisicion General Alternativa 2">
+                                                                         Nombre  de la Cotizacion de Adquisicion General Alternativa 2     
                                                                     </th>
                                                                     
                                                                     <th title="Cotizacion de Adquisicion General Alternativa 2">
@@ -960,28 +967,28 @@
      <div class="pestañas">
  
     <button type="button" class="pagina" onclick="siguiente(6,2)">
-      Tabla1.Usuarios
+      Tabla 1.Usuarios
     </button>
      
     <button type="button" class="pagina" onclick="siguiente(6,3)">
-      Tabla2. Infraestructura de los espacios participantes.
+      Tabla 2. Infraestructura de los espacios participantes.
     </button>
     
 
     <button type="button" class="pagina" onclick="siguiente(6,4)">
-      Tabla3. Infraestructura General y planos.
+      Tabla 3. Infraestructura General y planos.
     </button>
 
     <button type="button" class="pagina" onclick="siguiente(6,5)">
-      Cotizaciones.
+      Tabla de Cotizaciones.
     </button> 
 
     <button type="button" class="pagina botonActivo" >
-      Tabla4. Demanda.
+      Tabla 4. Demanda.
     </button>
 
     <button type="button" class="pagina" onclick="siguiente(6,7)">
-      Tabla5. Oferta Directa con la Demanda-Equipo existente con el que cuenta la dependencia.
+      Tabla 5. Oferta Directa con la Demanda-Equipo existente con el que cuenta la dependencia.
     </button>
     <button type="button" class="pagina" onclick="siguiente(6,8)">
       Observaciones
@@ -1201,7 +1208,7 @@
 -->
                                 <h3>Oferta </h3>            
                                 <fieldset class="TablaFS"> 
-                                <legend class="TablaLeg" >Tabla 5.OFERTA Directa con la DEMANDA-Equipo existente con el que cuenta la dependencia </legend>    
+                                <legend class="TablaLeg" >Tabla 5.Oferta directa con la demanda-Equipo existente con el que cuenta la dependencia </legend>    
      <div class="pestañas">
  
 
@@ -1215,19 +1222,19 @@
     
 
     <button type="button" class="pagina" onclick="siguiente(7,4)">
-      Tabla3.Infraestructura General y planos.
+      Tabla3.Infraestructura general y planos.
     </button>
 
     <button type="button" class="pagina" onclick="siguiente(7,5)">
-      Cotizaciones.
+      Tabla de Cotizaciones.
     </button> 
 
     <button type="button" class="pagina" onclick="siguiente(7,6)">
-      Tabla4. Demanda.
+      Tabla 4. Demanda.
     </button>
 
     <button type="button" class="pagina botonActivo" >
-      Tabla5. Oferta Directa con la Demanda-Equipo existente con el que cuenta la dependencia.
+      Tabla 5. Oferta Directa con la Demanda-Equipo existente con el que cuenta la dependencia.
     </button>
     <button type="button" class="pagina" onclick="siguiente(7,8)">
       Observaciones
@@ -1428,7 +1435,7 @@
  <div class="pestañas">
  
     <button type="button" class="pagina" onclick="siguiente(8,2)">
-      Tabla1. Usuarios
+      Tabla 1. Usuarios
     </button>
      
     <button type="button" class="pagina" onclick="siguiente(8,3)">
@@ -1437,19 +1444,19 @@
     
 
     <button type="button" class="pagina" onclick="siguiente(8,4)">
-      Tabla3.Infraestructura General y planos.
+      Tabla 3.Infraestructura general y planos.
     </button>
 
     <button type="button" class="pagina" onclick="siguiente(8,5)">
-      Cotizaciones.
+      Tabla de Cotizaciones.
     </button> 
 
     <button type="button" class="pagina" onclick="siguiente(8,6)">
-      Tabla4. Demanda.
+      Tabla 4. Demanda.
     </button>
 
     <button type="button" class="pagina" onclick="siguiente(8,7)">
-      Tabla5. Oferta Directa con la Demanda-Equipo existente con el que cuenta la dependencia.
+      Tabla 5. Oferta directa con la demanda-Equipo existente con el que cuenta la dependencia.
     </button>
     <button type="button" class="pagina botonActivo" >
       Observaciones
@@ -1960,7 +1967,7 @@
 
                               <!-- ------------------------------------------Tabla 2 Obs-->
                     <fieldset class="TablaFS"> 
-                                <legend class="TablaLeg" >Tabla 2. Infraestructura de los Espacios Participantes.</legend>
+                                <legend class="TablaLeg" >Tabla 2. Infraestructura de los espacios participantes.</legend>
                                  <table class="Tabla7" title="Tabla de Observaciones">
                     <thead>
                               <tr>
@@ -2111,7 +2118,7 @@
 
 <!-- ------------------------------------------Tabla 3 Obs-->
                     <fieldset class="TablaFS"> 
-                                <legend class="TablaLeg" >Tabla3. Infraestructura General y planos.</legend>
+                                <legend class="TablaLeg" >Tabla3. Infraestructura general y planos.</legend>
                                  <table class="Tabla7" title="Tabla de Observaciones">
                     <thead>
                               <tr>
@@ -2161,6 +2168,116 @@
                     </table>
 
                     </fieldset>
+<fieldset class="TablaFS"> 
+                                <legend class="TablaLeg" >Tabla de Cotizaciones.</legend>
+                                 <table class="Tabla7" title="Tabla de Observaciones">
+                    <thead>
+                              <tr>
+                                     <th title ="Columna">Columna</th>
+                                     <th title="Observación realizada por la DPO">Observación realizada por la DPO</th>
+                                     <th title ="Duda generada por la dependencia">Duda generada por la dependencia</th>
+                              </tr>
+                    </thead>
+
+                    <tbody> 
+                              <tr>
+                                     <td>Nombre  de la Cotizacion de Adquisicion General Alternativa 1</td>
+                                     <td><textarea name="ObsNombreCotDPO_T3" 
+                                                   class="auto-expand input_tabla obligatorio" 
+                                                   rows="1" 
+                                                   style="resize:none;" 
+                                                   aria-label="Observaciones de Nombre de la Cotizacion Alternativa 1 de la DPO"
+                                                   ></textarea>
+                                    </td>
+                                     <td><textarea name="DudaNombreCotDep_T3"
+                                                   class="auto-expand input_tabla obligatorio" 
+                                                   rows="1" 
+                                                   style="resize:none;"
+                                                    aria-label="Duda de Nombre de la Cotizacion Alternativa 1 de la Dependencia"
+                                                    ></textarea>
+                                    </td>
+                              </tr>
+
+                              <tr>
+                                     <td>Cotizacion de Adquisicion General Alternativa 1</td>
+                                     <td><textarea name="ObsCotDPO_T3" 
+                                                   class="auto-expand input_tabla obligatorio" 
+                                                   rows="1" 
+                                                   style="resize:none;" 
+                                                   aria-label="Observaciones de la Cotizacion Alternativa 1 de la DPO"
+                                                   ></textarea>
+                                    </td>
+                                     <td><textarea name="DudaNombreCotDep_T3"
+                                                   class="auto-expand input_tabla obligatorio" 
+                                                   rows="1" 
+                                                   style="resize:none;"
+                                                    aria-label="Duda de la Cotizacion Alternativa 1 de la Dependencia"
+                                                    ></textarea>
+                                    </td>
+                              </tr>
+                              <tr>
+                                     <td>Año de la Cotizacion de Adquisicion 1</td>
+                                     <td><textarea name="ObsAnio1DPO_T3" 
+                                                   class="auto-expand input_tabla obligatorio" 
+                                                   rows="1" 
+                                                   style="resize:none;" 
+                                                   aria-label="Observaciones del año de la Cotizacion Alternativa 1 de la DPO"
+                                                   ></textarea>
+                                    </td>
+                                     <td><textarea name="DudaAnio1Dep_T3"
+                                                   class="auto-expand input_tabla obligatorio" 
+                                                   rows="1" 
+                                                   style="resize:none;"
+                                                    aria-label="Duda del año de la Cotizacion Alternativa 1 de la Dependencia"
+                                                    ></textarea>
+                                    </td>
+                              </tr>
+
+                              <tr>
+                                     <td>Cotizacion de Adquisicion General Alternativa 2</td>
+                                     <td><textarea name="ObsCot2DPO_T3" 
+                                                   class="auto-expand input_tabla obligatorio" 
+                                                   rows="1" 
+                                                   style="resize:none;" 
+                                                   aria-label="Observaciones de la Cotizacion Alternativa 2 de la DPO"
+                                                   ></textarea>
+                                    </td>
+                                     <td><textarea name="DudaNombreCot2Dep_T3"
+                                                   class="auto-expand input_tabla obligatorio" 
+                                                   rows="1" 
+                                                   style="resize:none;"
+                                                    aria-label="Duda de la Cotizacion Alternativa 2 de la Dependencia"
+                                                    ></textarea>
+                                    </td>
+                              </tr>
+                              <tr>
+                                     <td>Año de la Cotizacion de Adquisicion 1</td>
+                                     <td><textarea name="ObsAnio2DPO_T3" 
+                                                   class="auto-expand input_tabla obligatorio" 
+                                                   rows="1" 
+                                                   style="resize:none;" 
+                                                   aria-label="Observaciones del año de la Cotizacion Alternativa 2 de la DPO"
+                                                   ></textarea>
+                                    </td>
+                                     <td><textarea name="DudaAnio2Dep_T3"
+                                                   class="auto-expand input_tabla obligatorio" 
+                                                   rows="1" 
+                                                   style="resize:none;"
+                                                    aria-label="Duda del año de la Cotizacion Alternativa 2 de la Dependencia"
+                                                    ></textarea>
+                                    </td>
+                              </tr>
+
+                    </tbody>
+                    </table>
+
+                    </fieldset>
+ 
+
+
+
+
+
 
                     <!-- ------------------------------------------Tabla 4 Obs-->
                     <fieldset class="TablaFS"> 
@@ -2356,7 +2473,7 @@
 
 <!-- ------------------------------------------Tabla 5 Obs-->
                     <fieldset class="TablaFS"> 
-                                <legend class="TablaLeg" >Tabla5. Oferta Directa con la Demanda-Equipo existente con el que cuenta la dependencia. </legend>
+                                <legend class="TablaLeg" >Tabla 5. Oferta directa con la demanda-Equipo existente con el que cuenta la dependencia. </legend>
                                  <table class="Tabla7" title="Tabla de Observaciones">
                     <thead>
                               <tr>
@@ -2646,7 +2763,7 @@
 
 </div>
 
-<div id="fecha" class="Botderecha"> 24 de agosto</div>
+<div id="fecha" class="Botderecha"> 31 de agosto</div>
 
 
    
