@@ -22,28 +22,1221 @@ let urlCotizacionesActuales={};
 
 
 
+function agregarFila(){
+
+    const tbody = document.getElementById("tablaBody");
+    const tbody1 = document.getElementById("tablaBody1_1");
+
+    const i = obtenerNumeroFila1();
+    const j = obtenerNumeroFila1_1();
+
+    const fila = document.createElement("tr");
+    const fila1 = document.createElement("tr");
+
+    fila.innerHTML = `
+        <td>
+            ${i}
+        </td>
+
+        <td>
+            <textarea
+                name="Programa_T1R${i}"
+                class="auto-expand input_tabla obligatorio"
+                rows="1"
+                style="resize:none;"
+                aria-label="Programas académicos, servicios o actividades de la dependencia">
+            </textarea>
+
+            <input
+                name="Programa_T1R${i}RO"
+                readonly
+                class="paso check-verificacion"
+                id="Programa_T1R${i}RO"
+                data-campo="Programa_T1R${i}"
+            >
+        </td>
+
+        <td>
+            <input
+                type="number"
+                name="Usuarios1_T1R${i}"
+                class="input_tabla"
+                aria-label="Usuarios1">
+
+            <input
+                name="Usuarios1_T1R${i}RO"
+                readonly
+                class="paso check-verificacion"
+                id="Usuarios1_T1R${i}RO"
+                data-campo="Usuarios1_T1R${i}"
+            >
+        </td>
+
+        <td>
+            <input
+                type="number"
+                name="Usuarios2_T1R${i}"
+                class="input_tabla"
+                aria-label="Usuarios2">
+
+            <input
+                name="Usuarios2_T1R${i}RO"
+                readonly
+                class="paso check-verificacion"
+                id="Usuarios2_T1R${i}RO"
+                data-campo="Usuarios2_T1R${i}"
+            >
+        </td>
+
+        <td>
+            <input
+                type="number"
+                name="Usuarios3_T1R${i}"
+                class="input_tabla"
+                aria-label="Usuarios3">
+
+            <input
+                name="Usuarios3_T1R${i}RO"
+                readonly
+                class="paso check-verificacion"
+                id="Usuarios3_T1R${i}RO"
+                data-campo="Usuarios3_T1R${i}"
+            >
+        </td>
+
+        <td>
+            <input
+                type="number"
+                name="Usuarios4_T1R${i}"
+                class="input_tabla"
+                aria-label="Usuarios4">
+
+            <input
+                name="Usuarios4_T1R${i}RO"
+                readonly
+                class="paso check-verificacion"
+                id="Usuarios4_T1R${i}RO"
+                data-campo="Usuarios4_T1R${i}"
+            >
+        </td>
+
+        <td>
+            <input
+                type="number"
+                name="Usuarios5_T1R${i}"
+                class="input_tabla"
+                aria-label="Usuarios5">
+
+            <input
+                name="Usuarios5_T1R${i}RO"
+                readonly
+                class="paso check-verificacion"
+                id="Usuarios5_T1R${i}RO"
+                data-campo="Usuarios5_T1R${i}"
+            >
+        </td>
+
+        <td>
+            <input
+                type="number"
+                name="Usuarios6_T1R${i}"
+                class="input_tabla"
+                aria-label="Usuarios6">
+
+            <input
+                name="Usuarios6_T1R${i}RO"
+                readonly
+                class="paso check-verificacion"
+                id="Usuarios6_T1R${i}RO"
+                data-campo="Usuarios6_T1R${i}"
+            >
+        </td>
+
+        <td>
+            <input
+                type="number"
+                name="Usuarios7_T1R${i}"
+                class="input_tabla"
+                aria-label="Usuarios7">
+
+            <input
+                name="Usuarios7_T1R${i}RO"
+                readonly
+                class="paso check-verificacion"
+                id="Usuarios7_T1R${i}RO"
+                data-campo="Usuarios7_T1R${i}"
+            >
+        </td>
+
+        <td>
+            <input
+                type="number"
+                name="Usuarios8_T1R${i}"
+                class="input_tabla"
+                aria-label="Usuarios8">
+
+            <input
+                name="Usuarios8_T1R${i}RO"
+                readonly
+                class="paso check-verificacion"
+                id="Usuarios8_T1R${i}RO"
+                data-campo="Usuarios8_T1R${i}"
+            >
+        </td>
+
+        <td>
+            <input
+                type="number"
+                name="Usuarios9_T1R${i}"
+                class="input_tabla"
+                aria-label="Usuarios9">
+
+            <input
+                name="Usuarios9_T1R${i}RO"
+                readonly
+                class="paso check-verificacion"
+                id="Usuarios9_T1R${i}RO"
+                data-campo="Usuarios9_T1R${i}"
+            >
+        </td>
+
+        <td>
+            <input
+                type="number"
+                name="Usuarios10_T1R${i}"
+                class="input_tabla"
+                aria-label="Usuarios10">
+
+            <input
+                name="Usuarios10_T1R${i}RO"
+                readonly
+                class="paso check-verificacion"
+                id="Usuarios10_T1R${i}RO"
+                data-campo="Usuarios10_T1R${i}"
+            >
+        </td>
+    `;
+
+
+    fila1.innerHTML = `
+        <td>
+            ${i}
+        </td>
+
+        <td>
+            <textarea
+                name="Programa_T1_1R${i}"
+                class="auto-expand input_tabla obligatorio"
+                rows="1"
+                style="resize:none;"
+                aria-label="Programas académicos, servicios o actividades de la dependencia">
+            </textarea>
+
+            <input
+                name="Programa_T1_1R${i}RO"
+                id="Programa_T1_1R${i}RO"
+                data-campo="Programa_T1_1R${i}"
+                readonly
+                class="paso check-verificacion"
+            >
+        </td>
+
+        <td>
+            <input
+                type="number"
+                name="Usuarios1_T1_1R${i}"
+                class="input_tabla"
+                aria-label="Usuarios1">
+
+            <input
+                name="Usuarios1_T1_1R${i}RO"
+                class="paso check-verificacion"
+                id="Usuarios1_T1_1R${i}RO"
+                data-campo="Usuarios1_T1_1R${i}"
+                readonly
+            >
+        </td>
+
+        <td>
+            <input
+                type="number"
+                name="Usuarios2_T1_1R${i}"
+                class="input_tabla"
+                aria-label="Usuarios2">
+
+            <input
+                name="Usuarios2_T1_1R${i}RO"
+                class="paso check-verificacion"
+                id="Usuarios2_T1_1R${i}RO"
+                data-campo="Usuarios2_T1_1R${i}"
+                readonly
+            >
+        </td>
+
+        <td>
+            <input
+                type="number"
+                name="Usuarios3_T1_1R${i}"
+                class="input_tabla"
+                aria-label="Usuarios3">
+
+            <input
+                name="Usuarios3_T1_1R${i}RO"
+                class="paso check-verificacion"
+                readonly
+                id="Usuarios3_T1_1R${i}RO"
+                data-campo="Usuarios3_T1_1R${i}"
+            >
+        </td>
+
+        <td>
+            <input
+                type="number"
+                name="Usuarios4_T1_1R${i}"
+                class="input_tabla"
+                aria-label="Usuarios4">
+
+            <input
+                name="Usuarios4_T1_1R${i}RO"
+                class="paso check-verificacion"
+                readonly
+                id="Usuarios4_T1_1R${i}RO"
+                data-campo="Usuarios4_T1_1R${i}"
+            >
+        </td>
+
+        <td>
+            <input
+                type="number"
+                name="Usuarios5_T1_1R${i}"
+                class="input_tabla"
+                aria-label="Usuarios5">
+
+            <input
+                name="Usuarios5_T1_1R${i}RO"
+                class="paso check-verificacion"
+                readonly
+                id="Usuarios5_T1_1R${i}RO"
+                data-campo="Usuarios5_T1_1R${i}"
+            >
+        </td>
+
+        <td>
+            <input
+                type="number"
+                name="Usuarios6_T1_1R${i}"
+                class="input_tabla"
+                aria-label="Usuarios6">
+
+            <input
+                name="Usuarios6_T1_1R${i}RO"
+                class="paso check-verificacion"
+                readonly
+                id="Usuarios6_T1_1R${i}RO"
+                data-campo="Usuarios6_T1_1R${i}"
+            >
+        </td>
+
+        <td>
+            <input
+                type="number"
+                name="Usuarios7_T1_1R${i}"
+                class="input_tabla"
+                aria-label="Usuarios7">
+
+            <input
+                name="Usuarios7_T1_1R${i}RO"
+                class="paso check-verificacion"
+                readonly
+                id="Usuarios7_T1_1R${i}RO"
+                data-campo="Usuarios7_T1_1R${i}"
+            >
+        </td>
+
+        <td>
+            <input
+                type="number"
+                name="Usuarios8_T1_1R${i}"
+                class="input_tabla"
+                aria-label="Usuarios8">
+
+            <input
+                name="Usuarios8_T1_1R${i}RO"
+                class="paso check-verificacion"
+                readonly
+                id="Usuarios8_T1_1R${i}RO"
+                data-campo="Usuarios8_T1_1R${i}"
+            >
+        </td>
+
+        <td>
+            <input
+                type="number"
+                name="Usuarios9_T1_1R${i}"
+                class="input_tabla"
+                aria-label="Usuarios9">
+
+            <input
+                name="Usuarios9_T1_1R${i}RO"
+                class="paso check-verificacion"
+                readonly
+                id="Usuarios9_T1_1R${i}RO"
+                data-campo="Usuarios9_T1_1R${i}"
+            >
+        </td>
+
+        <td>
+            <input
+                type="number"
+                name="Usuarios10_T1_1R${i}"
+                class="input_tabla"
+                aria-label="Usuarios10">
+
+            <input
+                name="Usuarios10_T1_1R${i}RO"
+                class="paso check-verificacion"
+                readonly
+                id="Usuarios10_T1_1R${i}RO"
+                data-campo="Usuarios10_T1_1R${i}"
+            >
+        </td>
+    `;
+
+
+    tbody.appendChild(fila);
+    tbody1.appendChild(fila1);
+
+    activarAutoExpand(fila);
+    activarAutoExpand(fila1);
+}
+
+
+//*-----------------------Agregar fila tabla 2*
+
+function agregarFila2(){
+
+    const tbody = document.getElementById("tablaBody2");
+    const i = obtenerNumeroFila2();
+
+    const fila = document.createElement("tr");
+
+    fila.innerHTML = `
+        <td>
+            ${i}
+        </td>
+
+        <td>
+            <input
+                name="Edificio_T2R${i}"
+                class="input_tabla"
+                aria-label="Edificio"
+            >
+
+            <input
+                name="Edificio_T2R${i}RO"
+                class="paso check-verificacion"
+                readonly
+                id="Edificio_T2R${i}RO"
+                data-campo="Edificio_T2R${i}"
+            >
+        </td>
+
+        <td>
+            <input
+                name="Nivel_T2R${i}"
+                class="input_tabla"
+                aria-label="Nivel"
+            >
+
+            <input
+                name="Nivel_T2R${i}RO"
+                class="paso check-verificacion"
+                readonly
+                id="Nivel_T2R${i}RO"
+                data-campo="Nivel_T2R${i}"
+            >
+        </td>
+
+        <td>
+            <input
+                name="Espacio_T2R${i}"
+                class="input_tabla"
+                aria-label="Espacio"
+            >
+
+            <input
+                name="Espacio_T2R${i}RO"
+                readonly
+                class="paso check-verificacion"
+                id="Espacio_T2R${i}RO"
+                data-campo="Espacio_T2R${i}"
+            >
+        </td>
+
+        <td class="cantidadCol">
+            <input
+                type="number"
+                name="Largo_T2R${i}"
+                class="input_tabla"
+                aria-label="Largo"
+            >
+
+            <input
+                name="Largo_T2R${i}RO"
+                readonly
+                class="paso check-verificacion"
+                id="Largo_T2R${i}RO"
+                data-campo="Largo_T2R${i}"
+            >
+        </td>
+
+        <td class="cantidadCol">
+            <input
+                type="number"
+                name="Ancho_T2R${i}"
+                class="input_tabla"
+                aria-label="Ancho"
+            >
+
+            <input
+                name="Ancho_T2R${i}RO"
+                readonly
+                class="paso check-verificacion"
+                id="Ancho_T2R${i}RO"
+                data-campo="Ancho_T2R${i}"
+            >
+        </td>
+
+        <td class="cantidadCol">
+            <input
+                type="number"
+                name="Alumnos_T2R${i}"
+                class="input_tabla"
+                aria-label="Numero de Alumnos"
+            >
+
+            <input
+                name="Alumnos_T2R${i}RO"
+                readonly
+                class="paso check-verificacion"
+                id="Alumnos_T2R${i}RO"
+                data-campo="Alumnos_T2R${i}"
+            >
+        </td>
+
+        <td class="cantidadCol">
+            <input
+                type="number"
+                name="Horas_T2R${i}"
+                class="input_tabla"
+                aria-label="Horas de Servicio"
+            >
+
+            <input
+                name="Horas_T2R${i}RO"
+                readonly
+                class="paso check-verificacion"
+                id="Horas_T2R${i}RO"
+                data-campo="Horas_T2R${i}"
+            >
+        </td>
+    `;
+
+    tbody.appendChild(fila);
+
+    activarAutoExpand(fila);
+}
+
+
+//*-----------------------Agregar fila tabla 3*
+
+function agregarFila3(){
+
+    const tbody = document.getElementById("tablaBody3");
+    const i = obtenerNumeroFila3();
+
+    const fila = document.createElement("tr");
+
+    if (i === 1) {
+
+        fila.innerHTML = `
+            <td>
+                ${i}
+            </td>
+
+            <td>
+                <input
+                    name="Edificio_T3R${i}"
+                    class="input_tabla"
+                    aria-label="Edificio"
+                >
+
+                <input
+                    name="Edificio_T3R${i}RO"
+                    type="text"
+                    readonly
+                    class="paso check-verificacion"
+                    id="Edificio_T3R${i}RO"
+                    data-campo="Edificio_T3R${i}"
+                >
+            </td>
+
+            <td>
+                <input
+                    type="number"
+                    name="MetrosCuadrados_T3R${i}"
+                    class="input_tabla"
+                    aria-label="MetrosCuadrados"
+                >
+
+                <input
+                    name="MetrosCuadrados_T3R${i}RO"
+                    type="text"
+                    readonly
+                    class="paso check-verificacion"
+                    id="MetrosCuadrados_T3R${i}RO"
+                    data-campo="MetrosCuadrados_T3R${i}"
+                >
+            </td>
+
+            <td rowspan="5">
+                <div class="contenedorArchivo">
+                    <input
+                        type="file"
+                        id="Planos_T3"
+                        name="Planos_T3"
+                        class="archivoInput archivoMultipleInput"
+                        accept=".pdf,.xlsx,.doc,.docx,.png,.jpg,.rar,.zip"
+                        multiple
+                    >
+
+                    <span class="nombreArchivo"></span>
+                </div>
+            </td>
+        `;
+
+    } else {
+
+        fila.innerHTML = `
+            <td>
+                ${i}
+            </td>
+
+            <td>
+                <input
+                    name="Edificio_T3R${i}"
+                    class="input_tabla"
+                    aria-label="Edificio"
+                >
+
+                <input
+                    name="Edificio_T3R${i}RO"
+                    type="text"
+                    readonly
+                    class="paso check-verificacion"
+                    id="Edificio_T3R${i}RO"
+                    data-campo="Edificio_T3R${i}"
+                >
+            </td>
+
+            <td>
+                <input
+                    type="number"
+                    name="MetrosCuadrados_T3R${i}"
+                    class="input_tabla"
+                    aria-label="MetrosCuadrados"
+                >
+
+                <input
+                    name="MetrosCuadrados_T3R${i}RO"
+                    type="text"
+                    readonly
+                    class="paso check-verificacion"
+                    id="MetrosCuadrados_T3R${i}RO"
+                    data-campo="MetrosCuadrados_T3R${i}"
+                >
+            </td>
+        `;
+    }
+
+    tbody.appendChild(fila);
+
+    activarAutoExpand(fila);
+}
+
+
+//*-----------------------Agregar fila tabla Cotizaciones*
+
+function agregarFilaC(){
+
+    const tbody = document.getElementById("tablaCotizaciones");
+    const i = obtenerNumeroFilaC();
+
+    const fila = document.createElement("tr");
+
+    fila.innerHTML = `
+        <td>
+            ${i}
+        </td>
+
+        <td>
+            <input
+                name="nombreCotizacion_TCR${i}"
+                id="nombreCotizacion_TCR${i}"
+                class="input_tabla"
+                aria-label="Nombre de la Cotizacion"
+                readonly
+            >
+
+        </td>
+
+        <td>
+            <div class="contenedorArchivo">
+
+                <input
+                    type="file"
+                    id="CotizacionAdquisicionG1_TCR${i}"
+                    name="CotizacionAdquisicionG1_TCR${i}"
+                    class="archivoInput"
+                    accept=".pdf,.xlsx,.doc,.docx,.png,.jpg"
+                >
+
+                <span class="nombreArchivo"></span>
+
+                <button type="button" class="borrarArchivo">
+                    ❌
+                </button>
+
+            </div>
+        </td>
+
+        <td class="cantidadCol">
+
+            <input
+                type="number"
+                name="anio_TCR${i}"
+                class="input_tabla"
+                aria-label="Año de la cotizacion"
+            >
+
+            <input
+                name="anio_TCR${i}RO"
+                readonly
+                class="paso check-verificacion"
+                id="anio_TCR${i}RO"
+                data-campo="anio_TCR${i}"
+            >
+
+        </td>
+
+        <td>
+            <input
+                id="nombreCotizacion2_TCR${i}"
+                name="nombreCotizacion2_TCR${i}"
+                class="input_tabla"
+                aria-label="Nombre de la Cotizacion 2"
+                readonly
+            >
+        </td>
+
+        <td>
+            <div class="contenedorArchivo">
+
+                <input
+                    type="file"
+                    id="CotizacionAdquisicionG2_TCR${i}"
+                    name="CotizacionAdquisicionG2_TCR${i}"
+                    class="archivoInput"
+                    accept=".pdf,.xlsx,.doc,.docx,.png,.jpg"
+                >
+
+                <span class="nombreArchivo"></span>
+
+                <button type="button" class="borrarArchivo">
+                    ❌
+                </button>
+
+            </div>
+        </td>
+
+        <td>
+            <input
+                type="number"
+                name="anioA2_TCR${i}"
+                class="input_tabla"
+                aria-label="Año de la cotizacion"
+            >
+
+            <input
+                name="anioA2_TCR${i}RO"
+                readonly
+                class="paso check-verificacion"
+                id="anioA2_TCR${i}RO"
+                data-campo="anioA2_TCR${i}"
+            >
+        </td>
+    `;
+
+    tbody.appendChild(fila);
+
+    activarAutoExpand(fila);
+}
+
+
+//*-----------------------Agregar fila tabla 4*
+
+function agregarFila4(){
+
+    const tbody = document.getElementById("tablaBody4");
+    const i = obtenerNumeroFila4();
+
+    const fila = document.createElement("tr");
+
+    fila.innerHTML = `
+        <td>
+            ${i}
+        </td>
+
+        <td>
+            <textarea
+                name="ProgramaAcademico_T4R${i}"
+                id="ProgramaAcademico_T4R${i}"
+                class="auto-expand input_tabla obligatorio"
+                rows="1"
+                style="resize:none;"
+                aria-label="Programa Académico">
+            </textarea>
+
+            <input
+                name="ProgramaAcademico_T4R${i}RO"
+                type="text"
+                class="paso check-verificacion"
+                id="ProgramaAcademico_T4R${i}RO"
+                data-campo="ProgramaAcademico_T4R${i}"
+                readonly
+            >
+        </td>
+
+        <td>
+            <textarea
+                name="Espacio_T4R${i}"
+                class="auto-expand input_tabla obligatorio"
+                rows="1"
+                style="resize:none;"
+                aria-label="Espacio">
+            </textarea>
+
+            <input
+                name="Espacio_T4R${i}RO"
+                readonly
+                class="paso check-verificacion"
+                id="Espacio_T4R${i}RO"
+                data-campo="Espacio_T4R${i}"
+            >
+        </td>
+
+        <td>
+            <textarea
+                name="Clave_T4R${i}"
+                class="auto-expand input_tabla"
+                rows="1"
+                style="resize:none;"
+                aria-label="clave">
+            </textarea>
+
+            <input
+                name="Clave_T4R${i}RO"
+                readonly
+                class="paso check-verificacion"
+                id="Clave_T4R${i}RO"
+                data-campo="Clave_T4R${i}"
+            >
+        </td>
+
+        <td>
+            <textarea
+                name="nombredelEquipo_T4R${i}"
+                class="auto-expand input_tabla obligatorio"
+                rows="1"
+                style="resize:none;"
+                aria-label="Nombre del Equipo">
+            </textarea>
+
+            <input
+                name="nombredelEquipo_T4R${i}RO"
+                readonly
+                class="paso check-verificacion"
+                id="nombredelEquipo_T4R${i}RO"
+                data-campo="nombredelEquipo_T4R${i}"
+            >
+        </td>
+
+        <td class="cantidadCol">
+            <input
+                type="number"
+                name="cantidad_T4R${i}"
+                class="input_tabla"
+                aria-label="Cantidad"
+            >
+
+            <input
+                name="cantidad_T4R${i}RO"
+                readonly
+                class="paso check-verificacion"
+                id="cantidad_T4R${i}RO"
+                data-campo="cantidad_T4R${i}"
+            >
+        </td>
+
+        <td>
+            <textarea
+                name="especificaciones_T4R${i}"
+                class="auto-expand input_tabla expandible"
+                rows="1"
+                style="resize:none;"
+                aria-label="Especificaciones">
+            </textarea>
+
+            <input
+                name="especificaciones_T4R${i}RO"
+                readonly
+                class="paso check-verificacion"
+                id="especificaciones_T4R${i}RO"
+                data-campo="especificaciones_T4R${i}"
+            >
+        </td>
+
+        <td>
+            <textarea
+                id="justificacion_T4R${i}"
+                name="justificacion_T4R${i}"
+                class="auto-expand input_tabla expandible"
+                rows="1"
+                style="resize:none;"
+                aria-label="Justificación">
+            </textarea>
+
+            <input
+                name="justificacion_T4R${i}RO"
+                readonly
+                class="paso check-verificacion"
+                id="justificacion_T4R${i}RO"
+                data-campo="justificacion_T4R${i}"
+            >
+        </td>
+
+        <td>
+            <div class="precio-wrapper">
+
+                <span class="peso">$</span>
+
+                <input
+                    type="text"
+                    name="precio_T4R${i}"
+                    class="input_tabla precio"
+                    oninput="formatearMiles(this)"
+                    inputmode="decimal"
+                    aria-label="Precio"
+                >
+
+            </div>
+
+            <input
+                name="precio_T4R${i}RO"
+                readonly
+                class="paso check-verificacion"
+                id="precio_T4R${i}RO"
+                data-campo="precio_T4R${i}"
+            >
+        </td>
+
+        <td>
+            <select
+                id="nombreCotizacion_T4R${i}"
+                name="nombreCotizacion_T4R${i}"
+                class="tabla_select"
+                aria-label="Nombre del archivo donde esta la Cotizacion del Equipo">
+
+                <option value="">
+                    -- Selecciona una cotización--
+                </option>
+
+            </select>
+
+            <input
+                name="nombreCotizacion_T4R${i}RO"
+                readonly
+                class="paso check-verificacion"
+                id="nombreCotizacion_T4R${i}RO"
+                data-campo="nombreCotizacion_T4R${i}"
+            >
+        </td>
+
+        <td class="paso">
+            <div class="contenedorArchivo paso">
+
+                <input
+                    type="file"
+                    name="CotizacionAdquisicion_T4R${i}"
+                    class="archivoInput"
+                    accept=".pdf,.xlsx,.doc,.docx,.png,.jpg"
+                >
+
+                <span class="nombreArchivo"></span>
+
+                <button type="button" class="borrarArchivo">
+                    ❌
+                </button>
+
+            </div>
+        </td>
+
+        <td>
+            <div class="precio-wrapper">
+
+                <span class="peso">$</span>
+
+                <input
+                    type="text"
+                    name="precio2_T4R${i}"
+                    class="input_tabla precio"
+                    oninput="formatearMiles(this)"
+                    inputmode="decimal"
+                    aria-label="Precio 2"
+                >
+
+            </div>
+
+            <input
+                name="precio2_T4R${i}RO"
+                readonly
+                class="paso check-verificacion"
+                id="precio2_T4R${i}RO"
+                data-campo="precio2_T4R${i}"
+            >
+        </td>
+
+        <td>
+            <select
+                id="nombreCotizacion2_T4R${i}"
+                name="nombreCotizacion2_T4R${i}"
+                class="tabla_select"
+                aria-label="Nombre del archivo donde esta la Cotizacion de la alternativa 2 del Equipo">
+
+                <option value="">
+                    -- Selecciona una cotización--
+                </option>
+
+            </select>
+
+            <input
+                name="nombreCotizacion2_T4R${i}RO"
+                readonly
+                class="paso check-verificacion"
+                id="nombreCotizacion2_T4R${i}RO"
+                data-campo="nombreCotizacion2_T4R${i}"
+            >
+        </td>
+
+        <td class="paso">
+            <div class="contenedorArchivo paso">
+
+                <input
+                    type="file"
+                    name="CotizacionAdquisicion2_T4R${i}"
+                    class="archivoInput"
+                    accept=".pdf,.xlsx,.doc,.docx,.png,.jpg"
+                >
+
+                <span class="nombreArchivo"></span>
+
+                <button type="button" class="borrarArchivo">
+                    ❌
+                </button>
+
+            </div>
+        </td>
+    `;
+
+    tbody.appendChild(fila);
+
+    activarAutoExpand(fila);
+}
+
+
+function agregarFila5(){
+
+    const tbody = document.getElementById("tablaBody5");
+    const i = obtenerNumeroFila5();
+
+    const fila = document.createElement("tr");
+
+    fila.innerHTML = `
+        <td>
+            ${i}
+        </td>
+
+        <td>
+            <textarea
+                name="ProgramaAcademico_T5R${i}"
+                class="auto-expand input_tabla obligatorio"
+                rows="1"
+                style="resize:none;"
+                aria-label="Programa Académico">
+            </textarea>
+
+            <input
+                name="ProgramaAcademico_T5R${i}RO"
+                readonly
+                class="paso check-verificacion"
+                id="ProgramaAcademico_T5R${i}RO"
+                data-campo="ProgramaAcademico_T5R${i}"
+            >
+        </td>
+
+        <td>
+            <textarea
+                name="Espacio_T5R${i}"
+                class="auto-expand input_tabla obligatorio"
+                rows="1"
+                style="resize:none;"
+                aria-label="Espacio">
+            </textarea>
+
+            <input
+                name="Espacio_T5R${i}RO"
+                readonly
+                class="paso check-verificacion"
+                id="Espacio_T5R${i}RO"
+                data-campo="Espacio_T5R${i}"
+            >
+        </td>
+
+        <td>
+            <textarea
+                name="nombredelEquipo_T5R${i}"
+                class="auto-expand input_tabla obligatorio"
+                rows="1"
+                style="resize:none;"
+                aria-label="Nombre del Equipo">
+            </textarea>
+
+            <input
+                name="nombredelEquipo_T5R${i}RO"
+                readonly
+                class="paso check-verificacion"
+                id="nombredelEquipo_T5R${i}RO"
+                data-campo="nombredelEquipo_T5R${i}"
+            >
+        </td>
+
+        <td>
+            <textarea
+                name="especificaciones_T5R${i}"
+                class="auto-expand input_tabla"
+                rows="1"
+                style="resize:none;"
+                aria-label="Especificaciones">
+            </textarea>
+
+            <input
+                name="especificaciones_T5R${i}RO"
+                readonly
+                class="paso check-verificacion"
+                id="especificaciones_T5R${i}RO"
+                data-campo="especificaciones_T5R${i}"
+            >
+        </td>
+
+        <td class="cantidadCol">
+            <input
+                type="number"
+                name="cantidadMal_estado_T5R${i}"
+                class="input_tabla"
+                aria-label="Cantidad en mal estado"
+            >
+
+            <input
+                name="cantidadMal_estado_T5R${i}RO"
+                readonly
+                class="paso check-verificacion"
+                id="cantidadMal_estado_T5R${i}RO"
+                data-campo="cantidadMal_estado_T5R${i}"
+            >
+        </td>
+
+        <td class="cantidadCol">
+            <input
+                type="number"
+                name="cantidadBuen_estado_T5R${i}"
+                class="input_tabla"
+                aria-label="Cantidad en buen estado"
+            >
+
+            <input
+                name="cantidadBuen_estado_T5R${i}RO"
+                readonly
+                class="paso check-verificacion"
+                id="cantidadBuen_estado_T5R${i}RO"
+                data-campo="cantidadBuen_estado_T5R${i}"
+            >
+        </td>
+
+        <td class="cantidadCol">
+            <input
+                type="number"
+                name="cantidadRegular_estado_T5R${i}"
+                class="input_tabla"
+                aria-label="Cantidad en estado Regular"
+            >
+
+            <input
+                name="cantidadRegular_estado_T5R${i}RO"
+                readonly
+                class="paso check-verificacion"
+                id="cantidadRegular_estado_T5R${i}RO"
+                data-campo="cantidadRegular_estado_T5R${i}"
+            >
+        </td>
+    `;
+
+    tbody.appendChild(fila);
+
+    activarAutoExpand(fila);
+}
+
+
+
+
+
+
+
 
 
 for (let i = 1; i <= 10; i++) {
-  const tr  = document.createElement("tr");
+  agregarFila();
+  agregarFila2();
+  agregarFila3();
+  agregarFilaC();
+  agregarFila4();
+  agregarFila5();
+ /* const tr  = document.createElement("tr");
   const tr1 = document.createElement("tr");
   const tr2 = document.createElement("tr");
   const tr3 = document.createElement("tr");
   const tr4 = document.createElement("tr");
   const trC = document.createElement("tr");
   const tr5 = document.createElement("tr");
-  /*
-  const tr6 = document.createElement("tr");
   
-  */
  const tr7 = document.createElement("tr");
-    
+ 
+tr.innerHTML = `
 
-  tr.innerHTML = `
-     <td>
+    <td>
       ${i}
     </td>
-     <td>
+
+    <td>
       <textarea
         name="Programa_T1R${i}"
         class="auto-expand input_tabla obligatorio"
@@ -51,50 +1244,133 @@ for (let i = 1; i <= 10; i++) {
         style="resize:none;"
         aria-label="Programas académicos, servicios o actividades de la dependencia"
         > </textarea>
+        
+        <input
+         name="Programa_T1R${i}RO" 
+             readonly
+             class="paso"
+             id="Programa_T1R${i}RO"
+         data-campo="Programa_T1R${i}"
+       >
+
     </td>
 
     <td>
-    <input type="number" name="Usuarios1_T1R${i}" class="input_tabla " aria-label="Usuarios1"> </input>
+    <input type="number" name="Usuarios1_T1R${i}" class="input_tabla " aria-label="Usuarios1"> </input> 
+    <input
+         name="Usuarios1_T1R${i}RO" 
+             readonly
+             class="paso"
+         id="Usuarios1_T1R${i}RO"
+         data-campo="Usuarios1_T1R${i}"
+       >
     </td>
     <td>
     <input type="number" name="Usuarios2_T1R${i}" class="input_tabla " aria-label="Usuarios2"> </input>
+     <input
+         name="Usuarios2_T1R${i}RO" 
+             readonly
+             class="paso"
+         id="Usuarios2_T1R${i}RO"
+         data-campo="Usuarios2_T1R${i}"
+       > 
+
     </td>
     <td> 
     <input type="number" name="Usuarios3_T1R${i}" class="input_tabla " aria-label="Usuarios3"> </input>
-     </td>
+    <input
+         name="Usuarios3_T1R${i}RO" 
+             readonly
+             class="paso"
+         id="Usuarios3_T1R${i}RO"
+         data-campo="Usuarios3_T1R${i}"
+       > 
+    </td>
     <td>
     <input type="number" name="Usuarios4_T1R${i}" class="input_tabla " aria-label="Usuarios4"> </input>
+    <input
+         name="Usuarios4_T1R${i}RO" 
+             readonly
+             class="paso"
+         id="Usuarios4_T1R${i}RO"
+         data-campo="Usuarios4_T1R${i}"
+       >
     </td>
     <td>
     <input type="number" name="Usuarios5_T1R${i}" class="input_tabla " aria-label="Usuarios5"> </input>
+    <input
+         name="Usuarios5_T1R${i}RO" 
+             readonly
+             class="paso"
+         id="Usuarios5_T1R${i}RO"
+         data-campo="Usuarios5_T1R${i}"
+       >
     </td>
     <td>
     <input type="number" name="Usuarios6_T1R${i}" class="input_tabla " aria-label="Usuarios6"> </input>
+    <input
+         name="Usuarios6_T1R${i}RO" 
+             readonly
+             class="paso"
+             id="Usuarios6_T1R${i}RO"
+         data-campo="Usuarios6_T1R${i}"
+       >
     </td>
-
     <td>
     <input type="number" name="Usuarios7_T1R${i}" class="input_tabla " aria-label="Usuarios7"> </input>
+    <input
+         name="Usuarios7_T1R${i}RO" 
+             readonly
+             class="paso"
+         id="Usuarios7_T1R${i}RO"
+         data-campo="Usuarios7_T1R${i}"
+       >
     </td>
 
     <td>
     <input type="number" name="Usuarios8_T1R${i}" class="input_tabla " aria-label="Usuarios8"> </input>
+    <input
+         name="Usuarios8_T1R${i}RO" 
+             readonly
+             class="paso"
+         id="Usuarios8_T1R${i}RO"
+         data-campo="Usuarios8_T1R${i}"
+       >
     </td>
 
     <td>
     <input type="number" name="Usuarios9_T1R${i}" class="input_tabla " aria-label="Usuarios9"> </input>
+    <input
+         name="Usuarios9_T1R${i}RO" 
+             readonly
+             class="paso"
+         id="Usuarios9_T1R${i}RO"
+         data-campo="Usuarios9_T1R${i}"
+       >
     </td>
 
 
     <td>
     <input type="number" name="Usuarios10_T1R${i}" class="input_tabla " aria-label="Usuarios10"> </input>
+    <input
+         name="Usuarios10_T1R${i}RO" 
+             readonly
+             class="paso"
+         id="Usuarios10_T1R${i}RO"
+         data-campo="Usuarios10_T1R${i}"
+       >
     </td>
 
   `;
-    
+
+                                    
   tr1.innerHTML = `
-      <td>
+
+    
+    <td>
       ${i}
     </td>
+
     <td>
       <textarea
         name="Programa_T1_1R${i}"
@@ -103,44 +1379,132 @@ for (let i = 1; i <= 10; i++) {
         style="resize:none;"
         aria-label="Programas académicos, servicios o actividades de la dependencia"
         > </textarea>
+    <input
+         name="Programa_T1_1R${i}RO" 
+         id="Programa_T1_1R${i}RO"
+         data-campo="Programa_T1_1R${i}"
+         readonly
+         class="paso"
+       >    
     </td>
+
+
     <td>
     <input type="number" name="Usuarios1_T1_1R${i}" class="input_tabla " aria-label="Usuarios1"> </input>
+    <input
+         name="Usuarios1_T1_1R${i}RO" 
+             class="paso"
+         id="Usuarios1_T1_1R${i}RO"
+         data-campo="Usuarios1_T1_1R${i}"
+         readonly
+       >
     </td>
+
+
     <td>
     <input type="number" name="Usuarios2_T1_1R${i}" class="input_tabla " aria-label="Usuarios2"> </input>
-    </td>
-    <td> 
-    <input type="number" name="Usuarios3_T1_1R${i}" class="input_tabla " aria-label="Usuarios3"> </input>
-    </td>
-    <td>
-    <input type="number" name="Usuarios4_T1_1R${i}" class="input_tabla " aria-label="Usuarios4"> </input>
-    </td>
-    <td>
-    <input type="number" name="Usuarios5_T1_1R${i}" class="input_tabla " aria-label="Usuarios5"> </input>
-    </td>
-    <td>
-    <input type="number" name="Usuarios6_T1_1R${i}" class="input_tabla " aria-label="Usuarios6"> </input>
+    <input
+         name="Usuarios2_T1_1R${i}RO" 
+         class="paso"
+         id="Usuarios2_T1_1R${i}RO"
+         data-campo="Usuarios2_T1_1R${i}"
+       >
     </td>
     
+    
+    
+    <td> 
+    <input type="number" name="Usuarios3_T1_1R${i}" class="input_tabla " aria-label="Usuarios3"> </input>
+    <input
+         name="Usuarios3_T1_1R${i}RO" 
+         class="paso"
+         readonly
+         id="Usuarios3_T1_1R${i}RO"
+         data-campo="Usuarios3_T1_1R${i}"
+       >
+    </td>
+
+
+    <td>
+    <input type="number" name="Usuarios4_T1_1R${i}" class="input_tabla " aria-label="Usuarios4"> </input>
+    <input
+         name="Usuarios4_T1_1R${i}RO" 
+         class="paso"
+         readonly
+         id="Usuarios4_T1_1R${i}RO"
+         data-campo="Usuarios4_T1_1R${i}"
+       >
+    </td>
+
+
+    <td>
+    <input type="number" name="Usuarios5_T1_1R${i}" class="input_tabla " aria-label="Usuarios5"> </input>
+    <input
+         name="Usuarios5_T1_1R${i}RO" 
+         class="paso"
+         readonly
+         id="Usuarios5_T1_1R${i}RO"
+         data-campo="Usuarios5_T1_1R${i}"
+       >
+    </td>
+
+
+    <td>
+    <input type="number" name="Usuarios6_T1_1R${i}" class="input_tabla " aria-label="Usuarios6"> </input>
+    <input
+         name="Usuarios6_T1_1R${i}RO" 
+         class="paso"
+         readonly
+         id="Usuarios6_T1_1R${i}RO"
+         data-campo="Usuarios6_T1_1R${i}"
+       >
+    </td>
+
+
     <td>
     <input type="number" name="Usuarios7_T1_1R${i}" class="input_tabla " aria-label="Usuarios7"> </input>
+    <input
+         name="Usuarios7_T1_1R${i}RO" 
+         class="paso"
+         readonly
+         id="Usuarios7_T1_1R${i}RO"
+         data-campo="Usuarios7_T1_1R${i}"
+       >
     </td>
 
     <td>
     <input type="number" name="Usuarios8_T1_1R${i}" class="input_tabla " aria-label="Usuarios8"> </input>
+    <input
+         name="Usuarios8_T1_1R${i}RO" 
+         class="paso"
+         readonly
+         id="Usuarios8_T1_1R${i}RO"
+         data-campo="Usuarios8_T1_1R${i}"
+       >
     </td>
 
     <td>
     <input type="number" name="Usuarios9_T1_1R${i}" class="input_tabla " aria-label="Usuarios9"> </input>
+    <input
+         name="Usuarios9_T1_1R${i}RO" 
+         class="paso"
+             readonly
+         id="Usuarios9_T1_1R${i}RO"
+         data-campo="Usuarios9_T1_1R${i}"
+       >
     </td>
 
     <td>
     <input type="number" name="Usuarios10_T1_1R${i}" class="input_tabla " aria-label="Usuarios10"> </input>
+    <input
+         name="Usuarios10_T1_1R${i}RO" 
+         class="paso"
+         readonly
+         id="Usuarios10_T1_1R${i}RO"
+         data-campo="Usuarios10_T1_1R${i}"
+       >
     </td>
-
   `;
-
 
 
 
@@ -152,101 +1516,248 @@ tr2.innerHTML = `
     <td>
       ${i}
     </td>
-    <td>
-    <input name="Edificio_T2R${i}" class="input_tabla" aria-label="Edificio"> </input>
-    </td>
+<td>
+    <input 
+        name="Edificio_T2R${i}" 
+        class="input_tabla" 
+        aria-label="Edificio"
+    >
 
-    <td>
-    <input name="Nivel_T2R${i}" class="input_tabla" aria-label="Nivel"> </input>
-    </td>
+    <input 
+        name="Edificio_T2R${i}RO" 
+        class="paso"
+        readonly
+        id="Edificio_T2R${i}RO" 
+        data-campo="Edificio_T2R${i}"
+    >
+</td>
 
-    <td>
-    <input name="Espacio_T2R${i}" class="input_tabla" aria-label="Espacio"> </input>
-    </td>    
-    
-    
-    
-    
+<td>
+    <input 
+        name="Nivel_T2R${i}" 
+        class="input_tabla" 
+        aria-label="Nivel"
+    >
 
-      <td class="cantidadCol">
+    <input 
+        name="Nivel_T2R${i}RO" 
+        class="paso"
+        readonly 
+        id="Nivel_T2R${i}RO" 
+        data-campo="Nivel_T2R${i}"
+    >
+</td>
 
-      <input type="number" name="Largo_T2R${i}" class="input_tabla " aria-label="Largo"> </input>  
-    
-      </td>
+<td>
+    <input 
+        name="Espacio_T2R${i}" 
+        class="input_tabla" 
+        aria-label="Espacio"
+    >
 
-      
-    
-      <td class="cantidadCol">
+    <input 
+        name="Espacio_T2R${i}RO" 
+        readonly class="paso"
+        id="Espacio_T2R${i}RO" 
+        data-campo="Espacio_T2R${i}"
+    >
+</td>
 
-              <input type="number" name="Ancho_T2R${i}" class="input_tabla " aria-label="Ancho">
-              </input>  
-    
-      </td>
-      
+<td class="cantidadCol">
 
-      <td class="cantidadCol">
+    <input 
+        type="number" 
+        name="Largo_T2R${i}" 
+        class="input_tabla" 
+        aria-label="Largo"
+    >
 
-      <input type="number" name="Alumnos_T2R${i}" class="input_tabla " aria-label="Numero de Alumnos"> </input>  
-    
-      </td>
-      
+    <input 
+        name="Largo_T2R${i}RO" 
+        readonly class="paso"
+        id="Largo_T2R${i}RO" 
+        data-campo="Largo_T2R${i}"
+    >
 
-   
-      <td class="cantidadCol">
+</td>
 
-      <input type="number" name="Horas_T2R${i}" class="input_tabla " aria-label="Horas de Servicio"> </input>  
-    
-      </td>
+<td class="cantidadCol">
+
+    <input 
+        type="number" 
+        name="Ancho_T2R${i}" 
+        class="input_tabla" 
+        aria-label="Ancho"
+    >
+
+    <input 
+        name="Ancho_T2R${i}RO" 
+        readonly class="paso"
+        id="Ancho_T2R${i}RO" 
+        data-campo="Ancho_T2R${i}"
+    >
+
+</td>
+
+<td class="cantidadCol">
+
+    <input 
+        type="number" 
+        name="Alumnos_T2R${i}" 
+        class="input_tabla" 
+        aria-label="Numero de Alumnos"
+    >
+
+    <input 
+        name="Alumnos_T2R${i}RO" 
+        readonly class="paso"
+        id="Alumnos_T2R${i}RO" 
+        data-campo="Alumnos_T2R${i}"
+    >
+
+</td>
+
+<td class="cantidadCol">
+
+    <input 
+        type="number" 
+        name="Horas_T2R${i}" 
+        class="input_tabla" 
+        aria-label="Horas de Servicio"
+    >
+
+    <input 
+        name="Horas_T2R${i}RO" 
+       readonly  class="paso"
+        id="Horas_T2R${i}RO" 
+        data-campo="Horas_T2R${i}"
+    >
+
+</td>
 
   `;
 
-if(i===1){
+if (i === 1) {
 
-tr3.innerHTML = `
-    <td>
-      ${i}
-    </td>
-    <td>
-    <input name="Edificio_T3R${i}" class="input_tabla" aria-label="Edificio"> </input>
-    </td>
-
-    <td>
-    <input type="number" name="MetrosCuadrados_T3R${i}" class="input_tabla" aria-label="MetrosCuadrados"> </input>
-    </td>
-    <td rowspan="5">
-         <div class="contenedorArchivo">
-                      <input 
-                       type="file"
-                       id= "Planos_T3"
-                       name="Planos_T3" 
-                       class="archivoInput archivoMultipleInput"
-                       accept=".pdf,.xlsx,.doc,.docx,.png,.jpg,.rar,.zip" multiple>
-                 <span class="nombreArchivo"></span>
-                 
-                 
-         </div>
-    </td>
-  `;
-
-  //<button type="button" class="borrarArchivo">
-//                   ❌
- //                </button>
-}else{
-      
   tr3.innerHTML = `
+
     <td>
       ${i}
     </td>
+
     <td>
-    <input name="Edificio_T3R${i}" class="input_tabla" aria-label="Edificio"> </input>
+
+      <input 
+        name="Edificio_T3R${i}" 
+        class="input_tabla" 
+        aria-label="Edificio"
+      >
+
+      <input 
+        name="Edificio_T3R${i}RO"
+        type="text"
+        readonly
+        class="paso"
+        id="Edificio_T3R${i}RO"
+        data-campo="Edificio_T3R${i}"
+      >
+
     </td>
 
     <td>
-    <input type="number" name="MetrosCuadrados_T3R${i}" class="input_tabla" aria-label="MetrosCuadrados"> </input>
+
+      <input 
+        type="number" 
+        name="MetrosCuadrados_T3R${i}" 
+        class="input_tabla" 
+        aria-label="MetrosCuadrados"
+      >
+
+      <input 
+        name="MetrosCuadrados_T3R${i}RO"
+        type="text"
+        readonly
+        class="paso"
+        id="MetrosCuadrados_T3R${i}RO"
+        data-campo="MetrosCuadrados_T3R${i}"
+      >
+
+    </td>
+
+    <td rowspan="5">
+
+      <div class="contenedorArchivo">
+
+        <input 
+          type="file"
+          id="Planos_T3"
+          name="Planos_T3" 
+          class="archivoInput archivoMultipleInput"
+          accept=".pdf,.xlsx,.doc,.docx,.png,.jpg,.rar,.zip"
+          multiple
+        >
+
+        <span class="nombreArchivo"></span>
+
+      </div>
+
     </td>
 
   `;
+
+} else {
+
+  tr3.innerHTML = `
+
+    <td>
+      ${i}
+    </td>
+
+    <td>
+
+      <input 
+        name="Edificio_T3R${i}" 
+        class="input_tabla" 
+        aria-label="Edificio"
+      >
+
+      <input 
+        name="Edificio_T3R${i}RO"
+        type="text"
+        readonly
+        class="paso"
+        id="Edificio_T3R${i}RO"
+        data-campo="Edificio_T3R${i}"
+      >
+
+    </td>
+
+    <td>
+
+      <input 
+        type="number" 
+        name="MetrosCuadrados_T3R${i}" 
+        class="input_tabla" 
+        aria-label="MetrosCuadrados"
+      >
+
+      <input 
+        name="MetrosCuadrados_T3R${i}RO"
+        type="text"
+        readonly
+        class="paso"
+        id="MetrosCuadrados_T3R${i}RO"
+        data-campo="MetrosCuadrados_T3R${i}"
+      >
+
+    </td>
+
+  `;
+
 }
+
+
+
 trC.innerHTML = `
      <td>
       ${i}
@@ -282,10 +1793,23 @@ trC.innerHTML = `
     
 <td class="cantidadCol">
 
-      <input type="number" name="anio_TCR${i}" class="input_tabla " aria-label="Año de la cotizacion"> </input>  
-    
-      </td>    
+      <td class="cantidadCol">
 
+    <input
+        type="number"
+        name="anio_TCR${i}"
+        class="input_tabla"
+        aria-label="Año de la cotizacion">
+    </input>
+
+    <input
+        name="anio_TCR${i}RO"
+        readonly
+        class="paso"
+        id="anio_TCR${i}RO"
+        data-campo="anio_TCR${i}">
+        
+</td>
                <td>
       <input
         id="nombreCotizacion2_TCR${i}"
@@ -311,17 +1835,30 @@ trC.innerHTML = `
                  </button>
      </div>            
 </td>
-<td>
-      <input type="number" name="anioA2_TCR${i}" class="input_tabla " aria-label="Año de la cotizacion"> </input>  
-    
-      </td>
+      <td>
 
+    <input
+        type="number"
+        name="anioA2_TCR${i}"
+        class="input_tabla"
+        aria-label="Año de la cotizacion">
+    </input>
+
+    <input
+        name="anioA2_TCR${i}RO"
+        readonly
+        class="paso"
+        id="anioA2_TCR${i}RO"
+        data-campo="anioA2_TCR${i}">
+        
+</td>
      
 
 
 
 
 `;
+
 
 
 
@@ -332,220 +1869,377 @@ trC.innerHTML = `
 
 tr4.innerHTML = `
     <td>
-      ${i}
+        ${i}
     </td>
+     
+
     <td>
       <textarea
         name="ProgramaAcademico_T4R${i}"
+        id="ProgramaAcademico_T4R${i}"
         class="auto-expand input_tabla obligatorio"
         rows="1"
         style="resize:none;"
         aria-label="Programa Académico"
         > </textarea>
+        
+        <input
+            name="ProgramaAcademico_T4R${i}RO"
+            type="text"
+            class="paso"
+         id="ProgramaAcademico_T4R${i}RO" readonly
+       >
+
     </td> 
     
+
     <td>
-         <textarea
-        name="Espacio_T4R${i}"
-        class="auto-expand input_tabla obligatorio"
-        rows="1"
-        style="resize:none;"
-        aria-label="Espacio"
-        > </textarea>
-    </td>    
-    <td>
-      <textarea
-        name="Clave_T4R${i}"
-        class="auto-expand input_tabla"
-        rows="1"
-        style="resize:none;"
-        aria-label="clave"
-        > </textarea>
-      </td>
-    <td>
-      <textarea
-        name="nombredelEquipo_T4R${i}"
-        class="auto-expand input_tabla obligatorio"
-        rows="1"
-        style="resize:none;"
-        aria-label="Nombre del Equipo"
-        > </textarea>
+        <textarea
+            name="Espacio_T4R${i}"
+            class="auto-expand input_tabla obligatorio"
+            rows="1"
+            style="resize:none;"
+            aria-label="Espacio">
+        </textarea>
+
+        <input
+            name="Espacio_T4R${i}RO"
+            readonly
+            class="paso"
+            id="Espacio_T4R${i}RO"
+            data-campo="Espacio_T4R${i}">
     </td>
-    
-    
+
+    <td>
+        <textarea
+            name="Clave_T4R${i}"
+            class="auto-expand input_tabla"
+            rows="1"
+            style="resize:none;"
+            aria-label="clave">
+        </textarea>
+
+        <input
+            name="Clave_T4R${i}RO"
+            readonly
+            class="paso"
+            id="Clave_T4R${i}RO"
+            data-campo="Clave_T4R${i}">
+    </td>
+
+    <td>
+        <textarea
+            name="nombredelEquipo_T4R${i}"
+            class="auto-expand input_tabla obligatorio"
+            rows="1"
+            style="resize:none;"
+            aria-label="Nombre del Equipo">
+        </textarea>
+
+        <input
+            name="nombredelEquipo_T4R${i}RO"
+            readonly
+            class="paso"
+            id="nombredelEquipo_T4R${i}RO"
+            data-campo="nombredelEquipo_T4R${i}">
+    </td>
 
     <td class="cantidadCol">
 
-      <input type="number" name="cantidad_T4R${i}" class="input_tabla " aria-label="Cantidad"> </input>  
-    
-      </td>
+        <input
+            type="number"
+            name="cantidad_T4R${i}"
+            class="input_tabla"
+            aria-label="Cantidad">
+        </input>
 
-
-    <td>
-      <textarea
-        name="especificaciones_T4R${i}"
-        class="auto-expand input_tabla expandible"
-        rows="1"
-        style="resize:none;"
-        aria-label="Especificaciones"
-        > </textarea>
+        <input
+            name="cantidad_T4R${i}RO"
+            readonly
+            class="paso"
+            id="cantidad_T4R${i}RO"
+            data-campo="cantidad_T4R${i}">
     </td>
 
     <td>
-      <textarea id="justificacion_T4R${i}" name="justificacion_T4R${i}"
-                   class="auto-expand input_tabla expandible"
-                   rows="1"
-                   style="resize:none;"  aria-label="Justificación">
-                   
-      </textarea>
+        <textarea
+            name="especificaciones_T4R${i}"
+            class="auto-expand input_tabla expandible"
+            rows="1"
+            style="resize:none;"
+            aria-label="Especificaciones">
+        </textarea>
+
+        <input
+            name="especificaciones_T4R${i}RO"
+            readonly
+            class="paso"
+            id="especificaciones_T4R${i}RO"
+            data-campo="especificaciones_T4R${i}">
     </td>
 
-    
-    
-     <td>
-      <div class="precio-wrapper">
+    <td>
+        <textarea
+            id="justificacion_T4R${i}"
+            name="justificacion_T4R${i}"
+            class="auto-expand input_tabla expandible"
+            rows="1"
+            style="resize:none;"
+            aria-label="Justificación">
+        </textarea>
+
+        <input
+            name="justificacion_T4R${i}RO"
+            readonly
+            class="paso"
+            id="justificacion_T4R${i}RO"
+            data-campo="justificacion_T4R${i}">
+    </td>
+
+    <td>
+        <div class="precio-wrapper">
             <span class="peso">$</span>
-            <input type="text"
-                   name="precio_T4R${i}"
-                   class="input_tabla precio"
-                   oninput="formatearMiles(this)"
-                   inputmode="decimal" 
-                   aria-label="Precio"> 
+
+            <input
+                type="text"
+                name="precio_T4R${i}"
+                class="input_tabla precio"
+                oninput="formatearMiles(this)"
+                inputmode="decimal"
+                aria-label="Precio">
             </input>
-      </div>
-      </td>
-    
+        </div>
 
-
-
+        <input
+            name="precio_T4R${i}RO"
+            readonly
+            class="paso"
+            id="precio_T4R${i}RO"
+            data-campo="precio_T4R${i}">
+    </td>
 
     <td>
-      <select id="nombreCotizacion_T4R${i}" name="nombreCotizacion_T4R${i}" class="tabla_select" aria-label="Nombre del archivo donde esta la Cotizacion del Equipo" >
-                   <option value="">-- Selecciona una cotización--</option>
-      </select>
-    </td>
-    
-    
-    
-    <td class="paso">
-    <div class="contenedorArchivo paso">
-                      <input 
-                       type="file" 
-                       name="CotizacionAdquisicion_T4R${i}" 
-                       class="archivoInput"
-                       accept=".pdf,.xlsx,.doc,.docx,.png,.jpg">
-                 <span class="nombreArchivo"></span>
-                 <button type="button" class="borrarArchivo">
-                   ❌
-                 </button>
-     </div>            
-    </td>
+        <select
+            id="nombreCotizacion_T4R${i}"
+            name="nombreCotizacion_T4R${i}"
+            class="tabla_select"
+            aria-label="Nombre del archivo donde esta la Cotizacion del Equipo">
 
-
-  <td>
-   <div class="precio-wrapper">
-            <span class="peso">$</span>
-            <input type="text"
-                   name="precio2_T4R${i}"
-                   class="input_tabla precio"
-                   oninput="formatearMiles(this)"
-                   inputmode="decimal" 
-                   aria-label="Precio 2"> 
-            </input>
-      </div>
-      </td>
-     
-  <td>
-       <select id="nombreCotizacion2_T4R${i}"
-        name="nombreCotizacion2_T4R${i}"
-        class="tabla_select"
-        aria-label="Nombre del archivo donde esta la Cotizacion de la alternativa 2 del Equipo"
-        > 
-                 <option value="">-- Selecciona una cotización--</option>
+            <option value="">-- Selecciona una cotización--</option>
         </select>
-                 
+
+        <input
+            name="nombreCotizacion_T4R${i}RO"
+            readonly
+            class="paso"
+            id="nombreCotizacion_T4R${i}RO"
+            data-campo="nombreCotizacion_T4R${i}">
     </td>
 
+    <td class="paso">
+        <div class="contenedorArchivo paso">
 
-  <td class="paso">
-    <div class="contenedorArchivo paso">
-                      <input 
-                       type="file" 
-                       name="CotizacionAdquisicion2_T4R${i}" 
-                       class="archivoInput"
-                       accept=".pdf,.xlsx,.doc,.docx,.png,.jpg">
-                 <span class="nombreArchivo"></span>
-                 <button type="button" class="borrarArchivo">
-                   ❌
-                 </button>
-     </div>            
-</td>
+            <input
+                type="file"
+                name="CotizacionAdquisicion_T4R${i}"
+                class="archivoInput"
+                accept=".pdf,.xlsx,.doc,.docx,.png,.jpg">
 
+            <span class="nombreArchivo"></span>
+
+            <button type="button" class="borrarArchivo">
+                ❌
+            </button>
+
+        </div>
+    </td>
+
+    <td>
+        <div class="precio-wrapper">
+            <span class="peso">$</span>
+
+            <input
+                type="text"
+                name="precio2_T4R${i}"
+                class="input_tabla precio"
+                oninput="formatearMiles(this)"
+                inputmode="decimal"
+                aria-label="Precio 2">
+            </input>
+        </div>
+
+        <input
+            name="precio2_T4R${i}RO"
+            readonly
+            class="paso"
+            id="precio2_T4R${i}RO"
+            data-campo="precio2_T4R${i}">
+    </td>
+
+    <td>
+        <select
+            id="nombreCotizacion2_T4R${i}"
+            name="nombreCotizacion2_T4R${i}"
+            class="tabla_select"
+            aria-label="Nombre del archivo donde esta la Cotizacion de la alternativa 2 del Equipo">
+
+            <option value="">-- Selecciona una cotización--</option>
+        </select>
+
+        <input
+            name="nombreCotizacion2_T4R${i}RO"
+            readonly
+            class="paso"
+            id="nombreCotizacion2_T4R${i}RO"
+            data-campo="nombreCotizacion2_T4R${i}">
+    </td>
+
+    <td class="paso">
+        <div class="contenedorArchivo paso">
+
+            <input
+                type="file"
+                name="CotizacionAdquisicion2_T4R${i}"
+                class="archivoInput"
+                accept=".pdf,.xlsx,.doc,.docx,.png,.jpg">
+
+            <span class="nombreArchivo"></span>
+
+            <button type="button" class="borrarArchivo">
+                ❌
+            </button>
+
+        </div>
+    </td>
 `;
+
+
+
+
 
 tr5.innerHTML = `
     <td>
-      ${i}
+        ${i}
     </td>
-     <td>
-      <textarea
-        name="ProgramaAcademico_T5R${i}"
-        class="auto-expand input_tabla obligatorio"
-        rows="1"
-        style="resize:none;"
-        aria-label="Programa Académico"
-        > </textarea>
-    </td> 
-    
-    
-    <td >
-    <textarea
-        name="Espacio_T5R${i}"
-        class="auto-expand input_tabla obligatorio"
-        rows="1"
-        style="resize:none;"
-        aria-label="Espacio"
-        > </textarea></td>
-
 
     <td>
-      <textarea
-        name="nombredelEquipo_T5R${i}"
-        class="auto-expand input_tabla obligatorio"
-        rows="1"
-        style="resize:none;"
-        aria-label="Nombre del Equipo"
-        > </textarea>
+        <textarea
+            name="ProgramaAcademico_T5R${i}"
+            class="auto-expand input_tabla obligatorio"
+            rows="1"
+            style="resize:none;"
+            aria-label="Programa Académico">
+        </textarea>
+
+        <input
+            name="ProgramaAcademico_T5R${i}RO"
+            readonly
+            class="paso"
+            id="ProgramaAcademico_T5R${i}RO"
+            data-campo="ProgramaAcademico_T5R${i}">
     </td>
-    
+
     <td>
-      <textarea
-        name="especificaciones_T5R${i}"
-        class="auto-expand input_tabla"
-        rows="1"
-        style="resize:none;"
-        aria-label="Especificaciones"
-        > </textarea>
+        <textarea
+            name="Espacio_T5R${i}"
+            class="auto-expand input_tabla obligatorio"
+            rows="1"
+            style="resize:none;"
+            aria-label="Espacio">
+        </textarea>
+
+        <input
+            name="Espacio_T5R${i}RO"
+            readonly
+            class="paso"
+            id="Espacio_T5R${i}RO"
+            data-campo="Espacio_T5R${i}">
     </td>
 
-      <td class="cantidadCol">
+    <td>
+        <textarea
+            name="nombredelEquipo_T5R${i}"
+            class="auto-expand input_tabla obligatorio"
+            rows="1"
+            style="resize:none;"
+            aria-label="Nombre del Equipo">
+        </textarea>
 
-      <input type="number" name="cantidadMal_estado_T5R${i}" class="input_tabla " aria-label="Cantidad en mal estado"> </input>  
-    
-      </td>
+        <input
+            name="nombredelEquipo_T5R${i}RO"
+            readonly
+            class="paso"
+            id="nombredelEquipo_T5R${i}RO"
+            data-campo="nombredelEquipo_T5R${i}">
+    </td>
+
+    <td>
+        <textarea
+            name="especificaciones_T5R${i}"
+            class="auto-expand input_tabla"
+            rows="1"
+            style="resize:none;"
+            aria-label="Especificaciones">
+        </textarea>
+
+        <input
+            name="especificaciones_T5R${i}RO"
+            readonly
+            class="paso"
+            id="especificaciones_T5R${i}RO"
+            data-campo="especificaciones_T5R${i}">
+    </td>
 
     <td class="cantidadCol">
 
-      <input type="number" name="cantidadBuen_estado_T5R${i}" class="input_tabla " aria-label="Cantidad en buen estado"> </input>  
-    
-      </td>
+        <input
+            type="number"
+            name="cantidadMal_estado_T5R${i}"
+            class="input_tabla"
+            aria-label="Cantidad en mal estado">
+        </input>
+
+        <input
+            name="cantidadMal_estado_T5R${i}RO"
+            readonly
+            class="paso"
+            id="cantidadMal_estado_T5R${i}RO"
+            data-campo="cantidadMal_estado_T5R${i}">
+    </td>
+
     <td class="cantidadCol">
 
-      <input type="number" name="cantidadRegular_estado_T5R${i}" class="input_tabla " aria-label="Cantidad en estado Regular"> </input>  
-    
-      </td>
-     
+        <input
+            type="number"
+            name="cantidadBuen_estado_T5R${i}"
+            class="input_tabla"
+            aria-label="Cantidad en buen estado">
+        </input>
 
+        <input
+            name="cantidadBuen_estado_T5R${i}RO"
+            readonly
+            class="paso"
+            id="cantidadBuen_estado_T5R${i}RO"
+            data-campo="cantidadBuen_estado_T5R${i}">
+    </td>
+
+    <td class="cantidadCol">
+
+        <input
+            type="number"
+            name="cantidadRegular_estado_T5R${i}"
+            class="input_tabla"
+            aria-label="Cantidad en estado Regular">
+        </input>
+
+        <input
+            name="cantidadRegular_estado_T5R${i}RO"
+            readonly
+            class="paso"
+            id="cantidadRegular_estado_T5R${i}RO"
+            data-campo="cantidadRegular_estado_T5R${i}">
+    </td>
 `;
 
 
@@ -553,66 +2247,8 @@ tr5.innerHTML = `
 
 
 
-/*
-tr6.innerHTML = `
-    <td>
-      <textarea
-        name="ProgramaAcademico_T6R${i}"
-        class="auto-expand input_tabla obligatorio"
-        rows="1"
-        style="resize:none;"
-        aria-label="Programa Académico"
-        > </textarea>
-    </td> 
-    
-    <td>
-    <textarea
-        name="Espacio_T6R${i}"
-        class="auto-expand input_tabla obligatorio"
-        rows="1"
-        style="resize:none;"
-        aria-label="Espacio"
-        > </textarea></td>
 
 
-    <td>
-      <textarea
-        name="nombredelEquipo_T6R${i}"
-        class="auto-expand input_tabla obligatorio"
-        rows="1"
-        style="resize:none;"
-        aria-label="Nombre del Equipo"
-        > </textarea>
-    </td>
-    
-    
-
-    
-
-    <td>
-      <textarea
-        name="especificaciones_T6R${i}"
-        class="auto-expand input_tabla"
-        rows="1"
-        style="resize:none;"
-        aria-label="Especificaciones"
-        > </textarea>
-    </td>
-
-  
-    <td class="cantidadCol">
-
-      <input type="number" name="cantidadBuen_estado_T6R${i}" class="input_tabla " aria-label="Cantidad en buen estado"> </input>  
-    
-      </td>
-    <td class="cantidadCol">
-
-      <input type="number" name="cantidadRegular_estado_T6R${i}" class="input_tabla " aria-label="Cantidad en estado Regular"> </input>  
-    
-      </td>     
-`;
-
-*/
 
 
 
@@ -1147,26 +2783,26 @@ const opciones = ["Unidad Politécnica de Gestión con Perspectiva de Género (U
 
                   //Secretaria Academica
                  'Centro de Estudios Tecnológicos (CET 1)"Walter Cross Buchanan"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECyT 1)  "Gonzalo Vázquez Vela"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECyT 2)  "Miguel Bernard"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECyT 3)  "Estanislao Ramírez Ruiz"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECyT 4)  "Lázaro Cárdenas"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECyT 5)  "Benito Juárez"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECyT 6)  "Miguel Othón De Mendizábal"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECyT 7)  "Cuauhtémoc"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECyT 8)  "Narciso Bassols"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECyT 9)  "Juan De Dios Bátiz"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECyT 10) "Carlos Vallejo Márquez"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECyT 11) "Wilfrido Massieu"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECyT 12) "José María Morelos"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECyT 13) "Ricardo Flores Magón"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECyT 14) "Luis Enrique Erro"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECyT 15) "Diódoro Antúnez Echegaray"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECyT 16) "Hidalgo"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECyT 17) "León, Guanajuato"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECyT 18) "Zacatecas"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECyT 19) "Leona Vicario"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECyT 20) "Natalia Serdán Alatriste"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECYT 1) "Gonzalo Vázquez Vela"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECYT 2) "Miguel Bernard"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECYT 3) "Estanislao Ramírez Ruiz"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECYT 4) "Lázaro Cárdenas"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECYT 5) "Benito Juárez"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECYT 6) "Miguel Othón De Mendizábal"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECYT 7) "Cuauhtémoc"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECYT 8) "Narciso Bassols"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECYT 9) "Juan De Dios Bátiz"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECYT 10) "Carlos Vallejo Márquez"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECYT 11) "Wilfrido Massieu"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECYT 12) "José María Morelos"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECYT 13) "Ricardo Flores Magón"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECYT 14) "Luis Enrique Erro"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECYT 15) "Diódoro Antúnez Echegaray"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECYT 16) "Hidalgo"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECYT 17) "León, Guanajuato"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECYT 18) "Zacatecas"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECYT 19) "Leona Vicario"',
+                 'Centro de Estudios Científicos y Tecnológicos (CECYT 20) "Natalia Serdán Alatriste"',
                  "Dirección de Educación Media Superior",
                  "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Zacatenco",
                  "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Culhuacán",
@@ -1327,26 +2963,26 @@ const dependencias =new Map( [
               [ "FDN-LCT-009","Dirección de Legislación, Consulta y Transparencia"],                                                                                                 
               [ "FDN-PD-010","Presidencia del Decanato"],                                                                                                 
               [ "FDN-CET1-011",'Centro de Estudios Tecnológicos (CET 1)"Walter Cross Buchanan"'],                                                                                                 
-              [ "FDN-CECyT1-012", 'Centro de Estudios Científicos y Tecnológicos (CECyT 1) "Gonzalo Vázquez Vela"'],
-              [ "FDN-CECyT2-013", 'Centro de Estudios Científicos y Tecnológicos (CECyT 2) "Miguel Bernard"'],
-              [ "FDN-CECyT3-014", 'Centro de Estudios Científicos y Tecnológicos (CECyT 3) "Estanislao Ramírez Ruiz"'],
-              [ "FDN-CECyT4-015", 'Centro de Estudios Científicos y Tecnológicos (CECyT 4) "Lázaro Cárdenas"'],
-              [ "FDN-CECyT5-016", 'Centro de Estudios Científicos y Tecnológicos (CECyT 5) "Benito Juárez"'],
-              [ "FDN-CECyT6-017", 'Centro de Estudios Científicos y Tecnológicos (CECyT 6) "Miguel Othón De Mendizábal"'],
-              [ "FDN-CECyT7-018", 'Centro de Estudios Científicos y Tecnológicos (CECyT 7) "Cuauhtémoc"'],
-              [ "FDN-CECyT8-019", 'Centro de Estudios Científicos y Tecnológicos (CECyT 8) "Narciso Bassols"'],
-              [ "FDN-CECyT9-020", 'Centro de Estudios Científicos y Tecnológicos (CECyT 9) "Juan De Dios Bátiz"'],
-              [ "FDN-CECyT10-021", 'Centro de Estudios Científicos y Tecnológicos (CECyT 10) "Carlos Vallejo Márquez"'],
-              [ "FDN-CECyT11-022", 'Centro de Estudios Científicos y Tecnológicos (CECyT 11) "Wilfrido Massieu"'],
-              [ "FDN-CECyT12-023", 'Centro de Estudios Científicos y Tecnológicos (CECyT 12) "José María Morelos"'],
-              [ "FDN-CECyT13-024", 'Centro de Estudios Científicos y Tecnológicos (CECyT 13) "Ricardo Flores Magón"'],
-              [ "FDN-CECyT14-025", 'Centro de Estudios Científicos y Tecnológicos (CECyT 14) "Luis Enrique Erro"'],
-              [ "FDN-CECyT15-026", 'Centro de Estudios Científicos y Tecnológicos (CECyT 15) "Diódoro Antúnez Echegaray"'],
-              [ "FDN-CECyT16-027", 'Centro de Estudios Científicos y Tecnológicos (CECyT 16) "Hidalgo"'],
-              [ "FDN-CECyT17-028", 'Centro de Estudios Científicos y Tecnológicos (CECyT 17) "León, Guanajuato"'],
-              [ "FDN-CECyT18-029", 'Centro de Estudios Científicos y Tecnológicos (CECyT 18) "Zacatecas"'],
-              [ "FDN-CECyT19-030", 'Centro de Estudios Científicos y Tecnológicos (CECyT 19) "Leona Vicario"'],
-              [ "FDN-CECyT20-031", 'Centro de Estudios Científicos y Tecnológicos (CECyT 20) "Natalia Serdán Alatriste"'],
+              [ "FDN-CECyT1-012", 'Centro de Estudios Científicos y Tecnológicos (CECYT 1) "Gonzalo Vázquez Vela"'],
+              [ "FDN-CECyT2-013", 'Centro de Estudios Científicos y Tecnológicos (CECYT 2) "Miguel Bernard"'],
+              [ "FDN-CECyT3-014", 'Centro de Estudios Científicos y Tecnológicos (CECYT 3) "Estanislao Ramírez Ruiz"'],
+              [ "FDN-CECyT4-015", 'Centro de Estudios Científicos y Tecnológicos (CECYT 4) "Lázaro Cárdenas"'],
+              [ "FDN-CECyT5-016", 'Centro de Estudios Científicos y Tecnológicos (CECYT 5) "Benito Juárez"'],
+              [ "FDN-CECyT6-017", 'Centro de Estudios Científicos y Tecnológicos (CECYT 6) "Miguel Othón De Mendizábal"'],
+              [ "FDN-CECyT7-018", 'Centro de Estudios Científicos y Tecnológicos (CECYT 7) "Cuauhtémoc"'],
+              [ "FDN-CECyT8-019", 'Centro de Estudios Científicos y Tecnológicos (CECYT 8) "Narciso Bassols"'],
+              [ "FDN-CECyT9-020", 'Centro de Estudios Científicos y Tecnológicos (CECYT 9) "Juan De Dios Bátiz"'],
+              [ "FDN-CECyT10-021", 'Centro de Estudios Científicos y Tecnológicos (CECYT 10) "Carlos Vallejo Márquez"'],
+              [ "FDN-CECyT11-022", 'Centro de Estudios Científicos y Tecnológicos (CECYT 11) "Wilfrido Massieu"'],
+              [ "FDN-CECyT12-023", 'Centro de Estudios Científicos y Tecnológicos (CECYT 12) "José María Morelos"'],
+              [ "FDN-CECyT13-024", 'Centro de Estudios Científicos y Tecnológicos (CECYT 13) "Ricardo Flores Magón"'],
+              [ "FDN-CECyT14-025", 'Centro de Estudios Científicos y Tecnológicos (CECYT 14) "Luis Enrique Erro"'],
+              [ "FDN-CECyT15-026", 'Centro de Estudios Científicos y Tecnológicos (CECYT 15) "Diódoro Antúnez Echegaray"'],
+              [ "FDN-CECyT16-027", 'Centro de Estudios Científicos y Tecnológicos (CECYT 16) "Hidalgo"'],
+              [ "FDN-CECyT17-028", 'Centro de Estudios Científicos y Tecnológicos (CECYT 17) "León, Guanajuato"'],
+              [ "FDN-CECyT18-029", 'Centro de Estudios Científicos y Tecnológicos (CECYT 18) "Zacatecas"'],
+              [ "FDN-CECyT19-030", 'Centro de Estudios Científicos y Tecnológicos (CECYT 19) "Leona Vicario"'],
+              [ "FDN-CECyT20-031", 'Centro de Estudios Científicos y Tecnológicos (CECYT 20) "Natalia Serdán Alatriste"'],
               [ "FDN-DIEMS-032", "Dirección de Educación Media Superior"],
               [ "FDN-ESIME-Zacatenco-033", "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Zacatenco"],
               [ "FDN-ESIME-Culhuacán-034", "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Culhuacán"],
@@ -1573,642 +3209,30 @@ document.getElementById("tablaBody6").addEventListener("input", function (e) {
 
 //----------------------Agregar fila
 
+
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
 //-----------------------Agergar fila tabla 1
 
-function agregarFila(){
-
-  const tbody = document.getElementById("tablaBody");
-  const tbody1 = document.getElementById("tablaBody1_1");
-  const i = obtenerNumeroFila1();
-  const j = obtenerNumeroFila1_1();
-
-  const fila = document.createElement("tr");
-  const fila1 = document.createElement("tr");
-  fila.innerHTML = `
-    <td>
-      ${i}
-    </td>
-    <td>
-      <textarea
-        name="Programa_T1R${i}"
-        class="auto-expand input_tabla obligatorio"
-        rows="1"
-        style="resize:none;"
-        aria-label="Programas académicos, servicios o actividades de la dependencia"
-        > </textarea>
-    </td>
-
-    <td>
-    <input type="number" name="Usuarios1_T1R${i}" class="input_tabla " aria-label="Usuarios1"> </input>
-    </td>
-    
-    <td>
-    <input type="number" name="Usuarios2_T1R${i}" class="input_tabla " aria-label="Usuarios2"> </input>
-    </td>
-    
-    <td> 
-    <input type="number" name="Usuarios3_T1R${i}" class="input_tabla " aria-label="Usuarios3"> </input>
-     </td>
-    
-    <td>
-    <input type="number" name="Usuarios4_T1R${i}" class="input_tabla " aria-label="Usuarios4"> </input>
-    </td>
-    
-    <td>
-    <input type="number" name="Usuarios5_T1R${i}" class="input_tabla " aria-label="Usuarios5"> </input>
-    </td>
-    <td>
-    <input type="number" name="Usuarios6_T1R${i}" class="input_tabla " aria-label="Usuarios6"> </input>
-    </td>
-    <td>
-    <input type="number" name="Usuarios7_T1R${i}" class="input_tabla " aria-label="Usuarios7"> </input>
-    </td>
-
-    <td>
-    <input type="number" name="Usuarios8_T1R${i}" class="input_tabla " aria-label="Usuarios8"> </input>
-    </td>
-
-    <td>
-    <input type="number" name="Usuarios9_T1R${i}" class="input_tabla " aria-label="Usuarios9"> </input>
-    </td>
-
-
-    <td>
-    <input type="number" name="Usuarios10_T1R${i}" class="input_tabla " aria-label="Usuarios10"> </input>
-    </td>
-
-  `;
-
-  fila1.innerHTML = `
-    
-    <td>
-      <textarea
-        name="Programa_T1_1R${j}"
-        class="auto-expand input_tabla obligatorio"
-        rows="1"
-        style="resize:none;"
-        aria-label="Programas académicos, servicios o actividades de la dependencia"
-        > </textarea>
-    </td>
-
-    <td>
-    <input type="number" name="Usuarios1_T1_1R${j}" class="input_tabla " aria-label="Usuarios1"> </input>
-    </td>
-    <td>
-    <input type="number" name="Usuarios2_T1_1R${j}" class="input_tabla " aria-label="Usuarios2"> </input>
-    </td>
-    <td> 
-    <input type="number" name="Usuarios3_T1_1R${j}" class="input_tabla " aria-label="Usuarios3"> </input>
-     </td>
-    <td>
-    <input type="number" name="Usuarios4_T1_1R${j}" class="input_tabla " aria-label="Usuarios4"> </input>
-    </td>
-    <td>
-    <input type="number" name="Usuarios5_T1_1R${j}" class="input_tabla " aria-label="Usuarios5"> </input>
-    </td>
-    <td>
-    <input type="number" name="Usuarios6_T1_1R${j}" class="input_tabla " aria-label="Usuarios6"> </input>
-    </td>
-    <td>
-    <input type="number" name="Usuarios7_T1_1R${j}" class="input_tabla " aria-label="Usuarios7"> </input>
-    </td>
-
-    <td>
-    <input type="number" name="Usuarios8_T1_1R${j}" class="input_tabla " aria-label="Usuarios8"> </input>
-    </td>
-
-    <td>
-    <input type="number" name="Usuarios9_T1_1R${j}" class="input_tabla " aria-label="Usuarios9"> </input>
-    </td>
-
-    <td>
-    <input type="number" name="Usuarios10_T1_1R${j}" class="input_tabla " aria-label="Usuarios10"> </input>
-    </td>
-  `;
-
-  tbody.appendChild(fila);
-  tbody1.appendChild(fila1);
-
- // generarNivel();
- // generarDependencia();
-  activarAutoExpand(fila);
-  activarAutoExpand(fila1);
-
-  }    
-
-
-
-
-
-//-----------------------Agergar fila tabla 2
-
-
-function agregarFila2(){
-  const tbody = document.getElementById("tablaBody2");
-  const i = obtenerNumeroFila2();
-
-
-  const fila = document.createElement("tr");
-  fila.innerHTML = `
-    <td>
-      ${i}
-    </td>
-    <td>
-    <input name="Edificio_T2R${i}" class="input_tabla" aria-label="Edificio"> </input>
-    </td>
-
-    <td>
-    <input name="Nivel_T2R${i}" class="input_tabla" aria-label="Nivel"> </input>
-    </td>
-
-    <td>
-    <input name="Espacio_T2R${i}" class="input_tabla" aria-label="Espacio"> </input>
-    </td>    
-    
-    
-    
-    
-
-      <td class="cantidadCol">
-
-      <input type="number" name="Largo_T2R${i}" class="input_tabla " aria-label="Largo"> </input>  
-    
-      </td>
-
-      
-    
-      <td class="cantidadCol">
-
-              <input type="number" name="Ancho_T2R${i}" class="input_tabla " aria-label="Ancho">
-              </input>  
-    
-      </td>
-      
-
-      <td class="cantidadCol">
-
-      <input type="number" name="Alumnos_T2R${i}" class="input_tabla " aria-label="Numero de Alumnos"> </input>  
-    
-      </td>
-      
-
-   
-      <td class="cantidadCol">
-
-      <input type="number" name="Horas_T2R${i}" class="input_tabla " aria-label="Horas de Servicio"> </input>  
-    
-      </td>
-
-  `;
-  tbody.appendChild(fila);
-
-//  generarNivel();
-//  generarDependencia();
-  activarAutoExpand(fila);
-}
-
-
-
-//-----------------------Agregar fila tabla 3
-
-function agregarFila3(){
-  const tbody = document.getElementById("tablaBody3");
-  const i = obtenerNumeroFila3();
-
-
-  const fila = document.createElement("tr");
- 
- 
- if(i===1){
-  fila.innerHTML = `
-  <td>
-      ${i}
-    </td>
-    <td>
-    <input name="Edificio_T3R${i}" class="input_tabla" aria-label="Edificio"> </input>
-    </td>
-
-    <td>
-    <input name="MetrosCuadrados_T3R${i}" class="input_tabla" aria-label="MetrosCuadrados"> </input>
-    </td>
-    <td rowspan="5">
-         <div class="contenedorArchivo">
-                      <input 
-                       type="file"
-                       id= "Planos_T3"
-                       name="Planos_T3" 
-                       class="archivoInput archivoMultipleInput"
-                       accept=".pdf,.xlsx,.doc,.docx,.png,.jpg,.rar,.zip" multiple>
-                 <span class="nombreArchivo"></span>
-                 
-     </div>
-    </td>
-     
-    
-
-  `;
-
-//<button type="button" class="borrarArchivo">
- //                  ❌
-//                 </button>
-
-
-}else{
-      
-  fila.innerHTML = `
-    <td>
-      ${i}
-    </td>
-    <td>
-    <input name="Edificio_T3R${i}" class="input_tabla" aria-label="Edificio"> </input>
-    </td>
-
-    <td>
-    <input type="number" name="MetrosCuadrados_T3R${i}" class="input_tabla" aria-label="MetrosCuadrados"> </input>
-    </td>
-
-  `;
-}
-
-
-
-
-  tbody.appendChild(fila);
-
-//  generarNivel();
-//  generarDependencia();
-  activarAutoExpand(fila);
-}
-
-
-
-
-
-
-
-
-
-
-
-function agregarFilaC(){
-  const tbody = document.getElementById("tablaCotizaciones");
-  const i = obtenerNumeroFilaC();
-
-
-  const fila = document.createElement("tr");
-
-
-fila.innerHTML = `   
-        <td>
-      ${i}
-    </td>
-        <td>
-             <input 
-                   name="nombreCotizacion_TCR${i}" 
-                   id= "nombreCotizacion_TCR${i}"
-                   class="input_tabla" 
-                   aria-label="Nombre de la Cotizacion" 
-                   readonly
-             > 
-             </input>
-        </td>
-
-
-
-     <td>
-    <div class="contenedorArchivo">
-                      <input 
-                       type="file"
-                       id= "CotizacionAdquisicionG1_TCR${i}"
-                       name="CotizacionAdquisicionG1_TCR${i}" 
-                       class="archivoInput "
-                       accept=".pdf,.xlsx,.doc,.docx,.png,.jpg">
-                 <span class="nombreArchivo"></span>
-                 <button type="button" class="borrarArchivo">
-                   ❌
-                 </button>
-     </div>            
-    </td>
-
-
-
-
-    <td class="cantidadCol">
-
-      <input type="number" name="anio_TCR${i}" class="input_tabla " aria-label="Año de la cotizacion"> </input>  
-    
-      </td>      
-     
-
-
-
-               <td>
-      <input
-        id="nombreCotizacion2_TCR${i}"
-        name="nombreCotizacion2_TCR${i}"
-        class="input_tabla"
-        aria-label="Nombre de la Cotizacion 2"
-        readonly
-        > </input>
-    </td>
-
-
-  <td>
-    <div class="contenedorArchivo">
-                      <input 
-                       type="file" 
-                       id="CotizacionAdquisicionG2_TCR${i}"
-                       name="CotizacionAdquisicionG2_TCR${i}" 
-                       class="archivoInput "
-                       accept=".pdf,.xlsx,.doc,.docx,.png,.jpg">
-                 <span class="nombreArchivo"></span>
-                 <button type="button" class="borrarArchivo">
-                   ❌
-                 </button>
-     </div>            
-</td>
-
-
-
-
-      
-
-     <td>
-            <input type="number" name="anioA2_TCR${i}" class="input_tabla " aria-label="Año de la cotizacion"> </input>  
-    
-      </td>
-
-  
-
-
-
-  `;
-
-
-
-
-
-
-
-
-
-
-  tbody.appendChild(fila);
-
-//  generarNivel();
-//  generarDependencia();
-  activarAutoExpand(fila);
-}
-
-
-//-----------------------Agergar fila tabla 4
-
-function agregarFila4(){
-  const tbody = document.getElementById("tablaBody4");
-  const i = obtenerNumeroFila4();
-
-
-  const fila = document.createElement("tr");
-  fila.innerHTML  = `
-    <td>
-      ${i}
-    </td>
-    <td>
-      <textarea
-        name="ProgramaAcademico_T4R${i}"
-        class="auto-expand input_tabla obligatorio"
-        rows="1"
-        style="resize:none;"
-        aria-label="Programa Académico"
-        > </textarea>
-    </td> 
-    
-    <td>
-         <textarea
-        name="Espacio_T4R${i}"
-        class="auto-expand input_tabla obligatorio"
-        rows="1"
-        style="resize:none;"
-        aria-label="Espacio"
-        > </textarea>
-    </td>    
-    <td>
-      <textarea
-        name="Clave_T4R${i}"
-        class="auto-expand input_tabla"
-        rows="1"
-        style="resize:none;"
-        aria-label="clave"
-        > </textarea>
-      </td>
-    <td>
-      <textarea
-        name="nombredelEquipo_T4R${i}"
-        class="auto-expand input_tabla obligatorio"
-        rows="1"
-        style="resize:none;"
-        aria-label="Nombre del Equipo"
-        > </textarea>
-    </td>
-    
-    
-
-    <td class="cantidadCol">
-
-      <input type="number" name="cantidad_T4R${i}" class="input_tabla " aria-label="Cantidad"> </input>  
-    
-      </td>
-
-
-    <td>
-      <textarea
-        name="especificaciones_T4R${i}"
-        class="auto-expand input_tabla expandible"
-        rows="1"
-        style="resize:none;"
-        aria-label="Especificaciones"
-        > </textarea>
-    </td>
-
-    <td>
-      <textarea id="justificacion_T4R${i}" name="justificacion_T4R${i}"
-                   class="auto-expand input_tabla expandible"
-                   rows="1"
-                   style="resize:none;"  aria-label="Justificación">
-                   
-      </textarea>
-    </td>
-
-    
-    
-     <td>
-      <div class="precio-wrapper">
-            <span class="peso">$</span>
-            <input type="text"
-                   name="precio_T4R${i}"
-                   class="input_tabla precio"
-                   oninput="formatearMiles(this)"
-                   inputmode="decimal" 
-                   aria-label="Precio"> 
-            </input>
-      </div>
-      </td>
-    
-
-
-
-
-    <td>
-      <select id="nombreCotizacion_T4R${i}" name="nombreCotizacion_T4R${i}" class="tabla_select" aria-label="Nombre del archivo donde esta la Cotizacion del Equipo" >
-                   <option value="">-- Selecciona una cotización--</option>
-      </select>
-    </td>
-    
-    
-    
-    <td class="paso">
-    <div class="contenedorArchivo paso">
-                      <input 
-                       type="file" 
-                       name="CotizacionAdquisicion_T4R${i}" 
-                       class="archivoInput"
-                       accept=".pdf,.xlsx,.doc,.docx,.png,.jpg">
-                 <span class="nombreArchivo"></span>
-                 <button type="button" class="borrarArchivo">
-                   ❌
-                 </button>
-     </div>            
-    </td>
-
-
-  <td>
-   <div class="precio-wrapper">
-            <span class="peso">$</span>
-            <input type="text"
-                   name="precio2_T4R${i}"
-                   class="input_tabla precio"
-                   oninput="formatearMiles(this)"
-                   inputmode="decimal" 
-                   aria-label="Precio 2"> 
-            </input>
-      </div>
-      </td>
-     
-  <td>
-       <select id="nombreCotizacion2_T4R${i}"
-        name="nombreCotizacion2_T4R${i}"
-        class="tabla_select"
-        aria-label="Nombre del archivo donde esta la Cotizacion de la alternativa 2 del Equipo"
-        > 
-                 <option value="">-- Selecciona una cotización--</option>
-        </select>
-                 
-    </td>
-
-
-  <td class="paso">
-    <div class="contenedorArchivo paso">
-                      <input 
-                       type="file" 
-                       name="CotizacionAdquisicion2_T4R${i}" 
-                       class="archivoInput"
-                       accept=".pdf,.xlsx,.doc,.docx,.png,.jpg">
-                 <span class="nombreArchivo"></span>
-                 <button type="button" class="borrarArchivo">
-                   ❌
-                 </button>
-     </div>            
-</td>
-
-`;
-
-
-  tbody.appendChild(fila);
-
-//  generarNivel();
-//  generarDependencia();
-  activarAutoExpand(fila);
-}
-
-function agregarFila5(){
-  const tbody = document.getElementById("tablaBody5");
-  const i = obtenerNumeroFila5();
-
-
-  const fila = document.createElement("tr");
-  fila.innerHTML = `
-  <td>
-      ${i}
-    </td>  
-  <td>
-      <textarea
-        name="ProgramaAcademico_T5R${i}"
-        class="auto-expand input_tabla obligatorio"
-        rows="1"
-        style="resize:none;"
-        aria-label="Programa Académico"
-        > </textarea>
-    </td> 
-    
-    <td >
-    <textarea
-        name="Espacio_T5R${i}"
-        class="auto-expand input_tabla obligatorio"
-        rows="1"
-        style="resize:none;"
-        aria-label="Espacio"
-        > </textarea></td>
-    
-    <td>
-      <textarea
-        name="nombredelEquipo_T5R${i}"
-        class="auto-expand input_tabla obligatorio"
-        rows="1"
-        style="resize:none;"
-        aria-label="Nombre del Equipo"
-        > </textarea>
-    </td>
-    
-    
-
-    
-
-    <td>
-      <textarea
-        name="especificaciones_T5R${i}"
-        class="auto-expand input_tabla"
-        rows="1"
-        style="resize:none;"
-        aria-label="Especificaciones"
-        > </textarea>
-    </td>
-
-      <td class="cantidadCol">
-
-      <input type="number" name="cantidadMal_estado_T5R${i}" class="input_tabla " aria-label="Cantidad en mal estado"> </input>  
-    
-      </td>
-
-    <td class="cantidadCol">
-
-      <input type="number" name="cantidadBuen_estado_T5R${i}" class="input_tabla " aria-label="Cantidad en buen estado"> </input>  
-    
-      </td>
-    <td class="cantidadCol">
-
-      <input type="number" name="cantidadRegular_estado_T5R${i}" class="input_tabla " aria-label="Cantidad en estado Regular"> </input>  
-    
-      </td>
-     
-
-`;
-
-  tbody.appendChild(fila);
-
-//  generarNivel();
-//  generarDependencia();
-  activarAutoExpand(fila);
-}
 /*
 function agregarFila6(){
   const tbody = document.getElementById("tablaBody6");
@@ -2290,19 +3314,19 @@ function agregarFila6(){
 
 
 function obtenerNumeroFila1(){
-  return document.querySelectorAll("#tablaBody tr").length + 1;
+  return document.querySelectorAll("#tablaBody tr").length -1;
 }
 function obtenerNumeroFila1_1(){
-  return document.querySelectorAll("#tablaBody1_1 tr").length + 1;
+  return document.querySelectorAll("#tablaBody1_1 tr").length -1;
 }
 
 
 function obtenerNumeroFila2(){
-  return document.querySelectorAll("#tablaBody2 tr").length + 1;
+  return document.querySelectorAll("#tablaBody2 tr").length - 1;
 }
 
 function obtenerNumeroFila3(){
-  return document.querySelectorAll("#tablaBody3 tr").length + 1;
+  return document.querySelectorAll("#tablaBody3 tr").length - 1;
 }
 
 function obtenerNumeroFilaC(){
@@ -2310,11 +3334,11 @@ function obtenerNumeroFilaC(){
 }
 
 function obtenerNumeroFila4(){
-  return document.querySelectorAll("#tablaBody4 tr").length + 1;
+  return document.querySelectorAll("#tablaBody4 tr").length - 1;
 }
 
 function obtenerNumeroFila5(){
-  return document.querySelectorAll("#tablaBody5 tr").length + 1;
+  return document.querySelectorAll("#tablaBody5 tr").length - 1;
 }
 
 /*
@@ -2581,13 +3605,440 @@ function restaurarTabla(data) {
  
  */
 
-  tbody.innerHTML = "";
-  tbody1.innerHTML = "";
-  tbody2.innerHTML = "";
-  tbody3.innerHTML = "";
-  tbodyC.innerHTML = "";
-  tbody4.innerHTML = "";
-  tbody5.innerHTML = "";
+  tbody.innerHTML = `<tr>
+                                                                             <td title="Numero de Fila" class="ejemplo">
+                                                                                                                        
+                                                                              </td> 
+
+                                                                             <td title="ProgramasE1" id="ProgramasE1" class="ejemplo">
+                                                                                   
+                                                                              </td>
+                                                          
+                                                                              <td id="UsuariosHAnio1E1" title="Matrícula Hombres 1" class="ejemplo">
+                                                                                
+                                                                              </td>   
+                                          
+                                                                              <td id="UsuariosMAnio1E1" title="Matrícula Mujeres 1" class="ejemplo">
+                                                                                   
+                                                                              </td>
+                                                                              <td id="UsuariosHAnio2E1" title="Matrícula Hombres 2" class="ejemplo">
+                                                                                  
+                                                                              </td>
+                                                                              <td  id="UsuariosMAnio2E1" title="Matrícula Mujeres 2" class="ejemplo">
+                                                                                  
+                                                                              </td>
+                                          
+                                                                              <td id="UsuariosHAnio3E1" title="Matrícula Hombres 3" class="ejemplo">
+                                                                                
+                                                                             </td>
+                                                                              <td  id="UsuariosMAnio3E1" title="Matrícula Mujeres 3" class="ejemplo">  
+                                                                             </td>
+                                                                             <td id="UsuariosHAnio4E1" title="Matrícula Hombres 4" class="ejemplo">
+                                                                               
+                                                                             </td>
+                                                                              <td  id="UsuariosMAnio4E1" title="Matrícula Mujeres 4" class="ejemplo">  
+                                                                             </td>
+                                                                             <td id="UsuariosHAnio5E1" title="Matrícula Hombres 5" class="ejemplo">
+                                                                                 
+                                                                             </td>
+                                                                              <td  id="UsuariosMAnio5E1" title="Matrícula Mujeres 5" class="ejemplo">  
+                                                                             </td>
+
+                                                                         </tr> 
+
+                                                                            <tr>
+                                                                               <td title="Numero de Fila" class="ejemplo">
+                                                                                                                        
+                                                                              </td>
+                                                                              <td title="ProgramasE2" id="ProgramasE2" class="ejemplo">
+                                                                                   
+                                                                              </td>
+                                                          
+                                                                              <td id="UsuariosHAnio1E2" title="Matrícula Hombres 1" class="ejemplo">
+                                                                                
+                                                                              </td>   
+                                          
+                                                                              <td id="UsuariosMAnio1E2" title="Matrícula Mujeres 1" class="ejemplo">
+                                                                                   
+                                                                              </td>
+                                                                              <td id="UsuariosHAnio2E2" title="Matrícula Hombres 2" class="ejemplo">
+                                                                                  
+                                                                              </td>
+                                                                              <td  id="UsuariosMAnio2E2" title="Matrícula Mujeres 2" class="ejemplo">
+                                                                                  
+                                                                              </td>
+                                          
+                                                                              <td id="UsuariosHAnio3E2" title="Matrícula Hombres 3" class="ejemplo">
+                                                                                
+                                                                             </td>
+                                                                              <td  id="UsuariosMAnio3E2" title="Matrícula Mujeres 3" class="ejemplo">  
+                                                                             </td>
+                                                                             <td id="UsuariosHAnio4E2" title="Matrícula Hombres 4" class="ejemplo">
+                                                                               
+                                                                             </td>
+                                                                              <td  id="UsuariosMAnio4E2" title="Matrícula Mujeres 4" class="ejemplo">  
+                                                                             </td>
+                                                                             <td id="UsuariosHAnio5E2" title="Matrícula Hombres 5" class="ejemplo">
+                                                                                 
+                                                                             </td>
+                                                                              <td  id="UsuariosMAnio5E2" title="Matrícula Mujeres 5" class="ejemplo">  
+                                                                             </td>
+
+                                                                         </tr>` ;
+                                                         tbody1.innerHTML = `<tr>
+                                                                              <td title="Numero de Fila" class="ejemplo">
+                                                                                                                        
+                                                                              </td>
+
+                                                                               <td title="Número de Profesores Superior y Posgrado  "    id="NumProfE1" class="ejemplo">
+                                                                                   Número de Profesores Superior y Posgrado     
+                                                                              </td>
+                                                          
+                                                                              <td   id="UsuariosAHAnio1E1" title="Número de Profesores y Administrativos Hombres 1"  class="ejemplo" >
+                                                                              </td>
+                                                                                <td id="UsuariosAMAnio1E1" title="Número de Profesores y Administrativos Mujeres 1" class="ejemplo">
+                                                                                   
+                                                                              </td>
+                                                                              <td   id="UsuariosAHAnio2E1" title="Número de Profesores y Administrativos Hombres 2" class="ejemplo">
+                                                                                  
+                                                                             </td>
+                                                                              <td   id="UsuariosAMAnio2E1" title="Número de Profesores y Administrativos Mujeres 2" class="ejemplo">
+                                                                                  
+                                                                             </td>
+                                                                             <td    id="UsuariosAHAnio3E1" title="Número de Profesores y Administrativos Hombres 3" class="ejemplo">
+                                                                                  
+                                                                             </td>
+                                                                              <td   id="UsuariosAMAnio3E1" title="Número de Profesores y Administrativos Mujeres 3"class="ejemplo">
+                                                                                  
+                                                                             </td>
+                                                                              <td id="UsuariosAHAnio4E1" title="Número de Profesores y Administrativos Hombres 4"class="ejemplo">
+                                                                                  
+                                                                             </td>
+                                                                              <td   id="UsuariosAMAnio4E1" title="Número de Profesores y Administrativos Mujeres 4"class="ejemplo">
+                                                                                  
+                                                                             </td>
+                                                                              <td  id="UsuariosAHAnio5E1" title="Número de Profesores y Administrativos Hombres 5"class="ejemplo">
+                                                                                  
+                                                                             </td>
+                                                                              <td   id="UsuariosAMAnio5E1" title="Número de Profesores y Administrativos Mujeres 5"class="ejemplo">
+                                                                                  
+                                                                             </td>
+
+                                                                         </tr>
+                                                                         <tr>
+                                                                              <td title="Numero de Fila" class="ejemplo">
+                                                                                                                        
+                                                                              </td>
+                                                                              <td title="Número de Profesores Superior y Posgrado  " id="NumProfE2" class="ejemplo">
+                                                                                   Número de Profesores Superior y Posgrado     
+                                                                              </td>
+                                                          
+                                                                              <td id="UsuariosAHAnio1E2" title="Número de Profesores y Administrativos Hombres 1" class="ejemplo">
+                                                                              </td>
+                                                                                <td id="UsuariosAMAnio1E2" title="Número de Profesores y Administrativos Mujeres 1" class="ejemplo">
+                                                                              
+                                                                              </td>
+                                                                              <td id="UsuariosAHAnio2E2" title="Número de Profesores y Administrativos Hombres 2" class="ejemplo">
+                                                                                 
+                                                                             </td>
+                                                                              <td  id="UsuariosAMAnio2E2" title="Número de Profesores y Administrativos Mujeres 2" class="ejemplo">
+                                                                                 
+                                                                             </td>
+                                                                             <td id="UsuariosAHAnio3E2" title="Número de Profesores y Administrativos Hombres 3" class="ejemplo">
+                                                                                  
+                                                                             </td>
+                                                                              <td  id="UsuariosAMAnio3E2" title="Número de Profesores y Administrativos Mujeres 3" class="ejemplo">
+                                                                                  
+                                                                             </td>
+                                                                              <td id="UsuariosAHAnio4E2" title="Número de Profesores y Administrativos Hombres 4" class="ejemplo">
+                                                                                  
+                                                                             </td>
+                                                                              <td  id="UsuariosAMAnio4E2" title="Número de Profesores y Administrativos Mujeres 4" class="ejemplo">
+                                                                                  
+                                                                             </td>
+                                                                              <td id="UsuariosAHAnio5E2" title="Número de Profesores y Administrativos Hombres 5" class="ejemplo">
+                                                                                  
+                                                                             </td>
+                                                                              <td  id="UsuariosAMAnio5E2" title="Número de Profesores y Administrativos Mujeres 5" class="ejemplo">
+                                                                                  
+                                                                             </td>
+                                                                             <tr>
+                                                                             `;
+  tbody2.innerHTML = `<tr>
+                                                                   <td title="Numero de Fila" class="ejemplo">
+                                                                                                                        
+                                                                   </td>
+
+                                                                   <td title="Edificio" id="Edificio_T2E1" class="ejemplo">
+                                                                         
+                                                                   </td>
+                                               
+                                                                   <td title="Nivel" id="Nivel_T2E1" class="ejemplo">
+                                                                      
+                                                                   </td>   
+                               
+                                                                   <td title="Espacio" id="Espacio_T2E1" class="ejemplo">
+                                                                   </td>
+                                                                   <td title="Largo" id="Largo_T2E1" class="ejemplo">
+                                                                   </td>
+                                                                   <td title="Ancho" id="Ancho_T2E1" class="ejemplo">
+                                                                   </td>
+                               
+                                                                   <td title="Alumnos" id="Alumnos_T2E1" class="ejemplo">
+                                                                   </td> 
+                                                                   
+                                                                   <td title="HorasServicio" id="Horas_T2E1" class="ejemplo">
+                                                                   </td>
+                               
+                                                                   
+                                                              </tr>
+                               
+                                                              <tr>
+                                                                 <td title="Numero de Fila" class="ejemplo">
+                                                                                                                        
+                                                                              </td>
+                                                                   <td title="Edificio" id="Edificio_T2E2" class="ejemplo">
+                                                                          
+                                                                   </td>
+                                               
+                                                                   <td title="Nivel" id="Nivel_T2E2" class="ejemplo">
+                                                                        
+                                                                   </td>   
+                               
+                                                                   <td title="Espacio" id="Espacio_T2E2" class="ejemplo">
+                                                                        
+                                                                   </td>
+                                                                   <td title="Largo" id="Largo_T2E2" class="ejemplo">
+                                                                   </td>
+                                                                   <td title="Ancho" id="Ancho_T2E2" class="ejemplo">
+                                                                       
+                                                                   </td>
+                               
+                                                                   <td title="Alumnos" id="Alumnos_T2E2" class="ejemplo">
+                                                                       
+                                                                   </td> 
+                                                                   
+                                                                   <td title="HorasServicio" id="Horas_T2E2" class="ejemplo">
+                                                                       
+                                                                   </td>
+                                                              </tr>`;
+  tbody3.innerHTML = `<tr>
+                                                                <td title="Numero de Fila" class="ejemplo">
+                                                                                                                        
+                                                                              </td>
+
+                                                                 <td title="Edificio" id="Edificio_T3E1" class="ejemplo">
+                                                                          
+                                                                 </td>
+                                             
+                                                                 <td title="MetrosCuadrados" id="MetrosCuadrados_T3E1" class="ejemplo">
+                                                                       
+                                                                 </td>   
+                                                                 
+                                                                 
+                                                            </tr>
+                                                            <tr>
+                                                                 <td title="Numero de Fila" class="ejemplo">
+                                                                                                                        
+                                                                              </td>
+                                                                 <td title="Edificio" id="Edificio_T3E2" class="ejemplo">
+                                                                       
+                                                                 </td>
+                                             
+                                                                 <td title="MetrosCuadrados" id="MetrosCuadrados_T3E2" class="ejemplo">
+                                                                       
+                                                                 </td>   
+                                                                 
+                                                                 
+                                                            </tr>`;
+  tbodyC.innerHTML = ``;
+
+  tbody4.innerHTML = `<tr>
+                                                                     <td title="Numero de Fila" class="ejemplo">
+                                                                                                                        
+                                                                     </td>
+                                                                    <td title="ProgramaAcadémico" id="ProgramaAcademico_T4E1" class="ejemplo">
+                                                                         Programa Académico  , Programas académicos, servicios o actividades que realiza la dependencia.     
+                                                                    </td>                                                                                                             
+                                                                                                              
+                                                                    <td title="Espacio" title="Espacio" id="Espacio_T4E1" class="ejemplo">
+                                                                         Espacio                                                                                                             
+                                                                    </td>                                                                                                                
+                                                                                                                                             
+                                                                    <td title="Clave"  id="Clave_T4E1" class="ejemplo">
+                                                                         Clave CUCOP                                                                                                             
+                                                                    </td>                                                                                                             
+                                                                    <td title="Equipo"  id="Equipo_T4E1" class="ejemplo">
+                                                                        Nombre genérico del equipo                                                                                                             
+                                                                    </td>                                                                                                             
+                                                                    <td title="Cantidad"  id="Cantidad_T4E1" class="ejemplo">
+                                                                        Cantidad Equipos solicitados                                                                                                              
+                                                                    </td>                                                                                                             
+                                                                                                                                             
+                                                                    <td title=" Especificaciones Técnicas del Equipo" id="Especificaciones_T4E1" class="ejemplo">
+                                                                         Características /Especificaciones Técnicas                                                                                                              
+                                                                    </td>                                                                                                              
+                                                                                                                                                                                 
+                                                                    <td title="Justificación (Equipo no Existente, Sustitución o Complemento)" id="Justificacion_T4E1" class="ejemplo">
+                                                                        Justificación Porque se requiere el equipo; las cantidades; las funciones que realizara; Mejora operativa obtenida
+                                                                    </td>                                                                                                             
+                                                                                                                                                                                 
+                                                                                                                                                                                                                          
+                                                                                                                                                                                                                          
+                                                                    <td title="Precio unitario Adquisición Alternativa 1 (Sin IVA)" id="PrecioUnitario_T4E1" class="ejemplo">
+                                                                        Precio unitario Adquisición Alternativa 1 (Sin IVA)                                                                                                                                                                                                                          
+                                                                    </td>                                                                                                             
+                                                                                                                                                                                 
+                                                                    <td title="Nombre del Archivo de la Cotización de Adquisición" id="NombreArch_T4E1" class="ejemplo">
+                                                                        Nombre de la Cotización (En la tabla anterior)                                                                                                             
+                                                                    </td>                                                                                                             
+                                                                                                                                                                                                                          
+                                                                                                                                                                                                                          
+                                                                    <td title="Cotización de Adquisición" id="Cotizacion_T4E1" class="ejemplo paso">
+                                                                        Cotización de Adquisición                                                                                                             
+                                                                    </td>                                                                                                             
+                                                                                                                                                                                 
+                                                                    <td title="Precio unitario Adquisición Alternativa 2 (Sin IVA)" id="PrecioUnitario2_T4E1" class="ejemplo">
+                                                                        Precio unitario Adquisición Alternativa 2 (Sin IVA)                                                                                                             
+                                                                    </td>                                                                                                             
+                                                                                                                                             
+                                                                    <td title="Nombre del Archivo de la Cotización de Adquisición 2" id="NombreArch2_T4E1" class="ejemplo">
+                                                                        Nombre de la Cotización 2 (En la tabla anterior)                                                                                                             
+                                                                    </td>                                                                                                                
+                                                                                                             
+                                                                    <td title="Cotización de Adquisición 2" id="Cotizacion2_T4E1" class="ejemplo paso">
+                                                                        Cotización de Adquisición 2                                                                                                             
+                                                                    </td>                                                                                                             
+                                                                                                                                                                                 
+                                                               </tr>                                                                                                              
+
+
+                                                               <tr>
+                                                                     <td title="Numero de Fila" class="ejemplo">
+                                                                                                                        
+                                                                    </td>
+                                                                    <td title="ProgramaAcadémico" id="ProgramaAcademico_T4E2" class="ejemplo">
+                                                                         Programa Académico  , Programas académicos, servicios o actividades que realiza la dependencia.     
+                                                                    </td>                                                                                                             
+                                                                                                              
+                                                                    <td title="Espacio" title="Espacio" id="Espacio_T4E2" class="ejemplo">
+                                                                         Espacio                                                                                                             
+                                                                    </td>                                                                                                                
+                                                                                                                                             
+                                                                    <td title="Clave"  id="Clave_T4E2" class="ejemplo">
+                                                                         Clave CUCOP                                                                                                             
+                                                                    </td>                                                                                                             
+                                                                    <td title="Equipo"  id="Equipo_T4E2" class="ejemplo">
+                                                                        Nombre genérico del equipo                                                                                                             
+                                                                    </td>                                                                                                             
+                                                                    <td title="Cantidad"  id="Cantidad_T4E2" class="ejemplo">
+                                                                        Cantidad Equipos solicitados                                                                                                              
+                                                                    </td>                                                                                                             
+                                                                                                                                             
+                                                                    <td title=" Especificaciones Técnicas del Equipo" id="Especificaciones_T4E2" class="ejemplo">
+                                                                         Características /Especificaciones Técnicas                                                                                                              
+                                                                    </td>                                                                                                              
+                                                                                                                                                                                 
+                                                                    <td title="Justificación (Equipo no Existente, Sustitución o Complemento)" id="Justificacion_T4E2" class="ejemplo">
+                                                                        Justificación Porque se requiere el equipo; las cantidades; las funciones que realizara; Mejora operativa obtenida
+                                                                    </td>                                                                                                             
+                                                                                                                                                                                 
+                                                                                                                                                                                                                          
+                                                                                                                                                                                                                          
+                                                                    <td title="Precio unitario Adquisición Alternativa 1 (Sin IVA)" id="PrecioUnitario_T4E2" class="ejemplo">
+                                                                        Precio unitario Adquisición Alternativa 1 (Sin IVA)                                                                                                                                                                                                                          
+                                                                    </td>                                                                                                             
+                                                                                                                                                                                 
+                                                                    <td title="Nombre del Archivo de la Cotización de Adquisición" id="NombreArch_T4E2" class="ejemplo">
+                                                                        Nombre de la Cotización (En la tabla anterior)                                                                                                             
+                                                                    </td>                                                                                                             
+                                                                                                                                                                                                                          
+                                                                                                                                                                                                                          
+                                                                    <td title="Cotización de Adquisición" id="Cotizacion_T4E2" class="ejemplo paso">
+                                                                        Cotización de Adquisición                                                                                                             
+                                                                    </td>                                                                                                             
+                                                                                                                                                                                 
+                                                                    <td title="Precio unitario Adquisición Alternativa 2 (Sin IVA)" id="PrecioUnitario2_T4E2" class="ejemplo">
+                                                                        Precio unitario Adquisición Alternativa 2 (Sin IVA)                                                                                                             
+                                                                    </td>                                                                                                             
+                                                                                                                                             
+                                                                    <td title="Nombre del Archivo de la Cotización de Adquisición 2" id="NombreArch2_T4E2" class="ejemplo">
+                                                                        Nombre de la Cotización 2 (En la tabla anterior)                                                                                                             
+                                                                    </td>                                                                                                                
+                                                                                                             
+                                                                    <td title="Cotización de Adquisición 2" id="Cotizacion2_T4E2" class="ejemplo paso">
+                                                                        Cotización de Adquisición 2                                                                                                             
+                                                                    </td>                                                                                                             
+                                                                                                                                                                                 
+                                                               </tr>`;
+  tbody5.innerHTML = `<tr>
+                                                                    <td title="Numero de Fila"  class="ejemplo">
+                                                                                                                        
+                                                                 </td>
+                                                                    <td title="ProgramaAcadémico" id="ProgramaAcademico_T5E1" class="ejemplo" >                                                                                                                                                                                              
+                                                                         Programa Académico  , Programas académicos, servicios o actividades que realiza la dependencia.                                                                                                                                                                                                   
+                                                                    </td>                                                                                                                                                                                              
+                                                                                                                                                                                                                                              
+                                                                    <td title="Espacio" id="Espacio_T5E1" class="ejemplo">                                                                                                                                                                                              
+                                                                         Espacio                                                                                                                                                                                              
+                                                                    </td>                                                                                                                                                                                                 
+                                                                                                                                                                                                                              
+                                                                                                                                                                                                                                                                  
+                                                                    <td title="Equipo" id="Equipo_T5E1" class="ejemplo">                                                                                                                                                                                              
+                                                                        Nombre genérico del equipo                                                                                                                                                                                              
+                                                                    </td>                                                                                                                                                                                              
+                                                                                                                                                                                                                                                                  
+                                                                    <td title=" Especificaciones y Desempeño Operativo" id="Especificaciones_T5E1" class="ejemplo">                                                                                                                                                                                              
+                                                                         Especificaciones y Desempeño Operativo                                                                                                                                                                                               
+                                                                    </td>                                                                                                                                                                                               
+                                                                                                                                                                                                                                                                  
+                                                                    <td title="Cuantos equipos en mal estado (obsoletos, a remplazar)" id="MalEstado_T5E1" class="ejemplo">                                                                                                                                                                                              
+                                                                         Cuantos equipos en mal estado (obsoletos, a remplazar)                                                                                                                                                                                               
+                                                                    </td>                                                                                                                                                                                              
+                                                                    <td title="Cuantos equipos  en buen estado (útiles)" id="BuenEstado_T5E1" class="ejemplo">                                                                                                                                                                                              
+                                                                         Cuantos equipos  en buen estado (útiles)                                                                                                                                                                                               
+                                                                    </td>                                                                                                                                                                                              
+                                                                                                                                                                                                                                                                  
+                                                                    <td title="Cuantos equipos  en estado regular (útiles)" id="EstadoRegular_T5E1" class="ejemplo">                                                                                                                                                                                              
+                                                                         Cuantos equipos  en estado regular (útiles)                                                                                                                                                                                               
+                                                                    </td>                                                                                                                                                                                              
+                                                                                                                                                                                                                                                                   
+                                                               </tr>                                                                                                                                                                                              
+                                                               
+                                                               
+                                                               <tr>
+                                                                     <td title="Numero de Fila" class="ejemplo">
+                                                                                                                        
+                                                                 </td>
+                                                                    <td title="ProgramaAcadémico" id="ProgramaAcademico_T5E2" class="ejemplo" >
+                                                                         Programa Académico  , Programas académicos, servicios o actividades que realiza la dependencia.     
+                                                                    </td>
+                                                
+                                                                    <td title="Espacio" id="Espacio_T5E2" class="ejemplo">
+                                                                         Espacio
+                                                                    </td>   
+                                
+                                                                    
+                                                                    <td title="Equipo" id="Equipo_T5E2" class="ejemplo">
+                                                                        Nombre genérico del equipo
+                                                                    </td>
+                                                                    
+                                                                    <td title=" Especificaciones y Desempeño Operativo" id="Especificaciones_T5E2" class="ejemplo">
+                                                                         Especificaciones y Desempeño Operativo 
+                                                                    </td> 
+                                                                    
+                                                                    <td title="Cuantos equipos en mal estado (obsoletos, a remplazar)" id="MalEstado_T5E2" class="ejemplo">
+                                                                         Cuantos equipos en mal estado (obsoletos, a remplazar) 
+                                                                    </td>
+                                                                    <td title="Cuantos equipos  en buen estado (útiles)" id="BuenEstado_T5E2" class="ejemplo">
+                                                                         Cuantos equipos  en buen estado (útiles) 
+                                                                    </td>
+                                                                    
+                                                                    <td title="Cuantos equipos  en estado regular (útiles)" id="EstadoRegular_T5E2" class="ejemplo">
+                                                                         Cuantos equipos  en estado regular (útiles) 
+                                                                    </td>
+                                                                     
+                                                               </tr>`;
 /*
   tbody6.innerHTML = "";
  
@@ -2657,7 +4108,8 @@ function restaurarTabla(data) {
   
 
 //folioActual=folio;
-alert("ANtes de cargar dep: "+folioActual);
+
+//  alert("ANtes de cargar dep: "+folioActual);
 
 function obtenerDependencia(folioA) {
      
@@ -2693,7 +4145,7 @@ document.getElementById("cargarDependencia").addEventListener("click", cargarDep
 
 //------------------------------------
 
-alert("ANtes de cargar Borrador"+folioActual);
+//  alert("ANtes de cargar Borrador"+folioActual);
 
 document.getElementById("cargarBorrador").addEventListener("click", async () => {
 //-------------------------- Borrador con  folio (Backend)   
@@ -2782,7 +4234,7 @@ try {
 //    agregarFila();
 //  }
 
-alert("despues de cargar Borrador"+folioActual);
+//alert("despues de cargar Borrador"+folioActual);
 
 //      folioActual = folio;
       edicionActual=data.edicion;
@@ -2826,6 +4278,117 @@ let folioValor = document.getElementById("folioInput");
       
       // ⬇️ Ahora sí, restaurar la tabla
       restaurarTabla(data);
+/*
+for(let i =3;i<data.__filas4+2;i++){
+  
+  const estado = data[`ProgramaAcademico_T4R${i}RO`];
+  alert(estado===true || estado==="true");
+  alert(estado);
+  //alert(document.getElementById(`ProgramaAcademico_T4R${i}`).readOnly);
+
+
+
+  document.getElementById(`ProgramaAcademico_T4R${i}`).readOnly=estado === true || estado === "true";
+
+  }
+*/
+/*
+document.querySelectorAll(".check-verificacion").forEach(check => {
+
+    if (data.hasOwnProperty(check.name)) {
+        check.value= data[check.name];
+    }
+
+});
+*/
+
+document.querySelectorAll(".check-verificacion").forEach(check => {
+
+     const campo = document.querySelector(`[name="${check.dataset.campo}"]`);
+    if (!campo) return;
+
+    campo.readOnly = check.value === true || check.value === "true";;
+});
+
+
+
+
+//document.getElementById("especificaciones").readOnly =    data.especificacionesRO ?? false;
+
+      
+const resC = await fetch(direccionEnlace,{
+    method:"POST",
+    body: JSON.stringify({
+        action:"ObtenerConfiguracion"
+    })
+});
+const config = await resC.json();
+let ejemplos=config.ejemplos;
+    for(let index=1;index<3;index++){
+   document.getElementById(`ProgramasE${index}`).textContent=ejemplos[`ProgramasE${index}`];   
+   document.getElementById(`UsuariosHAnio1E${index}`).textContent=ejemplos[`UsuariosHAnio1E${index}`];
+   document.getElementById(`UsuariosMAnio1E${index}`).textContent=ejemplos[`UsuariosMAnio1E${index}`];
+   document.getElementById(`UsuariosHAnio2E${index}`).textContent=ejemplos[`UsuariosHAnio2E${index}`];
+   document.getElementById(`UsuariosMAnio2E${index}`).textContent=ejemplos[`UsuariosMAnio2E${index}`];
+   document.getElementById(`UsuariosHAnio3E${index}`).textContent=ejemplos[`UsuariosHAnio3E${index}`];
+   document.getElementById(`UsuariosMAnio3E${index}`).textContent=ejemplos[`UsuariosMAnio3E${index}`];
+   document.getElementById(`UsuariosHAnio4E${index}`).textContent=ejemplos[`UsuariosHAnio4E${index}`];
+   document.getElementById(`UsuariosMAnio4E${index}`).textContent=ejemplos[`UsuariosMAnio4E${index}`];
+   document.getElementById(`UsuariosHAnio5E${index}`).textContent=ejemplos[`UsuariosHAnio5E${index}`];
+   document.getElementById(`UsuariosMAnio5E${index}`).textContent=ejemplos[`UsuariosMAnio5E${index}`];
+
+ document.getElementById(`NumProfE${index}`        ).textContent     =ejemplos[`NumProfE${index}`        ]
+ document.getElementById(`UsuariosAHAnio1E${index}`).textContent=ejemplos[`UsuariosAHAnio1E${index}`]
+ document.getElementById(`UsuariosAMAnio1E${index}`).textContent=ejemplos[`UsuariosAMAnio1E${index}`]
+ document.getElementById(`UsuariosAHAnio2E${index}`).textContent=ejemplos[`UsuariosAHAnio2E${index}`]
+ document.getElementById(`UsuariosAMAnio2E${index}`).textContent=ejemplos[`UsuariosAMAnio2E${index}`]
+ document.getElementById(`UsuariosAHAnio3E${index}`).textContent=ejemplos[`UsuariosAHAnio3E${index}`]
+ document.getElementById(`UsuariosAMAnio3E${index}`).textContent=ejemplos[`UsuariosAMAnio3E${index}`]
+ document.getElementById(`UsuariosAHAnio4E${index}`).textContent=ejemplos[`UsuariosAHAnio4E${index}`]
+ document.getElementById(`UsuariosAMAnio4E${index}`).textContent=ejemplos[`UsuariosAMAnio4E${index}`]
+ document.getElementById(`UsuariosAHAnio5E${index}`).textContent=ejemplos[`UsuariosAHAnio5E${index}`]
+ document.getElementById(`UsuariosAMAnio5E${index}`).textContent=ejemplos[`UsuariosAMAnio5E${index}`]
+
+document.getElementById(`Edificio_T2E${index}`).textContent= ejemplos[`Edificio_T2E${index}`];
+document.getElementById(`Nivel_T2E${index}`   ).textContent= ejemplos[`Nivel_T2E${index}`   ];
+document.getElementById(`Espacio_T2E${index}` ).textContent= ejemplos[`Espacio_T2E${index}` ];
+document.getElementById(`Largo_T2E${index}`   ).textContent= ejemplos[`Largo_T2E${index}`   ];
+document.getElementById(`Ancho_T2E${index}`   ).textContent= ejemplos[`Ancho_T2E${index}`   ];
+document.getElementById(`Alumnos_T2E${index}` ).textContent= ejemplos[`Alumnos_T2E${index}` ];
+document.getElementById(`Horas_T2E${index}`   ).textContent= ejemplos[`Horas_T2E${index}`   ];
+
+document.getElementById(`Edificio_T3E${index}`).textContent       = ejemplos[`Edificio_T3E${index}`];
+document.getElementById(`MetrosCuadrados_T3E${index}`).textContent= ejemplos[`MetrosCuadrados_T3E${index}`];
+
+
+document.getElementById(`ProgramaAcademico_T4E${index}`).textContent= ejemplos[`ProgramaAcademico_T4E${index}`];              
+document.getElementById(`Espacio_T4E${index}`).textContent= ejemplos[`Espacio_T4E${index}`];         
+document.getElementById(`Clave_T4E${index}`).textContent= ejemplos[`Clave_T4E${index}`];       
+document.getElementById(`Equipo_T4E${index}`).textContent= ejemplos[`Equipo_T4E${index}`];        
+document.getElementById(`Cantidad_T4E${index}`).textContent= ejemplos[`Cantidad_T4E${index}`];         
+document.getElementById(`Especificaciones_T4E${index}`).textContent= ejemplos[`Especificaciones_T4E${index}`];         
+document.getElementById(`Justificacion_T4E${index}`).textContent= ejemplos[`Justificacion_T4E${index}`];      
+document.getElementById(`PrecioUnitario_T4E${index}`).textContent= ejemplos[`PrecioUnitario_T4E${index}`];      
+document.getElementById(`NombreArch_T4E${index}`).textContent= ejemplos[`NombreArch_T4E${index}`];     
+document.getElementById(`Cotizacion_T4E${index}`).textContent= ejemplos[`Cotizacion_T4E${index}`];       
+document.getElementById(`PrecioUnitario2_T4E${index}`).textContent= ejemplos[`PrecioUnitario2_T4E${index}`];
+document.getElementById(`NombreArch2_T4E${index}`).textContent= ejemplos[`NombreArch2_T4E${index}`];  
+document.getElementById(`Cotizacion2_T4E${index}`).textContent=ejemplos[`Cotizacion2_T4E${index}`];
+
+
+document.getElementById(`ProgramaAcademico_T5E${index}`).textContent=ejemplos[`ProgramaAcademico_T5E${index}`];
+document.getElementById(`Espacio_T5E${index}`).textContent=ejemplos[`Espacio_T5E${index}`]                     ;
+document.getElementById(`Equipo_T5E${index}`).textContent=ejemplos[`Equipo_T5E${index}`]                        ;
+document.getElementById(`Especificaciones_T5E${index}`).textContent=ejemplos[`Especificaciones_T5E${index}`]  ;
+document.getElementById(`MalEstado_T5E${index}`).textContent=ejemplos[`MalEstado_T5E${index}`]               ;
+document.getElementById(`BuenEstado_T5E${index}`).textContent=ejemplos[`BuenEstado_T5E${index}`]                ;
+document.getElementById(`EstadoRegular_T5E${index}`).textContent=ejemplos[`EstadoRegular_T5E${index}`]            ;
+
+
+
+
+}
+
       document.querySelectorAll("#tablaBody tr").forEach(fila => {
                            actualizarObligatoriedadFila(fila);
       });
@@ -3004,6 +4567,97 @@ setTimeout(() => {
       
       // ⬇️ Ahora sí, restaurar la tabla
       restaurarTabla(data);
+
+
+document.querySelectorAll(".check-verificacion").forEach(check => {
+
+     const campo = document.querySelector(`[name="${check.dataset.campo}"]`);
+    if (!campo) return;
+
+    campo.readOnly = check.value === true || check.value === "true";;
+});
+
+
+
+
+
+
+
+
+
+
+
+const resC = await fetch(direccionEnlace,{
+    method:"POST",
+    body: JSON.stringify({
+        action:"ObtenerConfiguracion"
+    })
+});
+const config = await resC.json();
+let ejemplos=config.ejemplos;
+    for(let index=1;index<3;index++){
+   document.getElementById(`ProgramasE${index}`).textContent=ejemplos[`ProgramasE${index}`];   
+   document.getElementById(`UsuariosHAnio1E${index}`).textContent=ejemplos[`UsuariosHAnio1E${index}`];
+   document.getElementById(`UsuariosMAnio1E${index}`).textContent=ejemplos[`UsuariosMAnio1E${index}`];
+   document.getElementById(`UsuariosHAnio2E${index}`).textContent=ejemplos[`UsuariosHAnio2E${index}`];
+   document.getElementById(`UsuariosMAnio2E${index}`).textContent=ejemplos[`UsuariosMAnio2E${index}`];
+   document.getElementById(`UsuariosHAnio3E${index}`).textContent=ejemplos[`UsuariosHAnio3E${index}`];
+   document.getElementById(`UsuariosMAnio3E${index}`).textContent=ejemplos[`UsuariosMAnio3E${index}`];
+   document.getElementById(`UsuariosHAnio4E${index}`).textContent=ejemplos[`UsuariosHAnio4E${index}`];
+   document.getElementById(`UsuariosMAnio4E${index}`).textContent=ejemplos[`UsuariosMAnio4E${index}`];
+   document.getElementById(`UsuariosHAnio5E${index}`).textContent=ejemplos[`UsuariosHAnio5E${index}`];
+   document.getElementById(`UsuariosMAnio5E${index}`).textContent=ejemplos[`UsuariosMAnio5E${index}`];
+
+ document.getElementById(`NumProfE${index}`        ).textContent     =ejemplos[`NumProfE${index}`        ]
+ document.getElementById(`UsuariosAHAnio1E${index}`).textContent=ejemplos[`UsuariosAHAnio1E${index}`]
+ document.getElementById(`UsuariosAMAnio1E${index}`).textContent=ejemplos[`UsuariosAMAnio1E${index}`]
+ document.getElementById(`UsuariosAHAnio2E${index}`).textContent=ejemplos[`UsuariosAHAnio2E${index}`]
+ document.getElementById(`UsuariosAMAnio2E${index}`).textContent=ejemplos[`UsuariosAMAnio2E${index}`]
+ document.getElementById(`UsuariosAHAnio3E${index}`).textContent=ejemplos[`UsuariosAHAnio3E${index}`]
+ document.getElementById(`UsuariosAMAnio3E${index}`).textContent=ejemplos[`UsuariosAMAnio3E${index}`]
+ document.getElementById(`UsuariosAHAnio4E${index}`).textContent=ejemplos[`UsuariosAHAnio4E${index}`]
+ document.getElementById(`UsuariosAMAnio4E${index}`).textContent=ejemplos[`UsuariosAMAnio4E${index}`]
+ document.getElementById(`UsuariosAHAnio5E${index}`).textContent=ejemplos[`UsuariosAHAnio5E${index}`]
+ document.getElementById(`UsuariosAMAnio5E${index}`).textContent=ejemplos[`UsuariosAMAnio5E${index}`]
+
+document.getElementById(`Edificio_T2E${index}`).textContent= ejemplos[`Edificio_T2E${index}`];
+document.getElementById(`Nivel_T2E${index}`   ).textContent= ejemplos[`Nivel_T2E${index}`   ];
+document.getElementById(`Espacio_T2E${index}` ).textContent= ejemplos[`Espacio_T2E${index}` ];
+document.getElementById(`Largo_T2E${index}`   ).textContent= ejemplos[`Largo_T2E${index}`   ];
+document.getElementById(`Ancho_T2E${index}`   ).textContent= ejemplos[`Ancho_T2E${index}`   ];
+document.getElementById(`Alumnos_T2E${index}` ).textContent= ejemplos[`Alumnos_T2E${index}` ];
+document.getElementById(`Horas_T2E${index}`   ).textContent= ejemplos[`Horas_T2E${index}`   ];
+
+document.getElementById(`Edificio_T3E${index}`).textContent       = ejemplos[`Edificio_T3E${index}`];
+document.getElementById(`MetrosCuadrados_T3E${index}`).textContent= ejemplos[`MetrosCuadrados_T3E${index}`];
+
+
+document.getElementById(`ProgramaAcademico_T4E${index}`).textContent= ejemplos[`ProgramaAcademico_T4E${index}`];              
+document.getElementById(`Espacio_T4E${index}`).textContent= ejemplos[`Espacio_T4E${index}`];         
+document.getElementById(`Clave_T4E${index}`).textContent= ejemplos[`Clave_T4E${index}`];       
+document.getElementById(`Equipo_T4E${index}`).textContent= ejemplos[`Equipo_T4E${index}`];        
+document.getElementById(`Cantidad_T4E${index}`).textContent= ejemplos[`Cantidad_T4E${index}`];         
+document.getElementById(`Especificaciones_T4E${index}`).textContent= ejemplos[`Especificaciones_T4E${index}`];         
+document.getElementById(`Justificacion_T4E${index}`).textContent= ejemplos[`Justificacion_T4E${index}`];      
+document.getElementById(`PrecioUnitario_T4E${index}`).textContent= ejemplos[`PrecioUnitario_T4E${index}`];      
+document.getElementById(`NombreArch_T4E${index}`).textContent= ejemplos[`NombreArch_T4E${index}`];     
+document.getElementById(`Cotizacion_T4E${index}`).textContent= ejemplos[`Cotizacion_T4E${index}`];       
+document.getElementById(`PrecioUnitario2_T4E${index}`).textContent= ejemplos[`PrecioUnitario2_T4E${index}`];
+document.getElementById(`NombreArch2_T4E${index}`).textContent= ejemplos[`NombreArch2_T4E${index}`];  
+document.getElementById(`Cotizacion2_T4E${index}`).textContent=ejemplos[`Cotizacion2_T4E${index}`];
+
+
+document.getElementById(`ProgramaAcademico_T5E${index}`).textContent=ejemplos[`ProgramaAcademico_T5E${index}`];
+document.getElementById(`Espacio_T5E${index}`).textContent=ejemplos[`Espacio_T5E${index}`]                     ;
+document.getElementById(`Equipo_T5E${index}`).textContent=ejemplos[`Equipo_T5E${index}`]                        ;
+document.getElementById(`Especificaciones_T5E${index}`).textContent=ejemplos[`Especificaciones_T5E${index}`]  ;
+document.getElementById(`MalEstado_T5E${index}`).textContent=ejemplos[`MalEstado_T5E${index}`]               ;
+document.getElementById(`BuenEstado_T5E${index}`).textContent=ejemplos[`BuenEstado_T5E${index}`]                ;
+document.getElementById(`EstadoRegular_T5E${index}`).textContent=ejemplos[`EstadoRegular_T5E${index}`]            ;
+
+}
+
+
       document.querySelectorAll("#tablaBody tr").forEach(fila => {
                            actualizarObligatoriedadFila(fila);
       });
@@ -3060,7 +4714,7 @@ document.getElementById("Enviar").addEventListener("click", async () => {
                 //    this.reportValidity(); // muestra mensajes
                 //    return;  
                // }
-                 const confirmar = confirm("¿Estás seguro de que deseas enviar el formulario?");
+                 const confirmar = confirm("¿Estás apunto de enviar el Formato de Detección de Necesidades deseas continuar?");
 
                 if (!confirmar) {
                   // ❌ Usuario canceló
@@ -3612,5 +5266,7 @@ function dividirData(data, partes = 8) {
 
     return resultado;
 }
+
+
 
 
