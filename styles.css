@@ -686,7 +686,6 @@ a {
 
 
 
-
 .Tabla4 th:nth-child(1),
 .Tabla4 td:nth-child(1){
     width: 5%;
@@ -694,8 +693,8 @@ a {
 }
 .Tabla4 th:nth-child(2),
 .Tabla4 td:nth-child(2){
-    width: 9.34%;
-    min-width: 116px;
+    width: 8%;
+    min-width: 110px;
 }
 .Tabla4 th:nth-child(3),
 .Tabla4 td:nth-child(3){
@@ -733,27 +732,38 @@ a {
     width: 7.47%;
     min-width: 108px;
 }
+
 .Tabla4 th:nth-child(10),
 .Tabla4 td:nth-child(10){
-    width: 6.54%;
-    min-width: 108px;
-}.Tabla4 th:nth-child(11),
-.Tabla4 td:nth-child(11){
-    width: 9.34%;
+    width: 7.47%;
     min-width: 108px;
 }
-.Tabla4 th:nth-child(12),
+.Tabla4 th:nth-child(11),
+.Tabla4 td:nth-child(11){
+    width: 6.54%;
+    min-width: 108px;
+}.Tabla4 th:nth-child(12),
 .Tabla4 td:nth-child(12){
-    width: 8%;
+    width: 9.34%;
     min-width: 108px;
 }
 .Tabla4 th:nth-child(13),
 .Tabla4 td:nth-child(13){
-    width: 7%;
+    width: 9.34%;
     min-width: 108px;
 }
 .Tabla4 th:nth-child(14),
 .Tabla4 td:nth-child(14){
+    width: 8%;
+    min-width: 108px;
+}
+.Tabla4 th:nth-child(15),
+.Tabla4 td:nth-child(15){
+    width: 7%;
+    min-width: 108px;
+}
+.Tabla4 th:nth-child(16),
+.Tabla4 td:nth-child(16){
     width: 10%;
     min-width: 108px;
 }
@@ -1018,7 +1028,7 @@ th {
     width: 90vw !important;
     height: 65vh !important;
     z-index: 9999;
-    background-color: white !important;
+/*    background-color: white !important;*/
     border: 2px solid #611232 !important;
     border-radius: 0 0 10px 10px !important;
     padding: 15px !important;
@@ -1029,6 +1039,13 @@ th {
     
 }
 
+.campo-ampliado.ejemplo {
+    background-color:#ffde21;
+}
+.ventanaFormulario {
+    max-height: 173px;
+    
+}
 
 
 .leyenda-textarea {
