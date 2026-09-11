@@ -29,6 +29,8 @@ function agregarFila(){
 
     const i = obtenerNumeroFila1();
     const j = obtenerNumeroFila1_1();
+    
+
 
     const fila = document.createElement("tr");
     const fila1 = document.createElement("tr");
@@ -605,7 +607,7 @@ function agregarFila3(){
                         type="file"
                         id="Planos_T3"
                         name="Planos_T3"
-                        class="archivoInput archivoMultipleInput"
+                        class="archivoInput archivoMultipleInput Planos"
                         accept=".pdf,.xlsx,.doc,.docx,.png,.jpg,.rar,.zip"
                         multiple
                     >
@@ -683,6 +685,7 @@ function agregarFilaC(){
             <input
                 name="nombreCotizacion_TCR${i}"
                 id="nombreCotizacion_TCR${i}"
+
                 class="input_tabla"
                 aria-label="Nombre de la Cotizacion"
                 readonly
@@ -697,15 +700,26 @@ function agregarFilaC(){
                     type="file"
                     id="CotizacionAdquisicionG1_TCR${i}"
                     name="CotizacionAdquisicionG1_TCR${i}"
-                    class="archivoInput"
+                    class="archivoInput "
+                    data-compa2="nombrearchivo_TC${i}$"
+                    data-compa="urlCotizacionAdquisicionG1_TCR${i}"
+                    data-compa3="nombreCotizacion_TCR${i}"
                     accept=".pdf,.xlsx,.doc,.docx,.png,.jpg"
                 >
 
-                <span class="nombreArchivo"></span>
+                <span id="nombrearchivo_TC${i}$" class="nombreArchivo"></span>
+                 
+                <textarea
+                id="urlCotizacionAdquisicionG1_TCR${i}"
+                name="urlCotizacionAdquisicionG1_TCR${i}"
+                class="auto-expand input_tabla paso"
+                rows="1"
+                readonly                
+                style="resize:none;"
+                aria-label="Url de las Cotizaciones"
+            > </textarea> 
 
-                <button type="button" class="borrarArchivo">
-                    ❌
-                </button>
+
 
             </div>
         </td>
@@ -746,15 +760,30 @@ function agregarFilaC(){
                     type="file"
                     id="CotizacionAdquisicionG2_TCR${i}"
                     name="CotizacionAdquisicionG2_TCR${i}"
-                    class="archivoInput"
+                    data-compa="urlCotizacionAdquisicionG2_TCR${i}"
+                    data-compa2="nombrearchivo2_TC${i}$"
+                    data-compa3="nombreCotizacion2_TCR${i}"
+                    class="archivoInput "
                     accept=".pdf,.xlsx,.doc,.docx,.png,.jpg"
                 >
 
-                <span class="nombreArchivo"></span>
+                <span 
+                id="nombrearchivo2_TC${i}$"
+                class="nombreArchivo"></span>
 
-                <button type="button" class="borrarArchivo">
-                    ❌
-                </button>
+                <span class="nombreArchivo"></span>
+                 
+                <textarea
+                id="urlCotizacionAdquisicionG2_TCR${i}"
+                name="urlCotizacionAdquisicionG2_TCR${i}"
+                class="auto-expand input_tabla paso"
+                rows="1"
+                readonly
+                
+                style="resize:none;"
+                aria-label="Url de las Cotizaciones"
+            > </textarea> 
+
 
             </div>
         </td>
@@ -874,6 +903,7 @@ function agregarFila4(){
         <td class="cantidadCol">
             <input
                 type="number"
+                id="cantidad_T4R${i}"
                 name="cantidad_T4R${i}"
                 class="input_tabla"
                 aria-label="Cantidad"
@@ -894,7 +924,8 @@ function agregarFila4(){
                 class="auto-expand input_tabla expandible"
                 rows="1"
                 style="resize:none;"
-                aria-label="Especificaciones">
+                aria-label="Especificaciones"
+                >
             </textarea>
 
             <input
@@ -933,22 +964,53 @@ function agregarFila4(){
                 <input
                     type="text"
                     name="precio_T4R${i}"
-                    class="input_tabla precio"
+                    class="input_tabla precio unitario"
+                    data-cant="cantidad_T4R${i}"
+                    data-precio="precioTotal_T4R${i}"
                     oninput="formatearMiles(this)"
                     inputmode="decimal"
                     aria-label="Precio"
                 >
-
-            </div>
-
-            <input
+                <input
                 name="precio_T4R${i}RO"
                 readonly
                 class="paso check-verificacion"
                 id="precio_T4R${i}RO"
                 data-campo="precio_T4R${i}"
             >
+
+            </div>
+</td>
+            
+
+
+        <td>
+            <div class="precio-wrapper">
+
+                <span class="peso">$</span>
+
+                <input
+                    type="text"
+                    readonly
+                    id="precioTotal_T4R${i}"
+                    name="precioTotal_T4R${i}"
+                    class="input_tabla precio"
+                    oninput="formatearMiles(this)"
+                    inputmode="decimal"
+                    aria-label="Precio Total mas IVA"
+                >
+
+            </div>
+
+            
         </td>
+
+
+
+
+
+
+
 
         <td>
             <select
@@ -999,7 +1061,10 @@ function agregarFila4(){
                 <input
                     type="text"
                     name="precio2_T4R${i}"
-                    class="input_tabla precio"
+
+                    class="input_tabla precio unitario"
+                    data-cant="cantidad_T4R${i}"
+                    data-precio="precioTotal2_T4R${i}"
                     oninput="formatearMiles(this)"
                     inputmode="decimal"
                     aria-label="Precio 2"
@@ -1014,7 +1079,39 @@ function agregarFila4(){
                 id="precio2_T4R${i}RO"
                 data-campo="precio2_T4R${i}"
             >
+
+
         </td>
+        
+        
+        <td>
+            <div class="precio-wrapper">
+
+                <span class="peso">$</span>
+
+                <input
+                    type="text"
+                    readonly
+                    id="precioTotal2_T4R${i}"
+                    name="precioTotal2_T4R${i}"
+                    class="input_tabla precio"
+                    oninput="formatearMiles(this)"
+                    inputmode="decimal"
+                    aria-label="Precio Total 2 mas IVA"
+                >
+
+            </div>
+
+
+        </td>
+        
+        
+
+
+
+
+
+
 
         <td>
             <select
@@ -1082,17 +1179,13 @@ function agregarFila5(){
                 class="auto-expand input_tabla obligatorio"
                 rows="1"
                 style="resize:none;"
-                aria-label="Programa Académico">
+                aria-label="Programa Académico"
+                readonly
+                data-relleno="ProgramaAcademico_T4R${i}"
+                >
             </textarea>
 
-            <input
-                name="ProgramaAcademico_T5R${i}RO"
-                readonly
-                class="paso check-verificacion"
-                id="ProgramaAcademico_T5R${i}RO"
-                data-campo="ProgramaAcademico_T5R${i}"
-            >
-        </td>
+            </td>
 
         <td>
             <textarea
@@ -1100,16 +1193,12 @@ function agregarFila5(){
                 class="auto-expand input_tabla obligatorio"
                 rows="1"
                 style="resize:none;"
-                aria-label="Espacio">
+                aria-label="Espacio"
+                data-relleno="Espacio_T4R${i}"
+                readonly
+                >
             </textarea>
 
-            <input
-                name="Espacio_T5R${i}RO"
-                readonly
-                class="paso check-verificacion"
-                id="Espacio_T5R${i}RO"
-                data-campo="Espacio_T5R${i}"
-            >
         </td>
 
         <td>
@@ -1118,16 +1207,11 @@ function agregarFila5(){
                 class="auto-expand input_tabla obligatorio"
                 rows="1"
                 style="resize:none;"
-                aria-label="Nombre del Equipo">
-            </textarea>
-
-            <input
-                name="nombredelEquipo_T5R${i}RO"
+                aria-label="Nombre del Equipo"
+                data-relleno="nombredelEquipo_T4R${i}"
                 readonly
-                class="paso check-verificacion"
-                id="nombredelEquipo_T5R${i}RO"
-                data-campo="nombredelEquipo_T5R${i}"
-            >
+                >
+            </textarea>
         </td>
 
         <td>
@@ -1220,1048 +1304,7 @@ for (let i = 1; i <= 10; i++) {
   agregarFilaC();
   agregarFila4();
   agregarFila5();
- /* const tr  = document.createElement("tr");
-  const tr1 = document.createElement("tr");
-  const tr2 = document.createElement("tr");
-  const tr3 = document.createElement("tr");
-  const tr4 = document.createElement("tr");
-  const trC = document.createElement("tr");
-  const tr5 = document.createElement("tr");
-  
- const tr7 = document.createElement("tr");
- 
-tr.innerHTML = `
 
-    <td>
-      ${i}
-    </td>
-
-    <td>
-      <textarea
-        name="Programa_T1R${i}"
-        class="auto-expand input_tabla obligatorio"
-        rows="1"
-        style="resize:none;"
-        aria-label="Programas académicos, servicios o actividades de la dependencia"
-        > </textarea>
-        
-        <input
-         name="Programa_T1R${i}RO" 
-             readonly
-             class="paso"
-             id="Programa_T1R${i}RO"
-         data-campo="Programa_T1R${i}"
-       >
-
-    </td>
-
-    <td>
-    <input type="number" name="Usuarios1_T1R${i}" class="input_tabla " aria-label="Usuarios1"> </input> 
-    <input
-         name="Usuarios1_T1R${i}RO" 
-             readonly
-             class="paso"
-         id="Usuarios1_T1R${i}RO"
-         data-campo="Usuarios1_T1R${i}"
-       >
-    </td>
-    <td>
-    <input type="number" name="Usuarios2_T1R${i}" class="input_tabla " aria-label="Usuarios2"> </input>
-     <input
-         name="Usuarios2_T1R${i}RO" 
-             readonly
-             class="paso"
-         id="Usuarios2_T1R${i}RO"
-         data-campo="Usuarios2_T1R${i}"
-       > 
-
-    </td>
-    <td> 
-    <input type="number" name="Usuarios3_T1R${i}" class="input_tabla " aria-label="Usuarios3"> </input>
-    <input
-         name="Usuarios3_T1R${i}RO" 
-             readonly
-             class="paso"
-         id="Usuarios3_T1R${i}RO"
-         data-campo="Usuarios3_T1R${i}"
-       > 
-    </td>
-    <td>
-    <input type="number" name="Usuarios4_T1R${i}" class="input_tabla " aria-label="Usuarios4"> </input>
-    <input
-         name="Usuarios4_T1R${i}RO" 
-             readonly
-             class="paso"
-         id="Usuarios4_T1R${i}RO"
-         data-campo="Usuarios4_T1R${i}"
-       >
-    </td>
-    <td>
-    <input type="number" name="Usuarios5_T1R${i}" class="input_tabla " aria-label="Usuarios5"> </input>
-    <input
-         name="Usuarios5_T1R${i}RO" 
-             readonly
-             class="paso"
-         id="Usuarios5_T1R${i}RO"
-         data-campo="Usuarios5_T1R${i}"
-       >
-    </td>
-    <td>
-    <input type="number" name="Usuarios6_T1R${i}" class="input_tabla " aria-label="Usuarios6"> </input>
-    <input
-         name="Usuarios6_T1R${i}RO" 
-             readonly
-             class="paso"
-             id="Usuarios6_T1R${i}RO"
-         data-campo="Usuarios6_T1R${i}"
-       >
-    </td>
-    <td>
-    <input type="number" name="Usuarios7_T1R${i}" class="input_tabla " aria-label="Usuarios7"> </input>
-    <input
-         name="Usuarios7_T1R${i}RO" 
-             readonly
-             class="paso"
-         id="Usuarios7_T1R${i}RO"
-         data-campo="Usuarios7_T1R${i}"
-       >
-    </td>
-
-    <td>
-    <input type="number" name="Usuarios8_T1R${i}" class="input_tabla " aria-label="Usuarios8"> </input>
-    <input
-         name="Usuarios8_T1R${i}RO" 
-             readonly
-             class="paso"
-         id="Usuarios8_T1R${i}RO"
-         data-campo="Usuarios8_T1R${i}"
-       >
-    </td>
-
-    <td>
-    <input type="number" name="Usuarios9_T1R${i}" class="input_tabla " aria-label="Usuarios9"> </input>
-    <input
-         name="Usuarios9_T1R${i}RO" 
-             readonly
-             class="paso"
-         id="Usuarios9_T1R${i}RO"
-         data-campo="Usuarios9_T1R${i}"
-       >
-    </td>
-
-
-    <td>
-    <input type="number" name="Usuarios10_T1R${i}" class="input_tabla " aria-label="Usuarios10"> </input>
-    <input
-         name="Usuarios10_T1R${i}RO" 
-             readonly
-             class="paso"
-         id="Usuarios10_T1R${i}RO"
-         data-campo="Usuarios10_T1R${i}"
-       >
-    </td>
-
-  `;
-
-                                    
-  tr1.innerHTML = `
-
-    
-    <td>
-      ${i}
-    </td>
-
-    <td>
-      <textarea
-        name="Programa_T1_1R${i}"
-        class="auto-expand input_tabla obligatorio"
-        rows="1"
-        style="resize:none;"
-        aria-label="Programas académicos, servicios o actividades de la dependencia"
-        > </textarea>
-    <input
-         name="Programa_T1_1R${i}RO" 
-         id="Programa_T1_1R${i}RO"
-         data-campo="Programa_T1_1R${i}"
-         readonly
-         class="paso"
-       >    
-    </td>
-
-
-    <td>
-    <input type="number" name="Usuarios1_T1_1R${i}" class="input_tabla " aria-label="Usuarios1"> </input>
-    <input
-         name="Usuarios1_T1_1R${i}RO" 
-             class="paso"
-         id="Usuarios1_T1_1R${i}RO"
-         data-campo="Usuarios1_T1_1R${i}"
-         readonly
-       >
-    </td>
-
-
-    <td>
-    <input type="number" name="Usuarios2_T1_1R${i}" class="input_tabla " aria-label="Usuarios2"> </input>
-    <input
-         name="Usuarios2_T1_1R${i}RO" 
-         class="paso"
-         id="Usuarios2_T1_1R${i}RO"
-         data-campo="Usuarios2_T1_1R${i}"
-       >
-    </td>
-    
-    
-    
-    <td> 
-    <input type="number" name="Usuarios3_T1_1R${i}" class="input_tabla " aria-label="Usuarios3"> </input>
-    <input
-         name="Usuarios3_T1_1R${i}RO" 
-         class="paso"
-         readonly
-         id="Usuarios3_T1_1R${i}RO"
-         data-campo="Usuarios3_T1_1R${i}"
-       >
-    </td>
-
-
-    <td>
-    <input type="number" name="Usuarios4_T1_1R${i}" class="input_tabla " aria-label="Usuarios4"> </input>
-    <input
-         name="Usuarios4_T1_1R${i}RO" 
-         class="paso"
-         readonly
-         id="Usuarios4_T1_1R${i}RO"
-         data-campo="Usuarios4_T1_1R${i}"
-       >
-    </td>
-
-
-    <td>
-    <input type="number" name="Usuarios5_T1_1R${i}" class="input_tabla " aria-label="Usuarios5"> </input>
-    <input
-         name="Usuarios5_T1_1R${i}RO" 
-         class="paso"
-         readonly
-         id="Usuarios5_T1_1R${i}RO"
-         data-campo="Usuarios5_T1_1R${i}"
-       >
-    </td>
-
-
-    <td>
-    <input type="number" name="Usuarios6_T1_1R${i}" class="input_tabla " aria-label="Usuarios6"> </input>
-    <input
-         name="Usuarios6_T1_1R${i}RO" 
-         class="paso"
-         readonly
-         id="Usuarios6_T1_1R${i}RO"
-         data-campo="Usuarios6_T1_1R${i}"
-       >
-    </td>
-
-
-    <td>
-    <input type="number" name="Usuarios7_T1_1R${i}" class="input_tabla " aria-label="Usuarios7"> </input>
-    <input
-         name="Usuarios7_T1_1R${i}RO" 
-         class="paso"
-         readonly
-         id="Usuarios7_T1_1R${i}RO"
-         data-campo="Usuarios7_T1_1R${i}"
-       >
-    </td>
-
-    <td>
-    <input type="number" name="Usuarios8_T1_1R${i}" class="input_tabla " aria-label="Usuarios8"> </input>
-    <input
-         name="Usuarios8_T1_1R${i}RO" 
-         class="paso"
-         readonly
-         id="Usuarios8_T1_1R${i}RO"
-         data-campo="Usuarios8_T1_1R${i}"
-       >
-    </td>
-
-    <td>
-    <input type="number" name="Usuarios9_T1_1R${i}" class="input_tabla " aria-label="Usuarios9"> </input>
-    <input
-         name="Usuarios9_T1_1R${i}RO" 
-         class="paso"
-             readonly
-         id="Usuarios9_T1_1R${i}RO"
-         data-campo="Usuarios9_T1_1R${i}"
-       >
-    </td>
-
-    <td>
-    <input type="number" name="Usuarios10_T1_1R${i}" class="input_tabla " aria-label="Usuarios10"> </input>
-    <input
-         name="Usuarios10_T1_1R${i}RO" 
-         class="paso"
-         readonly
-         id="Usuarios10_T1_1R${i}RO"
-         data-campo="Usuarios10_T1_1R${i}"
-       >
-    </td>
-  `;
-
-
-
-
-
-
-
-tr2.innerHTML = `
-    <td>
-      ${i}
-    </td>
-<td>
-    <input 
-        name="Edificio_T2R${i}" 
-        class="input_tabla" 
-        aria-label="Edificio"
-    >
-
-    <input 
-        name="Edificio_T2R${i}RO" 
-        class="paso"
-        readonly
-        id="Edificio_T2R${i}RO" 
-        data-campo="Edificio_T2R${i}"
-    >
-</td>
-
-<td>
-    <input 
-        name="Nivel_T2R${i}" 
-        class="input_tabla" 
-        aria-label="Nivel"
-    >
-
-    <input 
-        name="Nivel_T2R${i}RO" 
-        class="paso"
-        readonly 
-        id="Nivel_T2R${i}RO" 
-        data-campo="Nivel_T2R${i}"
-    >
-</td>
-
-<td>
-    <input 
-        name="Espacio_T2R${i}" 
-        class="input_tabla" 
-        aria-label="Espacio"
-    >
-
-    <input 
-        name="Espacio_T2R${i}RO" 
-        readonly class="paso"
-        id="Espacio_T2R${i}RO" 
-        data-campo="Espacio_T2R${i}"
-    >
-</td>
-
-<td class="cantidadCol">
-
-    <input 
-        type="number" 
-        name="Largo_T2R${i}" 
-        class="input_tabla" 
-        aria-label="Largo"
-    >
-
-    <input 
-        name="Largo_T2R${i}RO" 
-        readonly class="paso"
-        id="Largo_T2R${i}RO" 
-        data-campo="Largo_T2R${i}"
-    >
-
-</td>
-
-<td class="cantidadCol">
-
-    <input 
-        type="number" 
-        name="Ancho_T2R${i}" 
-        class="input_tabla" 
-        aria-label="Ancho"
-    >
-
-    <input 
-        name="Ancho_T2R${i}RO" 
-        readonly class="paso"
-        id="Ancho_T2R${i}RO" 
-        data-campo="Ancho_T2R${i}"
-    >
-
-</td>
-
-<td class="cantidadCol">
-
-    <input 
-        type="number" 
-        name="Alumnos_T2R${i}" 
-        class="input_tabla" 
-        aria-label="Numero de Alumnos"
-    >
-
-    <input 
-        name="Alumnos_T2R${i}RO" 
-        readonly class="paso"
-        id="Alumnos_T2R${i}RO" 
-        data-campo="Alumnos_T2R${i}"
-    >
-
-</td>
-
-<td class="cantidadCol">
-
-    <input 
-        type="number" 
-        name="Horas_T2R${i}" 
-        class="input_tabla" 
-        aria-label="Horas de Servicio"
-    >
-
-    <input 
-        name="Horas_T2R${i}RO" 
-       readonly  class="paso"
-        id="Horas_T2R${i}RO" 
-        data-campo="Horas_T2R${i}"
-    >
-
-</td>
-
-  `;
-
-if (i === 1) {
-
-  tr3.innerHTML = `
-
-    <td>
-      ${i}
-    </td>
-
-    <td>
-
-      <input 
-        name="Edificio_T3R${i}" 
-        class="input_tabla" 
-        aria-label="Edificio"
-      >
-
-      <input 
-        name="Edificio_T3R${i}RO"
-        type="text"
-        readonly
-        class="paso"
-        id="Edificio_T3R${i}RO"
-        data-campo="Edificio_T3R${i}"
-      >
-
-    </td>
-
-    <td>
-
-      <input 
-        type="number" 
-        name="MetrosCuadrados_T3R${i}" 
-        class="input_tabla" 
-        aria-label="MetrosCuadrados"
-      >
-
-      <input 
-        name="MetrosCuadrados_T3R${i}RO"
-        type="text"
-        readonly
-        class="paso"
-        id="MetrosCuadrados_T3R${i}RO"
-        data-campo="MetrosCuadrados_T3R${i}"
-      >
-
-    </td>
-
-    <td rowspan="5">
-
-      <div class="contenedorArchivo">
-
-        <input 
-          type="file"
-          id="Planos_T3"
-          name="Planos_T3" 
-          class="archivoInput archivoMultipleInput"
-          accept=".pdf,.xlsx,.doc,.docx,.png,.jpg,.rar,.zip"
-          multiple
-        >
-
-        <span class="nombreArchivo"></span>
-
-      </div>
-
-    </td>
-
-  `;
-
-} else {
-
-  tr3.innerHTML = `
-
-    <td>
-      ${i}
-    </td>
-
-    <td>
-
-      <input 
-        name="Edificio_T3R${i}" 
-        class="input_tabla" 
-        aria-label="Edificio"
-      >
-
-      <input 
-        name="Edificio_T3R${i}RO"
-        type="text"
-        readonly
-        class="paso"
-        id="Edificio_T3R${i}RO"
-        data-campo="Edificio_T3R${i}"
-      >
-
-    </td>
-
-    <td>
-
-      <input 
-        type="number" 
-        name="MetrosCuadrados_T3R${i}" 
-        class="input_tabla" 
-        aria-label="MetrosCuadrados"
-      >
-
-      <input 
-        name="MetrosCuadrados_T3R${i}RO"
-        type="text"
-        readonly
-        class="paso"
-        id="MetrosCuadrados_T3R${i}RO"
-        data-campo="MetrosCuadrados_T3R${i}"
-      >
-
-    </td>
-
-  `;
-
-}
-
-
-
-trC.innerHTML = `
-     <td>
-      ${i}
-    </td>
-     <td>
-          <input 
-                name="nombreCotizacion_TCR${i}" 
-                id= "nombreCotizacion_TCR${i}"
-                class="input_tabla" 
-                aria-label="Nombre de la Cotizacion" 
-                readonly
-          > 
-          </input>
-     </td>
-     
-    
-    <td>
-    <div class="contenedorArchivo">
-                      <input 
-                       type="file"
-                       id= "CotizacionAdquisicionG1_TCR${i}"
-                       name="CotizacionAdquisicionG1_TCR${i}" 
-                       class="archivoInput"
-                       accept=".pdf,.xlsx,.doc,.docx,.png,.jpg">
-                 <span class="nombreArchivo"></span>
-                 <button type="button" class="borrarArchivo">
-                   ❌
-                 </button>
-     </div>            
-    </td>
-    
-    
-    
-<td class="cantidadCol">
-
-      <td class="cantidadCol">
-
-    <input
-        type="number"
-        name="anio_TCR${i}"
-        class="input_tabla"
-        aria-label="Año de la cotizacion">
-    </input>
-
-    <input
-        name="anio_TCR${i}RO"
-        readonly
-        class="paso"
-        id="anio_TCR${i}RO"
-        data-campo="anio_TCR${i}">
-        
-</td>
-               <td>
-      <input
-        id="nombreCotizacion2_TCR${i}"
-        name="nombreCotizacion2_TCR${i}"
-        class="input_tabla"
-        aria-label="Nombre de la Cotizacion 2"
-        readonly
-        > </input>
-    </td>
-
-
-  <td>
-    <div class="contenedorArchivo">
-                      <input 
-                       type="file" 
-                       id="CotizacionAdquisicionG2_TCR${i}"
-                       name="CotizacionAdquisicionG2_TCR${i}" 
-                       class="archivoInput "
-                       accept=".pdf,.xlsx,.doc,.docx,.png,.jpg">
-                 <span class="nombreArchivo"></span>
-                 <button type="button" class="borrarArchivo">
-                   ❌
-                 </button>
-     </div>            
-</td>
-      <td>
-
-    <input
-        type="number"
-        name="anioA2_TCR${i}"
-        class="input_tabla"
-        aria-label="Año de la cotizacion">
-    </input>
-
-    <input
-        name="anioA2_TCR${i}RO"
-        readonly
-        class="paso"
-        id="anioA2_TCR${i}RO"
-        data-campo="anioA2_TCR${i}">
-        
-</td>
-     
-
-
-
-
-`;
-
-
-
-
-
-
-
-
-
-tr4.innerHTML = `
-    <td>
-        ${i}
-    </td>
-     
-
-    <td>
-      <textarea
-        name="ProgramaAcademico_T4R${i}"
-        id="ProgramaAcademico_T4R${i}"
-        class="auto-expand input_tabla obligatorio"
-        rows="1"
-        style="resize:none;"
-        aria-label="Programa Académico"
-        > </textarea>
-        
-        <input
-            name="ProgramaAcademico_T4R${i}RO"
-            type="text"
-            class="paso"
-         id="ProgramaAcademico_T4R${i}RO" readonly
-       >
-
-    </td> 
-    
-
-    <td>
-        <textarea
-            name="Espacio_T4R${i}"
-            class="auto-expand input_tabla obligatorio"
-            rows="1"
-            style="resize:none;"
-            aria-label="Espacio">
-        </textarea>
-
-        <input
-            name="Espacio_T4R${i}RO"
-            readonly
-            class="paso"
-            id="Espacio_T4R${i}RO"
-            data-campo="Espacio_T4R${i}">
-    </td>
-
-    <td>
-        <textarea
-            name="Clave_T4R${i}"
-            class="auto-expand input_tabla"
-            rows="1"
-            style="resize:none;"
-            aria-label="clave">
-        </textarea>
-
-        <input
-            name="Clave_T4R${i}RO"
-            readonly
-            class="paso"
-            id="Clave_T4R${i}RO"
-            data-campo="Clave_T4R${i}">
-    </td>
-
-    <td>
-        <textarea
-            name="nombredelEquipo_T4R${i}"
-            class="auto-expand input_tabla obligatorio"
-            rows="1"
-            style="resize:none;"
-            aria-label="Nombre del Equipo">
-        </textarea>
-
-        <input
-            name="nombredelEquipo_T4R${i}RO"
-            readonly
-            class="paso"
-            id="nombredelEquipo_T4R${i}RO"
-            data-campo="nombredelEquipo_T4R${i}">
-    </td>
-
-    <td class="cantidadCol">
-
-        <input
-            type="number"
-            name="cantidad_T4R${i}"
-            class="input_tabla"
-            aria-label="Cantidad">
-        </input>
-
-        <input
-            name="cantidad_T4R${i}RO"
-            readonly
-            class="paso"
-            id="cantidad_T4R${i}RO"
-            data-campo="cantidad_T4R${i}">
-    </td>
-
-    <td>
-        <textarea
-            name="especificaciones_T4R${i}"
-            class="auto-expand input_tabla expandible"
-            rows="1"
-            style="resize:none;"
-            aria-label="Especificaciones">
-        </textarea>
-
-        <input
-            name="especificaciones_T4R${i}RO"
-            readonly
-            class="paso"
-            id="especificaciones_T4R${i}RO"
-            data-campo="especificaciones_T4R${i}">
-    </td>
-
-    <td>
-        <textarea
-            id="justificacion_T4R${i}"
-            name="justificacion_T4R${i}"
-            class="auto-expand input_tabla expandible"
-            rows="1"
-            style="resize:none;"
-            aria-label="Justificación">
-        </textarea>
-
-        <input
-            name="justificacion_T4R${i}RO"
-            readonly
-            class="paso"
-            id="justificacion_T4R${i}RO"
-            data-campo="justificacion_T4R${i}">
-    </td>
-
-    <td>
-        <div class="precio-wrapper">
-            <span class="peso">$</span>
-
-            <input
-                type="text"
-                name="precio_T4R${i}"
-                class="input_tabla precio"
-                oninput="formatearMiles(this)"
-                inputmode="decimal"
-                aria-label="Precio">
-            </input>
-        </div>
-
-        <input
-            name="precio_T4R${i}RO"
-            readonly
-            class="paso"
-            id="precio_T4R${i}RO"
-            data-campo="precio_T4R${i}">
-    </td>
-
-    <td>
-        <select
-            id="nombreCotizacion_T4R${i}"
-            name="nombreCotizacion_T4R${i}"
-            class="tabla_select"
-            aria-label="Nombre del archivo donde esta la Cotizacion del Equipo">
-
-            <option value="">-- Selecciona una cotización--</option>
-        </select>
-
-        <input
-            name="nombreCotizacion_T4R${i}RO"
-            readonly
-            class="paso"
-            id="nombreCotizacion_T4R${i}RO"
-            data-campo="nombreCotizacion_T4R${i}">
-    </td>
-
-    <td class="paso">
-        <div class="contenedorArchivo paso">
-
-            <input
-                type="file"
-                name="CotizacionAdquisicion_T4R${i}"
-                class="archivoInput"
-                accept=".pdf,.xlsx,.doc,.docx,.png,.jpg">
-
-            <span class="nombreArchivo"></span>
-
-            <button type="button" class="borrarArchivo">
-                ❌
-            </button>
-
-        </div>
-    </td>
-
-    <td>
-        <div class="precio-wrapper">
-            <span class="peso">$</span>
-
-            <input
-                type="text"
-                name="precio2_T4R${i}"
-                class="input_tabla precio"
-                oninput="formatearMiles(this)"
-                inputmode="decimal"
-                aria-label="Precio 2">
-            </input>
-        </div>
-
-        <input
-            name="precio2_T4R${i}RO"
-            readonly
-            class="paso"
-            id="precio2_T4R${i}RO"
-            data-campo="precio2_T4R${i}">
-    </td>
-
-    <td>
-        <select
-            id="nombreCotizacion2_T4R${i}"
-            name="nombreCotizacion2_T4R${i}"
-            class="tabla_select"
-            aria-label="Nombre del archivo donde esta la Cotizacion de la alternativa 2 del Equipo">
-
-            <option value="">-- Selecciona una cotización--</option>
-        </select>
-
-        <input
-            name="nombreCotizacion2_T4R${i}RO"
-            readonly
-            class="paso"
-            id="nombreCotizacion2_T4R${i}RO"
-            data-campo="nombreCotizacion2_T4R${i}">
-    </td>
-
-    <td class="paso">
-        <div class="contenedorArchivo paso">
-
-            <input
-                type="file"
-                name="CotizacionAdquisicion2_T4R${i}"
-                class="archivoInput"
-                accept=".pdf,.xlsx,.doc,.docx,.png,.jpg">
-
-            <span class="nombreArchivo"></span>
-
-            <button type="button" class="borrarArchivo">
-                ❌
-            </button>
-
-        </div>
-    </td>
-`;
-
-
-
-
-
-tr5.innerHTML = `
-    <td>
-        ${i}
-    </td>
-
-    <td>
-        <textarea
-            name="ProgramaAcademico_T5R${i}"
-            class="auto-expand input_tabla obligatorio"
-            rows="1"
-            style="resize:none;"
-            aria-label="Programa Académico">
-        </textarea>
-
-        <input
-            name="ProgramaAcademico_T5R${i}RO"
-            readonly
-            class="paso"
-            id="ProgramaAcademico_T5R${i}RO"
-            data-campo="ProgramaAcademico_T5R${i}">
-    </td>
-
-    <td>
-        <textarea
-            name="Espacio_T5R${i}"
-            class="auto-expand input_tabla obligatorio"
-            rows="1"
-            style="resize:none;"
-            aria-label="Espacio">
-        </textarea>
-
-        <input
-            name="Espacio_T5R${i}RO"
-            readonly
-            class="paso"
-            id="Espacio_T5R${i}RO"
-            data-campo="Espacio_T5R${i}">
-    </td>
-
-    <td>
-        <textarea
-            name="nombredelEquipo_T5R${i}"
-            class="auto-expand input_tabla obligatorio"
-            rows="1"
-            style="resize:none;"
-            aria-label="Nombre del Equipo">
-        </textarea>
-
-        <input
-            name="nombredelEquipo_T5R${i}RO"
-            readonly
-            class="paso"
-            id="nombredelEquipo_T5R${i}RO"
-            data-campo="nombredelEquipo_T5R${i}">
-    </td>
-
-    <td>
-        <textarea
-            name="especificaciones_T5R${i}"
-            class="auto-expand input_tabla"
-            rows="1"
-            style="resize:none;"
-            aria-label="Especificaciones">
-        </textarea>
-
-        <input
-            name="especificaciones_T5R${i}RO"
-            readonly
-            class="paso"
-            id="especificaciones_T5R${i}RO"
-            data-campo="especificaciones_T5R${i}">
-    </td>
-
-    <td class="cantidadCol">
-
-        <input
-            type="number"
-            name="cantidadMal_estado_T5R${i}"
-            class="input_tabla"
-            aria-label="Cantidad en mal estado">
-        </input>
-
-        <input
-            name="cantidadMal_estado_T5R${i}RO"
-            readonly
-            class="paso"
-            id="cantidadMal_estado_T5R${i}RO"
-            data-campo="cantidadMal_estado_T5R${i}">
-    </td>
-
-    <td class="cantidadCol">
-
-        <input
-            type="number"
-            name="cantidadBuen_estado_T5R${i}"
-            class="input_tabla"
-            aria-label="Cantidad en buen estado">
-        </input>
-
-        <input
-            name="cantidadBuen_estado_T5R${i}RO"
-            readonly
-            class="paso"
-            id="cantidadBuen_estado_T5R${i}RO"
-            data-campo="cantidadBuen_estado_T5R${i}">
-    </td>
-
-    <td class="cantidadCol">
-
-        <input
-            type="number"
-            name="cantidadRegular_estado_T5R${i}"
-            class="input_tabla"
-            aria-label="Cantidad en estado Regular">
-        </input>
-
-        <input
-            name="cantidadRegular_estado_T5R${i}RO"
-            readonly
-            class="paso"
-            id="cantidadRegular_estado_T5R${i}RO"
-            data-campo="cantidadRegular_estado_T5R${i}">
-    </td>
-`;
-
-
-
-
-
-
-
-
-
-
-
-
-  tbody.appendChild(tr);
-  tbody1.appendChild(tr1);
-  tbody2.appendChild(tr2);
-  tbody3.appendChild(tr3);
-  tbody4.appendChild(tr4);
-  tbodyC.appendChild(trC);
-  tbody5.appendChild(tr5);
-/*  tbody6.appendChild(tr6);
-*/
 }
 
 
@@ -2328,124 +1371,6 @@ tbodyC.addEventListener("change", e => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//----------------------------------------Archivos y su mecanismo-----------------------------------------------------
-
-
-/*
-document.addEventListener("change", (e) => {
-
-  if (!e.target.matches(".archivoInput")) return;
-
-  const input = e.target;
-  const contenedor = input.closest(".contenedorArchivo");
-
-  const nombre = contenedor.querySelector(".nombreArchivo");
-  let nombresFiles="";
-  if (input.files.length > 0) {
-   for(int =1;i<input.files.length;i++) {
-     nombresFiles+= input.files[i].name;
-   };
-   nombre.textContent=nombresFiles; 
-   input.style.display = "none";
-
-  }
-
-});
-*/
-//-------------------------------------------------------------------------------
-
-
-/*
-document.addEventListener("change", (e) => {
-
-    if (!e.target.matches(".archivoInput")) return;
-
-    const input = e.target;
-    const contenedor = input.closest(".contenedorArchivo");
-    const nombre = contenedor.querySelector(".nombreArchivo");
-
-    if (input.files.length === 0) return;
-
-    // Agregar el nombre de cada archivo
-    [...input.files].forEach(file => {
-
-        const archivoNombre = document.createElement("div");
-
-        archivoNombre.textContent = file.name;
-
-        nombre.appendChild(archivoNombre);
-    });
-
-
-    // Si NO es de los que aceptan archivos sucesivos,
-    // aquí terminamos.
-    if (input.matches(".archivoMultipleInput")){
-          const nuevoInput = input.cloneNode();
-
-          nuevoInput.value = "";
-          nuevoInput.style.display = "";
-
-    contenedor.appendChild(nuevoInput);
-    };
-
-
-    // Este input conserva el archivo seleccionado
-    input.style.display = "none";
-
-
-    // Crear otro input para seleccionar el siguiente
-    
-
-});
-
-
-document.addEventListener("click", (e) => {
-
-    if (!e.target.matches(".borrarArchivo")) return;
-
-    const contenedor = e.target.closest(".contenedorArchivo");
-    const inputs = contenedor.querySelectorAll(".archivoInput");
-    const nombre = contenedor.querySelector(".nombreArchivo");
-
-    // Dejamos únicamente el último input
-    const inputPrincipal = inputs[inputs.length - 1];
-
-    // Eliminamos los demás inputs que contienen archivos
-    inputs.forEach(input => {
-        if (input !== inputPrincipal) {
-            input.remove();
-        }
-    });
-
-    // Limpiamos el input que dejamos
-    inputPrincipal.value = "";
-    inputPrincipal.style.display = "block";
-
-    // Limpiamos los nombres
-    nombre.textContent = "";
-});
-
-*/
-
-
-
-
 document.addEventListener("change", (e) => {
 
     if (!e.target.matches(".archivoInput")) return;
@@ -2470,6 +1395,9 @@ document.addEventListener("change", (e) => {
         <span>${file.name}</span>
         <button type="button" class="borrarArchivo">
             ❌
+
+
+
         </button>
         </div>
     `;
@@ -2495,72 +1423,74 @@ document.addEventListener("change", (e) => {
 
 
 
-
 document.addEventListener("click", (e) => {
 
     if (!e.target.matches(".borrarArchivo")) return;
 
     const item = e.target.closest(".archivoItem");
+    if (!item) return;
 
-    // Recuperamos el input correspondiente
     const input = item.inputArchivo;
+    if (!input) return;
 
-    // Eliminamos el input que contiene ESE archivo
-    input.remove();
-
-    // Eliminamos su nombre de la pantalla
+    // Eliminamos nombre + ❌
     item.remove();
+
+
+    // ==========================================
+    // ARCHIVOS MÚLTIPLES
+    // ==========================================
+
+    if (input.matches(".archivoMultipleInput")) {
+
+        input.remove();
+
+        return;
+    }
+
+
+    // ==========================================
+    // COTIZACIONES
+    // ==========================================
+
+    const fila = input.closest("tr");
+
+    if (fila) {
+
+        // Cotización G1
+        if (input.name.startsWith("CotizacionAdquisicionG1_TCR")) {
+
+            const nombreCotizacion =
+                fila.querySelector('[name^="nombreCotizacion_TCR"]');
+
+            if (nombreCotizacion) {
+                nombreCotizacion.value = "";
+            }
+        }
+
+
+        // Cotización G2
+        if (input.name.startsWith("CotizacionAdquisicionG2_TCR")) {
+
+            const nombreCotizacion =
+                fila.querySelector('[name^="nombreCotizacion2_TCR"]');
+
+            if (nombreCotizacion) {
+                nombreCotizacion.value = "";
+            }
+        }
+    }
+
+
+    // Conservamos el input de cotización
+    input.value = "";
+    input.style.display = "block";
+
 });
 
 
 
 
-//------------------------------------------------------------------------
-/*
-document.addEventListener("change", (e) => {
-  if (!e.target.matches(".archivoInput")) return;
-
-  const input = e.target;
-  const contenedor = input.closest(".contenedorArchivo");
-  const nombre = contenedor.querySelector(".nombreArchivo");
-
-  if (input.files.length > 0) {
-    nombre.innerHTML = [...input.files]
-      .map(file => file.name)
-      .join("<br>");
-//----------------
-      if (e.target.matches(".archivoMultipleInput")){
-           const nuevoInput = input.cloneNode();
-           nuevoInput.value = "";
-           contenedor.appendChild(nuevoInput);
-      }; 
-//---------------------------- 
-      input.style.display = "none";
-  }
-});
-
-*/
-
-
-/*
-document.addEventListener("click", (e) => {
-
-  if (!e.target.matches(".borrarArchivo")) return;
-
-  const contenedor = e.target.closest(".contenedorArchivo");
-
-  const input = contenedor.querySelector(".archivoInput");
-
-  const nombre = contenedor.querySelector(".nombreArchivo");
-
-  input.value = "";
-
-  input.style.display = "block";
-
-  nombre.textContent = "";
-
-});
-*/
 
 
 
@@ -2578,17 +1508,7 @@ document.addEventListener("click", (e) => {
 
 //---------------------------Definicion de variables para selects de D Generales-------------------------------
 
-// const secretariaInput = document.getElementById("secretaria");
-// const direccionInput = document.getElementById("direccion");
-// const nivelInput = document.getElementById("nivel");
 
-
-/*
-const dependenciaInput = document.getElementById("dependencia");
-
-const dependenciaEncabezado = document.getElementById("dependenciaSolicitud");
-
-*/
 
 const tipoDeSolicitudInput = document.getElementById("tipoDeSolicitud");
 
@@ -2766,7 +1686,7 @@ textareas.forEach(textarea => {
 });
 
 
-
+/*
 const opciones = ["Unidad Politécnica de Gestión con Perspectiva de Género (UPGPG)",
                   "Defensoría de los Derechos Politécnicos",
                   "Secretaría General",
@@ -2950,7 +1870,9 @@ const opciones = ["Unidad Politécnica de Gestión con Perspectiva de Género (U
                  "Comisión de Operación y Fomento de Actividades Académicas (COFAA)"
                  ];
                  
-  
+*/
+/*
+
 const dependencias =new Map( [
               [ "FDN-UPGPG-001","Unidad Politécnica de Gestión con Perspectiva de Género (UPGPG)"],                                                                                                     
               [ "FDN-DDP-002","Defensoría de los Derechos Politécnicos"],                                                                                                     
@@ -3096,8 +2018,1989 @@ const dependencias =new Map( [
               [ "FDN-COFAA-142", "Comisión de Operación y Fomento de Actividades Académicas (COFAA)"]
               ]);
 
+*/
 
-                 
+
+const siglasDependencias = new Map([
+    ["Dirección de Asuntos Jurídicos", "DAJ"],
+    ["Dirección de Programación y Presupuesto", "DPP"],
+    ["Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Zacatenco", "ESIA-Zacatenco"],
+    ['Centro de Estudios Científicos y Tecnológicos (CECyT 17) "León, Guanajuato"', "CECyT17"],
+    ['Centro de Estudios Científicos y Tecnológicos (CECyT 19) "Leona Vicario"', "CECyT19"],
+    ["Dirección de Apoyo a Estudiantes", "DAE"],
+    ["Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Tecamachalco", "ESIA-Tecamachalco"],
+    ['Centro de Estudios Científicos y Tecnológicos (CECYT 10) "Carlos Vallejo Márquez"', "CECyT10"],
+    ["Centro Interdisciplinario de Investigación y Estudios Sobre Medio Ambiente y Desarrollo (CIIEMAD)", "CIIEMAD"],
+    ['Centro de Estudios Tecnológicos (CET 1) "Walter Cross Buchanan"', "CET1"],
+    ["Unidad Profesional Interdisciplinaria en Ingeniería y Tecnologías Avanzadas (UPIITA)", "UPIITA"],
+    ["Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Zacatenco", "ESIME-Zacatenco"],
+    ["Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas (UPIICSA)", "UPIICSA"],
+    ["Escuela Superior de Turismo (EST)", "EST"],
+    ["Centro de Investigaciones Económicas, Administrativas y Sociales (CIECAS)", "CIECAS"],
+    ["Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Culhuacán", "ESIME-Culhuacan"],
+    ["Escuela Nacional de Biblioteconomía y Archivonomía (ENBA)", "ENBA"],
+    ["Centro Interdisciplinario de Ciencias de la Salud, Unidad Santo Tomás (CICS UST)", "CICS-SantoTomas"],
+    ["Escuela Superior de Medicina (ESM)", "ESM"],
+    ["Escuela Superior de Física y Matemáticas (ESFM)", "ESFM"],
+    ['Centro de Estudios Científicos y Tecnológicos (CECYT 12) "José María Morelos"', "CECyT12"],
+    ["Centro de Investigación en Computación (CIC)", "CIC"],
+    ["Unidad Profesional Interdisciplinaria de Ingeniería, Campus Palenque (UPIIP)", "UPIIP-Palenque"],
+    ["Escuela Nacional de Medicina y Homeopatía (ENMH)", "ENMH"],
+    ["Dirección de Educación Superior", "DES"],
+    ["Dirección de Formación e Innovación Educativa", "DFIE"],
+    ["Secretaría Académica", "SA"],
+    ["Centro de Lenguas Extranjeras (CENLEX), Unidad Zacatenco", "CENLEX-Zacatenco"],
+    ["Escuela Superior de Comercio y Administración (ESCA), Unidad Tepepan", "ESCA-Tepepan"],
+    ["Unidad Profesional Interdisciplinaria de Ingeniería, Campus Hidalgo (UPIIH)", "UPIIH-Hidalgo"],
+    ["Escuela Superior de Enfermería y Obstetricia (ESEO)", "ESEO"],
+    ["Escuela Superior de Comercio y Administración (ESCA), Unidad Santo Tomás", "ESCA-SantoTomas"],
+    ["Centro de Nanociencia y Micro-nanotecnología (CNMN)", "CNMN"],
+    ["Unidad Profesional Interdisciplinaria de Energía y Movilidad (UPIEM)", "UPIEM"],
+    ["Centro Interdisciplinario de Ciencias Marinas (CICIMAR)", "CICIMAR"],
+    ["Escuela Superior de Ingeniería Química E Industrias Extractivas (ESIQIE)", "ESIQIE"],
+    ["Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Ticomán", "ESIME-Ticoman"],
+    ["Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Ticomán", "ESIA-Ticoman"],
+    ["Unidad Profesional Interdisciplinaria de Biotecnología (UPIBI)", "UPIBI"],
+    ['Centro de Estudios Científicos y Tecnológicos (CECYT 3) "Estanislao Ramírez Ruiz"', "CECyT3"],
+    ["Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Altamira", "CICATA-Altamira"],
+    ["Escuela Superior de Ingeniería Textil (ESIT)", "ESIT"],
+    ["Centro Interdisciplinario de Ciencias de la Salud, Unidad Milpa Alta (CICS UMA)", "CICS-MilpaAlta"],
+    ["Dirección de Recursos Materiales E Infraestructura", "DRMI"],
+    ["Escuela Nacional de Ciencias Biológicas (ENCB)", "ENCB"],
+    ["Centro de Investigación y Desarrollo de Tecnología Digital (CITEDI)", "CITEDI"],
+    ["Dirección de Difusión de Ciencia y Tecnología", "DDCyT"],
+    ['Centro de Estudios Científicos y Tecnológicos (CECYT 18) "Zacatecas"', "CECyT18"],
+    ["Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Legaría", "CICATA-Legaria"],
+    ["Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Oaxaca", "CIIDIR-Oaxaca"],
+    ["Escuela Superior de Ingeniería Química e Industrias Extractivas (ESIQIE)", "ESIQIE"],
+    ["Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Azcapotzalco", "ESIME-Azcapotzalco"],
+    ["Escuela Superior de Economía (ESE)", "ESE"],
+    ["Unidad Profesional Interdisciplinaria de Ingeniería, Campus Guanajuato (UPIIG)", "UPIIG-Guanajuato"],
+    ['Centro de Estudios Científicos y Tecnológicos (CECYT 8) "Narciso Bassols"', "CECyT8"],
+    ["Unidad Profesional Interdisciplinaria de Ingeniería, Campus Tlaxcala (UPIIT)", "UPIIT-Tlaxcala"],
+    ["Centro de Desarrollo de Productos Bióticos (CEPROBI)", "CEPROBI"],
+    ["Dirección de Información Institucional", "DII"],
+    ["Escuela Superior de Cómputo (ESCOM)", "ESCOM"],
+    ["Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Morelos", "CICATA-Morelos"],
+    ["Centro Interdisciplinario de Investigación para El Desarrollo Integral Regional (CIIDIR), Unidad Michoacán", "CIIDIR-Michoacan"],
+    ["Defensoría de los Derechos Politécnicos", "DDP"],
+    ["Dirección de Formación en Lenguas Extranjeras", "DFLE"],
+    ["Dirección General", "DG"],
+    ["Unidad Profesional Interdisciplinaria de Ingeniería, Campus Zacatecas (UPIIZ)", "UPIIZ-Zacatecas"],
+    ["Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Puebla", "CIITA-Puebla"],
+    ["Dirección de Relaciones Internacionales", "DRI"],
+    ["Dirección de Capital Humano", "DCH"],
+    ['Centro de Estudios Científicos y Tecnológicos (CECYT 19) "Tecámac"', "CECyT19"],
+    ["Dirección de Educación Media Superior", "DIEMS"],
+    ["Coordinación General de Planeación E Información Institucional", "CGPII"],
+    ["Coordinación de Imagen Institucional", "CII"],
+    ['Centro de Estudios Científicos y Tecnológicos (CECYT 7) "Cuauhtémoc"', "CECyT7"],
+    ['Centro de Estudios Científicos y Tecnológicos (CECYT 2) "Miguel Bernard"', "CECyT2"],
+    ["Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Culiacán", "CVDR-Culiacan"],
+    ["Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Durango", "CIIDIR-Durango"],
+    ["Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Mazatlán", "CVDR-Mazatlan"],
+    ["Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Campeche", "CVDR-Campeche"],
+    ["Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Oaxaca", "CVDR-Oaxaca"],
+    ["Centro de Investigación en Biotecnología Aplicada, IPN-tlaxcala (CIBA)", "CIBA-Tlaxcala"],
+    ["Dirección de Cómputo y Comunicaciones", "DCC"],
+    ['Centro de Estudios Científicos y Tecnológicos (CECYT 4) "Lázaro Cárdenas"', "CECyT4"],
+    ["Secretaría de Investigación y Posgrado", "SIP"],
+    ["Dirección de Vinculación y Desarrollo Regional", "DVDR"],
+    ["Centro Mexicano para la Producción Más Limpia (CMP+L)", "CMP+L"],
+    ["Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Querétaro", "CICATA-Queretaro"],
+    ["Secretaría General", "SG"],
+    ["Dirección de Egresados y Servicio Social", "DESS"],
+    ["Centro de Lenguas Extranjeras (CENLEX), Unidad Santo Tomás", "CENLEX-SantoTomas"],
+    ["Secretaría de Innovación E Integración Social", "SIIS"],
+    ["Dirección de Bibliotecas y Publicaciones", "DBP"],
+    ["Centro de Biotecnología Genómica (CBG)", "CBG"],
+    ["Dirección de Educación Virtual", "DEV"],
+    ['Centro de Estudios Cientificos y Tecnológicos (CECYT 11) "Wilfrido Massieu"', "CECyT11"],
+    ["Dirección de Planeación y Organización", "DPO"],
+    ["Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Cancún", "CVDR-Cancun"],
+    ["Dirección de Difusión Cultural", "DDC"],
+    ["Unidad Politécnica de Gestión con Perspectiva de Género (UPGPG)", "UPGPG"],
+    ['Unidad Profesional Interdisciplinaria de Ingeniería, Campus "Alejo Peralta" Puebla (UPIIAP)', "UPIIAP-Puebla"],
+    ['Centro de Estudios Científicos y Tecnológicos (CECYT 20) "Natalia Serdán Alatriste"', "CECyT20"],
+    ['Centro de Estudios Científicos y Tecnológicos (CECYT 13) "Ricardo Flores Magón"', "CECyT13"],
+    ["Dirección de Recursos Materiales e Infraestructura", "DRMI"],
+    ["Dirección de Incubación de Empresas Tecnológicas", "DIET"],
+    ['Centro de Estudios Científicos y Tecnológicos (CECYT 15) "Diódoro Antúnez Echegaray"', "CECyT15"]
+]);
+
+const siglasTipoBienes = new Map([
+    ["Equipamento General (Capitulo 5000)", "EGC5000"],
+["Bienes Tics","BT"],
+["Flota Vehicular","FV"],
+["Equipo de Laboratorio","EL"]]);
+
+
+
+const mapaFolios = new Map([
+[
+    "ESIA-Zacatenco-EGC5000-001",
+    {
+        dependencia: 'Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Zacatenco',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CECyT17-BT-002",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECyT 17) "León, Guanajuato"',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "DAE-BT-004",
+    {
+        dependencia: 'Dirección de Apoyo a Estudiantes',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ESIA-Tecamachalco-BT-005",
+    {
+        dependencia: 'Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Tecamachalco',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CECyT10-EGC5000-006",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 10) "Carlos Vallejo Márquez"',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CIIEMAD-BT-007",
+    {
+        dependencia: 'Centro Interdisciplinario de Investigación y Estudios Sobre Medio Ambiente y Desarrollo (CIIEMAD)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CET1-BT-008",
+    {
+        dependencia: 'Centro de Estudios Tecnológicos (CET 1) "Walter Cross Buchanan"',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CET1-EGC5000-009",
+    {
+        dependencia: 'Centro de Estudios Tecnológicos (CET 1) "Walter Cross Buchanan"',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "ESIME-Zacatenco-BT-011",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Zacatenco',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ESIME-Zacatenco-EGC5000-012",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Zacatenco',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "UPIICSA-BT-013",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas (UPIICSA)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "EST-EGC5000-014",
+    {
+        dependencia: 'Escuela Superior de Turismo (EST)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "ESIME-Culhuacan-BT-017",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Culhuacán',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ENBA-EGC5000-018",
+    {
+        dependencia: 'Escuela Nacional de Biblioteconomía y Archivonomía (ENBA)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CICS-SantoTomas-EL-019",
+    {
+        dependencia: 'Centro Interdisciplinario de Ciencias de la Salud, Unidad Santo Tomás (CICS UST)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "ESM-BT-020",
+    {
+        dependencia: 'Escuela Superior de Medicina (ESM)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ESM-EL-021",
+    {
+        dependencia: 'Escuela Superior de Medicina (ESM)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "ESFM-BT-022",
+    {
+        dependencia: 'Escuela Superior de Física y Matemáticas (ESFM)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CECyT12-BT-023",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 12) "José María Morelos"',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CIC-BT-024",
+    {
+        dependencia: 'Centro de Investigación en Computación (CIC)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CECyT10-BT-025",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 10) "Carlos Vallejo Márquez"',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "UPIIP-Palenque-EGC5000-026",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Palenque (UPIIP)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "ENMH-EGC5000-027",
+    {
+        dependencia: 'Escuela Nacional de Medicina y Homeopatía (ENMH)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CECyT10-EL-028",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 10) "Carlos Vallejo Márquez"',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "DES-EGC5000-029",
+    {
+        dependencia: 'Dirección de Educación Superior',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "DFIE-BT-030",
+    {
+        dependencia: 'Dirección de Formación e Innovación Educativa',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "SA-EGC5000-031",
+    {
+        dependencia: 'Secretaría Académica',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CENLEX-Zacatenco-EGC5000-032",
+    {
+        dependencia: 'Centro de Lenguas Extranjeras (CENLEX), Unidad Zacatenco',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "DFIE-EGC5000-033",
+    {
+        dependencia: 'Dirección de Formación e Innovación Educativa',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CICS-SantoTomas-BT-034",
+    {
+        dependencia: 'Centro Interdisciplinario de Ciencias de la Salud, Unidad Santo Tomás (CICS UST)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ESCA-Tepepan-EGC5000-035",
+    {
+        dependencia: 'Escuela Superior de Comercio y Administración (ESCA), Unidad Tepepan',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "ESCA-Tepepan-BT-036",
+    {
+        dependencia: 'Escuela Superior de Comercio y Administración (ESCA), Unidad Tepepan',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "UPIIH-Hidalgo-EGC5000-037",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Hidalgo (UPIIH)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "ESEO-EL-038",
+    {
+        dependencia: 'Escuela Superior de Enfermería y Obstetricia (ESEO)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "CENLEX-Zacatenco-BT-039",
+    {
+        dependencia: 'Centro de Lenguas Extranjeras (CENLEX), Unidad Zacatenco',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ESCA-SantoTomas-BT-040",
+    {
+        dependencia: 'Escuela Superior de Comercio y Administración (ESCA), Unidad Santo Tomás',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "SA-BT-041",
+    {
+        dependencia: 'Secretaría Académica',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CNMN-EGC5000-042",
+    {
+        dependencia: 'Centro de Nanociencia y Micro-nanotecnología (CNMN)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "UPIIP-Palenque-BT-043",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Palenque (UPIIP)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "UPIIH-Hidalgo-BT-044",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Hidalgo (UPIIH)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ENBA-BT-045",
+    {
+        dependencia: 'Escuela Nacional de Biblioteconomía y Archivonomía (ENBA)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "UPIEM-BT-046",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Energía y Movilidad (UPIEM)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CICIMAR-EGC5000-047",
+    {
+        dependencia: 'Centro Interdisciplinario de Ciencias Marinas (CICIMAR)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "DES-BT-048",
+    {
+        dependencia: 'Dirección de Educación Superior',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ESIQIE-BT-049",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Química E Industrias Extractivas (ESIQIE)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ESIME-Culhuacan-EGC5000-050",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Culhuacán',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "ESIME-Zacatenco-EL-051",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Zacatenco',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "ESIME-Ticoman-EGC5000-052",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Ticomán',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "ESIA-Ticoman-EGC5000-053",
+    {
+        dependencia: 'Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Ticomán',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "ESIA-Ticoman-EL-054",
+    {
+        dependencia: 'Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Ticomán',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "ESIA-Ticoman-BT-055",
+    {
+        dependencia: 'Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Ticomán',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "UPIBI-EGC5000-056",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Biotecnología (UPIBI)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "UPIICSA-EGC5000-057",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas (UPIICSA)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CECyT3-BT-058",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 3) "Estanislao Ramírez Ruiz"',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CECyT3-EGC5000-059",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 3) "Estanislao Ramírez Ruiz"',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CICATA-Altamira-BT-060",
+    {
+        dependencia: 'Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Altamira',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CICATA-Altamira-EGC5000-061",
+    {
+        dependencia: 'Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Altamira',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "ESIT-BT-062",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Textil (ESIT)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CICS-MilpaAlta-EL-063",
+    {
+        dependencia: 'Centro Interdisciplinario de Ciencias de la Salud, Unidad Milpa Alta (CICS UMA)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "ESIT-EL-065",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Textil (ESIT)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "DRMI-EGC5000-066",
+    {
+        dependencia: 'Dirección de Recursos Materiales E Infraestructura',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "DRMI-BT-067",
+    {
+        dependencia: 'Dirección de Recursos Materiales E Infraestructura',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ENCB-EGC5000-068",
+    {
+        dependencia: 'Escuela Nacional de Ciencias Biológicas (ENCB)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CITEDI-EGC5000-069",
+    {
+        dependencia: 'Centro de Investigación y Desarrollo de Tecnología Digital (CITEDI)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "DDCyT-EGC5000-070",
+    {
+        dependencia: 'Dirección de Difusión de Ciencia y Tecnología',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "ESEO-EGC5000-071",
+    {
+        dependencia: 'Escuela Superior de Enfermería y Obstetricia (ESEO)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "ENCB-BT-072",
+    {
+        dependencia: 'Escuela Nacional de Ciencias Biológicas (ENCB)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ESIA-Zacatenco-BT-073",
+    {
+        dependencia: 'Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Zacatenco',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ESEO-BT-074",
+    {
+        dependencia: 'Escuela Superior de Enfermería y Obstetricia (ESEO)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ESIA-Tecamachalco-EGC5000-075",
+    {
+        dependencia: 'Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Tecamachalco',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CICS-MilpaAlta-BT-076",
+    {
+        dependencia: 'Centro Interdisciplinario de Ciencias de la Salud, Unidad Milpa Alta (CICS UMA)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "UPIBI-BT-077",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Biotecnología (UPIBI)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CECyT18-EGC5000-078",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 18) "Zacatecas"',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "DAE-FV-079",
+    {
+        dependencia: 'Dirección de Apoyo a Estudiantes',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "DAE-EGC5000-080",
+    {
+        dependencia: 'Dirección de Apoyo a Estudiantes',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CITEDI-BT-081",
+    {
+        dependencia: 'Centro de Investigación y Desarrollo de Tecnología Digital (CITEDI)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CICATA-Legaria-EGC5000-082",
+    {
+        dependencia: 'Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Legaría',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CICATA-Legaria-BT-083",
+    {
+        dependencia: 'Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Legaría',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CIIDIR-Oaxaca-EGC5000-084",
+    {
+        dependencia: 'Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Oaxaca',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CIIDIR-Oaxaca-BT-085",
+    {
+        dependencia: 'Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Oaxaca',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ESIQIE-EGC5000-086",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Química E Industrias Extractivas (ESIQIE)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "ESIME-Azcapotzalco-EGC5000-088",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Azcapotzalco',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "UPIEM-EGC5000-089",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Energía y Movilidad (UPIEM)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "ENCB-EL-090",
+    {
+        dependencia: 'Escuela Nacional de Ciencias Biológicas (ENCB)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "ESIQIE-EL-091",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Química E Industrias Extractivas (ESIQIE)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "ESE-BT-092",
+    {
+        dependencia: 'Escuela Superior de Economía (ESE)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "UPIIG-Guanajuato-EGC5000-093",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Guanajuato (UPIIG)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "UPIIG-Guanajuato-BT-094",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Guanajuato (UPIIG)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CECyT8-EL-095",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 8) "Narciso Bassols"',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "CECyT8-EGC5000-096",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 8) "Narciso Bassols"',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CECyT8-BT-097",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 8) "Narciso Bassols"',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "UPIIT-Tlaxcala-EGC5000-098",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Tlaxcala (UPIIT)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CIIEMAD-EL-099",
+    {
+        dependencia: 'Centro Interdisciplinario de Investigación y Estudios Sobre Medio Ambiente y Desarrollo (CIIEMAD)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "CIIEMAD-EGC5000-100",
+    {
+        dependencia: 'Centro Interdisciplinario de Investigación y Estudios Sobre Medio Ambiente y Desarrollo (CIIEMAD)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CECyT18-BT-101",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 18) "Zacatecas"',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CEPROBI-EL-102",
+    {
+        dependencia: 'Centro de Desarrollo de Productos Bióticos (CEPROBI)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "CEPROBI-EGC5000-103",
+    {
+        dependencia: 'Centro de Desarrollo de Productos Bióticos (CEPROBI)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CEPROBI-BT-104",
+    {
+        dependencia: 'Centro de Desarrollo de Productos Bióticos (CEPROBI)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ENMH-EL-105",
+    {
+        dependencia: 'Escuela Nacional de Medicina y Homeopatía (ENMH)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "DII-BT-106",
+    {
+        dependencia: 'Dirección de Información Institucional',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CET1-FV-107",
+    {
+        dependencia: 'Centro de Estudios Tecnológicos (CET 1) "Walter Cross Buchanan"',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "CET1-EL-108",
+    {
+        dependencia: 'Centro de Estudios Tecnológicos (CET 1) "Walter Cross Buchanan"',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "ESCOM-BT-109",
+    {
+        dependencia: 'Escuela Superior de Cómputo (ESCOM)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CICATA-Morelos-BT-111",
+    {
+        dependencia: 'Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Morelos',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CIIDIR-Michoacan-BT-112",
+    {
+        dependencia: 'Centro Interdisciplinario de Investigación para El Desarrollo Integral Regional (CIIDIR), Unidad Michoacán',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ESIME-Azcapotzalco-BT-113",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Azcapotzalco',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "DDP-BT-114",
+    {
+        dependencia: 'Defensoría de los Derechos Politécnicos',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "DDP-EGC5000-115",
+    {
+        dependencia: 'Defensoría de los Derechos Politécnicos',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "ESIME-Zacatenco-FV-116",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Zacatenco',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "DFLE-BT-117",
+    {
+        dependencia: 'Dirección de Formación en Lenguas Extranjeras',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "DFLE-EGC5000-118",
+    {
+        dependencia: 'Dirección de Formación en Lenguas Extranjeras',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "DG-EGC5000-119",
+    {
+        dependencia: 'Dirección General',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "DG-BT-120",
+    {
+        dependencia: 'Dirección General',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CIIDIR-Oaxaca-EL-121",
+    {
+        dependencia: 'Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Oaxaca',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "ESM-EGC5000-122",
+    {
+        dependencia: 'Escuela Superior de Medicina (ESM)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CICS-MilpaAlta-EGC5000-123",
+    {
+        dependencia: 'Centro Interdisciplinario de Ciencias de la Salud, Unidad Milpa Alta (CICS UMA)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "UPIIZ-Zacatecas-BT-124",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Zacatecas (UPIIZ)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ESIME-Culhuacan-FV-125",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Culhuacán',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "SA-FV-126",
+    {
+        dependencia: 'Secretaría Académica',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "CIITA-Puebla-EGC5000-127",
+    {
+        dependencia: 'Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Puebla',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CIITA-Puebla-EL-128",
+    {
+        dependencia: 'Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Puebla',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "CIITA-Puebla-BT-129",
+    {
+        dependencia: 'Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Puebla',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CIITA-Puebla-FV-130",
+    {
+        dependencia: 'Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Puebla',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "DRI-BT-131",
+    {
+        dependencia: 'Dirección de Relaciones Internacionales',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ENMH-BT-132",
+    {
+        dependencia: 'Escuela Nacional de Medicina y Homeopatía (ENMH)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "UPIIZ-Zacatecas-EGC5000-134",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Zacatecas (UPIIZ)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "DCH-BT-135",
+    {
+        dependencia: 'Dirección de Capital Humano',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ESFM-EGC5000-136",
+    {
+        dependencia: 'Escuela Superior de Física y Matemáticas (ESFM)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "ESM-FV-137",
+    {
+        dependencia: 'Escuela Superior de Medicina (ESM)',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "CICIMAR-BT-138",
+    {
+        dependencia: 'Centro Interdisciplinario de Ciencias Marinas (CICIMAR)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ESFM-EL-140",
+    {
+        dependencia: 'Escuela Superior de Física y Matemáticas (ESFM)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "CECyT19-EGC5000-142",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 19) "Tecámac"',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CECyT19-FV-143",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 19) "Tecámac"',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "ESIME-Culhuacan-EL-144",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Culhuacán',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "CECyT12-EGC5000-145",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 12) "José María Morelos"',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CIC-EGC5000-146",
+    {
+        dependencia: 'Centro de Investigación en Computación (CIC)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "ESIME-Azcapotzalco-EL-147",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Azcapotzalco',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "UPIBI-EL-148",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Biotecnología (UPIBI)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "DIEMS-BT-149",
+    {
+        dependencia: 'Dirección de Educación Media Superior',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "DIEMS-FV-150",
+    {
+        dependencia: 'Dirección de Educación Media Superior',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "CGPII-BT-151",
+    {
+        dependencia: 'Coordinación General de Planeación E Información Institucional',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CGPII-EGC5000-152",
+    {
+        dependencia: 'Coordinación General de Planeación E Información Institucional',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CNMN-EL-153",
+    {
+        dependencia: 'Centro de Nanociencia y Micro-nanotecnología (CNMN)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "CII-EGC5000-154",
+    {
+        dependencia: 'Coordinación de Imagen Institucional',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "DES-FV-157",
+    {
+        dependencia: 'Dirección de Educación Superior',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "UPIEM-EL-158",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Energía y Movilidad (UPIEM)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "UPIIP-Palenque-EL-159",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Palenque (UPIIP)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "ENMH-FV-160",
+    {
+        dependencia: 'Escuela Nacional de Medicina y Homeopatía (ENMH)',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "ESCA-SantoTomas-EGC5000-161",
+    {
+        dependencia: 'Escuela Superior de Comercio y Administración (ESCA), Unidad Santo Tomás',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CECyT7-EGC5000-162",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 7) "Cuauhtémoc"',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "UPIICSA-FV-163",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas (UPIICSA)',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "DFIE-EL-164",
+    {
+        dependencia: 'Dirección de Formación e Innovación Educativa',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "CECyT2-BT-165",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 2) "Miguel Bernard"',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CECyT2-EGC5000-166",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 2) "Miguel Bernard"',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CICS-SantoTomas-EGC5000-167",
+    {
+        dependencia: 'Centro Interdisciplinario de Ciencias de la Salud, Unidad Santo Tomás (CICS UST)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "UPIIP-Palenque-FV-168",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Palenque (UPIIP)',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "SA-EL-169",
+    {
+        dependencia: 'Secretaría Académica',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "DFLE-FV-170",
+    {
+        dependencia: 'Dirección de Formación en Lenguas Extranjeras',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "ESCA-Tepepan-FV-171",
+    {
+        dependencia: 'Escuela Superior de Comercio y Administración (ESCA), Unidad Tepepan',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "CNMN-BT-172",
+    {
+        dependencia: 'Centro de Nanociencia y Micro-nanotecnología (CNMN)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CNMN-FV-173",
+    {
+        dependencia: 'Centro de Nanociencia y Micro-nanotecnología (CNMN)',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "CVDR-Culiacan-BT-174",
+    {
+        dependencia: 'Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Culiacán',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "UPIIH-Hidalgo-FV-175",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Hidalgo (UPIIH)',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "ENBA-EL-176",
+    {
+        dependencia: 'Escuela Nacional de Biblioteconomía y Archivonomía (ENBA)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "UPIIH-Hidalgo-EL-177",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Hidalgo (UPIIH)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "CIIDIR-Durango-EL-178",
+    {
+        dependencia: 'Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Durango',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "CIIDIR-Durango-EGC5000-179",
+    {
+        dependencia: 'Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Durango',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CVDR-Mazatlan-EGC5000-180",
+    {
+        dependencia: 'Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Mazatlán',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CVDR-Campeche-BT-181",
+    {
+        dependencia: 'Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Campeche',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CVDR-Oaxaca-EGC5000-182",
+    {
+        dependencia: 'Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Oaxaca',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CICIMAR-EL-183",
+    {
+        dependencia: 'Centro Interdisciplinario de Ciencias Marinas (CICIMAR)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "ESIA-Zacatenco-FV-184",
+    {
+        dependencia: 'Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Zacatenco',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "CICATA-Altamira-EL-185",
+    {
+        dependencia: 'Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Altamira',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "CICIMAR-FV-186",
+    {
+        dependencia: 'Centro Interdisciplinario de Ciencias Marinas (CICIMAR)',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "CVDR-Mazatlan-FV-187",
+    {
+        dependencia: 'Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Mazatlán',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "ESIME-Ticoman-EL-188",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Ticomán',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "ESIME-Ticoman-BT-189",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Ticomán',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CVDR-Oaxaca-BT-190",
+    {
+        dependencia: 'Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Oaxaca',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ESIA-Ticoman-FV-191",
+    {
+        dependencia: 'Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Ticomán',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "ESIME-Ticoman-FV-192",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Ticomán',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "CVDR-Oaxaca-FV-196",
+    {
+        dependencia: 'Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Oaxaca',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "CICS-MilpaAlta-FV-197",
+    {
+        dependencia: 'Centro Interdisciplinario de Ciencias de la Salud, Unidad Milpa Alta (CICS UMA)',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "CIBA-Tlaxcala-BT-198",
+    {
+        dependencia: 'Centro de Investigación en Biotecnología Aplicada, IPN-tlaxcala (CIBA)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CIBA-Tlaxcala-EGC5000-199",
+    {
+        dependencia: 'Centro de Investigación en Biotecnología Aplicada, IPN-tlaxcala (CIBA)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "ESIA-Zacatenco-EL-200",
+    {
+        dependencia: 'Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Zacatenco',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "ESCA-Tepepan-EL-201",
+    {
+        dependencia: 'Escuela Superior de Comercio y Administración (ESCA), Unidad Tepepan',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "UPIBI-FV-202",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Biotecnología (UPIBI)',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "ESE-EGC5000-203",
+    {
+        dependencia: 'Escuela Superior de Economía (ESE)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "DCC-BT-204",
+    {
+        dependencia: 'Dirección de Cómputo y Comunicaciones',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "DCC-EGC5000-205",
+    {
+        dependencia: 'Dirección de Cómputo y Comunicaciones',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CECyT4-EGC5000-206",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 4) "Lázaro Cárdenas"',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "SIP-EGC5000-207",
+    {
+        dependencia: 'Secretaría de Investigación y Posgrado',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "SIP-BT-208",
+    {
+        dependencia: 'Secretaría de Investigación y Posgrado',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "SIP-FV-209",
+    {
+        dependencia: 'Secretaría de Investigación y Posgrado',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "CECyT3-FV-210",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 3) "Estanislao Ramírez Ruiz"',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "CICATA-Altamira-FV-211",
+    {
+        dependencia: 'Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Altamira',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "UPIEM-FV-212",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Energía y Movilidad (UPIEM)',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "UPIIG-Guanajuato-EL-213",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Guanajuato (UPIIG)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "CENLEX-Zacatenco-EL-214",
+    {
+        dependencia: 'Centro de Lenguas Extranjeras (CENLEX), Unidad Zacatenco',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "DDCyT-BT-215",
+    {
+        dependencia: 'Dirección de Difusión de Ciencia y Tecnología',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "DVDR-BT-216",
+    {
+        dependencia: 'Dirección de Vinculación y Desarrollo Regional',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "DVDR-EL-217",
+    {
+        dependencia: 'Dirección de Vinculación y Desarrollo Regional',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "DVDR-EGC5000-218",
+    {
+        dependencia: 'Dirección de Vinculación y Desarrollo Regional',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "DVDR-FV-219",
+    {
+        dependencia: 'Dirección de Vinculación y Desarrollo Regional',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "UPIIZ-Zacatecas-EL-220",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Zacatecas (UPIIZ)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "UPIIZ-Zacatecas-FV-221",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Zacatecas (UPIIZ)',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "CVDR-Campeche-EGC5000-222",
+    {
+        dependencia: 'Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Campeche',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "ESIT-EGC5000-223",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Textil (ESIT)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CMP+L-BT-224",
+    {
+        dependencia: 'Centro Mexicano para la Producción Más Limpia (CMP+L)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CMP+L-EL-225",
+    {
+        dependencia: 'Centro Mexicano para la Producción Más Limpia (CMP+L)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "CICATA-Queretaro-FV-226",
+    {
+        dependencia: 'Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Querétaro',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "CICATA-Queretaro-EGC5000-227",
+    {
+        dependencia: 'Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Querétaro',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CICATA-Queretaro-BT-228",
+    {
+        dependencia: 'Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Querétaro',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "SG-EGC5000-229",
+    {
+        dependencia: 'Secretaría General',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CMP+L-EGC5000-230",
+    {
+        dependencia: 'Centro Mexicano para la Producción Más Limpia (CMP+L)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "DESS-BT-231",
+    {
+        dependencia: 'Dirección de Egresados y Servicio Social',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "DESS-EGC5000-232",
+    {
+        dependencia: 'Dirección de Egresados y Servicio Social',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CITEDI-EL-233",
+    {
+        dependencia: 'Centro de Investigación y Desarrollo de Tecnología Digital (CITEDI)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "CICATA-Morelos-EL-234",
+    {
+        dependencia: 'Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Morelos',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "DESS-EL-235",
+    {
+        dependencia: 'Dirección de Egresados y Servicio Social',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "CENLEX-SantoTomas-BT-236",
+    {
+        dependencia: 'Centro de Lenguas Extranjeras (CENLEX), Unidad Santo Tomás',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "DDCyT-FV-237",
+    {
+        dependencia: 'Dirección de Difusión de Ciencia y Tecnología',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "CICATA-Morelos-EGC5000-238",
+    {
+        dependencia: 'Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Morelos',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "SIIS-EGC5000-239",
+    {
+        dependencia: 'Secretaría de Innovación E Integración Social',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CICATA-Queretaro-EL-240",
+    {
+        dependencia: 'Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Querétaro',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "DBP-EGC5000-241",
+    {
+        dependencia: 'Dirección de Bibliotecas y Publicaciones',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "DBP-BT-242",
+    {
+        dependencia: 'Dirección de Bibliotecas y Publicaciones',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CENLEX-SantoTomas-EGC5000-243",
+    {
+        dependencia: 'Centro de Lenguas Extranjeras (CENLEX), Unidad Santo Tomás',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "ESIA-Tecamachalco-EL-246",
+    {
+        dependencia: 'Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Tecamachalco',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "ESCOM-EGC5000-247",
+    {
+        dependencia: 'Escuela Superior de Cómputo (ESCOM)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CBG-EL-248",
+    {
+        dependencia: 'Centro de Biotecnología Genómica (CBG)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "CECyT18-FV-249",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 18) "Zacatecas"',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "DEV-BT-250",
+    {
+        dependencia: 'Dirección de Educación Virtual',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "EST-BT-252",
+    {
+        dependencia: 'Escuela Superior de Turismo (EST)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CVDR-Mazatlan-BT-253",
+    {
+        dependencia: 'Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Mazatlán',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CECyT11-BT-254",
+    {
+        dependencia: 'Centro de Estudios Cientificos y Tecnológicos (CECYT 11) "Wilfrido Massieu"',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "DPO-BT-255",
+    {
+        dependencia: 'Dirección de Planeación y Organización',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "SG-BT-256",
+    {
+        dependencia: 'Secretaría General',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CVDR-Cancun-BT-257",
+    {
+        dependencia: 'Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Cancún',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "DESS-FV-258",
+    {
+        dependencia: 'Dirección de Egresados y Servicio Social',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "CECyT4-BT-259",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 4) "Lázaro Cárdenas"',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CECyT4-FV-260",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 4) "Lázaro Cárdenas"',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "DDC-EGC5000-261",
+    {
+        dependencia: 'Dirección de Difusión Cultural',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "DDC-BT-262",
+    {
+        dependencia: 'Dirección de Difusión Cultural',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "UPGPG-BT-263",
+    {
+        dependencia: 'Unidad Politécnica de Gestión con Perspectiva de Género (UPGPG)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "UPGPG-EGC5000-264",
+    {
+        dependencia: 'Unidad Politécnica de Gestión con Perspectiva de Género (UPGPG)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "UPIIAP-Puebla-BT-265",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus "Alejo Peralta" Puebla (UPIIAP)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "UPIIAP-Puebla-EL-267",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus "Alejo Peralta" Puebla (UPIIAP)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "UPIIT-Tlaxcala-EL-268",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Tlaxcala (UPIIT)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "UPIIAP-Puebla-EGC5000-269",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus "Alejo Peralta" Puebla (UPIIAP)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "UPIIAP-Puebla-FV-271",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus "Alejo Peralta" Puebla (UPIIAP)',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "CECyT20-BT-272",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 20) "Natalia Serdán Alatriste"',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CECyT20-EGC5000-273",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 20) "Natalia Serdán Alatriste"',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CECyT20-EL-275",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 20) "Natalia Serdán Alatriste"',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "CECyT13-EGC5000-276",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 13) "Ricardo Flores Magón"',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CECyT18-EL-281",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 18) "Zacatecas"',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "UPIICSA-EL-282",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas (UPIICSA)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "CECyT19-BT-283",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 19) "Tecámac"',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "DIET-BT-284",
+    {
+        dependencia: 'Dirección de Incubación de Empresas Tecnológicas',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CECyT15-BT-285",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 15) "Diódoro Antúnez Echegaray"',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CBG-BT-286",
+    {
+        dependencia: 'Centro de Biotecnología Genómica (CBG)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CVDR-Cancun-EGC5000-287",
+    {
+        dependencia: 'Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Cancún',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+]
+]);
+
+
+
+
+
+
+function obtenerListaDependencias() {
+    return Array.from(siglasDependencias.keys());
+}
+
+
+
+
+
+
+const opciones = obtenerListaDependencias();
+
+
+
+
+
+
+
+
+
+
+
+
+
   opciones.forEach(value => {
     const option = document.createElement("option");
     option.value = value;
@@ -3230,85 +4133,6 @@ document.getElementById("tablaBody6").addEventListener("input", function (e) {
 
 
 
-
-//-----------------------Agergar fila tabla 1
-
-/*
-function agregarFila6(){
-  const tbody = document.getElementById("tablaBody6");
-  const i = obtenerNumeroFila6();
-
-
-  const fila = document.createElement("tr");
-  fila.innerHTML = `
-    <td>
-      <textarea
-        name="ProgramaAcademico_T6R${i}"
-        class="auto-expand input_tabla obligatorio"
-        rows="1"
-        style="resize:none;"
-        aria-label="Programa Académico"
-        > </textarea>
-    </td> 
-    
-    <td>
-    <textarea
-        name="Espacio_T6R${i}"
-        class="auto-expand input_tabla obligatorio"
-        rows="1"
-        style="resize:none;"
-        aria-label="Espacio"
-        > </textarea></td>
-    
-    <td>
-      <textarea
-        name="nombredelEquipo_T6R${i}"
-        class="auto-expand input_tabla obligatorio"
-        rows="1"
-        style="resize:none;"
-        aria-label="Nombre del Equipo"
-        > </textarea>
-    </td>
-    
-    
-
-    
-
-    <td>
-      <textarea
-        name="especificaciones_T6R${i}"
-        class="auto-expand input_tabla"
-        rows="1"
-        style="resize:none;"
-        aria-label="Especificaciones"
-        > </textarea>
-    </td>
-
-      
-
-    <td class="cantidadCol">
-
-      <input type="number" name="cantidadBuen_estado_T6R${i}" class="input_tabla " aria-label="Cantidad en buen estado"> </input>  
-    
-      </td>
-    <td class="cantidadCol">
-
-      <input type="number" name="cantidadRegular_estado_T6R${i}" class="input_tabla " aria-label="Cantidad en estado Regular"> </input>  
-    
-      </td>
-     
-
-`;
-
-  tbody.appendChild(fila);
-
-//  generarNivel();
-//  generarDependencia();
-  activarAutoExpand(fila);
-}
-
-
-*/
 
 
 
@@ -3454,6 +4278,7 @@ if(document
     .getElementById(`paso${numero}`)
     .classList.add("activo");
   }
+
 }
 
 
@@ -3462,7 +4287,57 @@ if(document
 
 
 
-const direccionEnlace="https://script.google.com/macros/s/AKfycbxMWW1L4i_8R0b8GM9M-Hn3WOYriq_-GKdkYoauB5PfN8N-XOlG85jMrzuama1AnPr_/exec"
+
+
+
+function precioTotalMasIVA(PrecioTotalinput,PrecioInput,CantidadInput) {
+     
+        
+         let valorUnitario = Number(
+        PrecioInput.value.replace(/,/g, "")
+      );
+        let precioTotal=valorUnitario*CantidadInput.value*1.16;
+        
+        PrecioTotalinput.value=precioTotal;
+    }
+
+
+
+
+
+
+document
+  .querySelector(".Tabla4")
+  .addEventListener("change",function (event){
+               
+    if (event.target.classList.contains("unitario")) {
+        
+        let precioTotal=event.target.dataset.precio;
+        let cantidad=event.target.dataset.cant;
+        
+        let precioInput=event.target;
+        
+        let cantidadInput=document
+        .getElementById(cantidad);
+        
+        let PrecioTotalinput=document
+        .getElementById(precioTotal);
+        
+        precioTotalMasIVA(PrecioTotalinput,precioInput,cantidadInput);
+    }
+    
+    
+
+  });
+
+
+
+
+
+
+
+
+const direccionEnlace="https://script.google.com/macros/s/AKfycbxW225Zjh-t7AMDfE3Tw8aa3zAyvMd7vn5yZnJYOKIFf5uepfYxUFcHluavCGBABzHzaQ/exec"
 
 let folioActual=null;
 let edicionActual=null;
@@ -3478,14 +4353,287 @@ let ExistenciaDeCotizacionesA2=false;
 
 let ExistenciaDeCotizacionesA2_T4=false;
 
+//--------------------------------------Cargar UltimaVersion
+
+async function cargarDatosPorFolio() {
+
+    const folio = document
+        .getElementById("folioInput")
+        .value
+        .trim();
+
+    if (!folio) {
+        alert("Ingrese un folio.");
+        return;
+    }
+    folioActual=folio;
+    const datos = mapaFolios.get(folio);
+
+    if (!datos) {
+        alert("Folio no encontrado.");
+        return;
+    }
+
+    // Cargar dependencia
+setSelectValue(
+        "dependencia",
+        datos.dependencia
+    );
+
+    setSelectValue(
+        "tipoDeSolicitud",
+        datos.tipoDeBien
+    );
 
 
-/*
-CotizacionAdquisicionG1_TCR
-CotizacionAdquisicionG2_TCR
-CotizacionAdquisicion_T4R
-CotizacionAdquisicion2_T4R
+
+try {    
+    const res = await fetch(direccionEnlace, {
+    method: "POST",
+    body: JSON.stringify({
+        action: "cargarUltimaVersion",
+        dependencia:datos.dependencia,
+        tipoDeBien:datos.tipoDeBien
+    })
+});
+
+const json = await res.json();
+const data =json.data;
+alert(data.dependencia + "  su funcion y accion funcionan bien.Hora de la actualizacion:" + data.fechaModificacion +". el Origen es un" + json.origen );
+
+  const form = document.getElementById("miFormulario");
+
+  // Limpiar tabla
+  const tbody = document.getElementById("tablaBody");
+  const tbody2 = document.getElementById("tablaBody2");
+  const tbody3 = document.getElementById("tablaBody3");
+  const tbodyC = document.getElementById("tablaCotizaciones");
+  const tbody4 = document.getElementById("tablaBody4");
+  const tbody5 = document.getElementById("tablaBody5");
+
+  /*
+  const tbody6 = document.getElementById("tablaBody6");
+  */
+
+  tbody.innerHTML = "";
+  tbody2.innerHTML = "";
+  tbody3.innerHTML = "";
+  tbodyC.innerHTML = "";
+  tbody4.innerHTML = "";
+  tbody5.innerHTML = "";
+  /*
+  tbody6.innerHTML = "";
+  
+  */
+  // Reconstruir filas
+//  const filas = data.__filas || 10;
+//  for (let i = 1; i <= filas; i++) {
+//    agregarFila();
+//  }
+
+//alert("despues de cargar Borrador"+folioActual);
+
+//      folioActual = folio;
+      edicionActual=data.edicion;
+// Restaurar selects encadenados
+/*setSelectValue("secretaria", data.secretaria);
+
+setTimeout(() => {
+  setSelectValue("direccion", data.direccion);
+
+  setTimeout(() => {
+    setSelectValue("nivel", data.nivel);
+
+    setTimeout(() => {
 */
+//-------------------------------  activa selects
+// folioValor.value=data.folio;
+      setSelectValue("dependencia", data.dependencia);
+      Object.keys(data).forEach(name => {
+                          if (name.includes("__filas")) return;
+                          if(name.includes("url")){
+                                        urlCotizacionesActuales[name] = data[name];
+                                        //alert("data:"+data[name]);
+                                        //alert("urlcot"+urlCotizacionesActuales[name]);
+                          };
+                          if (name.includes("R")) return; //quitamos los campos de la tabla
+                          if(name.includes("secretaria")) return;
+                          if(name.includes("direccion")) return; 
+                          if(name.includes("nivel")) return; 
+                          if(name.includes("dependencia")) return;
+//                          if(name.includes("folio")) return; 
+                          const campo = document.querySelector(`[name="${name}"]`);
+                          if (!campo) return;
+                          
+    campo.value = data[name];
+
+    if (campo.tagName === "TEXTAREA") {
+      campo.style.height = "auto";
+      campo.style.height = campo.scrollHeight + "px";
+    }
+  });
+
+let folioValor = document.getElementById("folioInput");
+ folioValor.value=folioActual;
+
+
+      
+      // ⬇️ Ahora sí, restaurar la tabla
+      restaurarTabla(data);
+/*
+for(let i =3;i<data.__filas4+2;i++){
+  
+  const estado = data[`ProgramaAcademico_T4R${i}RO`];
+  alert(estado===true || estado==="true");
+  alert(estado);
+  //alert(document.getElementById(`ProgramaAcademico_T4R${i}`).readOnly);
+
+
+
+  document.getElementById(`ProgramaAcademico_T4R${i}`).readOnly=estado === true || estado === "true";
+
+  }
+*/
+/*
+document.querySelectorAll(".check-verificacion").forEach(check => {
+
+    if (data.hasOwnProperty(check.name)) {
+        check.value= data[check.name];
+    }
+
+});
+*/
+
+document.querySelectorAll(".check-verificacion").forEach(check => {
+
+     const campo = document.querySelector(`[name="${check.dataset.campo}"]`);
+    if (!campo) return;
+
+    campo.readOnly = check.value === true || check.value === "true";
+});
+
+
+
+
+//document.getElementById("especificaciones").readOnly =    data.especificacionesRO ?? false;
+
+      
+const ejemplos = json.ejemplos;
+    for(let index=1;index<3;index++){
+   document.getElementById(`ProgramasE${index}`).textContent=ejemplos[`ProgramasE${index}`];   
+   document.getElementById(`UsuariosHAnio1E${index}`).textContent=ejemplos[`UsuariosHAnio1E${index}`];
+   document.getElementById(`UsuariosMAnio1E${index}`).textContent=ejemplos[`UsuariosMAnio1E${index}`];
+   document.getElementById(`UsuariosHAnio2E${index}`).textContent=ejemplos[`UsuariosHAnio2E${index}`];
+   document.getElementById(`UsuariosMAnio2E${index}`).textContent=ejemplos[`UsuariosMAnio2E${index}`];
+   document.getElementById(`UsuariosHAnio3E${index}`).textContent=ejemplos[`UsuariosHAnio3E${index}`];
+   document.getElementById(`UsuariosMAnio3E${index}`).textContent=ejemplos[`UsuariosMAnio3E${index}`];
+   document.getElementById(`UsuariosHAnio4E${index}`).textContent=ejemplos[`UsuariosHAnio4E${index}`];
+   document.getElementById(`UsuariosMAnio4E${index}`).textContent=ejemplos[`UsuariosMAnio4E${index}`];
+   document.getElementById(`UsuariosHAnio5E${index}`).textContent=ejemplos[`UsuariosHAnio5E${index}`];
+   document.getElementById(`UsuariosMAnio5E${index}`).textContent=ejemplos[`UsuariosMAnio5E${index}`];
+
+ document.getElementById(`NumProfE${index}`        ).textContent     =ejemplos[`NumProfE${index}`        ]
+ document.getElementById(`UsuariosAHAnio1E${index}`).textContent=ejemplos[`UsuariosAHAnio1E${index}`]
+ document.getElementById(`UsuariosAMAnio1E${index}`).textContent=ejemplos[`UsuariosAMAnio1E${index}`]
+ document.getElementById(`UsuariosAHAnio2E${index}`).textContent=ejemplos[`UsuariosAHAnio2E${index}`]
+ document.getElementById(`UsuariosAMAnio2E${index}`).textContent=ejemplos[`UsuariosAMAnio2E${index}`]
+ document.getElementById(`UsuariosAHAnio3E${index}`).textContent=ejemplos[`UsuariosAHAnio3E${index}`]
+ document.getElementById(`UsuariosAMAnio3E${index}`).textContent=ejemplos[`UsuariosAMAnio3E${index}`]
+ document.getElementById(`UsuariosAHAnio4E${index}`).textContent=ejemplos[`UsuariosAHAnio4E${index}`]
+ document.getElementById(`UsuariosAMAnio4E${index}`).textContent=ejemplos[`UsuariosAMAnio4E${index}`]
+ document.getElementById(`UsuariosAHAnio5E${index}`).textContent=ejemplos[`UsuariosAHAnio5E${index}`]
+ document.getElementById(`UsuariosAMAnio5E${index}`).textContent=ejemplos[`UsuariosAMAnio5E${index}`]
+
+document.getElementById(`Edificio_T2E${index}`).textContent= ejemplos[`Edificio_T2E${index}`];
+document.getElementById(`Nivel_T2E${index}`   ).textContent= ejemplos[`Nivel_T2E${index}`   ];
+document.getElementById(`Espacio_T2E${index}` ).textContent= ejemplos[`Espacio_T2E${index}` ];
+document.getElementById(`Largo_T2E${index}`   ).textContent= ejemplos[`Largo_T2E${index}`   ];
+document.getElementById(`Ancho_T2E${index}`   ).textContent= ejemplos[`Ancho_T2E${index}`   ];
+document.getElementById(`Alumnos_T2E${index}` ).textContent= ejemplos[`Alumnos_T2E${index}` ];
+document.getElementById(`Horas_T2E${index}`   ).textContent= ejemplos[`Horas_T2E${index}`   ];
+
+document.getElementById(`Edificio_T3E${index}`).textContent       = ejemplos[`Edificio_T3E${index}`];
+document.getElementById(`MetrosCuadrados_T3E${index}`).textContent= ejemplos[`MetrosCuadrados_T3E${index}`];
+
+
+document.getElementById(`ProgramaAcademico_T4E${index}`).textContent= ejemplos[`ProgramaAcademico_T4E${index}`];              
+document.getElementById(`Espacio_T4E${index}`).textContent= ejemplos[`Espacio_T4E${index}`];         
+document.getElementById(`Clave_T4E${index}`).textContent= ejemplos[`Clave_T4E${index}`];       
+document.getElementById(`Equipo_T4E${index}`).textContent= ejemplos[`Equipo_T4E${index}`];        
+document.getElementById(`Cantidad_T4E${index}`).textContent= ejemplos[`Cantidad_T4E${index}`];         
+document.getElementById(`Especificaciones_T4E${index}`).textContent= ejemplos[`Especificaciones_T4E${index}`];         
+document.getElementById(`Justificacion_T4E${index}`).textContent= ejemplos[`Justificacion_T4E${index}`];      
+document.getElementById(`PrecioUnitario_T4E${index}`).textContent= ejemplos[`PrecioUnitario_T4E${index}`];      
+document.getElementById(`NombreArch_T4E${index}`).textContent= ejemplos[`NombreArch_T4E${index}`];     
+document.getElementById(`Cotizacion_T4E${index}`).textContent= ejemplos[`Cotizacion_T4E${index}`];       
+document.getElementById(`PrecioUnitario2_T4E${index}`).textContent= ejemplos[`PrecioUnitario2_T4E${index}`];
+document.getElementById(`NombreArch2_T4E${index}`).textContent= ejemplos[`NombreArch2_T4E${index}`];  
+document.getElementById(`Cotizacion2_T4E${index}`).textContent=ejemplos[`Cotizacion2_T4E${index}`];
+
+
+document.getElementById(`ProgramaAcademico_T5E${index}`).textContent=ejemplos[`ProgramaAcademico_T5E${index}`];
+document.getElementById(`Espacio_T5E${index}`).textContent=ejemplos[`Espacio_T5E${index}`]                     ;
+document.getElementById(`Equipo_T5E${index}`).textContent=ejemplos[`Equipo_T5E${index}`]                        ;
+document.getElementById(`Especificaciones_T5E${index}`).textContent=ejemplos[`Especificaciones_T5E${index}`]  ;
+document.getElementById(`MalEstado_T5E${index}`).textContent=ejemplos[`MalEstado_T5E${index}`]               ;
+document.getElementById(`BuenEstado_T5E${index}`).textContent=ejemplos[`BuenEstado_T5E${index}`]                ;
+document.getElementById(`EstadoRegular_T5E${index}`).textContent=ejemplos[`EstadoRegular_T5E${index}`]            ;
+
+
+
+
+}
+
+      document.querySelectorAll("#tablaBody tr").forEach(fila => {
+                           actualizarObligatoriedadFila(fila);
+      });
+      document.querySelectorAll("#tablaBody1_1 tr").forEach(fila => {
+                           actualizarObligatoriedadFila(fila);
+      });
+      document.querySelectorAll("#tablaBody2 tr").forEach(fila => {
+                           actualizarObligatoriedadFila(fila);
+      });
+      document.querySelectorAll("#tablaBody3 tr").forEach(fila => {
+                           actualizarObligatoriedadFila(fila);
+      });
+      document.querySelectorAll("#tablaBody4 tr").forEach(fila => {
+                           actualizarObligatoriedadFila(fila);
+      });
+      document.querySelectorAll("#tablaBody5 tr").forEach(fila => {
+                           actualizarObligatoriedadFila(fila);
+      });
+
+/*      
+      document.querySelectorAll("#tablaBody6 tr").forEach(fila => {
+                           actualizarObligatoriedadFila(fila);
+      });
+*/
+
+//    }, 0);
+//  }, 0);
+//}, 0);
+  alert("📂  datos de la solicitud cargados correctamente");
+} catch (e) {
+    alert("⚠️ Error de conexión al cargar los datos");
+}
+  
+
+
+
+
+
+}
+
+
+document
+    .getElementById("cargarDependencia")
+    .addEventListener("click", cargarDatosPorFolio);
+
+
+
+
+
+
 //---------------------------GuardarBorrador--------------------------------------------------
 
 
@@ -3573,6 +4721,10 @@ function setSelectValue(selectId, value) {
   select.dispatchEvent(new Event("change"));
 }
 
+
+
+
+
 function restaurarTabla(data) {
  
  
@@ -3607,7 +4759,7 @@ function restaurarTabla(data) {
 
   tbody.innerHTML = `<tr>
                                                                              <td title="Numero de Fila" class="ejemplo">
-                                                                                                                        
+                                                                                      Ejemplo                                  
                                                                               </td> 
 
                                                                              <td title="ProgramasE1" id="ProgramasE1" class="ejemplo">
@@ -3875,12 +5027,33 @@ function restaurarTabla(data) {
                                                                         Cantidad Equipos solicitados                                                                                                              
                                                                     </td>                                                                                                             
                                                                                                                                              
-                                                                    <td title=" Especificaciones Técnicas del Equipo" id="Especificaciones_T4E1" class="ejemplo">
-                                                                         Características /Especificaciones Técnicas                                                                                                              
+                                                                    <td title=" Especificaciones Técnicas del Equipo"  class="ejemplo">
+                                                                                
+                                                                                      <textarea
+                                                                                                           id="Especificaciones_T4E1"
+                                                                                                           name="especificaciones_T4E1"
+                                                                                                           class="auto-expand input_tabla expandible ejemplo"
+                                                                                                           rows="1"
+                                                                                                           style="resize:none;"
+                                                                                                           aria-label="Especificaciones"
+                                                                                                           readonly
+                                                                                                           >
+                                                                                       </textarea>                                                                                                              
                                                                     </td>                                                                                                              
                                                                                                                                                                                  
-                                                                    <td title="Justificación (Equipo no Existente, Sustitución o Complemento)" id="Justificacion_T4E1" class="ejemplo">
-                                                                        Justificación Porque se requiere el equipo; las cantidades; las funciones que realizara; Mejora operativa obtenida
+                                                                    <td title="Justificación (Equipo no Existente, Sustitución o Complemento)"  class="ejemplo">
+                                                                                      
+                                                                                   <textarea
+                                                                                                           id="Justificacion_T4E1"
+                                                                                                           name="Justificacion_T4E1"
+                                                                                                           class="auto-expand input_tabla expandible ejemplo"
+                                                                                                           rows="1"
+                                                                                                           style="resize:none;"
+                                                                                                           aria-label="Justificacion Ejemplo"
+                                                                                                           readonly
+                                                                                                           >
+                                                                                       </textarea>
+
                                                                     </td>                                                                                                             
                                                                                                                                                                                  
                                                                                                                                                                                                                           
@@ -3888,7 +5061,11 @@ function restaurarTabla(data) {
                                                                     <td title="Precio unitario Adquisición Alternativa 1 (Sin IVA)" id="PrecioUnitario_T4E1" class="ejemplo">
                                                                         Precio unitario Adquisición Alternativa 1 (Sin IVA)                                                                                                                                                                                                                          
                                                                     </td>                                                                                                             
-                                                                                                                                                                                 
+                                                                         
+                                                                    <td title="Precio Total con IVA Alternativa 1 (Sin IVA)" id="PrecioTotal_T4E1" class="ejemplo">
+                                                                                                                                                                                                                                                                                                  
+                                                                    </td>
+
                                                                     <td title="Nombre del Archivo de la Cotización de Adquisición" id="NombreArch_T4E1" class="ejemplo">
                                                                         Nombre de la Cotización (En la tabla anterior)                                                                                                             
                                                                     </td>                                                                                                             
@@ -3901,7 +5078,11 @@ function restaurarTabla(data) {
                                                                     <td title="Precio unitario Adquisición Alternativa 2 (Sin IVA)" id="PrecioUnitario2_T4E1" class="ejemplo">
                                                                         Precio unitario Adquisición Alternativa 2 (Sin IVA)                                                                                                             
                                                                     </td>                                                                                                             
-                                                                                                                                             
+                                                                         
+                                                                    <td title="Precio Total con IVA Alternativa 2 (Sin IVA)" id="PrecioTotal2_T4E1" class="ejemplo">
+                                                                                                                                                                                                                                                                                                  
+                                                                    </td>
+
                                                                     <td title="Nombre del Archivo de la Cotización de Adquisición 2" id="NombreArch2_T4E1" class="ejemplo">
                                                                         Nombre de la Cotización 2 (En la tabla anterior)                                                                                                             
                                                                     </td>                                                                                                                
@@ -3935,12 +5116,32 @@ function restaurarTabla(data) {
                                                                         Cantidad Equipos solicitados                                                                                                              
                                                                     </td>                                                                                                             
                                                                                                                                              
-                                                                    <td title=" Especificaciones Técnicas del Equipo" id="Especificaciones_T4E2" class="ejemplo">
-                                                                         Características /Especificaciones Técnicas                                                                                                              
+                                                                    <td title=" Especificaciones Técnicas del Equipo"  class="ejemplo">
+                                                                                           <textarea
+                                                                                                            id="Especificaciones_T4E2"
+                                                                                                           name="especificaciones_T4E2"
+                                                                                                           class="auto-expand input_tabla expandible ejemplo"
+                                                                                                           rows="1"
+                                                                                                           style="resize:none;"
+                                                                                                           aria-label="Especificaciones"
+                                                                                                           readonly
+                                                                                                           >
+                                                                                       </textarea>                                                                                                           
                                                                     </td>                                                                                                              
                                                                                                                                                                                  
-                                                                    <td title="Justificación (Equipo no Existente, Sustitución o Complemento)" id="Justificacion_T4E2" class="ejemplo">
-                                                                        Justificación Porque se requiere el equipo; las cantidades; las funciones que realizara; Mejora operativa obtenida
+                                                                    <td title="Justificación (Equipo no Existente, Sustitución o Complemento)"  class="ejemplo">
+                                                                                                
+                                                                                                    <textarea
+                                                                                                           id="Justificacion_T4E2"
+                                                                                                           name="Justificacion_T4E2"
+                                                                                                           class="auto-expand input_tabla expandible ejemplo"
+                                                                                                           rows="1"
+                                                                                                           style="resize:none;"
+                                                                                                           aria-label="Justificacion Ejemplo"
+                                                                                                           readonly
+                                                                                                           >
+                                                                                       </textarea>
+                                                                                        
                                                                     </td>                                                                                                             
                                                                                                                                                                                  
                                                                                                                                                                                                                           
@@ -3948,7 +5149,11 @@ function restaurarTabla(data) {
                                                                     <td title="Precio unitario Adquisición Alternativa 1 (Sin IVA)" id="PrecioUnitario_T4E2" class="ejemplo">
                                                                         Precio unitario Adquisición Alternativa 1 (Sin IVA)                                                                                                                                                                                                                          
                                                                     </td>                                                                                                             
-                                                                                                                                                                                 
+                                                                    
+                                                                    <td title="Precio Total con IVA Alternativa 1 (Sin IVA)" id="PrecioTotal_T4E2" class="ejemplo">
+                                                                                                                                                                                                                                                                                                  
+                                                                    </td>
+
                                                                     <td title="Nombre del Archivo de la Cotización de Adquisición" id="NombreArch_T4E2" class="ejemplo">
                                                                         Nombre de la Cotización (En la tabla anterior)                                                                                                             
                                                                     </td>                                                                                                             
@@ -3961,7 +5166,11 @@ function restaurarTabla(data) {
                                                                     <td title="Precio unitario Adquisición Alternativa 2 (Sin IVA)" id="PrecioUnitario2_T4E2" class="ejemplo">
                                                                         Precio unitario Adquisición Alternativa 2 (Sin IVA)                                                                                                             
                                                                     </td>                                                                                                             
-                                                                                                                                             
+                                                                    
+                                                                    <td title="Precio Total con IVA Alternativa 2 (Sin IVA)" id="PrecioTotal2_T4E2" class="ejemplo">
+                                                                                                                                                                                                                                                                                                  
+                                                                    </td>
+                                                                    
                                                                     <td title="Nombre del Archivo de la Cotización de Adquisición 2" id="NombreArch2_T4E2" class="ejemplo">
                                                                         Nombre de la Cotización 2 (En la tabla anterior)                                                                                                             
                                                                     </td>                                                                                                                
@@ -4071,12 +5280,16 @@ function restaurarTabla(data) {
   Object.keys(data).forEach(name => {
     if (name.includes("__filas")) return;
      if (!name.includes("R")) return; // solo campos de la tabla
+     
     const campo = document.querySelector(`[name="${name}"]`);
+
+
     if (!campo) return;
     if (campo.type === "file") {
     console.log("Archivo omitido:", name);
     return;
   }
+
 
   if (
     data[name] !== null &&
@@ -4085,60 +5298,118 @@ function restaurarTabla(data) {
     console.log("Objeto omitido:", name, data[name]);
     return;
   }
-    campo.value = data[name];
+  //--------------------------------------------------------------------------------    
+
+/*
+const nombreRelleno = campo.dataset.relleno;
+
+const campo2 = nombreRelleno
+    ? document.querySelector(`[name="${nombreRelleno}"]`)
+    : null;
+
+if (campo2) {
+
+    campo.value = campo2.value;
+} else {
+*/    campo.value = data[name];
+// }
+
+
+
+//     const campo2 = document.querySelector(`[name="${campo.dataset.relleno}"]`);
+//     
+
     
-    if (campo.tagName === "TEXTAREA") {
+//    campo.readOnly = check.value === true || check.value === "true";
+
+
+
+//-----------------------------------------------------   
+
+
+/*
+if (!campo2){   
+    campo.value = data[name];
+}else{
+    campo.value =campo2.value;
+}    
+*/
+if (campo.tagName === "TEXTAREA") {
       campo.style.height = "auto";
       campo.style.height = campo.scrollHeight + "px";
     }
   });
   // generarNivel();
   // generarDependencia();
-}
+  document.querySelectorAll("#tablaBody5 [data-relleno]").forEach(campo => {
 
+    const nombreOrigen = campo.dataset.relleno;
 
+    const campoOrigen = document.querySelector(
+        `[name="${nombreOrigen}"]`
+    );
 
-//-------------------------------------CargarDep---------------------------------
+    if (!campoOrigen) return;
 
-//const folioValor = document.getElementById("folioInput");
+    campo.value = campoOrigen.value;
 
-//const folio = folioValor.value.trim();
-
-//  const folio = document.getElementById("folioInput").value.trim();
-  
-
-//folioActual=folio;
-
-//  alert("ANtes de cargar dep: "+folioActual);
-
-function obtenerDependencia(folioA) {
-     
- // const clave = extraerClaveDependencia(folio);
-
-    return dependencias.get(folioA) ?? "Dependencia no encontrada";
-}
-
-function cargarDep(){
-
-const    folio = document.getElementById("folioInput").value.trim();
-
-   folioActual=folio;
-    if (!folio) {
-        alert("Escribe un folio primero.");
-        return;
+    if (campo.tagName === "TEXTAREA") {
+        campo.style.height = "auto";
+        campo.style.height = campo.scrollHeight + "px";
     }
+});
 
-    const dependenciaB = obtenerDependencia(folio);
+/*
+document.querySelectorAll("").forEach(campo => {
 
-    setSelectValue("dependencia", dependenciaB);    
-       
-             
+    const nombreOrigen = campo.dataset.relleno;
+
+    const campoOrigen = document.querySelector(
+        `[name="${nombreOrigen}"]`
+    );
+
+    if (!campoOrigen) return;
+
+    campo.value = campoOrigen.value;
+
+    if (campo.tagName === "TEXTAREA") {
+        campo.style.height = "auto";
+        campo.style.height = campo.scrollHeight + "px";
+    }
+});
+
+*/
+document.querySelectorAll('[name^="CotizacionAdquisicionG"]').forEach(campo => {
+         const url  = campo.dataset.compa;
+         const name = campo.dataset.compa2;
+         const nombre        =document.getElementById(name);
+          
+         const nameFile= campo.dataset.compa3;
+         const nombreArchivo=document.getElementById(nameFile);
+         nombre.innerHTML = `
+                   <a href="${data[url]}" target="_blank">
+                             ${nombreArchivo.value}
+                    </a>
+`;     
+   
+
+});
+
+
+
+
+
+
+
+
+
+
+
 }
-// document.querySelector("#dependencia").value = ;
 
 
 
-document.getElementById("cargarDependencia").addEventListener("click", cargarDep);
+
 
 
 
@@ -4254,6 +5525,11 @@ setTimeout(() => {
       setSelectValue("dependencia", data.dependencia);
       Object.keys(data).forEach(name => {
                           if (name.includes("__filas")) return;
+                          if(name.includes("url")){
+                                        urlCotizacionesActuales[name] = data[name];
+                                        //alert("data:"+data[name]);
+                                        //alert("urlcot"+urlCotizacionesActuales[name]);
+                          };
                           if (name.includes("R")) return; //quitamos los campos de la tabla
                           if(name.includes("secretaria")) return;
                           if(name.includes("direccion")) return; 
@@ -4315,15 +5591,7 @@ document.querySelectorAll(".check-verificacion").forEach(check => {
 
 //document.getElementById("especificaciones").readOnly =    data.especificacionesRO ?? false;
 
-      
-const resC = await fetch(direccionEnlace,{
-    method:"POST",
-    body: JSON.stringify({
-        action:"ObtenerConfiguracion"
-    })
-});
-const config = await resC.json();
-let ejemplos=config.ejemplos;
+const ejemplos = json.ejemplos;
     for(let index=1;index<3;index++){
    document.getElementById(`ProgramasE${index}`).textContent=ejemplos[`ProgramasE${index}`];   
    document.getElementById(`UsuariosHAnio1E${index}`).textContent=ejemplos[`UsuariosHAnio1E${index}`];
@@ -4587,15 +5855,8 @@ document.querySelectorAll(".check-verificacion").forEach(check => {
 
 
 
-const resC = await fetch(direccionEnlace,{
-    method:"POST",
-    body: JSON.stringify({
-        action:"ObtenerConfiguracion"
-    })
-});
-const config = await resC.json();
-let ejemplos=config.ejemplos;
-    for(let index=1;index<3;index++){
+const ejemplos = json.ejemplos;
+for(let index=1;index<3;index++){
    document.getElementById(`ProgramasE${index}`).textContent=ejemplos[`ProgramasE${index}`];   
    document.getElementById(`UsuariosHAnio1E${index}`).textContent=ejemplos[`UsuariosHAnio1E${index}`];
    document.getElementById(`UsuariosMAnio1E${index}`).textContent=ejemplos[`UsuariosMAnio1E${index}`];
@@ -4775,9 +6036,7 @@ const selectsTexto = [
         contenido: base64
     };    
 }
-
-
-
+ 
 
 
 
@@ -4998,6 +6257,8 @@ const res = await fetch(direccionEnlace,{
     })
 });
 const config = await res.json();
+let encabezados=config.encabezados;
+/*
 let ejemplos=config.ejemplos;
     for(let index=1;index<3;index++){
    document.getElementById(`ProgramasE${index}`).textContent=ejemplos[`ProgramasE${index}`];   
@@ -5063,7 +6324,7 @@ document.getElementById(`EstadoRegular_T5E${index}`).textContent=ejemplos[`Estad
 
 
 }    
-                             
+*/                             
                              
                              
                              
@@ -5074,69 +6335,83 @@ document.getElementById(`EstadoRegular_T5E${index}`).textContent=ejemplos[`Estad
                              
 
 
-    document.getElementById("UsuariosHAnio1").textContent = config.encabezado1;
-    document.getElementById("UsuariosMAnio1").textContent = config.encabezado2;
-    document.getElementById("UsuariosHAnio2").textContent = config.encabezado3;
-    document.getElementById("UsuariosMAnio2").textContent = config.encabezado4;
-    document.getElementById("UsuariosHAnio3").textContent = config.encabezado5;
-    document.getElementById("UsuariosMAnio3").textContent = config.encabezado6;
-    document.getElementById("UsuariosHAnio1Obs").textContent = config.encabezado1;
-    document.getElementById("UsuariosMAnio1Obs").textContent = config.encabezado2;
-    document.getElementById("UsuariosHAnio2Obs").textContent = config.encabezado3;
-    document.getElementById("UsuariosMAnio2Obs").textContent = config.encabezado4;
-    document.getElementById("UsuariosHAnio3Obs").textContent = config.encabezado5;
-    document.getElementById("UsuariosMAnio3Obs").textContent = config.encabezado6;
+    document.getElementById("UsuariosHAnio1").textContent = encabezados.encabezado1;
+    document.getElementById("UsuariosMAnio1").textContent = encabezados.encabezado2;
+    document.getElementById("UsuariosHAnio2").textContent = encabezados.encabezado3;
+    document.getElementById("UsuariosMAnio2").textContent = encabezados.encabezado4;
+    document.getElementById("UsuariosHAnio3").textContent = encabezados.encabezado5;
+    document.getElementById("UsuariosMAnio3").textContent = encabezados.encabezado6;
+    document.getElementById("UsuariosHAnio1Obs").textContent = encabezados.encabezado1;
+    document.getElementById("UsuariosMAnio1Obs").textContent = encabezados.encabezado2;
+    document.getElementById("UsuariosHAnio2Obs").textContent = encabezados.encabezado3;
+    document.getElementById("UsuariosMAnio2Obs").textContent = encabezados.encabezado4;
+    document.getElementById("UsuariosHAnio3Obs").textContent = encabezados.encabezado5;
+    document.getElementById("UsuariosMAnio3Obs").textContent = encabezados.encabezado6;
     
 
 
-    document.getElementById("UsuariosHAnio4").textContent = config.encabezado13;
-    document.getElementById("UsuariosMAnio4").textContent = config.encabezado14;
-    document.getElementById("UsuariosHAnio5").textContent = config.encabezado15;
-    document.getElementById("UsuariosMAnio5").textContent = config.encabezado16;
+    document.getElementById("UsuariosHAnio4").textContent = encabezados.encabezado13;
+    document.getElementById("UsuariosMAnio4").textContent = encabezados.encabezado14;
+    document.getElementById("UsuariosHAnio5").textContent = encabezados.encabezado15;
+    document.getElementById("UsuariosMAnio5").textContent = encabezados.encabezado16;
     
-    document.getElementById("UsuariosHAnio4Obs").textContent = config.encabezado13;
-    document.getElementById("UsuariosMAnio4Obs").textContent = config.encabezado14;
-    document.getElementById("UsuariosHAnio5Obs").textContent = config.encabezado15;
-    document.getElementById("UsuariosMAnio5Obs").textContent = config.encabezado16;
+    document.getElementById("UsuariosHAnio4Obs").textContent = encabezados.encabezado13;
+    document.getElementById("UsuariosMAnio4Obs").textContent = encabezados.encabezado14;
+    document.getElementById("UsuariosHAnio5Obs").textContent = encabezados.encabezado15;
+    document.getElementById("UsuariosMAnio5Obs").textContent = encabezados.encabezado16;
     
 
-    document.getElementById("UsuariosAHAnio1").textContent = config.encabezado7;
-    document.getElementById("UsuariosAMAnio1").textContent = config.encabezado8;
-    document.getElementById("UsuariosAHAnio2").textContent = config.encabezado9;
-    document.getElementById("UsuariosAMAnio2").textContent = config.encabezado10;
-    document.getElementById("UsuariosAHAnio3").textContent = config.encabezado11;
-    document.getElementById("UsuariosAMAnio3").textContent = config.encabezado12,
+    document.getElementById("UsuariosAHAnio1").textContent = encabezados.encabezado7;
+    document.getElementById("UsuariosAMAnio1").textContent = encabezados.encabezado8;
+    document.getElementById("UsuariosAHAnio2").textContent = encabezados.encabezado9;
+    document.getElementById("UsuariosAMAnio2").textContent = encabezados.encabezado10;
+    document.getElementById("UsuariosAHAnio3").textContent = encabezados.encabezado11;
+    document.getElementById("UsuariosAMAnio3").textContent = encabezados.encabezado12,
     
-    document.getElementById("UsuariosAHAnio1Obs").textContent = config.encabezado7;
-    document.getElementById("UsuariosAMAnio1Obs").textContent = config.encabezado8;
-    document.getElementById("UsuariosAHAnio2Obs").textContent = config.encabezado9;
-    document.getElementById("UsuariosAMAnio2Obs").textContent = config.encabezado10;
-    document.getElementById("UsuariosAHAnio3Obs").textContent = config.encabezado11;
-    document.getElementById("UsuariosAMAnio3Obs").textContent = config.encabezado12;
+    document.getElementById("UsuariosAHAnio1Obs").textContent = encabezados.encabezado7;
+    document.getElementById("UsuariosAMAnio1Obs").textContent = encabezados.encabezado8;
+    document.getElementById("UsuariosAHAnio2Obs").textContent = encabezados.encabezado9;
+    document.getElementById("UsuariosAMAnio2Obs").textContent = encabezados.encabezado10;
+    document.getElementById("UsuariosAHAnio3Obs").textContent = encabezados.encabezado11;
+    document.getElementById("UsuariosAMAnio3Obs").textContent = encabezados.encabezado12;
 
 
-    document.getElementById("UsuariosAHAnio4").textContent = config.encabezado17;
-    document.getElementById("UsuariosAMAnio4").textContent = config.encabezado18;
-    document.getElementById("UsuariosAHAnio5").textContent = config.encabezado19;
-    document.getElementById("UsuariosAMAnio5").textContent = config.encabezado20;
+    document.getElementById("UsuariosAHAnio4").textContent = encabezados.encabezado17;
+    document.getElementById("UsuariosAMAnio4").textContent = encabezados.encabezado18;
+    document.getElementById("UsuariosAHAnio5").textContent = encabezados.encabezado19;
+    document.getElementById("UsuariosAMAnio5").textContent = encabezados.encabezado20;
     
-    document.getElementById("UsuariosAHAnio4Obs").textContent = config.encabezado17;
-    document.getElementById("UsuariosAMAnio4Obs").textContent = config.encabezado18;
-    document.getElementById("UsuariosAHAnio5Obs").textContent = config.encabezado19;
-    document.getElementById("UsuariosAMAnio5Obs").textContent = config.encabezado20;
+    document.getElementById("UsuariosAHAnio4Obs").textContent = encabezados.encabezado17;
+    document.getElementById("UsuariosAMAnio4Obs").textContent = encabezados.encabezado18;
+    document.getElementById("UsuariosAHAnio5Obs").textContent = encabezados.encabezado19;
+    document.getElementById("UsuariosAMAnio5Obs").textContent = encabezados.encabezado20;
 
 };
 
 
+const formulario = document.getElementById("miFormulario");
+
+let campoMoviendo = null;
+let offsetX = 0;
+let offsetY = 0;
 
 
+// =======================
+// AMPLIAR AL ENTRAR
+// =======================
 
-document.querySelectorAll("#miFormulario .expandible").forEach(campo => {
+formulario.addEventListener("focusin", function (e) {
 
-    campo.addEventListener("focus", function () {
-        this.classList.add("campo-ampliado");
-         let leyenda = document.querySelector(
-        `.leyenda-textarea[data-campo="${this.name}"]`
+    const campo = e.target;
+
+    if (!campo.matches(".expandible")) return;
+
+    campo.classList.add("campo-ampliado");
+    campo.classList.remove("ventanaFormulario");
+
+
+    let leyenda = document.querySelector(
+        `.leyenda-textarea[data-campo="${campo.name}"]`
     );
 
     if (!leyenda) {
@@ -5144,102 +6419,150 @@ document.querySelectorAll("#miFormulario .expandible").forEach(campo => {
         leyenda = document.createElement("div");
 
         leyenda.className = "leyenda-textarea";
-        leyenda.dataset.campo = this.name;
+        leyenda.dataset.campo = campo.name;
 
         leyenda.textContent =
-            this.getAttribute("aria-label") || "Campo";
+            campo.getAttribute("aria-label") || "Campo";
 
         document.body.appendChild(leyenda);
     }
 
-    const rect = this.getBoundingClientRect();
+
+    const rect = campo.getBoundingClientRect();
 
     leyenda.style.left = rect.left + "px";
     leyenda.style.top = (rect.top - 32) + "px";
-    });
-
-
-
-
-
-   
-campo.addEventListener("blur", function () {
-    this.classList.remove("campo-ampliado");
-    const leyenda = document.querySelector(
-        `.leyenda-textarea[data-campo="${this.name}"]`
-    );
-
-    if (leyenda) {
-        leyenda.remove();
-    }
-
-    this.style.left = "";
-    this.style.top = "";
-
-    // Esperamos a que vuelva a su tamaño normal
-    requestAnimationFrame(() => {
-        this.style.height = "auto";
-        this.style.height = this.scrollHeight + "px";
-    });
 });
 
 
 
+// =======================
+// RESTAURAR AL SALIR
+// =======================
 
-    let moviendo = false;
-    let offsetX = 0;
-    let offsetY = 0;
+formulario.addEventListener("focusout", function (e) {
 
-    campo.addEventListener("mousedown", function(e) {
+    const campo = e.target;
 
-        if (!this.classList.contains("campo-ampliado")) return;
+    if (!campo.matches(".expandible")) return;
 
-        // Ctrl + clic para mover la ventana
-        if (!e.ctrlKey) return;
 
-        moviendo = true;
+    campo.classList.remove("campo-ampliado");
+    campo.classList.add("ventanaFormulario");
 
-        const rect = this.getBoundingClientRect();
-
-        offsetX = e.clientX - rect.left;
-        offsetY = e.clientY - rect.top;
-
-        this.style.cursor = "grabbing";
-
-        e.preventDefault();
-    });
-
-    document.addEventListener("mousemove", function(e) {
-
-        if (!moviendo) return;
-
-    const left = e.clientX - offsetX;
-    const top = e.clientY - offsetY;
-
-    campo.style.left = left + "px";
-    campo.style.top = top + "px";
 
     const leyenda = document.querySelector(
         `.leyenda-textarea[data-campo="${campo.name}"]`
     );
 
     if (leyenda) {
-        leyenda.style.left = left + "px";
-        leyenda.style.top = (top - 32) + "px";
+        leyenda.remove();
     }
 
+
+    campo.style.left = "";
+    campo.style.top = "";
+
+
+    requestAnimationFrame(() => {
+
+        campo.style.height = "auto";
+        campo.style.height = campo.scrollHeight + "px";
+
     });
+});
 
-    document.addEventListener("mouseup", function() {
 
-        if (!moviendo) return;
 
-        moviendo = false;
-        campo.style.cursor = "";
+// =======================
+// INICIAR MOVIMIENTO
+// CTRL + CLIC
+// =======================
 
-    });
+formulario.addEventListener("mousedown", function (e) {
+
+    const campo = e.target;
+
+    if (!campo.matches(".expandible")) return;
+
+    if (!campo.classList.contains("campo-ampliado")) return;
+
+    if (!e.ctrlKey) return;
+
+
+    campoMoviendo = campo;
+
+
+    const rect = campo.getBoundingClientRect();
+
+    offsetX = e.clientX - rect.left;
+    offsetY = e.clientY - rect.top;
+
+
+    campo.style.cursor = "grabbing";
+
+    e.preventDefault();
+});
+
+
+
+// =======================
+// MOVER
+// =======================
+
+document.addEventListener("mousemove", function (e) {
+
+    if (!campoMoviendo) return;
+
+
+    const left = e.clientX - offsetX;
+    const top = e.clientY - offsetY;
+
+
+    campoMoviendo.style.left = left + "px";
+    campoMoviendo.style.top = top + "px";
+
+
+    const leyenda = document.querySelector(
+        `.leyenda-textarea[data-campo="${campoMoviendo.name}"]`
+    );
+
+
+    if (leyenda) {
+
+        leyenda.style.left = left + "px";
+        leyenda.style.top = (top - 32) + "px";
+
+    }
 
 });
+
+
+
+// =======================
+// TERMINAR MOVIMIENTO
+// =======================
+
+document.addEventListener("mouseup", function () {
+
+    if (!campoMoviendo) return;
+
+
+    campoMoviendo.style.cursor = "";
+
+    campoMoviendo = null;
+
+});
+
+
+
+
+
+
+
+
+
+
 
 
 
