@@ -1099,6 +1099,183 @@ th {
 
 }
 
+.filtro-th {
+    position: relative;
+}
+
+.boton-filtro {
+    margin-left: 6px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.boton-filtro.filtro-activo {
+    font-weight: bold;
+    transform: scale(1.2);
+}
+.item-filtro {
+    background-color: white !important;
+    color: black !important;
+}
+
+/* Al pasar el mouse */
+.item-filtro:hover {
+    background-color: #e3f2fd !important;
+    color: black !important;
+}
+
+/* Cuando el checkbox está seleccionado */
+.item-filtro:has(.valor-filtro:checked) {
+    background-color: #d9efff !important;
+    color: black !important;
+}
+
+
+
+.menu-filtro > label {
+    background-color: white !important;
+    color: black !important;
+    display: block;
+    padding: 4px;
+}
+
+/* Cuando "Seleccionar todo" está marcado */
+.menu-filtro > label:has(.seleccionar-todo:checked) {
+    background-color: #d9efff !important;
+    color: black !important;
+}
+.menu-filtro {
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    width: 240px;
+    max-height: 330px;
+
+    overflow: auto;
+
+    background: white;
+
+    border: 1px solid #999;
+    border-radius: 5px;
+
+    box-shadow:
+        0 5px 15px
+        rgba(0,0,0,.25);
+
+    padding: 10px;
+
+    z-index: 10000;
+
+    display: none;
+
+    text-align: left;
+    font-weight: normal;
+}
+
+.buscar-filtro {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 6px;
+
+    margin-bottom: 7px;
+}
+
+.lista-valores-filtro {
+    max-height: 190px;
+
+    overflow-y: auto;
+
+    margin: 7px 0;
+
+    padding: 5px 0;
+
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+.item-filtro {
+    display: block;
+
+    padding: 3px 2px;
+
+    cursor: pointer;
+}
+
+.item-filtro:hover {
+    background: #eee;
+}
+
+.acciones-filtro {
+    display: flex;
+
+    gap: 6px;
+
+    margin-top: 8px;
+}
+
+.acciones-filtro button {
+    flex: 1;
+
+    cursor: pointer;
+}
+
+
+
+
+
+.menu-filtro {
+    background-color: white !important;
+    color: black !important;
+}
+
+.menu-filtro * {
+    color: black !important;
+}
+
+.menu-filtro input {
+    background-color: white !important;
+    color: black !important;
+}
+
+.menu-filtro button {
+    background-color: white !important;
+    color: black !important;
+}
+
+
+.toast-guardado {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+
+    background: rgba(0, 0, 0, 0.75);
+    color: white;
+
+    padding: 10px 18px;
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    opacity: 0;
+    transform: translateY(10px);
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+
+    z-index: 9999;
+}
+
+.toast-guardado.mostrar {
+    opacity: 1;
+    transform: translateY(0);
+}
 
 
 
