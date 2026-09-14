@@ -1,3 +1,7 @@
+//---------------------------------------Creacion de la estructura de la tabla----------------------------------------
+
+
+
 const tbody  = document.getElementById("tablaBody");
 const tbody1 = document.getElementById("tablaBody1_1");
 const tbody2 = document.getElementById("tablaBody2");
@@ -5,20 +9,19 @@ const tbody3 = document.getElementById("tablaBody3");
 const tbody4 = document.getElementById("tablaBody4");
 const tbodyC = document.getElementById("tablaCotizaciones");
 const tbody5 = document.getElementById("tablaBody5");
-/*const tbody6 = document.getElementById("tablaBody6");
-*/
 
 
 const tbody7 = document.getElementById("tablaBody7");
+
+//--------------------------------------------------Para el Guardado de las URL-------------------------------------------------------
+
 let urlCotizacionesActuales={};
+
+
 //------------------------------------Construccion de tabla--------------------------
 
 
-
-
-
-
-
+                       //----------------------------------Funciones para crear filas---------------------------------------------------------------------------
 
 
 
@@ -846,6 +849,8 @@ function agregarFila4(){
             >
         </td>
 
+
+
         <td>
             <textarea
                 name="Espacio_T4R${i}"
@@ -863,6 +868,11 @@ function agregarFila4(){
                 data-campo="Espacio_T4R${i}"
             >
         </td>
+
+
+
+
+
 
         <td>
             <textarea
@@ -882,6 +892,10 @@ function agregarFila4(){
             >
         </td>
 
+
+
+
+
         <td>
             <textarea
                 name="nombredelEquipo_T4R${i}"
@@ -900,6 +914,11 @@ function agregarFila4(){
             >
         </td>
 
+
+
+
+
+
         <td class="cantidadCol">
             <input
                 type="number"
@@ -917,6 +936,13 @@ function agregarFila4(){
                 data-campo="cantidad_T4R${i}"
             >
         </td>
+
+
+
+
+
+
+
 
         <td>
             <textarea
@@ -937,6 +963,13 @@ function agregarFila4(){
             >
         </td>
 
+
+
+
+
+
+
+
         <td>
             <textarea
                 id="justificacion_T4R${i}"
@@ -955,6 +988,11 @@ function agregarFila4(){
                 data-campo="justificacion_T4R${i}"
             >
         </td>
+
+
+
+
+
 
         <td>
             <div class="precio-wrapper">
@@ -982,6 +1020,9 @@ function agregarFila4(){
             </div>
 </td>
             
+
+
+
 
 
         <td>
@@ -1012,6 +1053,8 @@ function agregarFila4(){
 
 
 
+
+
         <td>
             <select
                 id="nombreCotizacion_T4R${i}"
@@ -1034,6 +1077,12 @@ function agregarFila4(){
             >
         </td>
 
+
+
+
+
+
+
         <td class="paso">
             <div class="contenedorArchivo paso">
 
@@ -1052,6 +1101,12 @@ function agregarFila4(){
 
             </div>
         </td>
+
+
+
+
+
+
 
         <td>
             <div class="precio-wrapper">
@@ -1083,6 +1138,12 @@ function agregarFila4(){
 
         </td>
         
+
+
+
+
+
+
         
         <td>
             <div class="precio-wrapper">
@@ -1113,6 +1174,9 @@ function agregarFila4(){
 
 
 
+
+
+
         <td>
             <select
                 id="nombreCotizacion2_T4R${i}"
@@ -1135,6 +1199,13 @@ function agregarFila4(){
             >
         </td>
 
+
+
+
+
+
+
+
         <td class="paso">
             <div class="contenedorArchivo paso">
 
@@ -1155,10 +1226,20 @@ function agregarFila4(){
         </td>
     `;
 
-    tbody.appendChild(fila);
+    const filaTotal =
+  document.getElementById("filaTotalTabla4");
 
+if (filaTotal) {
+  tbody.insertBefore(fila, filaTotal);
+} else {
+  tbody.appendChild(fila);
+}
     activarAutoExpand(fila);
 }
+
+
+
+
 
 
 function agregarFila5(){
@@ -1294,7 +1375,7 @@ function agregarFila5(){
 
 
 
-
+                //-------------------------Construccion de la Tabla
 
 
 for (let i = 1; i <= 10; i++) {
@@ -1307,27 +1388,33 @@ for (let i = 1; i <= 10; i++) {
 
 }
 
-
+crearFilaTotalTabla4();
 
 
 
 
 //---------------------------------------------------Actualizacion de los selects de nombres de archivos
+
 tbodyC.addEventListener("change", e => {
   if (!(e.target.name?.startsWith("CotizacionAdquisicionG1_TCR") ||e.target.name?.startsWith("CotizacionAdquisicionG2_TCR"))) return;
       
       const fila = e.target.closest("tr");
 
       const numeroFila = Array.from(tbodyC.rows).indexOf(fila)+1;
+
       const input = e.target;
 
       if (input.files.length === 0) return;
        
       const archivo = input.files[0];
-      
+//--------------------------------Asignacion de los nombres de la tabla C------------------
+
+
     if (e.target.name?.startsWith("CotizacionAdquisicionG1_TCR")){  
              document.getElementById(`nombreCotizacion_TCR${numeroFila}`).value=archivo.name;
 
+
+             //--------------------------------Asignacion de los nombres de los selects de la tabla 4------------------
              for (const fila of tbody4.rows) {
                         const select = fila.querySelector(
                                         'select[name^="nombreCotizacion_T4R"]'
@@ -1342,6 +1429,10 @@ tbodyC.addEventListener("change", e => {
              }
   
     }
+
+//--------------------------------Asignacion de los nombres de la tabla C------------------
+
+
     if(e.target.name?.startsWith("CotizacionAdquisicionG2_TCR")){
 
             document.getElementById(`nombreCotizacion2_TCR${numeroFila}`).value=archivo.name;
@@ -1349,7 +1440,8 @@ tbodyC.addEventListener("change", e => {
                         const select = fila.querySelector(
                                         'select[name^="nombreCotizacion2_T4R"]'
                                        );
-
+//--------------------------------Asignacion de los nombres de los selects de la tabla 4------------------
+           
                         const option = document.createElement("option");
 
                         option.value = numeroFila;
@@ -1594,7 +1686,7 @@ document.getElementById("tablaCotizaciones").addEventListener("change", e => {
 
 
 
-
+/*
 
 document.getElementById("tablaBody4").addEventListener("change", e => {
   if (!e.target.name?.startsWith("nombredelEquipo_T4R")) return;
@@ -1606,6 +1698,54 @@ document.getElementById("tablaBody4").addEventListener("change", e => {
     agregarFila4();
   }
 });
+*/
+document
+  .getElementById("tablaBody4")
+  .addEventListener("change", e => {
+
+    if (!e.target.name?.startsWith("nombredelEquipo_T4R")) {
+      return;
+    }
+
+    const filas = document.querySelectorAll(
+      "#tablaBody4 tr:not(#filaTotalTabla4)"
+    );
+
+    const ultimaFila = filas[filas.length - 1];
+
+    if (ultimaFila.contains(e.target)) {
+
+      agregarFila4();
+
+      actualizarTotalesTabla4();
+    }
+  });
+
+
+
+
+  //---------------------------Recalcular Totales-------------------
+
+
+  document
+  .getElementById("tablaBody4")
+  .addEventListener("input", function(event) {
+
+    if (
+      event.target.matches(
+        '[name^="cantidad_T4R"],' +
+        '[name^="precio_T4R"],' +
+        '[name^="precioTotal_T4R"],' +
+        '[name^="precio2_T4R"],' +
+        '[name^="precioTotal2_T4R"]'
+      )
+    ) {
+      actualizarTotalesTabla4();
+    }
+  });
+
+
+
 
 
 
@@ -4194,6 +4334,145 @@ function formatearMiles(input) {
 }
 
 
+
+
+
+
+
+function crearFilaTotalTabla4() {
+
+  const tbody = document.getElementById("tablaBody4");
+
+  // Si ya existe, no crear otra
+  if (document.getElementById("filaTotalTabla4")) return;
+
+  const filaTotal = document.createElement("tr");
+
+  filaTotal.id = "filaTotalTabla4";
+  filaTotal.classList.add("fila-total");
+
+  filaTotal.innerHTML = `
+    <td></td>
+
+    <td colspan="4">
+      <strong>TOTAL</strong>
+    </td>
+
+    <td id="totalCantidad_T4"></td>
+
+    <td></td>
+    <td></td>
+
+    <td id="totalPrecio1_T4"></td>
+
+    <td id="totalPrecioIVA1_T4"></td>
+
+    <td></td>
+    <td class="paso"></td>
+
+    <td id="totalPrecio2_T4"></td>
+
+    <td id="totalPrecioIVA2_T4"></td>
+
+    <td></td>
+    <td class="paso"></td>
+  `;
+
+  tbody.appendChild(filaTotal);
+
+  actualizarTotalesTabla4();
+}
+
+
+function numeroSinFormato(valor) {
+
+  return Number(
+    String(valor || "").replace(/,/g, "")
+  ) || 0;
+}
+
+
+function formatoMilesNumero(numero) {
+
+  return numero.toLocaleString("en-US", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  });
+}
+
+
+function actualizarTotalesTabla4() {
+
+  let totalCantidad = 0;
+  let totalPrecio1 = 0;
+  let totalPrecioIVA1 = 0;
+  let totalPrecio2 = 0;
+  let totalPrecioIVA2 = 0;
+
+  document
+    .querySelectorAll('#tablaBody4 tr:not(#filaTotalTabla4)')
+    .forEach(fila => {
+
+      const cantidad =
+        fila.querySelector('[name^="cantidad_T4R"]');
+
+      const precio1 =
+        fila.querySelector('[name^="precio_T4R"]:not([name$="RO"])');
+
+      const precioIVA1 =
+        fila.querySelector('[name^="precioTotal_T4R"]');
+
+      const precio2 =
+        fila.querySelector('[name^="precio2_T4R"]:not([name$="RO"])');
+
+      const precioIVA2 =
+        fila.querySelector('[name^="precioTotal2_T4R"]');
+
+      if (cantidad) {
+        totalCantidad += numeroSinFormato(cantidad.value);
+      }
+
+      if (precio1) {
+        totalPrecio1 += numeroSinFormato(precio1.value);
+      }
+
+      if (precioIVA1) {
+        totalPrecioIVA1 += numeroSinFormato(precioIVA1.value);
+      }
+
+      if (precio2) {
+        totalPrecio2 += numeroSinFormato(precio2.value);
+      }
+
+      if (precioIVA2) {
+        totalPrecioIVA2 += numeroSinFormato(precioIVA2.value);
+      }
+    });
+
+
+  document.getElementById("totalCantidad_T4").textContent =
+    totalCantidad;
+
+  document.getElementById("totalPrecio1_T4").textContent =
+    "$" + formatoMilesNumero(totalPrecio1);
+
+  document.getElementById("totalPrecioIVA1_T4").textContent =
+    "$" + formatoMilesNumero(totalPrecioIVA1);
+
+  document.getElementById("totalPrecio2_T4").textContent =
+    "$" + formatoMilesNumero(totalPrecio2);
+
+  document.getElementById("totalPrecioIVA2_T4").textContent =
+    "$" + formatoMilesNumero(totalPrecioIVA2);
+}
+
+
+
+
+
+
+
+
 function activarAutoExpand(fila){
   const textareas = fila.querySelectorAll(".auto-expand");
   textareas.forEach(textarea => {
@@ -4286,58 +4565,50 @@ if(document
 
 
 
-
-
-
-
-function precioTotalMasIVA(PrecioTotalinput,PrecioInput,CantidadInput) {
-     
-        
-         let valorUnitario = Number(
-        PrecioInput.value.replace(/,/g, "")
-      );
-        let precioTotal=valorUnitario*CantidadInput.value*1.16;
-        
-        PrecioTotalinput.value=precioTotal;
-    }
-
-
-
-
-
-
-document
-  .querySelector(".Tabla4")
-  .addEventListener("change",function (event){
+function precioTotalMasIVA(precioInput) {
+      
                
-    if (event.target.classList.contains("unitario")) {
         
-        let precioTotal=event.target.dataset.precio;
-        let cantidad=event.target.dataset.cant;
+            let precioTotal=precioInput.dataset.precio;
+            let cantidad=precioInput.dataset.cant;
         
-        let precioInput=event.target;
         
         let cantidadInput=document
         .getElementById(cantidad);
         
-        let PrecioTotalinput=document
+        let precioTotalinput=document
         .getElementById(precioTotal);
         
-        precioTotalMasIVA(PrecioTotalinput,precioInput,cantidadInput);
-    }
+       let valorUnitario = Number(
+                precioInput.value.replace(/,/g, "")
+              );
+                 precioTotal=valorUnitario*cantidadInput.value*1.16;
+                
+                precioTotalinput.value=precioTotal;
+                formatearMiles(precioTotalinput);
+                actualizarTotalesTabla4();    
+            }
     
-    
-
-  });
-
-
-
-
+       document
+               .querySelector(".Tabla4")
+               .addEventListener("change",function (event){
+                        precioTotalMasIVA(event.target)
+               });
 
 
 
 
-const direccionEnlace="https://script.google.com/macros/s/AKfycbxW225Zjh-t7AMDfE3Tw8aa3zAyvMd7vn5yZnJYOKIFf5uepfYxUFcHluavCGBABzHzaQ/exec"
+
+
+
+
+
+
+
+
+
+
+const direccionEnlace="https://script.google.com/macros/s/AKfycbz3Y7-NRj_DbY_giSYTskegQBuL52U8x3PMv_kk4RFrbf6tcjMSJmR4POwfyfecxweK4g/exec"
 
 let folioActual=null;
 let edicionActual=null;
@@ -4503,6 +4774,19 @@ document.querySelectorAll(".check-verificacion").forEach(check => {
 
 });
 */
+document
+    .querySelectorAll(".Tabla4 .unitario")
+    .forEach(precioInput => {
+        precioTotalMasIVA(precioInput);
+    });
+
+
+
+
+/*
+document.querySelector(".Tabla4")
+               .addEventListener("change",precioTotalMasIVA);
+ */              
 
 document.querySelectorAll(".check-verificacion").forEach(check => {
 
@@ -4511,8 +4795,6 @@ document.querySelectorAll(".check-verificacion").forEach(check => {
 
     campo.readOnly = check.value === true || check.value === "true";
 });
-
-
 
 
 //document.getElementById("especificaciones").readOnly =    data.especificacionesRO ?? false;
@@ -5271,6 +5553,9 @@ function restaurarTabla(data) {
   for (let i = 1; i <= filas5; i++) {
     agregarFila5();
   }
+
+
+
   /*
   for (let i = 1; i <= filas6; i++) {
     agregarFila6();
@@ -5396,7 +5681,8 @@ document.querySelectorAll('[name^="CotizacionAdquisicionG"]').forEach(campo => {
 });
 
 
-
+crearFilaTotalTabla4();
+actualizarTotalesTabla4();
 
 
 
@@ -6590,6 +6876,15 @@ function dividirData(data, partes = 8) {
     return resultado;
 }
 
+
+
+crearFilaTotales("tablaBody4", {
+  cantidad: "cantidad_T4R",
+  precio1: "precio_T4R",
+  total1: "precioTotal_T4R",
+  precio2: "precio2_T4R",
+  total2: "precioTotal2_T4R"
+});
 
 
 
