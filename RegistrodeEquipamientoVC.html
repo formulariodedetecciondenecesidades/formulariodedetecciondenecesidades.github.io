@@ -356,6 +356,9 @@
                                                                               <th  id="UsuariosMAnio5" title="Matrícula Mujeres 5">  
                                                                               </th>
 
+                                                                              <th  id="Borrar">  
+                                                                              </th>
+
                                                                          </tr>
                                                                   </thead>
                                           
@@ -502,6 +505,9 @@
                                                                               </th>
                                                                               <th  id="UsuariosAMAnio5" title="Número de Profesores y Administrativos Mujeres 5">
                                                                                   
+                                                                              </th>
+
+                                                                              <th  id="Borrar">  
                                                                               </th>
 
 
@@ -672,6 +678,9 @@
                                                                    <th title="HorasServicio">
                                                                        Horas de servicio(Por semana)
                                                                    </th>
+                                                                   <th >
+                                                                       
+                                                                   </th>
                                
                                                                    
                                                               </tr>
@@ -790,7 +799,7 @@
 </div>
 
 
-
+                    <div class="Tabla3yPlanos">
                              
                              <table class="tabla_style Tabla3" title="Tabla de Registro de Necesidades">
                              <thead>
@@ -806,13 +815,43 @@
                                                                       Metros Cuadrados 
                                                                  </th>   
                                                                  
+                                                                 <th >
+                                                                       
+                                                                 </th>
+
+
+                                                                 
+                                                            </tr>
+                                                     </thead>
+                             
+                                                     <tbody id="tablaBody3">
+                                                      
+
+                                                     </tbody> 
+                                                        <table class="tabla_style TablaP" title="Tabla de Planos">
+                                                    <thead>
                                                                  <th title ="Planos">
                                                                         Planos
                                                                  </th>
                                                             </tr>
                                                      </thead>
                              
-                                                     <tbody id="tablaBody3">
+                                                     <tbody id="tablaBodyP">
+                                                                     <td rowspan="5">
+                                                                         <div class="contenedorArchivo">
+                                                                                    <input
+                                                                                             type="file"
+                                                                                             id="Planos_T3"
+                                                                                            name="Planos_T3"
+                                                                                            class="archivoInput archivoMultipleInput Planos"
+                                                                                            accept=".pdf,.xlsx,.doc,.docx,.png,.jpg,.rar,.zip"
+                                                                                              multiple
+                                                                          >
+
+                    <span class="nombreArchivo"></span>
+                </div>
+            </td>
+
                                                       <!--
                                                              <tr>
                                                                 <td title="Numero de Fila" class="ejemplo">
@@ -848,6 +887,7 @@
                                                            
                                                      </tbody>     
                              </table>
+                             </div>
                              </fieldset>
 
   </div>
@@ -2802,7 +2842,7 @@
 
    
 </form>
-
+<div id="estadoGuardado" class="toast-guardado"></div>
 </body>
 
 <script src="codigoVC.js"></script>   
