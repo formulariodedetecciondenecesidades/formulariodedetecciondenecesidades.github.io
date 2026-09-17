@@ -1,11 +1,8 @@
-//---------------------------------------Creacion de la estructura de la tabla----------------------------------------
-
-
-
 const tbody  = document.getElementById("tablaBody");
 const tbody1 = document.getElementById("tablaBody1_1");
 const tbody2 = document.getElementById("tablaBody2");
 const tbody3 = document.getElementById("tablaBody3");
+const tbodyP = document.getElementById("tablaBodyP");
 const tbody4 = document.getElementById("tablaBody4");
 const tbodyC = document.getElementById("tablaCotizaciones");
 const tbody5 = document.getElementById("tablaBody5");
@@ -220,6 +217,15 @@ function agregarFila(){
                 data-campo="Usuarios10_T1R${i}"
             >
         </td>
+    <td>
+            <button
+        type="button"
+        class="borrar-fila"
+        title="Eliminar fila">
+        ✕
+    </button>
+        </td>
+
     `;
 
 
@@ -405,6 +411,16 @@ function agregarFila(){
                 data-campo="Usuarios10_T1_1R${i}"
             >
         </td>
+
+            <td>            
+            <button
+        type="button"
+        class="borrar-fila"
+        title="Eliminar fila">
+        ✕
+    </button>
+        </td>
+    
     `;
 
 
@@ -545,6 +561,15 @@ function agregarFila2(){
                 data-campo="Horas_T2R${i}"
             >
         </td>
+
+        <td>
+            <button
+        type="button"
+        class="borrar-fila"
+        title="Eliminar fila">
+        ✕
+    </button>
+        </td>
     `;
 
     tbody.appendChild(fila);
@@ -593,7 +618,7 @@ function agregarFila3(){
                     class="input_tabla"
                     aria-label="MetrosCuadrados"
                 >
-
+                
                 <input
                     name="MetrosCuadrados_T3R${i}RO"
                     type="text"
@@ -604,20 +629,15 @@ function agregarFila3(){
                 >
             </td>
 
-            <td rowspan="5">
-                <div class="contenedorArchivo">
-                    <input
-                        type="file"
-                        id="Planos_T3"
-                        name="Planos_T3"
-                        class="archivoInput archivoMultipleInput Planos"
-                        accept=".pdf,.xlsx,.doc,.docx,.png,.jpg,.rar,.zip"
-                        multiple
-                    >
+            <td>
+            <button
+        type="button"
+        class="borrar-fila"
+        title="Eliminar fila">
+        ✕
+    </button>
+        </td>
 
-                    <span class="nombreArchivo"></span>
-                </div>
-            </td>
         `;
 
     } else {
@@ -661,6 +681,15 @@ function agregarFila3(){
                     data-campo="MetrosCuadrados_T3R${i}"
                 >
             </td>
+
+            <td>
+            <button
+        type="button"
+        class="borrar-fila"
+        title="Eliminar fila">
+        ✕
+    </button>
+        </td>
         `;
     }
 
@@ -1224,6 +1253,15 @@ function agregarFila4(){
 
             </div>
         </td>
+
+        <td>
+            <button
+        type="button"
+        class="borrar-fila"
+        title="Eliminar fila">
+        ✕
+    </button>
+        </td>
     `;
 
     const filaTotal =
@@ -1440,8 +1478,7 @@ tbodyC.addEventListener("change", e => {
                         const select = fila.querySelector(
                                         'select[name^="nombreCotizacion2_T4R"]'
                                        );
-//--------------------------------Asignacion de los nombres de los selects de la tabla 4------------------
-           
+
                         const option = document.createElement("option");
 
                         option.value = numeroFila;
@@ -1461,7 +1498,7 @@ tbodyC.addEventListener("change", e => {
 
 
 
-
+//------------------------Craer boton de borrar y cargar archivo
 
 document.addEventListener("change", (e) => {
 
@@ -1513,7 +1550,7 @@ document.addEventListener("change", (e) => {
     }
 });
 
-
+//------------------------Funcion de boton de borrado de archivo
 
 document.addEventListener("click", (e) => {
 
@@ -1686,19 +1723,7 @@ document.getElementById("tablaCotizaciones").addEventListener("change", e => {
 
 
 
-/*
 
-document.getElementById("tablaBody4").addEventListener("change", e => {
-  if (!e.target.name?.startsWith("nombredelEquipo_T4R")) return;
-
-  const filas = document.querySelectorAll("#tablaBody4 tr");
-  const ultimaFila = filas[filas.length - 1];
-
-  if (ultimaFila.contains(e.target)) {
-    agregarFila4();
-  }
-});
-*/
 document
   .getElementById("tablaBody4")
   .addEventListener("change", e => {
@@ -1759,24 +1784,9 @@ document.getElementById("tablaBody5").addEventListener("change", e => {
     agregarFila5();
   }
 });
-/*
-document.getElementById("tablaBody6").addEventListener("change", e => {
-  if (!e.target.name?.startsWith("nombredelEquipo_T6R")) return;
-
-  const filas = document.querySelectorAll("#tablaBody6 tr");
-  const ultimaFila = filas[filas.length - 1];
-
-  if (ultimaFila.contains(e.target)) {
-    agregarFila6();
-  }
-});
-*/
 
 
 //Recuerda agregar esta misma funcion para cada tabla en caso de que las 4 tablas queden en la misma pagina cosa que aun no decido
-//----------------------------------------rellenado automatico de Nivel y dependencia----------------------------------------------
-//nivelInput.addEventListener("change", generarNivel);
-//dependenciaInput.addEventListener("change", generarDependencia);
 
 
 
@@ -1791,23 +1801,14 @@ document.getElementById("tablaBody6").addEventListener("change", e => {
 
 
 
-/*
-function generarNivel() {
-  const select = nivelInput;
-  const texto = select.options[select.selectedIndex].text;
-
-  const celdasNivel = document.querySelectorAll("[id^='nivelR']");
-  celdasNivel.forEach(celda => {
-    celda.textContent = texto;
-  });
-}
-*/
-
+//------------------------Evaluacion para borrar------------------------------------
 function generarDependencia() {
   const valor = dependenciaInput.value.trim();
   const celdasDep = document.querySelectorAll("[id^='dependenciaR']");
   celdasDep.forEach(celda => celda.textContent = valor);
 }
+//----------------------------------------------------------------------------
+
 
 // Ajuste automatico de celdas con mucho texto
 
@@ -1826,339 +1827,7 @@ textareas.forEach(textarea => {
 });
 
 
-/*
-const opciones = ["Unidad Politécnica de Gestión con Perspectiva de Género (UPGPG)",
-                  "Defensoría de los Derechos Politécnicos",
-                  "Secretaría General",
-                  //Direcion General
-                  "Dirección General",
-                  "Coordinación Politécnica para la Sustentabilidad",
-                  //Abogado General
-                  "Oficina del Abogado General",
-                  "Dirección de Asuntos Jurídicos",
-                  "Dirección de Convenios y Trámite Registral",  
-                  "Dirección de Legislación, Consulta y Transparencia",    
-                  //Presidencia del decanato 
-                  "Presidencia del Decanato",
 
-                  //Secretaria Academica
-                 'Centro de Estudios Tecnológicos (CET 1)"Walter Cross Buchanan"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECYT 1) "Gonzalo Vázquez Vela"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECYT 2) "Miguel Bernard"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECYT 3) "Estanislao Ramírez Ruiz"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECYT 4) "Lázaro Cárdenas"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECYT 5) "Benito Juárez"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECYT 6) "Miguel Othón De Mendizábal"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECYT 7) "Cuauhtémoc"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECYT 8) "Narciso Bassols"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECYT 9) "Juan De Dios Bátiz"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECYT 10) "Carlos Vallejo Márquez"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECYT 11) "Wilfrido Massieu"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECYT 12) "José María Morelos"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECYT 13) "Ricardo Flores Magón"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECYT 14) "Luis Enrique Erro"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECYT 15) "Diódoro Antúnez Echegaray"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECYT 16) "Hidalgo"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECYT 17) "León, Guanajuato"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECYT 18) "Zacatecas"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECYT 19) "Leona Vicario"',
-                 'Centro de Estudios Científicos y Tecnológicos (CECYT 20) "Natalia Serdán Alatriste"',
-                 "Dirección de Educación Media Superior",
-                 "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Zacatenco",
-                 "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Culhuacán",
-                 "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Azcapotzalco",
-                 "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Ticomán",
-                 "Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Zacatenco",
-                 "Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Tecamachalco", 
-                 "Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Ticomán",
-                 "Escuela Superior de Ingeniería Textil (ESIT)",
-                 "Escuela Superior de Ingeniería Química E Industrias Extractivas (ESIQIE)",
-                 "Escuela Superior de Física y Matemáticas (ESFM)",
-                 "Escuela Superior de Cómputo (ESCOM)",
-                 "Escuela Nacional de Ciencias Biológicas (ENCB)",
-                 "Escuela Superior de Medicina (ESM)",
-                 "Escuela Nacional de Medicina y Homeopatía (ENMH)",
-                 "Escuela Superior de Enfermería y Obstetricia (ESEO)",
-                 "Centro Interdisciplinario de Ciencias de la Salud (CICS)Unidad Milpa Alta",
-                 "Centro Interdisciplinario de Ciencias de la Salud (CICS) Unidad Santo Tomás",
-                 "Escuela Superior de Comercio y Administración (ESCA) Unidad Santo Tomás",
-                 "Escuela Superior de Comercio y Administración (ESCA) Unidad Tepepan",
-                 "Escuela Superior de Economía (ESE)",
-                 "Escuela Superior de Turismo (EST)",
-                 "Escuela Nacional de Biblioteconomía y Archivonomía (ENBA)",
-                 "Unidad Profesional Interdisciplinaria en Ingeniería y Tecnologías Avanzadas (UPIITA)",
-                 "Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas (UPIICSA)",
-                 "Unidad Profesional Interdisciplinaria de Biotecnología (UPIBI)",
-                 "Unidad Profesional Interdisciplinaria de Ingeniería Campus Hidalgo (UPIIH)",
-                 "Unidad Profesional Interdisciplinaria de Ingeniería, Campus Guanajuato (UPIIG)",
-                 "Unidad Profesional Interdisciplinaria de Ingeniería, Campus Zacatecas (UPIIZ)",
-                 "Unidad Profesional Interdisciplinaria de Energía y Movilidad (UPIEM)",
-                 "Unidad Profesional Interdisciplinaria de Ingeniería Campus Palenque (UPIIP)",
-                 "Unidad Profesional Interdisciplinaria de Ingeniería Campus Coahuila (UPIIC)",
-                 "Unidad Profesional Interdisciplinaria de Ingeniería Campus Tlaxcala (UPIIT)",
-                 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus "Alejo Peralta" Puebla (UPIIAP)',
-                 "Dirección de Educación Superior",
-                 "Dirección de Educación Virtual",
-                 "Dirección de Formación e Innovación Educativa",
-                 "Dirección de Formación en Lenguas Extranjeras",
-                 "Centro de Lenguas Extranjeras (CENLEX), Unidad Zacatenco",
-                 "Centro de Lenguas Extranjeras (CENLEX), Unidad Santo Tomás",           
-                 "Secretaría Académica",
-                     
-                                  
-                 //Secretaria Administrativa
-                 "Secretaría de Administración",
-                 "Dirección de Capital Humano",
-                 "Dirección de Programación y Presupuesto",
-                 "Dirección de Recursos Financieros",
-                 "Dirección de Recursos Materiales e Infraestructua",
-                 "Dirección de Servicios Generales",
-                 "Coordinación de Centros de Desarrollo Infantil",
-                 
-                 //Secretaria de Inovacion e Integracion Social
-                 
-                 "Centro de Vinculación y Desarrollo Regional (CVDR),Unidad Cajeme -Sonora",
-                 "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Campeche",
-                 "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Cancún",
-                 "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Culiacán",
-                 "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Durango",
-                 "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Los Mochis",
-                 "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Mazatlán",
-                 "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Morelia",
-                 "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Oaxaca",
-                 "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Tampico",
-                 "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Tijuana",
-                 "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Tlaxcala", 
-                 "Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Cuidad Juárez, Chihuahua",
-                 "Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Papantla, Veracruz",
-                 "Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Puebla",
-                 "Dirección de Vinculación y Desarrollo Regional",
-                 "Secretaría de Innovación e Integración Social",
-                 "Dirección de Egresados y Servicio Social",
-                 "Dirección de Relaciones Internacionales",
-                 "Dirección de Servicios Empresariales y Transferencia Tecnológica",
-                 "Dirección de Incubación de Empresas Tecnológicas",
-                 "Dirección de Prospectiva e Inteligencia Tecnológica Tecnópoli",
-                 
-
-
-
-
-                 //Secretaria de Investigacion y Posgrado
-                 "Dirección de Investigación",
-                 "Secretaría de Investigación y Posgrado",
-                 "Dirección de Posgrado",
-                 "Dirección de Difusión de Ciencia y Tecnología",
-                 "Centro de Desarrollo Aeroespacial (CDA)",
-                 "Centro de Nanociencias y Micro y Nanotecnologías (CNMN)",
-                 "Centro Interdisciplinario de Ciencias Marinas (CICIMAR)",
-                 "Centro Interdisciplinario de Investigación y Estudios Sobre Medio Ambiente Y Desarrollo (CIIEMAD)",
-                 "Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Durango",
-                 "Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Sinaloa",
-                 "Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Michoacán",
-                 "Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Oaxaca",
-                 "Centro de Desarrollo de Productos Bióticos (CEPROBI)",
-                 "Centro de Biotecnología Genómica (CBG)",
-                 "Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Legaría",
-                 "Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Altamira",
-                 "Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Querétaro",
-                 "Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada  (CICATA), Unidad Morelos",
-                 "Centro de Investigación en Computación (CIC)",
-                 "Centro de Investigación y Desarrollo de Tecnología Digital (CITEDI)",
-                 "Centro de Investigaciones Económicas, Administrativas y Sociales (CIECAS)",
-                 "Centro de Investigación en Biotecnología Aplicada, IPN -Tlaxcala (CIBA)",
-                 "Centro de Innovación y Desarrollo Tecnológico En Cómputo (CIDETEC)",
-                 "Centro de Investigación e Innovación Tecnológica (CIITEC)",
-                 "Centro Mexicano para la Producción Más Limpia (CMP+L)",
-
-
-
-
-                 "Secretaría de Servicios Educativos",
-                 "Dirección de Administración Escolar",
-                 "Dirección de Difusión Cultural",
-                 "Dirección de Actividades Deportivas",
-                 "Dirección de Bibliotecas y Publicaciones",
-                 "Dirección de Apoyos a Estudiantes",
-
-
-                 //Coordinacion General de Planeacion e Informacion Institucional
-                 
-                 "Coordinación General de Planeación e Información Institucional",
-                 "Dirección de Planeación y Organización",
-                 "Dirección de Información Institucional",
-
-
-
-                 // Coordinación de Imagen Institucional
-                 
-                 "Coordinación de Imagen Institucional",
-                 
-                 
-                 //Centro Nacional de Calculo
-                 
-                 "Centro Nacional de Cálculo (CENAC)",
-                 "Dirección de cómputo y comunicaciones",                 
-                 "Dirección de sistemas informáticos",
-                 
-                   
-                 //Estacion de Radio
-                 
-                 "Estación de Radiodifusión Radio IPN XHIPN-FM 95.7 MHZ.",
-                 
-                 "Patronato de Obras e Instalaciones  (POI)",
-                 "Comisión de Operación y Fomento de Actividades Académicas (COFAA)"
-                 ];
-                 
-*/
-/*
-
-const dependencias =new Map( [
-              [ "FDN-UPGPG-001","Unidad Politécnica de Gestión con Perspectiva de Género (UPGPG)"],                                                                                                     
-              [ "FDN-DDP-002","Defensoría de los Derechos Politécnicos"],                                                                                                     
-              [ "FDN-SG-003","Secretaría General"],                                                                                                                                                                                                           
-              [ "FDN-DG-004","Dirección General"],                                                                                                     
-              [ "FDN-CPS-005","Coordinación Politécnica para la Sustentabilidad"],                                                                                                     
-              [ "FDN-OAG-006","Oficina del Abogado General"],                                                                                                     
-              [ "FDN-DAJ-007","Dirección de Asuntos Jurídicos"],                                                                                                                                                                                  
-              [ "FDN-DCT-008","Dirección de Convenios y Trámite Registral"],                                                                                                       
-              [ "FDN-LCT-009","Dirección de Legislación, Consulta y Transparencia"],                                                                                                 
-              [ "FDN-PD-010","Presidencia del Decanato"],                                                                                                 
-              [ "FDN-CET1-011",'Centro de Estudios Tecnológicos (CET 1)"Walter Cross Buchanan"'],                                                                                                 
-              [ "FDN-CECyT1-012", 'Centro de Estudios Científicos y Tecnológicos (CECYT 1) "Gonzalo Vázquez Vela"'],
-              [ "FDN-CECyT2-013", 'Centro de Estudios Científicos y Tecnológicos (CECYT 2) "Miguel Bernard"'],
-              [ "FDN-CECyT3-014", 'Centro de Estudios Científicos y Tecnológicos (CECYT 3) "Estanislao Ramírez Ruiz"'],
-              [ "FDN-CECyT4-015", 'Centro de Estudios Científicos y Tecnológicos (CECYT 4) "Lázaro Cárdenas"'],
-              [ "FDN-CECyT5-016", 'Centro de Estudios Científicos y Tecnológicos (CECYT 5) "Benito Juárez"'],
-              [ "FDN-CECyT6-017", 'Centro de Estudios Científicos y Tecnológicos (CECYT 6) "Miguel Othón De Mendizábal"'],
-              [ "FDN-CECyT7-018", 'Centro de Estudios Científicos y Tecnológicos (CECYT 7) "Cuauhtémoc"'],
-              [ "FDN-CECyT8-019", 'Centro de Estudios Científicos y Tecnológicos (CECYT 8) "Narciso Bassols"'],
-              [ "FDN-CECyT9-020", 'Centro de Estudios Científicos y Tecnológicos (CECYT 9) "Juan De Dios Bátiz"'],
-              [ "FDN-CECyT10-021", 'Centro de Estudios Científicos y Tecnológicos (CECYT 10) "Carlos Vallejo Márquez"'],
-              [ "FDN-CECyT11-022", 'Centro de Estudios Científicos y Tecnológicos (CECYT 11) "Wilfrido Massieu"'],
-              [ "FDN-CECyT12-023", 'Centro de Estudios Científicos y Tecnológicos (CECYT 12) "José María Morelos"'],
-              [ "FDN-CECyT13-024", 'Centro de Estudios Científicos y Tecnológicos (CECYT 13) "Ricardo Flores Magón"'],
-              [ "FDN-CECyT14-025", 'Centro de Estudios Científicos y Tecnológicos (CECYT 14) "Luis Enrique Erro"'],
-              [ "FDN-CECyT15-026", 'Centro de Estudios Científicos y Tecnológicos (CECYT 15) "Diódoro Antúnez Echegaray"'],
-              [ "FDN-CECyT16-027", 'Centro de Estudios Científicos y Tecnológicos (CECYT 16) "Hidalgo"'],
-              [ "FDN-CECyT17-028", 'Centro de Estudios Científicos y Tecnológicos (CECYT 17) "León, Guanajuato"'],
-              [ "FDN-CECyT18-029", 'Centro de Estudios Científicos y Tecnológicos (CECYT 18) "Zacatecas"'],
-              [ "FDN-CECyT19-030", 'Centro de Estudios Científicos y Tecnológicos (CECYT 19) "Leona Vicario"'],
-              [ "FDN-CECyT20-031", 'Centro de Estudios Científicos y Tecnológicos (CECYT 20) "Natalia Serdán Alatriste"'],
-              [ "FDN-DIEMS-032", "Dirección de Educación Media Superior"],
-              [ "FDN-ESIME-Zacatenco-033", "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Zacatenco"],
-              [ "FDN-ESIME-Culhuacán-034", "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Culhuacán"],
-              [ "FDN-ESIME-Azcapotzalco-035", "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Azcapotzalco"],
-              [ "FDN-ESIME-Ticomán-036", "Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Ticomán"],
-              [ "FDN-ESIA-Zacatenco-037", "Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Zacatenco"],
-              [ "FDN-ESIA-Tecamachalco-038", "Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Tecamachalco"],
-              [ "FDN-ESIA-Ticoman-039", "Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Ticomán"],
-              [ "FDN-ESIT-040", "Escuela Superior de Ingeniería Textil (ESIT)"],
-              [ "FDN-ESIQIE-041", "Escuela Superior de Ingeniería Química E Industrias Extractivas (ESIQIE)"],
-              [ "FDN-ESFM-042", "Escuela Superior de Física y Matemáticas (ESFM)"],
-              [ "FDN-ESCOM-043", "Escuela Superior de Cómputo (ESCOM)"],
-              [ "FDN-ENCB-044", "Escuela Nacional de Ciencias Biológicas (ENCB)"],
-              [ "FDN-ESM-045", "Escuela Superior de Medicina (ESM)"],
-              [ "FDN-ENMH-046", "Escuela Nacional de Medicina y Homeopatía (ENMH)"],
-              [ "FDN-ESEO-047", "Escuela Superior de Enfermería y Obstetricia (ESEO)","Escuela Superior de Enfermería y Obstetricia (ESEO)"],
-              [ "FDN-CICS-MilpaAlta-048", "Centro Interdisciplinario de Ciencias de la Salud (CICS)Unidad Milpa Alta"],
-              [ "FDN-CICS-SantoTomas-049", "Centro Interdisciplinario de Ciencias de la Salud (CICS) Unidad Santo Tomás"],
-              [ "FDN-ESCA-SantoTomas-050", "Escuela Superior de Comercio y Administración (ESCA) Unidad Santo Tomás"],
-              [ "FDN-ESCA-Tepepan-051", "Escuela Superior de Comercio y Administración (ESCA) Unidad Tepepan"],
-              [ "FDN-ESE-052", "Escuela Superior de Economía (ESE)"],
-              [ "FDN-EST-053", "Escuela Superior de Turismo (EST)"],
-              [ "FDN-ENBA-054", "Escuela Nacional de Biblioteconomía y Archivonomía (ENBA)"],
-              [ "FDN-UPIITA-055", "Unidad Profesional Interdisciplinaria en Ingeniería y Tecnologías Avanzadas (UPIITA)"],
-              [ "FDN-UPIICSA-056", "Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas (UPIICSA)"],
-              [ "FDN-UPIBI-057", "Unidad Profesional Interdisciplinaria de Biotecnología (UPIBI)"],
-              [ "FDN-UPIIH-Hidalgo-058", "Unidad Profesional Interdisciplinaria de Ingeniería Campus Hidalgo (UPIIH)"],
-              [ "FDN-UPIIG-Guanajuato-59", "Unidad Profesional Interdisciplinaria de Ingeniería, Campus Guanajuato (UPIIG)"],
-              [ "FDN-UPIIZ-Zacatecas-60", "Unidad Profesional Interdisciplinaria de Ingeniería, Campus Zacatecas (UPIIZ)"],
-              [ "FDN-UPIEM-061", "Unidad Profesional Interdisciplinaria de Energía y Movilidad (UPIEM)"],
-              [ "FDN-UPIIP-Palenque-062", "Unidad Profesional Interdisciplinaria de Ingeniería Campus Palenque (UPIIP)"],
-              [ "FDN-UPIIC-Coahuila-063", "Unidad Profesional Interdisciplinaria de Ingeniería Campus Coahuila (UPIIC)"],
-              [ "FDN-UPIIT-Tlaxcala-064", "Unidad Profesional Interdisciplinaria de Ingeniería Campus Tlaxcala (UPIIT)"],
-              [ 'FDN-UPIIAP-Puebla-065', 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus "Alejo Peralta" Puebla (UPIIAP)'],
-              [ "FDN-DES-066", "Dirección de Educación Superior"],
-              [ "FDN-DEV-067", "Dirección de Educación Virtual"],
-              [ "FDN-DFIE-068", "Dirección de Formación e Innovación Educativa"],
-              [ "FDN-DFLE-069", "Dirección de Formación en Lenguas Extranjeras"],
-              [ "FDN-CENLEX-Zacatenco-70", "Centro de Lenguas Extranjeras (CENLEX), Unidad Zacatenco"],
-              [ "FDN-CENLEX-SantoTomas-071", "Centro de Lenguas Extranjeras (CENLEX), Unidad Santo Tomás"],
-              [ "FDN-SA-072", "Secretaría Académica"],
-              [ "FDN-SAD-073", "Secretaría de Administración"],
-              [ "FDN-DCH-074", "Dirección de Capital Humano"],
-              [ "FDN-DPP-075", "Dirección de Programación y Presupuesto"],
-              [ "FDN-DRF-076", "Dirección de Recursos Financieros"],
-              [ "FDN-DRMI-077", "Dirección de Recursos Materiales e Infraestructua"],
-              [ "FDN-DSG-078", "Dirección de Servicios Generales"],
-              [ "FDN-CCDI-079", "Coordinación de Centros de Desarrollo Infantil"],
-              [ "FDN-CVDR-Cajeme-080", "Centro de Vinculación y Desarrollo Regional (CVDR),Unidad Cajeme -Sonora"],
-              [ "FDN-CVDR-Campeche-81", "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Campeche"],
-              [ "FDN-CVDR-Cancun-082", "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Cancún"],
-              [ "FDN-CVDR-Culiacan-083", "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Culiacán"],
-              [ "FDN-CVDR-Durango-084", "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Durango"],
-              [ "FDN-CVDR-LosMochis-085", "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Los Mochis"],
-              [ "FDN-CVDR-Mazatlan-086", "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Mazatlán"],
-              [ "FDN-CVDR-Morelia-087", "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Morelia"],
-              [ "FDN-CVDR-Oaxaca-088", "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Oaxaca"],
-              [ "FDN-CVDR-Tampico-089", "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Tampico"],
-              [ "FDN-CVDR-Tijuana-090", "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Tijuana"],
-              [ "FDN-CVDR-Tlaxcala-091", "Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Tlaxcala"],
-              [ "FDN-CIITA-Ciudad Juarez-092", "Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Cuidad Juárez, Chihuahua"],
-              [ "FDN-CIITA-Papantla-093", "Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Papantla, Veracruz"],
-              [ "FDN-CIITA-Puebla-094", "Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Puebla"],
-              [ "FDN-DVDR-095", "Dirección de Vinculación y Desarrollo Regional"],
-              [ "FDN-SIIS-096", "Secretaría de Innovación e Integración Social"],
-              [ "FDN-DESS-097", "Dirección de Egresados y Servicio Social"],
-              [ "FDN-DRI-098", "Dirección de Relaciones Internacionales"],
-              [ "FDN-DSETT-099", "Dirección de Servicios Empresariales y Transferencia Tecnológica"],
-              [ "FDN-DIET-100", "Dirección de Incubación de Empresas Tecnológicas"],
-              [ "FDN-DPIT-101 - Tecnópoli", "Dirección de Prospectiva e Inteligencia Tecnológica Tecnópoli"],
-              [ "FDN-DI-102", "Dirección de Investigación"],
-              [ "FDN-SIP-103", "Secretaría de Investigación y Posgrado"],
-              [ "FDN-DP-104", "Dirección de Posgrado"],
-              [ "FDN-DDCyT-105", "Dirección de Difusión de Ciencia y Tecnología"],
-              [ "FDN-CDA-106", "Centro de Desarrollo Aeroespacial (CDA)"],
-              [ "FDN-CNMN-107", "Centro de Nanociencias y Micro y Nanotecnologías (CNMN)"],
-              [ "FDN-CICIMAR-108", "Centro Interdisciplinario de Ciencias Marinas (CICIMAR)"],
-              [ "FDN-CIIEMAD-109", "Centro Interdisciplinario de Investigación y Estudios Sobre Medio Ambiente Y Desarrollo (CIIEMAD)"],
-              [ "FDN-CIIDIR-Durango-110", "Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Durango"],
-              [ "FDN-CIIDIR-Sinaloa-111", "Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Sinaloa"],
-              [ "FDN-CIIDIR-Michoacán-112", "Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Michoacán"],
-              [ "FDN-CIIDIR-Oaxaca-113", "Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Oaxaca"], 
-              [ "FDN-CEPROBI-114", "Centro de Desarrollo de Productos Bióticos (CEPROBI)"],
-              [ "FDN-CBG-115", "Centro de Biotecnología Genómica (CBG)"],
-              [ "FDN-CICATA-Legaria-116", "Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Legaría"],
-              [ "FDN-CICATA-Altamira-117", "Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Altamira"],
-              [ "FDN-CICATA-Querétaro-118", "Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Querétaro"],
-              [ "FDN-CICATA-Morelos-119", "Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada  (CICATA), Unidad Morelos"],
-              [ "FDN-CIC-120", "Centro de Investigación en Computación (CIC)"],
-              [ "FDN-CITEDI-121", "Centro de Investigación y Desarrollo de Tecnología Digital (CITEDI)"],
-              [ "FDN-CIECAS-122", "Centro de Investigaciones Económicas, Administrativas y Sociales (CIECAS)"],
-              [ "FDN-CIBA-Tlaxcala-123", "Centro de Investigación en Biotecnología Aplicada, IPN -Tlaxcala (CIBA)"],
-              [ "FDN-CIDETEC-124", "Centro de Innovación y Desarrollo Tecnológico En Cómputo (CIDETEC)"],
-              [ "FDN-CIITEC-125", "Centro de Investigación e Innovación Tecnológica (CIITEC)"],
-              [ "FDN-CMP+L-126", "Centro Mexicano para la Producción Más Limpia (CMP+L)"],
-              [ "FDN-SSE-127", "Secretaría de Servicios Educativos"],
-              [ "FDN-DAE-128", "Dirección de Administración Escolar"],
-              [ "FDN-DDC-129", "Dirección de Difusión Cultural"],
-              [ "FDN-DAD-130", "Dirección de Actividades Deportivas"],
-              [ "FDN-DBP-131", "Dirección de Bibliotecas y Publicaciones"],
-              [ "FDN-DAE-132", "Dirección de Apoyos a Estudiantes"],
-              [ "FDN-CGPII-133", "Coordinación General de Planeación e Información Institucional"],
-              [ "FDN-DPO-134", "Dirección de Planeación y Organización"],
-              [ "FDN-DII-135", "Dirección de Información Institucional"],
-              [ "FDN-CII-136", "Coordinación de Imagen Institucional"],
-              [ "FDN-CENAC-137", "Centro Nacional de Cálculo (CENAC)"],
-              [ "FDN-DCC-138", "Dirección de cómputo y comunicaciones"],
-              [ "FDN-DSI-139", "Dirección de sistemas informáticos"],
-              [ "FDN-Radio-IPN-140", "Estación de Radiodifusión Radio IPN XHIPN-FM 95.7 MHZ."],
-              [ "FDN-POI-141", "Patronato de Obras e Instalaciones  (POI)"],
-              [ "FDN-COFAA-142", "Comisión de Operación y Fomento de Actividades Académicas (COFAA)"]
-              ]);
-
-*/
 
 
 const siglasDependencias = new Map([
@@ -4154,14 +3823,6 @@ const opciones = obtenerListaDependencias();
 
 
 
-
-
-
-
-
-  
-
-
 function actualizarObligatoriedadFila(fila) {
   const equipo = fila.querySelector(".obligatorio");
   if (!equipo) return;
@@ -4239,78 +3900,205 @@ document.getElementById("tablaBody5").addEventListener("input", function (e) {
 });
 
 
-/*
-document.getElementById("tablaBody6").addEventListener("input", function (e) {
-  if (!e.target.classList.contains("obligatorio")) return;
-
-  const fila = e.target.closest("tr");
-  actualizarObligatoriedadFila(fila);
-});
-
-*/
-
-
-//----------------------Agregar fila
-
-
-                                    
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
+  
 
 
 function obtenerNumeroFila1(){
-  return document.querySelectorAll("#tablaBody tr").length -1;
+     const filas = document.querySelectorAll("#tablaBody tr");
+
+    let numero = 1;
+
+    filas.forEach(fila => {
+
+        // No contar ejemplos
+        if (
+            fila.classList.contains("ejemplo") ||
+            fila.querySelector(".ejemplo")
+        ) {
+            return;
+        }
+
+        // No contar total
+ /*       if (fila.id === "filaTotalTabla") {
+            return;
+        }
+*/
+        numero++;
+    });
+
+    return numero;
+
+    //  return document.querySelectorAll("#tablaBody tr").length -1;
 }
 function obtenerNumeroFila1_1(){
-  return document.querySelectorAll("#tablaBody1_1 tr").length -1;
+      const filas = document.querySelectorAll("#tablaBody1_1 tr");
+
+    let numero = 1;
+
+    filas.forEach(fila => {
+
+        // No contar ejemplos
+        if (
+            fila.classList.contains("ejemplo") ||
+            fila.querySelector(".ejemplo")
+        ) {
+            return;
+        }
+
+        // No contar total
+ /*       if (fila.id === "filaTotalTabla") {
+            return;
+        }
+*/
+        numero++;
+    });
+
+    return numero;
+  //return document.querySelectorAll("#tablaBody1_1 tr").length -1;
 }
 
 
 function obtenerNumeroFila2(){
-  return document.querySelectorAll("#tablaBody2 tr").length - 1;
+       const filas = document.querySelectorAll("#tablaBody2 tr");
+
+    let numero = 1;
+
+    filas.forEach(fila => {
+
+        // No contar ejemplos
+        if (
+            fila.classList.contains("ejemplo") ||
+            fila.querySelector(".ejemplo")
+        ) {
+            return;
+        }
+
+        // No contar total
+ /*       if (fila.id === "filaTotalTabla") {
+            return;
+        }
+*/
+        numero++;
+    });
+
+    return numero;
+//  return document.querySelectorAll("#tablaBody2 tr").length - 1;
 }
 
 function obtenerNumeroFila3(){
-  return document.querySelectorAll("#tablaBody3 tr").length - 1;
+       const filas = document.querySelectorAll("#tablaBody3 tr");
+
+    let numero = 1;
+
+    filas.forEach(fila => {
+
+        // No contar ejemplos
+        if (
+            fila.classList.contains("ejemplo") ||
+            fila.querySelector(".ejemplo")
+        ) {
+            return;
+        }
+
+        // No contar total
+ /*       if (fila.id === "filaTotalTabla") {
+            return;
+        }
+*/
+        numero++;
+    });
+
+    return numero;
+//    return document.querySelectorAll("#tablaBody3 tr").length - 1;
 }
 
 function obtenerNumeroFilaC(){
-  return document.querySelectorAll("#tablaCotizaciones tr").length + 1;
+         const filas = document.querySelectorAll("#tablaCotizaciones tr");
+
+    let numero = 1;
+
+    filas.forEach(fila => {
+
+        // No contar ejemplos
+        if (
+            fila.classList.contains("ejemplo") ||
+            fila.querySelector(".ejemplo")
+        ) {
+            return;
+        }
+
+        // No contar total
+ /*       if (fila.id === "filaTotalTabla") {
+            return;
+        }
+*/
+        numero++;
+    });
+
+    return numero;
+//    return document.querySelectorAll("#tablaCotizaciones tr").length + 1;
 }
 
 function obtenerNumeroFila4(){
-  return document.querySelectorAll("#tablaBody4 tr").length - 1;
+
+             const filas = document.querySelectorAll("#tablaBody4 tr");
+
+    let numero = 1;
+
+    filas.forEach(fila => {
+
+        // No contar ejemplos
+        if (
+            fila.classList.contains("ejemplo") ||
+            fila.querySelector(".ejemplo")
+        ) {
+            return;
+        }
+
+    // No contar total
+         if (fila.id === "filaTotalTabla") {
+            return;
+        }
+
+        numero++;
+    });
+
+    return numero;
+
+//  return document.querySelectorAll("#tablaBody4 tr").length - 1;
 }
 
 function obtenerNumeroFila5(){
-  return document.querySelectorAll("#tablaBody5 tr").length - 1;
-}
 
-/*
-function obtenerNumeroFila6(){
-  return document.querySelectorAll("#tablaBody6 tr").length + 1;
-}
+     
+                const filas = document.querySelectorAll("#tablaBody5 tr");
 
+    let numero = 1;
+
+    filas.forEach(fila => {
+
+        // No contar ejemplos
+        if (
+            fila.classList.contains("ejemplo") ||
+            fila.querySelector(".ejemplo")
+        ) {
+            return;
+        }
+
+        // No contar total
+ /*       if (fila.id === "filaTotalTabla") {
+            return;
+        }
 */
+        numero++;
+    });
+
+    return numero;
+
+//  return document.querySelectorAll("#tablaBody5 tr").length - 1;
+}
+
+
 
 
 function formatearMiles(input) {
@@ -4483,6 +4271,10 @@ function activarAutoExpand(fila){
   });
 }
 
+
+
+
+
 document.getElementById("miFormulario").addEventListener("keydown", function (e) {
     if (e.key === "Enter") {
       e.preventDefault();
@@ -4507,20 +4299,6 @@ function generarFolio() {
 
 
 
-
-//------------------------Separacion de tablas por ventana
-/*function siguiente(numero){
-
-  document
-    .getElementById(`paso${numero}`)
-    .classList.remove("activo");
-
-  document
-    .getElementById(`paso${numero+1}`)
-    .classList.add("activo");
-}
-
-*/
 
 function siguiente(numero,numeroActivar){
 
@@ -4751,29 +4529,12 @@ let folioValor = document.getElementById("folioInput");
       
       // ⬇️ Ahora sí, restaurar la tabla
       restaurarTabla(data);
-/*
-for(let i =3;i<data.__filas4+2;i++){
-  
-  const estado = data[`ProgramaAcademico_T4R${i}RO`];
-  alert(estado===true || estado==="true");
-  alert(estado);
-  //alert(document.getElementById(`ProgramaAcademico_T4R${i}`).readOnly);
-
-
-
-  document.getElementById(`ProgramaAcademico_T4R${i}`).readOnly=estado === true || estado === "true";
-
-  }
-*/
-/*
-document.querySelectorAll(".check-verificacion").forEach(check => {
-
-    if (data.hasOwnProperty(check.name)) {
-        check.value= data[check.name];
-    }
-
+document.querySelectorAll("textarea.auto-expand").forEach(textarea => {
+    textarea.style.height = "auto";
+    textarea.style.height = textarea.scrollHeight + "px";
 });
-*/
+
+
 document
     .querySelectorAll(".Tabla4 .unitario")
     .forEach(precioInput => {
@@ -4782,11 +4543,6 @@ document
 
 
 
-
-/*
-document.querySelector(".Tabla4")
-               .addEventListener("change",precioTotalMasIVA);
- */              
 
 document.querySelectorAll(".check-verificacion").forEach(check => {
 
@@ -4861,35 +4617,40 @@ document.getElementById(`MalEstado_T5E${index}`).textContent=ejemplos[`MalEstado
 document.getElementById(`BuenEstado_T5E${index}`).textContent=ejemplos[`BuenEstado_T5E${index}`]                ;
 document.getElementById(`EstadoRegular_T5E${index}`).textContent=ejemplos[`EstadoRegular_T5E${index}`]            ;
 
-
-
-
 }
+
+
 
       document.querySelectorAll("#tablaBody tr").forEach(fila => {
                            actualizarObligatoriedadFila(fila);
+                           activarAutoExpand(fila);
       });
       document.querySelectorAll("#tablaBody1_1 tr").forEach(fila => {
                            actualizarObligatoriedadFila(fila);
+                           activarAutoExpand(fila);
       });
       document.querySelectorAll("#tablaBody2 tr").forEach(fila => {
                            actualizarObligatoriedadFila(fila);
+                           activarAutoExpand(fila);
       });
       document.querySelectorAll("#tablaBody3 tr").forEach(fila => {
                            actualizarObligatoriedadFila(fila);
+                           activarAutoExpand(fila);
       });
       document.querySelectorAll("#tablaBody4 tr").forEach(fila => {
                            actualizarObligatoriedadFila(fila);
+                           activarAutoExpand(fila);
       });
       document.querySelectorAll("#tablaBody5 tr").forEach(fila => {
                            actualizarObligatoriedadFila(fila);
+                           activarAutoExpand(fila);
       });
 
-/*      
-      document.querySelectorAll("#tablaBody6 tr").forEach(fila => {
-                           actualizarObligatoriedadFila(fila);
-      });
-*/
+
+
+
+      
+
 
 //    }, 0);
 //  }, 0);
@@ -4906,6 +4667,11 @@ document.getElementById(`EstadoRegular_T5E${index}`).textContent=ejemplos[`Estad
 
 }
 
+//   activarAutoExpand(fila);
+
+
+
+
 
 document
     .getElementById("cargarDependencia")
@@ -4919,8 +4685,17 @@ document
 //---------------------------GuardarBorrador--------------------------------------------------
 
 
-  document.getElementById("guardarBorrador").addEventListener("click", async () => {
-  const form = document.getElementById("miFormulario");
+//-----------------------------Funcion-------------------------------------
+let ultimoBorradorGuardado = "";
+let temporizadorAutoguardado ;
+
+
+
+//--------------------------------Funcion Guardar Borrador---------------------------------------
+
+async function guardarBorradorAutomatico(mostrarAlerta = false) {
+
+const form = document.getElementById("miFormulario");
   const formData = new FormData(form);
 
   const data = {};
@@ -4936,26 +4711,20 @@ document
   data.__filas3 = document.querySelectorAll("#tablaBody3 tr").length;
   data.__filas4 = document.querySelectorAll("#tablaBody4 tr").length;
   data.__filas5 = document.querySelectorAll("#tablaBody5 tr").length;
-  /*
-  data.__filas6 = document.querySelectorAll("#tablaBody6 tr").length;
   
-  */
   if(folioActual==null){
              folioActual = generarFolio();
   }
   data.__folio = folioActual;
 
 
+const borradorActual = JSON.stringify(data);
+if (!mostrarAlerta && borradorActual === ultimoBorradorGuardado) {
+    return;
+}
 
 
 try {
-/*  
-    const res = await fetch(direccionEnlace, {
-      method: "POST",
-      body: JSON.stringify({action: "guardarBorrador", data})
-    });
-
-*/
 
 const partes = dividirData(data);
 
@@ -4980,15 +4749,119 @@ const res = await fetch(direccionEnlace, {
 
   const json = await res.json();
 if (json.success) {
-      alert(`✅ Borrador  de la dependencia ${data.dependencia} guardado correctamente. Recuerda que tu solicitud esta para : ${data.tipoDeSolicitud}`);
+
+    ultimoBorradorGuardado = borradorActual;
+
+    if (mostrarAlerta) {
+    
+                       alert(`✅ Borrador  de la dependencia ${data.dependencia} guardado correctamente. Recuerda que tu solicitud esta para : ${data.tipoDeSolicitud}`);
+    }else{
+                 mostrarEstadoGuardado("✅ Borrador guardado automáticamente");
+    }
+    
+    
     } else {
-      alert("⚠️ Error al guardar el borrador: " + json.message);
+                if (mostrarAlerta) {  
+
+                       alert("⚠️ Error al guardar el borrador: " + json.message);
+                }else{
+                        mostrarEstadoGuardado("⚠ Error al guardar");
+
+                }           
     }
   } catch (e) {
-    alert("⚠️ Error de conexión al guardar el borrador"+e.message);
+            if (mostrarAlerta) {
+                                alert("⚠️ Error de conexión al guardar el borrador"+e.message);
+            }else{
+                                mostrarEstadoGuardado("⚠ Error de conexión");
+            }
+
+}
+
+};
+
+
+   let temporizadorToast;
+
+function mostrarEstadoGuardado(mensaje) {
+
+    const toast = document.getElementById("estadoGuardado");
+
+    clearTimeout(temporizadorToast);
+
+    toast.textContent = mensaje;
+    toast.classList.add("mostrar");
+
+    temporizadorToast = setTimeout(() => {
+        toast.classList.remove("mostrar");
+    }, 2500);
+}
+
+/*
+document
+    .getElementById("miFormulario")
+    .addEventListener("input", () => {
+
+        clearTimeout(temporizadorAutoguardado);
+
+        temporizadorAutoguardado = setTimeout(() => {
+
+            guardarBorradorAutomatico(false);
+
+        }, 20000);
+
+
+    });
+
+
+
+setInterval(() => {
+
+  if (hayCambios) {
+    guardarBorradorAutomatico(false);
+    hayCambios = false;
   }
 
-});
+}, 1200000);
+*/
+
+
+
+
+let hayCambios = false;
+
+document
+  .getElementById("miFormulario")
+  .addEventListener("input", () => {
+
+    hayCambios = true;
+
+    clearTimeout(temporizadorAutoguardado);
+
+    temporizadorAutoguardado = setTimeout(() => {
+      guardarBorradorAutomatico(false);
+      hayCambios = false;
+    }, 20000);
+
+  });
+
+
+setInterval(() => {
+
+  if (hayCambios) {
+    guardarBorradorAutomatico(false);
+    hayCambios = false;
+  }
+
+}, 1200000);
+
+
+document.getElementById("guardarBorrador").addEventListener("click", () => {
+
+        guardarBorradorAutomatico(true);
+
+    });
+
 
 
 
@@ -5039,7 +4912,7 @@ function restaurarTabla(data) {
  
  */
 
-  tbody.innerHTML = `<tr>
+  tbody.innerHTML = `<tr class="ejemplo">
                                                                              <td title="Numero de Fila" class="ejemplo">
                                                                                       Ejemplo                                  
                                                                               </td> 
@@ -5080,7 +4953,7 @@ function restaurarTabla(data) {
 
                                                                          </tr> 
 
-                                                                            <tr>
+                                                                            <tr class="ejemplo">
                                                                                <td title="Numero de Fila" class="ejemplo">
                                                                                                                         
                                                                               </td>
@@ -5119,7 +4992,7 @@ function restaurarTabla(data) {
                                                                              </td>
 
                                                                          </tr>` ;
-                                                         tbody1.innerHTML = `<tr>
+                                                         tbody1.innerHTML = `<tr class="ejemplo">
                                                                               <td title="Numero de Fila" class="ejemplo">
                                                                                                                         
                                                                               </td>
@@ -5159,7 +5032,7 @@ function restaurarTabla(data) {
                                                                              </td>
 
                                                                          </tr>
-                                                                         <tr>
+                                                                         <tr class="ejemplo">
                                                                               <td title="Numero de Fila" class="ejemplo">
                                                                                                                         
                                                                               </td>
@@ -5198,7 +5071,7 @@ function restaurarTabla(data) {
                                                                              </td>
                                                                              <tr>
                                                                              `;
-  tbody2.innerHTML = `<tr>
+  tbody2.innerHTML = `<tr class="ejemplo">
                                                                    <td title="Numero de Fila" class="ejemplo">
                                                                                                                         
                                                                    </td>
@@ -5227,7 +5100,7 @@ function restaurarTabla(data) {
                                                                    
                                                               </tr>
                                
-                                                              <tr>
+                                                              <tr class="ejemplo">
                                                                  <td title="Numero de Fila" class="ejemplo">
                                                                                                                         
                                                                               </td>
@@ -5256,7 +5129,7 @@ function restaurarTabla(data) {
                                                                        
                                                                    </td>
                                                               </tr>`;
-  tbody3.innerHTML = `<tr>
+  tbody3.innerHTML = `<tr class="ejemplo">
                                                                 <td title="Numero de Fila" class="ejemplo">
                                                                                                                         
                                                                               </td>
@@ -5271,7 +5144,7 @@ function restaurarTabla(data) {
                                                                  
                                                                  
                                                             </tr>
-                                                            <tr>
+                                                            <tr class="ejemplo">
                                                                  <td title="Numero de Fila" class="ejemplo">
                                                                                                                         
                                                                               </td>
@@ -5287,7 +5160,7 @@ function restaurarTabla(data) {
                                                             </tr>`;
   tbodyC.innerHTML = ``;
 
-  tbody4.innerHTML = `<tr>
+  tbody4.innerHTML = `<tr class="ejemplo">
                                                                      <td title="Numero de Fila" class="ejemplo">
                                                                                                                         
                                                                      </td>
@@ -5376,7 +5249,7 @@ function restaurarTabla(data) {
                                                                </tr>                                                                                                              
 
 
-                                                               <tr>
+                                                               <tr class="ejemplo">
                                                                      <td title="Numero de Fila" class="ejemplo">
                                                                                                                         
                                                                     </td>
@@ -5462,7 +5335,7 @@ function restaurarTabla(data) {
                                                                     </td>                                                                                                             
                                                                                                                                                                                  
                                                                </tr>`;
-  tbody5.innerHTML = `<tr>
+  tbody5.innerHTML = `<tr class="ejemplo">
                                                                     <td title="Numero de Fila"  class="ejemplo">
                                                                                                                         
                                                                  </td>
@@ -5479,8 +5352,17 @@ function restaurarTabla(data) {
                                                                         Nombre genérico del equipo                                                                                                                                                                                              
                                                                     </td>                                                                                                                                                                                              
                                                                                                                                                                                                                                                                   
-                                                                    <td title=" Especificaciones y Desempeño Operativo" id="Especificaciones_T5E1" class="ejemplo">                                                                                                                                                                                              
-                                                                         Especificaciones y Desempeño Operativo                                                                                                                                                                                               
+                                                                    <td title=" Especificaciones y Desempeño Operativo"  class="ejemplo">                                                                                                                                                                                              
+                                                                                            <textarea
+                                                                                                            id="Especificaciones_T5E1"
+                                                                                                           name="Especificaciones_T5E1"
+                                                                                                           class="auto-expand input_tabla expandible ejemplo"
+                                                                                                           rows="1"
+                                                                                                           style="resize:none;"
+                                                                                                           aria-label="Especificaciones"
+                                                                                                           readonly
+                                                                                                           >
+                                                                                       </textarea>                                                                                                                                                                                              
                                                                     </td>                                                                                                                                                                                               
                                                                                                                                                                                                                                                                   
                                                                     <td title="Cuantos equipos en mal estado (obsoletos, a remplazar)" id="MalEstado_T5E1" class="ejemplo">                                                                                                                                                                                              
@@ -5497,7 +5379,7 @@ function restaurarTabla(data) {
                                                                </tr>                                                                                                                                                                                              
                                                                
                                                                
-                                                               <tr>
+                                                               <tr class="ejemplo">
                                                                      <td title="Numero de Fila" class="ejemplo">
                                                                                                                         
                                                                  </td>
@@ -5514,8 +5396,17 @@ function restaurarTabla(data) {
                                                                         Nombre genérico del equipo
                                                                     </td>
                                                                     
-                                                                    <td title=" Especificaciones y Desempeño Operativo" id="Especificaciones_T5E2" class="ejemplo">
-                                                                         Especificaciones y Desempeño Operativo 
+                                                                    <td title=" Especificaciones y Desempeño Operativo"  class="ejemplo">
+                                                                                        <textarea
+                                                                                                            id="Especificaciones_T5E2"
+                                                                                                           name="Especificaciones_T5E2"
+                                                                                                           class="auto-expand input_tabla expandible ejemplo"
+                                                                                                           rows="1"
+                                                                                                           style="resize:none;"
+                                                                                                           aria-label="Especificaciones"
+                                                                                                           readonly
+                                                                                                           >
+                                                                                       </textarea>
                                                                     </td> 
                                                                     
                                                                     <td title="Cuantos equipos en mal estado (obsoletos, a remplazar)" id="MalEstado_T5E2" class="ejemplo">
@@ -5585,40 +5476,9 @@ function restaurarTabla(data) {
   }
   //--------------------------------------------------------------------------------    
 
-/*
-const nombreRelleno = campo.dataset.relleno;
-
-const campo2 = nombreRelleno
-    ? document.querySelector(`[name="${nombreRelleno}"]`)
-    : null;
-
-if (campo2) {
-
-    campo.value = campo2.value;
-} else {
-*/    campo.value = data[name];
+    campo.value = data[name];
 // }
 
-
-
-//     const campo2 = document.querySelector(`[name="${campo.dataset.relleno}"]`);
-//     
-
-    
-//    campo.readOnly = check.value === true || check.value === "true";
-
-
-
-//-----------------------------------------------------   
-
-
-/*
-if (!campo2){   
-    campo.value = data[name];
-}else{
-    campo.value =campo2.value;
-}    
-*/
 if (campo.tagName === "TEXTAREA") {
       campo.style.height = "auto";
       campo.style.height = campo.scrollHeight + "px";
@@ -5644,26 +5504,6 @@ if (campo.tagName === "TEXTAREA") {
     }
 });
 
-/*
-document.querySelectorAll("").forEach(campo => {
-
-    const nombreOrigen = campo.dataset.relleno;
-
-    const campoOrigen = document.querySelector(
-        `[name="${nombreOrigen}"]`
-    );
-
-    if (!campoOrigen) return;
-
-    campo.value = campoOrigen.value;
-
-    if (campo.tagName === "TEXTAREA") {
-        campo.style.height = "auto";
-        campo.style.height = campo.scrollHeight + "px";
-    }
-});
-
-*/
 document.querySelectorAll('[name^="CotizacionAdquisicionG"]').forEach(campo => {
          const url  = campo.dataset.compa;
          const name = campo.dataset.compa2;
@@ -5683,12 +5523,6 @@ document.querySelectorAll('[name^="CotizacionAdquisicionG"]').forEach(campo => {
 
 crearFilaTotalTabla4();
 actualizarTotalesTabla4();
-
-
-
-
-
-
 
 
 }
@@ -6877,7 +6711,7 @@ function dividirData(data, partes = 8) {
 }
 
 
-
+/*
 crearFilaTotales("tablaBody4", {
   cantidad: "cantidad_T4R",
   precio1: "precio_T4R",
@@ -6885,6 +6719,175 @@ crearFilaTotales("tablaBody4", {
   precio2: "precio2_T4R",
   total2: "precioTotal2_T4R"
 });
+*/
+document.addEventListener("click", function (event) {
+
+    const boton = event.target.closest(".borrar-fila");
+    if (!boton) return;
+
+    const fila = boton.closest("tr");
+    if (!fila) return;
+
+    // Obtener tbody ANTES de borrar
+    const tbody = fila.closest("tbody");
+
+    // Prueba del name
+    const campo = fila.querySelector("[name]");
+
+    //  if (campo) {
+    //    alert("Nombre antes de borrar: " + campo.name);
+    //  }
+
+    // Ahora sí borrar
+    fila.remove();
+
+    renumerarFilas(tbody);
+});
+
+
+/*
+function renumerarFilas(tbody) {
+
+    const filas = tbody.querySelectorAll("tr").filter(fila => !fila.querySelector(".ejemplo"));
+
+    filas.forEach((fila, indice) => {
+ 
+        const nuevoNumero = indice +1;
+
+        const celdaNumero = fila.cells[0];
+        if (celdaNumero) {
+                        celdaNumero.textContent = nuevoNumero;
+        }
+
+        fila.querySelectorAll("[name], [id]").forEach(elemento  => {
+            
+            
+            if (elemento.name) {
+                elemento.name = elemento.name.replace(
+                    /R\d+/,
+                    `R${nuevoNumero}`
+                );
+             //   alert(elemento.name);
+           
+            }
+            
+            if (elemento.id) {
+                elemento.id = elemento.id.replace(
+                    /R\d+/,
+                    `R${nuevoNumero}`
+                );
+//                alert(elemento.id);
+                       }
+           
+//                alert(elemento.name);
+                  
+        });
+
+        // Actualizar referencias de los data-*
+        fila.querySelectorAll("[data-campo]").forEach(elemento => {
+
+            elemento.dataset.campo =
+                elemento.dataset.campo.replace(
+                    /R\d+/,
+                    `R${nuevoNumero}`
+                );
+        });
+
+        fila.querySelectorAll("[data-precio]").forEach(elemento => {
+
+            elemento.dataset.precio =
+                elemento.dataset.precio.replace(
+                    /R\d+/,
+                    `R${nuevoNumero}`
+                );
+        });
+
+        fila.querySelectorAll("[data-cant]").forEach(elemento => {
+
+            elemento.dataset.cant =
+                elemento.dataset.cant.replace(
+                    /R\d+/,
+                    `R${nuevoNumero}`
+                );
+        });
+    });
+}
+    */
+
+
+
+function renumerarFilas(tbody) {
+
+    const filas = tbody.querySelectorAll("tr");
+
+    let nuevoNumero = 1;
+
+    filas.forEach(fila => {
+
+        // Si es fila de ejemplo, NO cuenta
+        if (fila.querySelector(".ejemplo")) {
+            return;
+        }
+
+        // Si es la fila TOTAL, tampoco cuenta
+        if (fila.id === "filaTotalTabla4") {
+            return;
+        }
+
+        const celdaNumero = fila.cells[0];
+
+        if (celdaNumero) {
+            celdaNumero.textContent = nuevoNumero;
+        }
+
+        fila.querySelectorAll("[name], [id]").forEach(elemento => {
+
+            if (elemento.classList.contains("ejemplo")) return;
+
+            if (elemento.name) {
+                elemento.name = elemento.name.replace(
+                    /R\d+/,
+                    `R${nuevoNumero}`
+                );
+            }
+
+            if (elemento.id) {
+                elemento.id = elemento.id.replace(
+                    /R\d+/,
+                    `R${nuevoNumero}`
+                );
+            }
+        });
+
+        fila.querySelectorAll("[data-campo]").forEach(elemento => {
+            elemento.dataset.campo =
+                elemento.dataset.campo.replace(
+                    /R\d+/,
+                    `R${nuevoNumero}`
+                );
+        });
+
+        fila.querySelectorAll("[data-precio]").forEach(elemento => {
+            elemento.dataset.precio =
+                elemento.dataset.precio.replace(
+                    /R\d+/,
+                    `R${nuevoNumero}`
+                );
+        });
+
+        fila.querySelectorAll("[data-cant]").forEach(elemento => {
+            elemento.dataset.cant =
+                elemento.dataset.cant.replace(
+                    /R\d+/,
+                    `R${nuevoNumero}`
+                );
+        });
+
+        // SOLO aumenta si fue una fila real
+        nuevoNumero++;
+    });
+}
+
 
 
 
