@@ -1,3 +1,7 @@
+//---------------------------------------Creacion de la estructura de la tabla----------------------------------------
+
+
+
 const tbody  = document.getElementById("tablaBody");
 const tbody1 = document.getElementById("tablaBody1_1");
 const tbody2 = document.getElementById("tablaBody2");
@@ -477,7 +481,7 @@ function agregarFila2(){
                 data-campo="Nivel_T2R${i}"
             >
         </td>
-
+        
         <td>
             <input
                 name="Espacio_T2R${i}"
@@ -713,12 +717,12 @@ function agregarFilaC(){
             ${i}
         </td>
 
-        <td>
+        <td class="paso">
             <input
                 name="nombreCotizacion_TCR${i}"
                 id="nombreCotizacion_TCR${i}"
 
-                class="input_tabla"
+                class="input_tabla "
                 aria-label="Nombre de la Cotizacion"
                 readonly
             >
@@ -775,7 +779,7 @@ function agregarFilaC(){
 
         </td>
 
-        <td>
+        <td class="paso">
             <input
                 id="nombreCotizacion2_TCR${i}"
                 name="nombreCotizacion2_TCR${i}"
@@ -857,17 +861,23 @@ function agregarFila4(){
         <td>
             ${i}
         </td>
+        
+
+
 
         <td>
-            <textarea
-                name="ProgramaAcademico_T4R${i}"
+            <select
                 id="ProgramaAcademico_T4R${i}"
-                class="auto-expand input_tabla obligatorio"
-                rows="1"
-                style="resize:none;"
-                aria-label="Programa Académico">
-            </textarea>
+                name="ProgramaAcademico_T4R${i}"
+                class="tabla_select"
+                aria-label="Programa academico">
 
+                <option value="">
+                    -- Selecciona un programa--
+                </option>
+
+            </select>
+        
             <input
                 name="ProgramaAcademico_T4R${i}RO"
                 type="text"
@@ -881,13 +891,18 @@ function agregarFila4(){
 
 
         <td>
-            <textarea
+            <select
+                id="Espacio_T4R${i}"
                 name="Espacio_T4R${i}"
-                class="auto-expand input_tabla obligatorio"
-                rows="1"
-                style="resize:none;"
+                class="tabla_select"
                 aria-label="Espacio">
-            </textarea>
+
+                <option value="">
+                    -- Selecciona un programa--
+                </option>
+
+            </select>
+
 
             <input
                 name="Espacio_T4R${i}RO"
@@ -921,13 +936,12 @@ function agregarFila4(){
             >
         </td>
 
-
-
-
+          
 
         <td>
             <textarea
                 name="nombredelEquipo_T4R${i}"
+                id="nombredelEquipo_T4R${i}"
                 class="auto-expand input_tabla obligatorio"
                 rows="1"
                 style="resize:none;"
@@ -976,7 +990,7 @@ function agregarFila4(){
         <td>
             <textarea
                 name="especificaciones_T4R${i}"
-                class="auto-expand input_tabla expandible"
+                class="auto-expand input_tabla expandible limite-altura"
                 rows="1"
                 style="resize:none;"
                 aria-label="Especificaciones"
@@ -1003,7 +1017,7 @@ function agregarFila4(){
             <textarea
                 id="justificacion_T4R${i}"
                 name="justificacion_T4R${i}"
-                class="auto-expand input_tabla expandible"
+                class="auto-expand input_tabla expandible limite-altura"
                 rows="1"
                 style="resize:none;"
                 aria-label="Justificación">
@@ -1295,6 +1309,7 @@ function agregarFila5(){
         <td>
             <textarea
                 name="ProgramaAcademico_T5R${i}"
+                id="ProgramaAcademico_T5R${i}"
                 class="auto-expand input_tabla obligatorio"
                 rows="1"
                 style="resize:none;"
@@ -1309,6 +1324,7 @@ function agregarFila5(){
         <td>
             <textarea
                 name="Espacio_T5R${i}"
+                id="Espacio_T5R${i}"
                 class="auto-expand input_tabla obligatorio"
                 rows="1"
                 style="resize:none;"
@@ -1323,6 +1339,7 @@ function agregarFila5(){
         <td>
             <textarea
                 name="nombredelEquipo_T5R${i}"
+                id="nombredelEquipo_T5R${i}"
                 class="auto-expand input_tabla obligatorio"
                 rows="1"
                 style="resize:none;"
@@ -1433,6 +1450,9 @@ crearFilaTotalTabla4();
 
 //---------------------------------------------------Actualizacion de los selects de nombres de archivos
 
+
+/*
+
 tbodyC.addEventListener("change", e => {
   if (!(e.target.name?.startsWith("CotizacionAdquisicionG1_TCR") ||e.target.name?.startsWith("CotizacionAdquisicionG2_TCR"))) return;
       
@@ -1448,8 +1468,10 @@ tbodyC.addEventListener("change", e => {
 //--------------------------------Asignacion de los nombres de la tabla C------------------
 
 
+
     if (e.target.name?.startsWith("CotizacionAdquisicionG1_TCR")){  
-             document.getElementById(`nombreCotizacion_TCR${numeroFila}`).value=archivo.name;
+  
+              document.getElementById(`nombreCotizacion_TCR${numeroFila}`).value=archivo.name;
 
 
              //--------------------------------Asignacion de los nombres de los selects de la tabla 4------------------
@@ -1474,6 +1496,9 @@ tbodyC.addEventListener("change", e => {
     if(e.target.name?.startsWith("CotizacionAdquisicionG2_TCR")){
 
             document.getElementById(`nombreCotizacion2_TCR${numeroFila}`).value=archivo.name;
+            
+            
+            //--------------------------------Asignacion de los nombres de los selects de la tabla 4------------------
             for (const fila of tbody4.rows) {
                         const select = fila.querySelector(
                                         'select[name^="nombreCotizacion2_T4R"]'
@@ -1489,6 +1514,227 @@ tbodyC.addEventListener("change", e => {
     }
 });
 
+*/
+
+//-----------------------------------------------Enlaces Tabla1-Tabla4-Tabla2------------------------------------------------------------------------- 
+
+
+
+//---------------------------------------------------Actualizacion de los selects de nombres de archivos
+
+
+
+
+
+//---------------------------------------Funciones para cargar selects---------------------------------------------------------
+
+function actualizarOpcionesProgramas() {
+
+    // Obtener todos los programas escritos actualmente en Tabla 1
+    const programas = [];
+
+    tbody.querySelectorAll(
+    '[name^="Programa_T1R"]:not([type="checkbox"])'
+                             ).forEach(input => {
+
+
+    //tbody.querySelectorAll('[name^="Programa_T1R"]').forEach(input => {
+
+        const valor = input.value.trim();
+
+        if (!valor) return;
+
+        programas.push(valor);
+    });
+
+
+    // Actualizar todos los selects de Programa de Tabla 4
+    tbody4.querySelectorAll(
+        'select[name^="ProgramaAcademico_T4R"]'
+    ).forEach(select => {
+
+        // Guardar lo que tenía seleccionado
+        const valorActual = select.value;
+
+        // Borrar las opciones anteriores
+        select.innerHTML =
+            '<option value="">Seleccione...</option>';
+
+        // Volver a crear las opciones
+        programas.forEach(programa => {
+
+            const option = document.createElement("option");
+
+            option.value = programa;
+            option.textContent = programa;
+
+            select.appendChild(option);
+        });
+
+        // Conservar la selección si todavía existe
+        select.value = valorActual;
+    });
+}
+
+tbody.addEventListener("change", e => {
+
+    if (!e.target.name?.startsWith("Programa_T1R")) return;
+
+    actualizarOpcionesProgramas();
+});
+
+
+//-----------------------------------------selects- tabla 4.Espacio-------------------------------------------------
+
+function actualizarOpcionesEspacios() {
+
+    const espacios = [];
+
+    tbody2.querySelectorAll('[name^="Espacio_T2R"]:not([type="checkbox"])').forEach(input => {
+
+        const valor = input.value.trim();
+
+        if (!valor) return;
+
+        espacios.push(valor);
+    });
+
+
+    tbody4.querySelectorAll(
+        'select[name^="Espacio_T4R"]'
+    ).forEach(select => {
+
+        const valorActual = select.value;
+
+        select.innerHTML =
+            '<option value="">Seleccione...</option>';
+
+        espacios.forEach(espacio => {
+
+            const option = document.createElement("option");
+
+            option.value = espacio;
+            option.textContent = espacio;
+
+            select.appendChild(option);
+        });
+
+        select.value = valorActual;
+    });
+}
+
+
+tbody2.addEventListener("change", e => {
+
+    if (!e.target.name?.startsWith("Espacio_T2R")) return;
+
+    actualizarOpcionesEspacios();
+});
+
+
+
+function actualizarOpcionesCotizacion1() {
+    const nombresCot = [];
+
+
+    tbodyC.querySelectorAll('[name^="CotizacionAdquisicionG1_TCR"]:not([type="checkbox"])').forEach(input => {
+        
+        if (input.files.length === 0) return;
+       
+             const  valor = input.files[0].name;
+//             const valor = input.value.trim();
+
+        if (!valor) return;
+
+        nombresCot.push(valor);
+    });
+
+
+    
+    // ---------------- COTIZACIÓN 1 ----------------
+
+    tbody4.querySelectorAll(
+        'select[name^="nombreCotizacion_T4R"]'
+    ).forEach(select => {
+
+        const valorActual = select.value;
+
+        select.innerHTML =
+            '<option value="">Seleccione...</option>';
+        nombresCot.forEach(nombre => {
+
+            const option = document.createElement("option");
+
+            option.value = nombre;
+            option.textContent = nombre;
+
+            select.appendChild(option);
+        });
+
+        select.value = valorActual;
+    });
+
+    
+}
+
+
+
+
+
+function actualizarOpcionesCotizacion2() {
+    const nombresCot = [];
+
+    
+    tbodyC.querySelectorAll('[name^="CotizacionAdquisicionG2_TCR"]:not([type="checkbox"])').forEach(input => {
+        
+        if (input.files.length === 0) return;
+       
+             const  valor = input.files[0].name;
+//             const valor = input.value.trim();
+
+        if (!valor) return;
+
+        nombresCot.push(valor);
+    });
+    
+    // ---------------- COTIZACIÓN 1 ----------------
+
+    tbody4.querySelectorAll(
+        'select[name^="nombreCotizacion2_T4R"]'
+    ).forEach(select => {
+
+        const valorActual = select.value;
+
+        select.innerHTML =
+            '<option value="">Seleccione...</option>';
+        nombresCot.forEach(nombre => {
+
+            const option = document.createElement("option");
+
+            option.value = nombre;
+            option.textContent = nombre;
+
+            select.appendChild(option);
+        });
+
+        select.value = valorActual;
+    });
+    
+}
+
+
+tbodyC.addEventListener("change", e => {
+
+    if (!e.target.name?.startsWith("CotizacionAdquisicionG1_TCR")) return;
+
+    actualizarOpcionesCotizacion1();
+});
+
+tbodyC.addEventListener("change", e => {
+
+    if (!e.target.name?.startsWith("CotizacionAdquisicionG2_TCR")) return;
+    actualizarOpcionesCotizacion2();
+});
 
 
 
@@ -1498,7 +1744,35 @@ tbodyC.addEventListener("change", e => {
 
 
 
-//------------------------Craer boton de borrar y cargar archivo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//------------------------Crear boton de borrar y cargar archivo
 
 document.addEventListener("change", (e) => {
 
@@ -4367,10 +4641,19 @@ function precioTotalMasIVA(precioInput) {
                 actualizarTotalesTabla4();    
             }
     
-       document
+document
                .querySelector(".Tabla4")
                .addEventListener("change",function (event){
-                        precioTotalMasIVA(event.target)
+    
+            const origen = event.target;    
+               document
+            .querySelectorAll(`[data-relleno="${origen.id}"]`)
+            .forEach(destino => {
+                destino.value = origen.value;
+            });
+                
+               precioTotalMasIVA(event.target);
+
                });
 
 
@@ -4378,6 +4661,28 @@ function precioTotalMasIVA(precioInput) {
 
 
 
+/*
+document
+        .getElementById(precioTotal);
+document.querySelectorAll("#tablaBody5 [data-relleno]").forEach(campo => {
+
+    const nombreOrigen = campo.dataset.relleno;
+
+    const campoOrigen = document.querySelector(
+        `[name="${nombreOrigen}"]`
+    );
+
+    if (!campoOrigen) return;
+
+    campo.value = campoOrigen.value;
+
+    if (campo.tagName === "TEXTAREA") {
+        campo.style.height = "auto";
+        campo.style.height = campo.scrollHeight + "px";
+    }
+});               
+
+*/
 
 
 
@@ -4386,12 +4691,16 @@ function precioTotalMasIVA(precioInput) {
 
 
 
-const direccionEnlace="https://script.google.com/macros/s/AKfycbz3Y7-NRj_DbY_giSYTskegQBuL52U8x3PMv_kk4RFrbf6tcjMSJmR4POwfyfecxweK4g/exec"
+
+
+const direccionEnlace="https://script.google.com/macros/s/AKfycbwGftGIEgkoj3eXcFHXFDOuKpWsoQdaivav-wBPdMP3k7CpR_TJyfhwxCv3qmbLvqa2YA/exec"
 
 let folioActual=null;
 let edicionActual=null;
 let numerodeEnvio=0;
 let ExistenciaDeCotizaciones=false;
+let folioCargado = false;
+
 
 let ExistenciaDeCotizaciones_T4=false;
 
@@ -4529,7 +4838,14 @@ let folioValor = document.getElementById("folioInput");
       
       // ⬇️ Ahora sí, restaurar la tabla
       restaurarTabla(data);
-document.querySelectorAll("textarea.auto-expand").forEach(textarea => {
+actualizarOpcionesProgramas();
+actualizarOpcionesEspacios();
+actualizarOpcionesCotizacion1()
+actualizarOpcionesCotizacion2()
+
+
+
+      document.querySelectorAll("textarea.auto-expand").forEach(textarea => {
     textarea.style.height = "auto";
     textarea.style.height = textarea.scrollHeight + "px";
 });
@@ -4652,18 +4968,15 @@ document.getElementById(`EstadoRegular_T5E${index}`).textContent=ejemplos[`Estad
       
 
 
-//    }, 0);
-//  }, 0);
-//}, 0);
   alert("📂  datos de la solicitud cargados correctamente");
+
+  folioActual = folio;
+  folioCargado = true;
+
 } catch (e) {
     alert("⚠️ Error de conexión al cargar los datos");
 }
   
-
-
-
-
 
 }
 
@@ -4695,6 +5008,11 @@ let temporizadorAutoguardado ;
 
 async function guardarBorradorAutomatico(mostrarAlerta = false) {
 
+ if (!folioCargado) {
+        return;
+    }
+
+
 const form = document.getElementById("miFormulario");
   const formData = new FormData(form);
 
@@ -4712,9 +5030,9 @@ const form = document.getElementById("miFormulario");
   data.__filas4 = document.querySelectorAll("#tablaBody4 tr").length;
   data.__filas5 = document.querySelectorAll("#tablaBody5 tr").length;
   
-  if(folioActual==null){
-             folioActual = generarFolio();
-  }
+ // if(folioActual==null){
+ //            folioActual = generarFolio();
+ // }
   data.__folio = folioActual;
 
 
@@ -4722,6 +5040,10 @@ const borradorActual = JSON.stringify(data);
 if (!mostrarAlerta && borradorActual === ultimoBorradorGuardado) {
     return;
 }
+
+
+
+
 
 
 try {
@@ -4797,33 +5119,6 @@ function mostrarEstadoGuardado(mensaje) {
     }, 2500);
 }
 
-/*
-document
-    .getElementById("miFormulario")
-    .addEventListener("input", () => {
-
-        clearTimeout(temporizadorAutoguardado);
-
-        temporizadorAutoguardado = setTimeout(() => {
-
-            guardarBorradorAutomatico(false);
-
-        }, 20000);
-
-
-    });
-
-
-
-setInterval(() => {
-
-  if (hayCambios) {
-    guardarBorradorAutomatico(false);
-    hayCambios = false;
-  }
-
-}, 1200000);
-*/
 
 
 
@@ -6039,6 +6334,7 @@ document.getElementById(`EstadoRegular_T5E${index}`).textContent=ejemplos[`Estad
 }
 
 
+
       document.querySelectorAll("#tablaBody tr").forEach(fila => {
                            actualizarObligatoriedadFila(fila);
       });
@@ -6711,15 +7007,6 @@ function dividirData(data, partes = 8) {
 }
 
 
-/*
-crearFilaTotales("tablaBody4", {
-  cantidad: "cantidad_T4R",
-  precio1: "precio_T4R",
-  total1: "precioTotal_T4R",
-  precio2: "precio2_T4R",
-  total2: "precioTotal2_T4R"
-});
-*/
 document.addEventListener("click", function (event) {
 
     const boton = event.target.closest(".borrar-fila");
@@ -6745,74 +7032,6 @@ document.addEventListener("click", function (event) {
 });
 
 
-/*
-function renumerarFilas(tbody) {
-
-    const filas = tbody.querySelectorAll("tr").filter(fila => !fila.querySelector(".ejemplo"));
-
-    filas.forEach((fila, indice) => {
- 
-        const nuevoNumero = indice +1;
-
-        const celdaNumero = fila.cells[0];
-        if (celdaNumero) {
-                        celdaNumero.textContent = nuevoNumero;
-        }
-
-        fila.querySelectorAll("[name], [id]").forEach(elemento  => {
-            
-            
-            if (elemento.name) {
-                elemento.name = elemento.name.replace(
-                    /R\d+/,
-                    `R${nuevoNumero}`
-                );
-             //   alert(elemento.name);
-           
-            }
-            
-            if (elemento.id) {
-                elemento.id = elemento.id.replace(
-                    /R\d+/,
-                    `R${nuevoNumero}`
-                );
-//                alert(elemento.id);
-                       }
-           
-//                alert(elemento.name);
-                  
-        });
-
-        // Actualizar referencias de los data-*
-        fila.querySelectorAll("[data-campo]").forEach(elemento => {
-
-            elemento.dataset.campo =
-                elemento.dataset.campo.replace(
-                    /R\d+/,
-                    `R${nuevoNumero}`
-                );
-        });
-
-        fila.querySelectorAll("[data-precio]").forEach(elemento => {
-
-            elemento.dataset.precio =
-                elemento.dataset.precio.replace(
-                    /R\d+/,
-                    `R${nuevoNumero}`
-                );
-        });
-
-        fila.querySelectorAll("[data-cant]").forEach(elemento => {
-
-            elemento.dataset.cant =
-                elemento.dataset.cant.replace(
-                    /R\d+/,
-                    `R${nuevoNumero}`
-                );
-        });
-    });
-}
-    */
 
 
 
@@ -6887,6 +7106,229 @@ function renumerarFilas(tbody) {
         nuevoNumero++;
     });
 }
+
+
+/*
+
+//----------------------------Ativar el enfoque de las observaciones
+document.getElementById("programaAcademicoObservaciones").addEventListener("click", function (){
+    const ObsProgramaT_1=document.querySelector('[name="ObsProgramaAcademicoDPO"]');
+    const DudaProgramaT_1=document.querySelector('[name="DudaProgramaAcademicoDep"]');
+    //          if (!campo.matches(".expandible")) return;
+    
+    
+    ObsProgramaT_1.classList.add("campo-ampliadoO");
+    DudaProgramaT_1.classList.add("campo-ampliadoD");
+    ObsProgramaT_1.classList.remove("ventanaFormulario");
+    DudaProgramaT_1.classList.remove("ventanaFormulario");
+    
+    document.body.appendChild(ObsProgramaT_1);
+    document.body.appendChild(DudaProgramaT_1);
+   
+
+    
+     let leyendaO = document.querySelector(
+        `.leyenda-textarea[data-campo="${ObsProgramaT_1.name}"]`
+    );
+    let leyendaD = document.querySelector(
+        `.leyenda-textarea[data-campo="${DudaProgramaT_1.name}"]`
+    );
+
+    if (!leyendaO) {
+
+        leyendaO = document.createElement("div");
+        leyendaO.className = "leyenda-textarea";
+        leyendaO.dataset.campo = ObsProgramaT_1.name;
+        leyendaO.textContent =
+            ObsProgramaT_1.getAttribute("aria-label") || "Campo";
+        document.body.appendChild(leyendaO);
+    }
+   if (!leyendaD) {
+
+        leyendaD = document.createElement("div");
+        leyendaD.className = "leyenda-textarea";
+        leyendaD.dataset.campo = DudaProgramaT_1.name;
+        leyendaD.textContent =
+            DudaProgramaT_1.getAttribute("aria-label") || "Campo";
+        document.body.appendChild(leyendaD);
+    }
+
+    const rect = ObsProgramaT_1.getBoundingClientRect();
+
+    leyendaO.style.left = rect.left + "px";
+    leyendaO.style.top = (rect.top - 32) + "px";
+
+
+    const rect1 = DudaProgramaT_1.getBoundingClientRect();
+
+    leyendaD.style.left = rect1.left + "px";
+    leyendaD.style.top = (rect1.top - 32) + "px";
+
+
+});
+
+document.querySelector('[name="DudaProgramaAcademicoDep"]').addEventListener("focusout", function (e) {
+
+    const ObsProgramaT_1=document.querySelector('[name="ObsProgramaAcademicoDPO"]');
+    const DudaProgramaT_1=document.querySelector('[name="DudaProgramaAcademicoDep"]');
+    //          if (!campo.matches(".expandible")) return;
+    
+    
+    ObsProgramaT_1.classList.remove("campo-ampliadoO");
+    DudaProgramaT_1.classList.remove("campo-ampliadoD");
+
+    ObsProgramaT_1.classList.add("ventanaFormulario");
+    DudaProgramaT_1.classList.add("ventanaFormulario");
+
+    
+
+    const leyendaO = document.querySelector(
+        `.leyenda-textarea[data-campo="${ObsProgramaT_1.name}"]`
+    );
+    const leyendaD = document.querySelector(
+        `.leyenda-textarea[data-campo="${DudaProgramaT_1.name}"]`
+    );
+
+
+    if (leyendaO) {
+        leyendaO.remove();
+    }
+    if (leyendaD) {
+        leyendaD.remove();
+    }
+
+
+    ObsProgramaT_1.style.left = "";
+    ObsProgramaT_1.style.top = "";
+
+    DudaProgramaT_1.style.left = "";
+    DudaProgramaT_1.style.top = "";
+
+});
+*/
+
+
+
+
+document.addEventListener("click", function (e) {
+
+    
+const boton = e.target.closest(".abrir-observaciones");
+
+
+    if (!boton) return;
+
+
+    const Obs=document.querySelector(
+
+                             `[name="${boton.dataset.observacion}"]`
+              
+);
+
+
+    const Duda = document.querySelector(
+
+                             `[name="${boton.dataset.duda}"]`
+    
+                          );
+
+
+    if (!Obs || !Duda) return;
+
+
+    // Aquí haces lo que ya tienes para abrirlos
+
+    // Sacarlos del contenedor oculto
+    document.body.appendChild(Obs);
+    document.body.appendChild(Duda);
+
+    // Mostrar
+    Obs.classList.remove("ventanaFormulario");
+    Duda.classList.remove("ventanaFormulario");
+
+    Obs.classList.add("campo-ampliadoO");
+    Duda.classList.add("campo-ampliadoD");
+
+   // Uno al lado del otro
+    Obs.style.left = "10vw";
+    Duda.style.left = "52vw";
+
+    Obs.style.top = "25vh";
+    Duda.style.top = "25vh";
+
+    // Leyendas
+    crearLeyenda(Obs);
+    crearLeyenda(Duda);
+
+});
+
+document.addEventListener("focusout", function (e) {
+
+    // Solo actuar si salió de un campo de duda abierto
+    if (!e.target.classList.contains("campo-ampliadoD")) return;
+
+    const Duda = e.target;
+
+    // Buscar la observación que está abierta
+    const Obs = document.querySelector(".campo-ampliadoO");
+
+    if (!Obs) return;
+
+    // Cerrar ambos
+    Obs.classList.remove("campo-ampliadoO");
+    Duda.classList.remove("campo-ampliadoD");
+
+    Obs.classList.add("ventanaFormulario");
+    Duda.classList.add("ventanaFormulario");
+
+    // Borrar las leyendas
+    document.querySelectorAll(".leyenda-textarea").forEach(leyenda => {
+        leyenda.remove();
+    });
+
+    // Quitar posiciones que pusiste temporalmente
+    Obs.style.left = "";
+    Obs.style.top = "";
+
+    Duda.style.left = "";
+    Duda.style.top = "";
+});
+
+
+
+
+function crearLeyenda(campo) {
+    
+    
+    let leyenda = document.querySelector(
+        `.leyenda-textarea[data-campo="${campo.name}"]`
+    );
+
+    if (!leyenda) {
+
+        leyenda = document.createElement("div");
+        leyenda.className = "leyenda-textarea";
+        leyenda.dataset.campo = campo.name;
+
+        leyenda.textContent =
+            campo.getAttribute("aria-label") || "Campo";
+
+        document.body.appendChild(leyenda);
+
+        const rect = campo.getBoundingClientRect();
+
+        leyenda.style.left = rect.left + "px";
+        leyenda.style.top = (rect.top - 32) + "px";
+
+
+    
+
+        }
+}
+
+
+ 
+        
 
 
 
