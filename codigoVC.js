@@ -1,7 +1,3 @@
-//---------------------------------------Creacion de la estructura de la tabla----------------------------------------
-
-
-
 const tbody  = document.getElementById("tablaBody");
 const tbody1 = document.getElementById("tablaBody1_1");
 const tbody2 = document.getElementById("tablaBody2");
@@ -467,11 +463,25 @@ function agregarFila2(){
         </td>
 
         <td>
-            <input
-                name="Nivel_T2R${i}"
-                class="input_tabla"
-                aria-label="Nivel"
+            <select
+                   name="Nivel_T2R${i}"
+                   class="input_tabla"
+                   aria-label="Nivel"
             >
+                <option value="">-- Selecciona un nivel --</option>
+                <option value="Planta Baja">Planta Baja</option>
+                <option value="Nivel 1">Nivel 1</option>
+                <option value="Nivel 2">Nivel 2</option>
+                <option value="Nivel 3">Nivel 3</option>
+                <option value="Nivel 4">Nivel 4</option>
+                <option value="Nivel 5">Nivel 5</option>
+                <option value="Nivel 6">Nivel 6</option>
+                <option value="Nivel 7">Nivel 7</option>
+                <option value="Nivel 8">Nivel 8</option>
+                <option value="Nivel 9">Nivel 9</option>
+                 <option value="Nivel 10">Nivel 10</option>
+                 <option value="Nivel 11">Nivel 11</option>
+             </select>
 
             <input
                 name="Nivel_T2R${i}RO"
@@ -1448,74 +1458,6 @@ crearFilaTotalTabla4();
 
 
 
-//---------------------------------------------------Actualizacion de los selects de nombres de archivos
-
-
-/*
-
-tbodyC.addEventListener("change", e => {
-  if (!(e.target.name?.startsWith("CotizacionAdquisicionG1_TCR") ||e.target.name?.startsWith("CotizacionAdquisicionG2_TCR"))) return;
-      
-      const fila = e.target.closest("tr");
-
-      const numeroFila = Array.from(tbodyC.rows).indexOf(fila)+1;
-
-      const input = e.target;
-
-      if (input.files.length === 0) return;
-       
-      const archivo = input.files[0];
-//--------------------------------Asignacion de los nombres de la tabla C------------------
-
-
-
-    if (e.target.name?.startsWith("CotizacionAdquisicionG1_TCR")){  
-  
-              document.getElementById(`nombreCotizacion_TCR${numeroFila}`).value=archivo.name;
-
-
-             //--------------------------------Asignacion de los nombres de los selects de la tabla 4------------------
-             for (const fila of tbody4.rows) {
-                        const select = fila.querySelector(
-                                        'select[name^="nombreCotizacion_T4R"]'
-                                       );
-
-                        const option = document.createElement("option");
-
-                        option.value = numeroFila;
-                        option.textContent = archivo.name;
-
-                        select.appendChild(option);
-             }
-  
-    }
-
-//--------------------------------Asignacion de los nombres de la tabla C------------------
-
-
-    if(e.target.name?.startsWith("CotizacionAdquisicionG2_TCR")){
-
-            document.getElementById(`nombreCotizacion2_TCR${numeroFila}`).value=archivo.name;
-            
-            
-            //--------------------------------Asignacion de los nombres de los selects de la tabla 4------------------
-            for (const fila of tbody4.rows) {
-                        const select = fila.querySelector(
-                                        'select[name^="nombreCotizacion2_T4R"]'
-                                       );
-
-                        const option = document.createElement("option");
-
-                        option.value = numeroFila;
-                        option.textContent = archivo.name;
-
-                        select.appendChild(option);
-             }
-    }
-});
-
-*/
-
 //-----------------------------------------------Enlaces Tabla1-Tabla4-Tabla2------------------------------------------------------------------------- 
 
 
@@ -1534,10 +1476,10 @@ function actualizarOpcionesProgramas() {
     const programas = [];
 
     tbody.querySelectorAll(
-    '[name^="Programa_T1R"]:not([type="checkbox"])'
+    '[name^="Programa_T1R"]'
                              ).forEach(input => {
 
-
+     if (input.classList.contains("check-verificacion")) return;
     //tbody.querySelectorAll('[name^="Programa_T1R"]').forEach(input => {
 
         const valor = input.value.trim();
@@ -1590,10 +1532,10 @@ function actualizarOpcionesEspacios() {
 
     const espacios = [];
 
-    tbody2.querySelectorAll('[name^="Espacio_T2R"]:not([type="checkbox"])').forEach(input => {
-
+    tbody2.querySelectorAll('[name^="Espacio_T2R"]').forEach(input => {
+         if (input.classList.contains("check-verificacion")) return;
         const valor = input.value.trim();
-
+        
         if (!valor) return;
 
         espacios.push(valor);
@@ -1637,16 +1579,49 @@ function actualizarOpcionesCotizacion1() {
     const nombresCot = [];
 
 
-    tbodyC.querySelectorAll('[name^="CotizacionAdquisicionG1_TCR"]:not([type="checkbox"])').forEach(input => {
+    tbodyC.querySelectorAll('[name^="CotizacionAdquisicionG1_TCR"]').forEach(input => {
         
-        if (input.files.length === 0) return;
+       const fila = input.closest("tr");
+
+       const nombreCotizacion =fila.querySelector('[name^="nombreCotizacion_TCR"]');
+        
+
+       /* if (input.files.length === 0) return;
        
              const  valor = input.files[0].name;
 //             const valor = input.value.trim();
-
+        
+            
         if (!valor) return;
-
+        nombreCotizacion.value=valor;
         nombresCot.push(valor);
+        */
+       let valor = "";
+
+// Si hay archivo nuevo, usamos su nombre
+if (input.files.length > 0) {
+
+    valor = input.files[0].name;
+
+    // Solo sobrescribimos el nombre guardado
+    // cuando realmente se eligió otro archivo
+    nombreCotizacion.value = valor;
+
+} else {
+
+    // No hay archivo nuevo.
+// Conservamos el nombre que ya estaba guardado.
+    valor = nombreCotizacion.value.trim();
+}
+
+if (!valor) return;
+
+nombresCot.push(valor);
+
+
+
+
+
     });
 
 
@@ -1685,8 +1660,12 @@ function actualizarOpcionesCotizacion2() {
     const nombresCot = [];
 
     
-    tbodyC.querySelectorAll('[name^="CotizacionAdquisicionG2_TCR"]:not([type="checkbox"])').forEach(input => {
-        
+    tbodyC.querySelectorAll('[name^="CotizacionAdquisicionG2_TCR"]').forEach(input => {
+        const fila = input.closest("tr");
+
+       const nombreCotizacion =fila.querySelector('[name^="nombreCotizacion2_TCR"]');
+
+    /* 
         if (input.files.length === 0) return;
        
              const  valor = input.files[0].name;
@@ -1695,8 +1674,31 @@ function actualizarOpcionesCotizacion2() {
         if (!valor) return;
 
         nombresCot.push(valor);
+    */
+
+        let valor = "";
+
+        // Archivo nuevo
+        if (input.files.length > 0) {
+
+            valor = input.files[0].name;
+
+            nombreCotizacion.value = valor;
+
+        } else {
+
+            // Cotización que ya estaba guardada
+            valor = nombreCotizacion.value.trim();
+        }
+
+        if (!valor) return;
+
+        nombresCot.push(valor);
+
     });
+   
     
+
     // ---------------- COTIZACIÓN 1 ----------------
 
     tbody4.querySelectorAll(
@@ -2218,7 +2220,7 @@ const siglasTipoBienes = new Map([
 ["Equipo de Laboratorio","EL"]]);
 
 
-
+/*
 const mapaFolios = new Map([
 [
     "ESIA-Zacatenco-EGC5000-001",
@@ -4056,6 +4058,1844 @@ const mapaFolios = new Map([
 ]
 ]);
 
+*/
+
+const mapaFolios = new Map([
+[
+    "ESIA-Zacatenco-BG-001",
+    {
+        dependencia: 'Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Zacatenco',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CECyT17-BT-002",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECyT 17) "León, Guanajuato"',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "DAE-BT-004",
+    {
+        dependencia: 'Dirección de Apoyo a Estudiantes',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ESIA-Tecamachalco-BT-005",
+    {
+        dependencia: 'Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Tecamachalco',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CECyT10-BG-006",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 10) "Carlos Vallejo Márquez"',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CIIEMAD-BT-007",
+    {
+        dependencia: 'Centro Interdisciplinario de Investigación y Estudios Sobre Medio Ambiente y Desarrollo (CIIEMAD)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CET1-BT-008",
+    {
+        dependencia: 'Centro de Estudios Tecnológicos (CET 1) "Walter Cross Buchanan"',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CET1-BG-009",
+    {
+        dependencia: 'Centro de Estudios Tecnológicos (CET 1) "Walter Cross Buchanan"',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "ESIME-Zacatenco-BT-011",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Zacatenco',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ESIME-Zacatenco-BG-012",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Zacatenco',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "UPIICSA-BT-013",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas (UPIICSA)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "EST-BG-014",
+    {
+        dependencia: 'Escuela Superior de Turismo (EST)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "ESIME-Culhuacan-BT-017",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Culhuacán',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ENBA-BG-018",
+    {
+        dependencia: 'Escuela Nacional de Biblioteconomía y Archivonomía (ENBA)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CICS-SantoTomas-EL-019",
+    {
+        dependencia: 'Centro Interdisciplinario de Ciencias de la Salud, Unidad Santo Tomás (CICS UST)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "ESM-BT-020",
+    {
+        dependencia: 'Escuela Superior de Medicina (ESM)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ESM-EL-021",
+    {
+        dependencia: 'Escuela Superior de Medicina (ESM)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "ESFM-BT-022",
+    {
+        dependencia: 'Escuela Superior de Física y Matemáticas (ESFM)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CECyT12-BT-023",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 12) "José María Morelos"',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CIC-BT-024",
+    {
+        dependencia: 'Centro de Investigación en Computación (CIC)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CECyT10-BT-025",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 10) "Carlos Vallejo Márquez"',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "UPIIP-Palenque-BG-026",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Palenque (UPIIP)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "ENMH-BG-027",
+    {
+        dependencia: 'Escuela Nacional de Medicina y Homeopatía (ENMH)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CECyT10-EL-028",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 10) "Carlos Vallejo Márquez"',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "DES-BG-029",
+    {
+        dependencia: 'Dirección de Educación Superior',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "DFIE-BT-030",
+    {
+        dependencia: 'Dirección de Formación e Innovación Educativa',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "SA-BG-031",
+    {
+        dependencia: 'Secretaría Académica',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CENLEX-Zacatenco-BG-032",
+    {
+        dependencia: 'Centro de Lenguas Extranjeras (CENLEX), Unidad Zacatenco',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "DFIE-BG-033",
+    {
+        dependencia: 'Dirección de Formación e Innovación Educativa',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CICS-SantoTomas-BT-034",
+    {
+        dependencia: 'Centro Interdisciplinario de Ciencias de la Salud, Unidad Santo Tomás (CICS UST)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ESCA-Tepepan-BG-035",
+    {
+        dependencia: 'Escuela Superior de Comercio y Administración (ESCA), Unidad Tepepan',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "ESCA-Tepepan-BT-036",
+    {
+        dependencia: 'Escuela Superior de Comercio y Administración (ESCA), Unidad Tepepan',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "UPIIH-Hidalgo-BG-037",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Hidalgo (UPIIH)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "ESEO-EL-038",
+    {
+        dependencia: 'Escuela Superior de Enfermería y Obstetricia (ESEO)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "CENLEX-Zacatenco-BT-039",
+    {
+        dependencia: 'Centro de Lenguas Extranjeras (CENLEX), Unidad Zacatenco',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ESCA-SantoTomas-BT-040",
+    {
+        dependencia: 'Escuela Superior de Comercio y Administración (ESCA), Unidad Santo Tomás',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "SA-BT-041",
+    {
+        dependencia: 'Secretaría Académica',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CNMN-BG-042",
+    {
+        dependencia: 'Centro de Nanociencia y Micro-nanotecnología (CNMN)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "UPIIP-Palenque-BT-043",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Palenque (UPIIP)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "UPIIH-Hidalgo-BT-044",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Hidalgo (UPIIH)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ENBA-BT-045",
+    {
+        dependencia: 'Escuela Nacional de Biblioteconomía y Archivonomía (ENBA)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "UPIEM-BT-046",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Energía y Movilidad (UPIEM)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CICIMAR-BG-047",
+    {
+        dependencia: 'Centro Interdisciplinario de Ciencias Marinas (CICIMAR)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "DES-BT-048",
+    {
+        dependencia: 'Dirección de Educación Superior',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ESIQIE-BT-049",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Química E Industrias Extractivas (ESIQIE)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ESIME-Culhuacan-BG-050",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Culhuacán',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "ESIME-Zacatenco-EL-051",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Zacatenco',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "ESIME-Ticoman-BG-052",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Ticomán',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "ESIA-Ticoman-BG-053",
+    {
+        dependencia: 'Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Ticomán',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "ESIA-Ticoman-EL-054",
+    {
+        dependencia: 'Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Ticomán',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "ESIA-Ticoman-BT-055",
+    {
+        dependencia: 'Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Ticomán',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "UPIBI-BG-056",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Biotecnología (UPIBI)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "UPIICSA-BG-057",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas (UPIICSA)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CECyT3-BT-058",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 3) "Estanislao Ramírez Ruiz"',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CECyT3-BG-059",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 3) "Estanislao Ramírez Ruiz"',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CICATA-Altamira-BT-060",
+    {
+        dependencia: 'Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Altamira',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CICATA-Altamira-BG-061",
+    {
+        dependencia: 'Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Altamira',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "ESIT-BT-062",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Textil (ESIT)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CICS-MilpaAlta-EL-063",
+    {
+        dependencia: 'Centro Interdisciplinario de Ciencias de la Salud, Unidad Milpa Alta (CICS UMA)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "ESIT-EL-065",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Textil (ESIT)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "DRMI-BG-066",
+    {
+        dependencia: 'Dirección de Recursos Materiales E Infraestructura',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "DRMI-BT-067",
+    {
+        dependencia: 'Dirección de Recursos Materiales E Infraestructura',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ENCB-BG-068",
+    {
+        dependencia: 'Escuela Nacional de Ciencias Biológicas (ENCB)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CITEDI-BG-069",
+    {
+        dependencia: 'Centro de Investigación y Desarrollo de Tecnología Digital (CITEDI)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "DDCyT-BG-070",
+    {
+        dependencia: 'Dirección de Difusión de Ciencia y Tecnología',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "ESEO-BG-071",
+    {
+        dependencia: 'Escuela Superior de Enfermería y Obstetricia (ESEO)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "ENCB-BT-072",
+    {
+        dependencia: 'Escuela Nacional de Ciencias Biológicas (ENCB)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ESIA-Zacatenco-BT-073",
+    {
+        dependencia: 'Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Zacatenco',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ESEO-BT-074",
+    {
+        dependencia: 'Escuela Superior de Enfermería y Obstetricia (ESEO)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ESIA-Tecamachalco-BG-075",
+    {
+        dependencia: 'Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Tecamachalco',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CICS-MilpaAlta-BT-076",
+    {
+        dependencia: 'Centro Interdisciplinario de Ciencias de la Salud, Unidad Milpa Alta (CICS UMA)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "UPIBI-BT-077",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Biotecnología (UPIBI)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CECyT18-BG-078",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 18) "Zacatecas"',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "DAE-FV-079",
+    {
+        dependencia: 'Dirección de Apoyo a Estudiantes',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "DAE-BG-080",
+    {
+        dependencia: 'Dirección de Apoyo a Estudiantes',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CITEDI-BT-081",
+    {
+        dependencia: 'Centro de Investigación y Desarrollo de Tecnología Digital (CITEDI)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CICATA-Legaria-BG-082",
+    {
+        dependencia: 'Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Legaría',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CICATA-Legaria-BT-083",
+    {
+        dependencia: 'Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Legaría',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CIIDIR-Oaxaca-BG-084",
+    {
+        dependencia: 'Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Oaxaca',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CIIDIR-Oaxaca-BT-085",
+    {
+        dependencia: 'Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Oaxaca',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ESIQIE-BG-086",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Química E Industrias Extractivas (ESIQIE)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "ESIME-Azcapotzalco-BG-088",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Azcapotzalco',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "UPIEM-BG-089",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Energía y Movilidad (UPIEM)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "ENCB-EL-090",
+    {
+        dependencia: 'Escuela Nacional de Ciencias Biológicas (ENCB)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "ESIQIE-EL-091",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Química E Industrias Extractivas (ESIQIE)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "ESE-BT-092",
+    {
+        dependencia: 'Escuela Superior de Economía (ESE)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "UPIIG-Guanajuato-BG-093",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Guanajuato (UPIIG)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "UPIIG-Guanajuato-BT-094",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Guanajuato (UPIIG)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CECyT8-EL-095",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 8) "Narciso Bassols"',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "CECyT8-BG-096",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 8) "Narciso Bassols"',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CECyT8-BT-097",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 8) "Narciso Bassols"',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "UPIIT-Tlaxcala-BG-098",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Tlaxcala (UPIIT)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CIIEMAD-EL-099",
+    {
+        dependencia: 'Centro Interdisciplinario de Investigación y Estudios Sobre Medio Ambiente y Desarrollo (CIIEMAD)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "CIIEMAD-BG-100",
+    {
+        dependencia: 'Centro Interdisciplinario de Investigación y Estudios Sobre Medio Ambiente y Desarrollo (CIIEMAD)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CECyT18-BT-101",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 18) "Zacatecas"',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CEPROBI-EL-102",
+    {
+        dependencia: 'Centro de Desarrollo de Productos Bióticos (CEPROBI)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "CEPROBI-BG-103",
+    {
+        dependencia: 'Centro de Desarrollo de Productos Bióticos (CEPROBI)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CEPROBI-BT-104",
+    {
+        dependencia: 'Centro de Desarrollo de Productos Bióticos (CEPROBI)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ENMH-EL-105",
+    {
+        dependencia: 'Escuela Nacional de Medicina y Homeopatía (ENMH)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "DII-BT-106",
+    {
+        dependencia: 'Dirección de Información Institucional',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CET1-FV-107",
+    {
+        dependencia: 'Centro de Estudios Tecnológicos (CET 1) "Walter Cross Buchanan"',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "CET1-EL-108",
+    {
+        dependencia: 'Centro de Estudios Tecnológicos (CET 1) "Walter Cross Buchanan"',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "ESCOM-BT-109",
+    {
+        dependencia: 'Escuela Superior de Cómputo (ESCOM)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CICATA-Morelos-BT-111",
+    {
+        dependencia: 'Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Morelos',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CIIDIR-Michoacan-BT-112",
+    {
+        dependencia: 'Centro Interdisciplinario de Investigación para El Desarrollo Integral Regional (CIIDIR), Unidad Michoacán',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ESIME-Azcapotzalco-BT-113",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Azcapotzalco',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "DDP-BT-114",
+    {
+        dependencia: 'Defensoría de los Derechos Politécnicos',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "DDP-BG-115",
+    {
+        dependencia: 'Defensoría de los Derechos Politécnicos',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "ESIME-Zacatenco-FV-116",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Zacatenco',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "DFLE-BT-117",
+    {
+        dependencia: 'Dirección de Formación en Lenguas Extranjeras',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "DFLE-BG-118",
+    {
+        dependencia: 'Dirección de Formación en Lenguas Extranjeras',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "DG-BG-119",
+    {
+        dependencia: 'Dirección General',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "DG-BT-120",
+    {
+        dependencia: 'Dirección General',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CIIDIR-Oaxaca-EL-121",
+    {
+        dependencia: 'Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Oaxaca',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "ESM-BG-122",
+    {
+        dependencia: 'Escuela Superior de Medicina (ESM)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CICS-MilpaAlta-BG-123",
+    {
+        dependencia: 'Centro Interdisciplinario de Ciencias de la Salud, Unidad Milpa Alta (CICS UMA)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "UPIIZ-Zacatecas-BT-124",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Zacatecas (UPIIZ)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ESIME-Culhuacan-FV-125",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Culhuacán',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "SA-FV-126",
+    {
+        dependencia: 'Secretaría Académica',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "CIITA-Puebla-BG-127",
+    {
+        dependencia: 'Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Puebla',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CIITA-Puebla-EL-128",
+    {
+        dependencia: 'Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Puebla',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "CIITA-Puebla-BT-129",
+    {
+        dependencia: 'Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Puebla',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CIITA-Puebla-FV-130",
+    {
+        dependencia: 'Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Puebla',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "DRI-BT-131",
+    {
+        dependencia: 'Dirección de Relaciones Internacionales',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ENMH-BT-132",
+    {
+        dependencia: 'Escuela Nacional de Medicina y Homeopatía (ENMH)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "UPIIZ-Zacatecas-BG-134",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Zacatecas (UPIIZ)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "DCH-BT-135",
+    {
+        dependencia: 'Dirección de Capital Humano',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ESFM-BG-136",
+    {
+        dependencia: 'Escuela Superior de Física y Matemáticas (ESFM)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "ESM-FV-137",
+    {
+        dependencia: 'Escuela Superior de Medicina (ESM)',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "CICIMAR-BT-138",
+    {
+        dependencia: 'Centro Interdisciplinario de Ciencias Marinas (CICIMAR)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ESFM-EL-140",
+    {
+        dependencia: 'Escuela Superior de Física y Matemáticas (ESFM)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "CECyT19-BG-142",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 19) "Tecámac"',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CECyT19-FV-143",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 19) "Tecámac"',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "ESIME-Culhuacan-EL-144",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Culhuacán',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "CECyT12-BG-145",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 12) "José María Morelos"',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CIC-BG-146",
+    {
+        dependencia: 'Centro de Investigación en Computación (CIC)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "ESIME-Azcapotzalco-EL-147",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Azcapotzalco',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "UPIBI-EL-148",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Biotecnología (UPIBI)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "DIEMS-BT-149",
+    {
+        dependencia: 'Dirección de Educación Media Superior',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "DIEMS-FV-150",
+    {
+        dependencia: 'Dirección de Educación Media Superior',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "CGPII-BT-151",
+    {
+        dependencia: 'Coordinación General de Planeación E Información Institucional',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CGPII-BG-152",
+    {
+        dependencia: 'Coordinación General de Planeación E Información Institucional',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CNMN-EL-153",
+    {
+        dependencia: 'Centro de Nanociencia y Micro-nanotecnología (CNMN)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "CII-BG-154",
+    {
+        dependencia: 'Coordinación de Imagen Institucional',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "DES-FV-157",
+    {
+        dependencia: 'Dirección de Educación Superior',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "UPIEM-EL-158",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Energía y Movilidad (UPIEM)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "UPIIP-Palenque-EL-159",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Palenque (UPIIP)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "ENMH-FV-160",
+    {
+        dependencia: 'Escuela Nacional de Medicina y Homeopatía (ENMH)',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "ESCA-SantoTomas-BG-161",
+    {
+        dependencia: 'Escuela Superior de Comercio y Administración (ESCA), Unidad Santo Tomás',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CECyT7-BG-162",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 7) "Cuauhtémoc"',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "UPIICSA-FV-163",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas (UPIICSA)',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "DFIE-EL-164",
+    {
+        dependencia: 'Dirección de Formación e Innovación Educativa',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "CECyT2-BT-165",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 2) "Miguel Bernard"',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CECyT2-BG-166",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 2) "Miguel Bernard"',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CICS-SantoTomas-BG-167",
+    {
+        dependencia: 'Centro Interdisciplinario de Ciencias de la Salud, Unidad Santo Tomás (CICS UST)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "UPIIP-Palenque-FV-168",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Palenque (UPIIP)',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "SA-EL-169",
+    {
+        dependencia: 'Secretaría Académica',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "DFLE-FV-170",
+    {
+        dependencia: 'Dirección de Formación en Lenguas Extranjeras',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "ESCA-Tepepan-FV-171",
+    {
+        dependencia: 'Escuela Superior de Comercio y Administración (ESCA), Unidad Tepepan',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "CNMN-BT-172",
+    {
+        dependencia: 'Centro de Nanociencia y Micro-nanotecnología (CNMN)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CNMN-FV-173",
+    {
+        dependencia: 'Centro de Nanociencia y Micro-nanotecnología (CNMN)',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "CVDR-Culiacan-BT-174",
+    {
+        dependencia: 'Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Culiacán',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "UPIIH-Hidalgo-FV-175",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Hidalgo (UPIIH)',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "ENBA-EL-176",
+    {
+        dependencia: 'Escuela Nacional de Biblioteconomía y Archivonomía (ENBA)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "UPIIH-Hidalgo-EL-177",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Hidalgo (UPIIH)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "CIIDIR-Durango-EL-178",
+    {
+        dependencia: 'Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Durango',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "CIIDIR-Durango-BG-179",
+    {
+        dependencia: 'Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Durango',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CVDR-Mazatlan-BG-180",
+    {
+        dependencia: 'Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Mazatlán',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CVDR-Campeche-BT-181",
+    {
+        dependencia: 'Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Campeche',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CVDR-Oaxaca-BG-182",
+    {
+        dependencia: 'Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Oaxaca',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CICIMAR-EL-183",
+    {
+        dependencia: 'Centro Interdisciplinario de Ciencias Marinas (CICIMAR)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "ESIA-Zacatenco-FV-184",
+    {
+        dependencia: 'Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Zacatenco',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "CICATA-Altamira-EL-185",
+    {
+        dependencia: 'Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Altamira',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "CICIMAR-FV-186",
+    {
+        dependencia: 'Centro Interdisciplinario de Ciencias Marinas (CICIMAR)',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "CVDR-Mazatlan-FV-187",
+    {
+        dependencia: 'Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Mazatlán',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "ESIME-Ticoman-EL-188",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Ticomán',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "ESIME-Ticoman-BT-189",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Ticomán',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CVDR-Oaxaca-BT-190",
+    {
+        dependencia: 'Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Oaxaca',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ESIA-Ticoman-FV-191",
+    {
+        dependencia: 'Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Ticomán',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "ESIME-Ticoman-FV-192",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Ticomán',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "CVDR-Oaxaca-FV-196",
+    {
+        dependencia: 'Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Oaxaca',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "CICS-MilpaAlta-FV-197",
+    {
+        dependencia: 'Centro Interdisciplinario de Ciencias de la Salud, Unidad Milpa Alta (CICS UMA)',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "CIBA-Tlaxcala-BT-198",
+    {
+        dependencia: 'Centro de Investigación en Biotecnología Aplicada, IPN-tlaxcala (CIBA)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CIBA-Tlaxcala-BG-199",
+    {
+        dependencia: 'Centro de Investigación en Biotecnología Aplicada, IPN-tlaxcala (CIBA)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "ESIA-Zacatenco-EL-200",
+    {
+        dependencia: 'Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Zacatenco',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "ESCA-Tepepan-EL-201",
+    {
+        dependencia: 'Escuela Superior de Comercio y Administración (ESCA), Unidad Tepepan',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "UPIBI-FV-202",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Biotecnología (UPIBI)',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "ESE-BG-203",
+    {
+        dependencia: 'Escuela Superior de Economía (ESE)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "DCC-BT-204",
+    {
+        dependencia: 'Dirección de Cómputo y Comunicaciones',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "DCC-BG-205",
+    {
+        dependencia: 'Dirección de Cómputo y Comunicaciones',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CECyT4-BG-206",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 4) "Lázaro Cárdenas"',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "SIP-BG-207",
+    {
+        dependencia: 'Secretaría de Investigación y Posgrado',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "SIP-BT-208",
+    {
+        dependencia: 'Secretaría de Investigación y Posgrado',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "SIP-FV-209",
+    {
+        dependencia: 'Secretaría de Investigación y Posgrado',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "CECyT3-FV-210",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 3) "Estanislao Ramírez Ruiz"',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "CICATA-Altamira-FV-211",
+    {
+        dependencia: 'Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Altamira',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "UPIEM-FV-212",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Energía y Movilidad (UPIEM)',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "UPIIG-Guanajuato-EL-213",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Guanajuato (UPIIG)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "CENLEX-Zacatenco-EL-214",
+    {
+        dependencia: 'Centro de Lenguas Extranjeras (CENLEX), Unidad Zacatenco',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "DDCyT-BT-215",
+    {
+        dependencia: 'Dirección de Difusión de Ciencia y Tecnología',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "DVDR-BT-216",
+    {
+        dependencia: 'Dirección de Vinculación y Desarrollo Regional',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "DVDR-EL-217",
+    {
+        dependencia: 'Dirección de Vinculación y Desarrollo Regional',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "DVDR-BG-218",
+    {
+        dependencia: 'Dirección de Vinculación y Desarrollo Regional',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "DVDR-FV-219",
+    {
+        dependencia: 'Dirección de Vinculación y Desarrollo Regional',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "UPIIZ-Zacatecas-EL-220",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Zacatecas (UPIIZ)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "UPIIZ-Zacatecas-FV-221",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Zacatecas (UPIIZ)',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "CVDR-Campeche-BG-222",
+    {
+        dependencia: 'Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Campeche',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "ESIT-BG-223",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Textil (ESIT)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CMP+L-BT-224",
+    {
+        dependencia: 'Centro Mexicano para la Producción Más Limpia (CMP+L)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CMP+L-EL-225",
+    {
+        dependencia: 'Centro Mexicano para la Producción Más Limpia (CMP+L)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "CICATA-Queretaro-FV-226",
+    {
+        dependencia: 'Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Querétaro',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "CICATA-Queretaro-BG-227",
+    {
+        dependencia: 'Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Querétaro',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CICATA-Queretaro-BT-228",
+    {
+        dependencia: 'Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Querétaro',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "SG-BG-229",
+    {
+        dependencia: 'Secretaría General',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CMP+L-BG-230",
+    {
+        dependencia: 'Centro Mexicano para la Producción Más Limpia (CMP+L)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "DESS-BT-231",
+    {
+        dependencia: 'Dirección de Egresados y Servicio Social',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "DESS-BG-232",
+    {
+        dependencia: 'Dirección de Egresados y Servicio Social',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CITEDI-EL-233",
+    {
+        dependencia: 'Centro de Investigación y Desarrollo de Tecnología Digital (CITEDI)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "CICATA-Morelos-EL-234",
+    {
+        dependencia: 'Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Morelos',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "DESS-EL-235",
+    {
+        dependencia: 'Dirección de Egresados y Servicio Social',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "CENLEX-SantoTomas-BT-236",
+    {
+        dependencia: 'Centro de Lenguas Extranjeras (CENLEX), Unidad Santo Tomás',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "DDCyT-FV-237",
+    {
+        dependencia: 'Dirección de Difusión de Ciencia y Tecnología',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "CICATA-Morelos-BG-238",
+    {
+        dependencia: 'Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Morelos',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "SIIS-BG-239",
+    {
+        dependencia: 'Secretaría de Innovación E Integración Social',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CICATA-Queretaro-EL-240",
+    {
+        dependencia: 'Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Querétaro',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "DBP-BG-241",
+    {
+        dependencia: 'Dirección de Bibliotecas y Publicaciones',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "DBP-BT-242",
+    {
+        dependencia: 'Dirección de Bibliotecas y Publicaciones',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CENLEX-SantoTomas-BG-243",
+    {
+        dependencia: 'Centro de Lenguas Extranjeras (CENLEX), Unidad Santo Tomás',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "ESIA-Tecamachalco-EL-246",
+    {
+        dependencia: 'Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Tecamachalco',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "ESCOM-BG-247",
+    {
+        dependencia: 'Escuela Superior de Cómputo (ESCOM)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CBG-EL-248",
+    {
+        dependencia: 'Centro de Biotecnología Genómica (CBG)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "CECyT18-FV-249",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 18) "Zacatecas"',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "DEV-BT-250",
+    {
+        dependencia: 'Dirección de Educación Virtual',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "EST-BT-252",
+    {
+        dependencia: 'Escuela Superior de Turismo (EST)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CVDR-Mazatlan-BT-253",
+    {
+        dependencia: 'Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Mazatlán',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CECyT11-BT-254",
+    {
+        dependencia: 'Centro de Estudios Cientificos y Tecnológicos (CECYT 11) "Wilfrido Massieu"',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "DPO-BT-255",
+    {
+        dependencia: 'Dirección de Planeación y Organización',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "SG-BT-256",
+    {
+        dependencia: 'Secretaría General',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CVDR-Cancun-BT-257",
+    {
+        dependencia: 'Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Cancún',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "DESS-FV-258",
+    {
+        dependencia: 'Dirección de Egresados y Servicio Social',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "CECyT4-BT-259",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 4) "Lázaro Cárdenas"',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CECyT4-FV-260",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 4) "Lázaro Cárdenas"',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "DDC-BG-261",
+    {
+        dependencia: 'Dirección de Difusión Cultural',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "DDC-BT-262",
+    {
+        dependencia: 'Dirección de Difusión Cultural',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "UPGPG-BT-263",
+    {
+        dependencia: 'Unidad Politécnica de Gestión con Perspectiva de Género (UPGPG)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "UPGPG-BG-264",
+    {
+        dependencia: 'Unidad Politécnica de Gestión con Perspectiva de Género (UPGPG)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "UPIIAP-Puebla-BT-265",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus "Alejo Peralta" Puebla (UPIIAP)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "UPIIAP-Puebla-EL-267",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus "Alejo Peralta" Puebla (UPIIAP)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "UPIIT-Tlaxcala-EL-268",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Tlaxcala (UPIIT)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "UPIIAP-Puebla-BG-269",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus "Alejo Peralta" Puebla (UPIIAP)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "UPIIAP-Puebla-FV-271",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus "Alejo Peralta" Puebla (UPIIAP)',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "CECyT20-BT-272",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 20) "Natalia Serdán Alatriste"',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CECyT20-BG-273",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 20) "Natalia Serdán Alatriste"',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CECyT20-EL-275",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 20) "Natalia Serdán Alatriste"',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "CECyT13-BG-276",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 13) "Ricardo Flores Magón"',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "CECyT18-EL-281",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 18) "Zacatecas"',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "UPIICSA-EL-282",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas (UPIICSA)',
+        tipoDeBien: "Equipo de Laboratorio"
+    }
+],
+[
+    "CECyT19-BT-283",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 19) "Tecámac"',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "DIET-BT-284",
+    {
+        dependencia: 'Dirección de Incubación de Empresas Tecnológicas',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CECyT15-BT-285",
+    {
+        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 15) "Diódoro Antúnez Echegaray"',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CBG-BT-286",
+    {
+        dependencia: 'Centro de Biotecnología Genómica (CBG)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "CVDR-Cancun-BG-287",
+    {
+        dependencia: 'Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Cancún',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+]
+]);
 
 
 
@@ -4917,10 +6757,34 @@ document.getElementById(`Equipo_T4E${index}`).textContent= ejemplos[`Equipo_T4E$
 document.getElementById(`Cantidad_T4E${index}`).textContent= ejemplos[`Cantidad_T4E${index}`];         
 document.getElementById(`Especificaciones_T4E${index}`).textContent= ejemplos[`Especificaciones_T4E${index}`];         
 document.getElementById(`Justificacion_T4E${index}`).textContent= ejemplos[`Justificacion_T4E${index}`];      
-document.getElementById(`PrecioUnitario_T4E${index}`).textContent= ejemplos[`PrecioUnitario_T4E${index}`];      
+
+
+
+
+
+
+document.getElementById(`PrecioUnitario_T4E${index}`).textContent= formatoMilesNumero(ejemplos[`PrecioUnitario_T4E${index}`]);
+
+const precio = numeroSinFormato(
+    ejemplos[`PrecioUnitario_T4E${index}`]
+);
+
+const cantidad = numeroSinFormato(
+    ejemplos[`Cantidad_T4E${index}`]
+);
+
+alert(cantidad);
+const total = precio * cantidad * 1.16;
+alert(precio);
+document.getElementById(
+    `PrecioTotal_T4E${index}`
+).textContent = total;
+
 document.getElementById(`NombreArch_T4E${index}`).textContent= ejemplos[`NombreArch_T4E${index}`];     
+
 document.getElementById(`Cotizacion_T4E${index}`).textContent= ejemplos[`Cotizacion_T4E${index}`];       
-document.getElementById(`PrecioUnitario2_T4E${index}`).textContent= ejemplos[`PrecioUnitario2_T4E${index}`];
+document.getElementById(`PrecioUnitario2_T4E${index}`).textContent=formatoMilesNumero(ejemplos[`PrecioUnitario2_T4E${index}`]);
+document.getElementById(`PrecioTotal2_T4E${index}`).textContent= ejemplos[`PrecioUnitario2_T4E${index}`]*ejemplos[`Cantidad_T4E${index}`]*1.16
 document.getElementById(`NombreArch2_T4E${index}`).textContent= ejemplos[`NombreArch2_T4E${index}`];  
 document.getElementById(`Cotizacion2_T4E${index}`).textContent=ejemplos[`Cotizacion2_T4E${index}`];
 
@@ -7108,104 +8972,6 @@ function renumerarFilas(tbody) {
 }
 
 
-/*
-
-//----------------------------Ativar el enfoque de las observaciones
-document.getElementById("programaAcademicoObservaciones").addEventListener("click", function (){
-    const ObsProgramaT_1=document.querySelector('[name="ObsProgramaAcademicoDPO"]');
-    const DudaProgramaT_1=document.querySelector('[name="DudaProgramaAcademicoDep"]');
-    //          if (!campo.matches(".expandible")) return;
-    
-    
-    ObsProgramaT_1.classList.add("campo-ampliadoO");
-    DudaProgramaT_1.classList.add("campo-ampliadoD");
-    ObsProgramaT_1.classList.remove("ventanaFormulario");
-    DudaProgramaT_1.classList.remove("ventanaFormulario");
-    
-    document.body.appendChild(ObsProgramaT_1);
-    document.body.appendChild(DudaProgramaT_1);
-   
-
-    
-     let leyendaO = document.querySelector(
-        `.leyenda-textarea[data-campo="${ObsProgramaT_1.name}"]`
-    );
-    let leyendaD = document.querySelector(
-        `.leyenda-textarea[data-campo="${DudaProgramaT_1.name}"]`
-    );
-
-    if (!leyendaO) {
-
-        leyendaO = document.createElement("div");
-        leyendaO.className = "leyenda-textarea";
-        leyendaO.dataset.campo = ObsProgramaT_1.name;
-        leyendaO.textContent =
-            ObsProgramaT_1.getAttribute("aria-label") || "Campo";
-        document.body.appendChild(leyendaO);
-    }
-   if (!leyendaD) {
-
-        leyendaD = document.createElement("div");
-        leyendaD.className = "leyenda-textarea";
-        leyendaD.dataset.campo = DudaProgramaT_1.name;
-        leyendaD.textContent =
-            DudaProgramaT_1.getAttribute("aria-label") || "Campo";
-        document.body.appendChild(leyendaD);
-    }
-
-    const rect = ObsProgramaT_1.getBoundingClientRect();
-
-    leyendaO.style.left = rect.left + "px";
-    leyendaO.style.top = (rect.top - 32) + "px";
-
-
-    const rect1 = DudaProgramaT_1.getBoundingClientRect();
-
-    leyendaD.style.left = rect1.left + "px";
-    leyendaD.style.top = (rect1.top - 32) + "px";
-
-
-});
-
-document.querySelector('[name="DudaProgramaAcademicoDep"]').addEventListener("focusout", function (e) {
-
-    const ObsProgramaT_1=document.querySelector('[name="ObsProgramaAcademicoDPO"]');
-    const DudaProgramaT_1=document.querySelector('[name="DudaProgramaAcademicoDep"]');
-    //          if (!campo.matches(".expandible")) return;
-    
-    
-    ObsProgramaT_1.classList.remove("campo-ampliadoO");
-    DudaProgramaT_1.classList.remove("campo-ampliadoD");
-
-    ObsProgramaT_1.classList.add("ventanaFormulario");
-    DudaProgramaT_1.classList.add("ventanaFormulario");
-
-    
-
-    const leyendaO = document.querySelector(
-        `.leyenda-textarea[data-campo="${ObsProgramaT_1.name}"]`
-    );
-    const leyendaD = document.querySelector(
-        `.leyenda-textarea[data-campo="${DudaProgramaT_1.name}"]`
-    );
-
-
-    if (leyendaO) {
-        leyendaO.remove();
-    }
-    if (leyendaD) {
-        leyendaD.remove();
-    }
-
-
-    ObsProgramaT_1.style.left = "";
-    ObsProgramaT_1.style.top = "";
-
-    DudaProgramaT_1.style.left = "";
-    DudaProgramaT_1.style.top = "";
-
-});
-*/
 
 
 
@@ -7262,36 +9028,54 @@ const boton = e.target.closest(".abrir-observaciones");
 
 });
 
-document.addEventListener("focusout", function (e) {
 
-    // Solo actuar si salió de un campo de duda abierto
-    if (!e.target.classList.contains("campo-ampliadoD")) return;
+document.addEventListener("click", function (e) {
 
-    const Duda = e.target;
+    // Buscar Duda y Observación actualmente ampliadas
+    const Duda = document.querySelector(".campo-ampliadoD");
+    const Obs  = document.querySelector(".campo-ampliadoO");
+    const boton = e.target.closest(".abrir-observaciones");
 
-    // Buscar la observación que está abierta
-    const Obs = document.querySelector(".campo-ampliadoO");
+    // Si no hay ninguna abierta, no hacer nada
+    if (!Duda && !Obs) return;
 
-    if (!Obs) return;
+    // Si el click fue dentro de Duda o de Observación,
+    // no cerrar nada
+    if (
+        (Duda && Duda.contains(e.target)) ||
+        (Obs && Obs.contains(e.target)) || (boton && boton.contains(e.target)) 
+    ) {
+        return;
+    }
 
-    // Cerrar ambos
-    Obs.classList.remove("campo-ampliadoO");
-    Duda.classList.remove("campo-ampliadoD");
+    // Cerrar Observación
+    if (Obs) {
+        Obs.classList.remove("campo-ampliadoO");
+        Obs.classList.add("ventanaFormulario");
 
-    Obs.classList.add("ventanaFormulario");
-    Duda.classList.add("ventanaFormulario");
+        Obs.style.left = "";
+        Obs.style.top = "";
+    }
 
-    // Borrar las leyendas
-    document.querySelectorAll(".leyenda-textarea").forEach(leyenda => {
-        leyenda.remove();
-    });
+    if(Obs.classList.contains("info")){
+         Obs.classList.add("paso");
+    }
 
-    // Quitar posiciones que pusiste temporalmente
-    Obs.style.left = "";
-    Obs.style.top = "";
+    // Cerrar Duda
+    if (Duda) {
+        Duda.classList.remove("campo-ampliadoD");
+        Duda.classList.add("ventanaFormulario");
 
-    Duda.style.left = "";
-    Duda.style.top = "";
+        Duda.style.left = "";
+        Duda.style.top = "";
+    }
+
+    // Borrar leyendas
+    document.querySelectorAll(".leyenda-textarea")
+        .forEach(leyenda => {
+            leyenda.remove();
+        });
+
 });
 
 
@@ -7327,9 +9111,35 @@ function crearLeyenda(campo) {
 }
 
 
- 
-        
 
 
 
+document.addEventListener("click", function (e) {
 
+    
+const boton = e.target.closest(".informacion");
+
+
+    if (!boton) return;
+
+
+    const texto=boton.dataset.info;
+    
+    const recuadro=document.getElementById(texto);
+
+
+    
+    // Mostrar
+    recuadro.classList.remove("paso");
+    
+    recuadro.classList.add("campo-ampliadoO");
+
+   // Uno al lado del otro
+    recuadro.style.left = "10vw";
+    
+    recuadro.style.top = "25vh";
+    
+    // Leyendas
+    crearLeyenda(recuadro);
+    
+});
