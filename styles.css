@@ -1314,7 +1314,43 @@ th {
 }
 
 
+th:has(.abrir-observaciones) {
+    position: relative;
 
+    /* Espacio reservado para el botón */
+    padding-bottom: 65px;
+}
+
+.abrir-observaciones {
+    position: absolute;
+
+    right: 5px !important;
+    bottom: 5px !important;
+
+
+    max-width: 50% !important;
+    max-height: 40% !important;
+
+    width: 100px !important;
+    height: 50px !important;
+
+    font-size: small;
+}
+.informacion{
+    position: absolute;
+
+    left: 5px !important;
+    bottom: 5px !important;
+
+
+    max-width: 50% !important;
+    max-height: 40% !important;
+
+    width: 30px !important;
+    height: 30px !important;
+
+    font-size: small;
+}
 
 
 
