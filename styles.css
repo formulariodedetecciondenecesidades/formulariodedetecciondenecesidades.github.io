@@ -599,9 +599,11 @@ a {
     width: 5%;
     min-width:18px;
 }
+
+
 .Tabla3 th:nth-child(2),
 .Tabla3 td:nth-child(2){
-    width: 35%;
+    width: 25%;
     min-width:18px;
 }
 .Tabla3 th:nth-child(3),
@@ -616,10 +618,17 @@ a {
 }
 .Tabla3 th:nth-child(5),
 .Tabla3 td:nth-child(5){
-    width: 35%;
+    width: 25%;
     min-width:18px;
 }
 
+
+.TablaP th:nth-child(1),
+.TablaP td:nth-child(1){
+    width: 20%!important;
+    min-width:80px;
+    max-width: 200px;
+}
 
 .TablaCotizaciones th:nth-child(1),
 .TablaCotizaciones td:nth-child(1){
@@ -1054,6 +1063,28 @@ th {
 
 
 
+.campo-ampliadoI {
+
+    position: fixed !important;
+    top: 10vh;
+    left: 45vw;
+    width: 30vw !important;
+    height: 20vh !important;
+    z-index: 9999;
+/*    background-color: white !important;*/
+    border: 2px solid #611232 !important;
+    border-radius: 80px 80px 80px 80px !important;
+    padding: 15px !important;
+    font-size: 18px;
+    resize: none;
+    overflow: auto;
+    box-shadow: 0 10px 40px rgba(0,0,0,.35);
+    
+}
+
+.archivoMultipleInput {
+    display: none !important;
+}
 
 
 
@@ -1352,6 +1383,13 @@ th:has(.abrir-observaciones) {
     font-size: small;
 }
 
+
+
+.botonSeleccionarPlanos{
+
+    width:8vw;
+    height:1vw;
+}
 
 
 
