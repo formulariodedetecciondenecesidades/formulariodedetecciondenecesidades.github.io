@@ -421,10 +421,7 @@ function agregarFila(){
         ✕
     </button>
         </td>
-    
-    `;
-
-
+    `; 
     tbody.appendChild(fila);
     tbody1.appendChild(fila1);
 
@@ -433,7 +430,7 @@ function agregarFila(){
 }
 
 
-//*-----------------------Agregar fila tabla 2*
+// -----------------------Agregar fila tabla 2
 
 function agregarFila2(){
 
@@ -6440,9 +6437,13 @@ document.querySelectorAll("#tablaBody5 [data-relleno]").forEach(campo => {
 
 
 
+// V6  
+// 
+ const direccionEnlace="https://script.google.com/macros/s/AKfycbwGftGIEgkoj3eXcFHXFDOuKpWsoQdaivav-wBPdMP3k7CpR_TJyfhwxCv3qmbLvqa2YA/exec"
 
+// V7 
+//const direccionEnlace="https://script.google.com/macros/s/AKfycbyrrLXQMsrqpSoPDWpkb4FCWwzxHjsVFTRmGEgajnz53ZTFpJOXEvK6PqGyDOrcJpE4/exec"
 
-const direccionEnlace="https://script.google.com/macros/s/AKfycbyrrLXQMsrqpSoPDWpkb4FCWwzxHjsVFTRmGEgajnz53ZTFpJOXEvK6PqGyDOrcJpE4/exec"
 
 let folioActual=null;
 let edicionActual=null;
@@ -6543,6 +6544,7 @@ const data =json.data;
 
 //      folioActual = folio;
       edicionActual=data.edicion;
+      numerodeEnvio=data.numeroEnvio;
 // Restaurar selects encadenados
 /*setSelectValue("secretaria", data.secretaria);
 
@@ -8905,7 +8907,7 @@ function renumerarFilas(tbody) {
 
 
 
-
+/*
 document.addEventListener("click", function (e) {
 
     
@@ -8934,13 +8936,19 @@ const boton = e.target.closest(".abrir-observaciones");
 
     // Aquí haces lo que ya tienes para abrirlos
 
+
+    Obs.contenedorOriginal = Obs.parentElement;
+    Obs.siguienteOriginal = Obs.nextSibling;
+
+    Duda.contenedorOriginal = Duda.parentElement;
+    Duda.siguienteOriginal = Duda.nextSibling;
     // Sacarlos del contenedor oculto
     document.body.appendChild(Obs);
     document.body.appendChild(Duda);
 
     // Mostrar
-    Obs.classList.remove("ventanaFormulario");
-    Duda.classList.remove("ventanaFormulario");
+    Obs.classList.remove("paso");
+    Duda.classList.remove("paso");
 
     Obs.classList.add("campo-ampliadoO");
     Duda.classList.add("campo-ampliadoD");
@@ -8958,6 +8966,10 @@ const boton = e.target.closest(".abrir-observaciones");
 
 });
 
+*/
+
+
+/*
 
 document.addEventListener("click", function (e) {
 
@@ -8982,10 +8994,15 @@ document.addEventListener("click", function (e) {
     // Cerrar Observación
     if (Obs) {
         Obs.classList.remove("campo-ampliadoO");
-        Obs.classList.add("ventanaFormulario");
+     Obs.classList.add("paso");
 
         Obs.style.left = "";
         Obs.style.top = "";
+      
+        Obs.contenedorOriginal.insertBefore(
+        Obs,
+        Obs.siguienteOriginal
+    );
     }
 
     
@@ -8993,10 +9010,15 @@ document.addEventListener("click", function (e) {
     // Cerrar Duda
     if (Duda) {
         Duda.classList.remove("campo-ampliadoD");
-        Duda.classList.add("ventanaFormulario");
+         Duda.classList.add("paso");
 
         Duda.style.left = "";
         Duda.style.top = "";
+        
+         Duda.contenedorOriginal.insertBefore(
+        Duda,
+        Duda.siguienteOriginal
+    );
     }
 
 
@@ -9025,7 +9047,7 @@ document.addEventListener("click", function (e) {
 
 });
 
-
+*/
 
 
 function crearLeyenda(campo) {
@@ -9086,7 +9108,7 @@ function crearLeyenda(campo) {
 }
 
 
-
+/*
 
 
 document.addEventListener("click", function (e) {
@@ -9118,6 +9140,414 @@ const boton = e.target.closest(".informacion");
     crearLeyenda(boton);
     
 });
+ 
+  */      
+
+
+
+function crearFieldsetObservacion(campo, tipo) {
+
+    // Guardamos exactamente dónde estaba
+    campo.popupOriginal = {
+        padre: campo.parentElement,
+        siguiente: campo.nextSibling,
+
+        // Recordamos estas clases para restaurarlas
+        teniaPaso: campo.classList.contains("paso"),
+        teniaVentana:
+            campo.classList.contains("ventanaFormulario")
+    };
+
+
+    const fieldset = document.createElement("fieldset");
+
+    fieldset.classList.add(
+        "fieldset-observacion",
+        tipo
+    );
+
+
+    const legend = document.createElement("legend");
+
+    legend.textContent =
+        campo.getAttribute("aria-label") ||
+        (tipo === "fieldset-O"
+            ? "Observación"
+            : "Duda");
+
+
+    fieldset.appendChild(legend);
+
+
+    // Mostrar el campo
+    campo.classList.remove(
+        "paso",
+        "ventanaFormulario",
+        "campo-ampliadoO",
+        "campo-ampliadoD"
+    );
+
+    campo.classList.add(
+        "campo-observacion-flotante"
+    );
+
+
+    fieldset.appendChild(campo);
+
+    document.body.appendChild(fieldset);
+}
+
+
+
+function cerrarFieldsetsObservacion() {
+
+    document
+        .querySelectorAll(".fieldset-observacion")
+        .forEach(fieldset => {
+
+            const campo =
+                fieldset.querySelector(
+                    ".campo-observacion-flotante"
+                );
+
+            if (!campo) {
+                fieldset.remove();
+                return;
+            }
+
+
+            const original =
+                campo.popupOriginal;
+
+
+            campo.classList.remove(
+                "campo-observacion-flotante"
+            );
+
+
+            if (original) {
+
+                // Restaurar las clases que tenía originalmente
+                if (original.teniaPaso) {
+                    campo.classList.add("paso");
+                } else {
+                    campo.classList.remove("paso");
+                }
+
+
+                if (original.teniaVentana) {
+                    campo.classList.add(
+                        "ventanaFormulario"
+                    );
+                } else {
+                    campo.classList.remove(
+                        "ventanaFormulario"
+                    );
+                }
+
+
+                // Regresar exactamente al lugar donde estaba
+                if (
+                    original.siguiente &&
+                    original.siguiente.parentNode ===
+                        original.padre
+                ) {
+
+                    original.padre.insertBefore(
+                        campo,
+                        original.siguiente
+                    );
+
+                } else {
+
+                    original.padre.appendChild(campo);
+                }
+
+
+                delete campo.popupOriginal;
+            }
+
+
+            fieldset.remove();
+        });
+}
+
+document.addEventListener("click", function (e) {
+
+    const boton =
+        e.target.closest(".abrir-observaciones");
+
+    if (!boton) return;
+
+
+    const Obs =
+        document.querySelector(
+            `[name="${boton.dataset.observacion}"]`
+        );
+
+    const Duda =
+        document.querySelector(
+            `[name="${boton.dataset.duda}"]`
+        );
+
+
+    if (!Obs || !Duda) return;
+
+
+    // Si había otras observaciones abiertas,
+    // primero las cerramos
+    cerrarFieldsetsObservacion();
+
+
+    // Crear los dos fieldsets
+    crearFieldsetObservacion(
+        Obs,
+        "fieldset-O"
+    );
+
+    crearFieldsetObservacion(
+        Duda,
+        "fieldset-D"
+    );
+
+});
+
+document.addEventListener("click", function (e) {
+
+    // Si acabamos de presionar el botón
+    // Observaciones, no cerramos.
+    if (
+        e.target.closest(".abrir-observaciones")
+    ) {
+        return;
+    }
+
+
+    // Si presionamos dentro de cualquiera
+    // de los fieldsets, tampoco cerramos.
+    if (
+        e.target.closest(".fieldset-observacion")
+    ) {
+        return;
+    }
+
+
+    cerrarFieldsetsObservacion();
+
+});
+
+function abrirInformacion(boton) {
+
+    const recuadro =
+        document.getElementById(
+            boton.dataset.info
+        );
+
+    if (!recuadro) return;
+
+
+    // Si ya había una ventana de información abierta,
+    // la cerramos primero
+    cerrarInformacion();
+
+
+    // Guardamos exactamente dónde estaba el textarea
+    recuadro.infoOriginal = {
+
+        padre: recuadro.parentElement,
+
+        siguiente: recuadro.nextSibling,
+
+        teniaPaso:
+            recuadro.classList.contains("paso"),
+
+        teniaVentana:
+            recuadro.classList.contains(
+                "ventanaFormulario"
+            )
+
+    };
+
+
+    // Crear fieldset temporal
+    const fieldset =
+        document.createElement("fieldset");
+
+    fieldset.classList.add(
+        "fieldset-informacion"
+    );
+
+
+    // Crear legend
+    const legend =
+        document.createElement("legend");
+
+
+    // IMPORTANTE:
+    // el nombre viene del BOTÓN
+    legend.textContent =
+        boton.getAttribute("aria-label")
+        || "Información";
+
+
+    fieldset.appendChild(legend);
+
+
+    // Mostrar el textarea
+    recuadro.classList.remove(
+        "paso",
+        "ventanaFormulario",
+        "campo-ampliadoI"
+    );
+
+
+    recuadro.classList.add(
+        "contenido-informacion"
+    );
+
+
+    // Meter contenido en el nuevo fieldset
+    fieldset.appendChild(recuadro);
+
+
+    // Mostrar fieldset
+    document.body.appendChild(fieldset);
+}
+
+function cerrarInformacion() {
+
+    const fieldset =
+        document.querySelector(
+            ".fieldset-informacion"
+        );
+
+    if (!fieldset) return;
+
+
+    const recuadro =
+        fieldset.querySelector(
+            ".contenido-informacion"
+        );
+
+
+    if (!recuadro) {
+
+        fieldset.remove();
+
+        return;
+    }
+
+
+    const original =
+        recuadro.infoOriginal;
+
+
+    recuadro.classList.remove(
+        "contenido-informacion"
+    );
+
+
+    if (original) {
+
+        // Restaurar las clases originales
+        if (original.teniaPaso) {
+
+            recuadro.classList.add("paso");
+
+        } else {
+
+            recuadro.classList.remove("paso");
+
+        }
+
+
+        if (original.teniaVentana) {
+
+            recuadro.classList.add(
+                "ventanaFormulario"
+            );
+
+        } else {
+
+            recuadro.classList.remove(
+                "ventanaFormulario"
+            );
+
+        }
+
+
+        // Regresarlo exactamente al lugar donde estaba
+        if (
+            original.siguiente &&
+            original.siguiente.parentNode ===
+                original.padre
+        ) {
+
+            original.padre.insertBefore(
+                recuadro,
+                original.siguiente
+            );
+
+        } else {
+
+            original.padre.appendChild(
+                recuadro
+            );
+
+        }
+
+
+        delete recuadro.infoOriginal;
+    }
+
+
+    fieldset.remove();
+}
+
+
+document.addEventListener(
+    "click",
+    function (e) {
+
+        const boton =
+            e.target.closest(".informacion");
+
+        if (!boton) return;
+
+
+        abrirInformacion(boton);
+
+    }
+);
+
+document.addEventListener(
+    "click",
+    function (e) {
+
+        // Si fue el botón ℹ️,
+        // no cerrar
+        if (
+            e.target.closest(".informacion")
+        ) {
+            return;
+        }
+
+
+        // Si el click fue dentro del fieldset,
+        // tampoco cerrar
+        if (
+            e.target.closest(
+                ".fieldset-informacion"
+            )
+        ) {
+            return;
+        }
+
+
+        cerrarInformacion();
+
+    }
+);
  
         
 
