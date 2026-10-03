@@ -1,4 +1,3 @@
-
 const tbody  = document.getElementById("tablaBody");
 const tbody1 = document.getElementById("tablaBody1_1");
 const tbody2 = document.getElementById("tablaBody2");
@@ -9550,6 +9549,7 @@ document.addEventListener(
 
     }
 );
+
  
         
 
