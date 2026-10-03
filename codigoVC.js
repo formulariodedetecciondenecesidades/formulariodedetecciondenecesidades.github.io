@@ -1,3 +1,4 @@
+
 const tbody  = document.getElementById("tablaBody");
 const tbody1 = document.getElementById("tablaBody1_1");
 const tbody2 = document.getElementById("tablaBody2");
@@ -6438,10 +6439,10 @@ document.querySelectorAll("#tablaBody5 [data-relleno]").forEach(campo => {
 
 
 // V6  
-// 
- const direccionEnlace="https://script.google.com/macros/s/AKfycbwGftGIEgkoj3eXcFHXFDOuKpWsoQdaivav-wBPdMP3k7CpR_TJyfhwxCv3qmbLvqa2YA/exec"
+  const direccionEnlace="https://script.google.com/macros/s/AKfycbwGftGIEgkoj3eXcFHXFDOuKpWsoQdaivav-wBPdMP3k7CpR_TJyfhwxCv3qmbLvqa2YA/exec"
 
 // V7 
+
 //const direccionEnlace="https://script.google.com/macros/s/AKfycbyrrLXQMsrqpSoPDWpkb4FCWwzxHjsVFTRmGEgajnz53ZTFpJOXEvK6PqGyDOrcJpE4/exec"
 
 
@@ -8175,7 +8176,8 @@ document.getElementById("Enviar").addEventListener("click", async () => {
                 //    this.reportValidity(); // muestra mensajes
                 //    return;  
                // }
-                 const confirmar = confirm("¿Estás apunto de enviar el Formato de Detección de Necesidades deseas continuar?");
+                 const confirmar = confirm("Aviso: Al enviar el Formato de Detección de Necesidades (FDN), no podrás realizar modificaciones ni enviar información adicional hasta que la DPO emita sus observaciones.\n"+
+                    "Por ello, verifica cuidadosamente que toda la información esté completa y correcta antes de confirmar el envío del FDN.");
 
                 if (!confirmar) {
                   // ❌ Usuario canceló
