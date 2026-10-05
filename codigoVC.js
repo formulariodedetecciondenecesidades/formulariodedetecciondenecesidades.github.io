@@ -906,7 +906,7 @@ function agregarFila4(){
                 aria-label="Espacio">
 
                 <option value="">
-                    -- Selecciona un programa--
+                    -- Selecciona un espacio--
                 </option>
 
             </select>
@@ -4242,6 +4242,7 @@ const mapaFolios = new Map([
 
 */
 
+
 const mapaFolios = new Map([
 [
     "DAJ-BG-001",
@@ -4283,13 +4284,6 @@ const mapaFolios = new Map([
     {
         dependencia: 'Centro de Biotecnología Genómica (CBG)',
         tipoDeBien: "Bienes Tics"
-    }
-],
-[
-    "CBG-EL-248",
-    {
-        dependencia: 'Centro de Biotecnología Genómica (CBG)',
-        tipoDeBien: "Equipo de Laboratorio"
     }
 ],
 [
@@ -4377,13 +4371,6 @@ const mapaFolios = new Map([
     }
 ],
 [
-    "CECyT18-EL-281",
-    {
-        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 18) "Zacatecas"',
-        tipoDeBien: "Equipo de Laboratorio"
-    }
-],
-[
     "CECyT19-BG-124",
     {
         dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 19) "Tecámac"',
@@ -4430,13 +4417,6 @@ const mapaFolios = new Map([
     {
         dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 20) "Natalia Serdán Alatriste"',
         tipoDeBien: "Equipamento General (Capitulo 5000)"
-    }
-],
-[
-    "CECyT20-EL-275",
-    {
-        dependencia: 'Centro de Estudios Científicos y Tecnológicos (CECYT 20) "Natalia Serdán Alatriste"',
-        tipoDeBien: "Equipo de Laboratorio"
     }
 ],
 [
@@ -4626,13 +4606,6 @@ const mapaFolios = new Map([
     {
         dependencia: 'Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Querétaro',
         tipoDeBien: "Bienes Tics"
-    }
-],
-[
-    "CICATA-Queretaro-EL-240",
-    {
-        dependencia: 'Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Querétaro',
-        tipoDeBien: "Equipo de Laboratorio"
     }
 ],
 [
@@ -5420,13 +5393,6 @@ const mapaFolios = new Map([
     }
 ],
 [
-    "ESIQIE-EL-251",
-    {
-        dependencia: 'Escuela Superior de Ingeniería Química E Industrias Extractivas (ESIQIE)',
-        tipoDeBien: "Equipo de Laboratorio"
-    }
-],
-[
     "ESIT-BT-059",
     {
         dependencia: 'Escuela Superior de Ingeniería Textil (ESIT)',
@@ -5445,13 +5411,6 @@ const mapaFolios = new Map([
     {
         dependencia: 'Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Tecamachalco',
         tipoDeBien: "Equipamento General (Capitulo 5000)"
-    }
-],
-[
-    "ESIA-Tecamachalco-EL-246",
-    {
-        dependencia: 'Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Tecamachalco',
-        tipoDeBien: "Equipo de Laboratorio"
     }
 ],
 [
@@ -5665,13 +5624,6 @@ const mapaFolios = new Map([
     }
 ],
 [
-    "UPIICSA-EL-282",
-    {
-        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas (UPIICSA)',
-        tipoDeBien: "Equipo de Laboratorio"
-    }
-],
-[
     "UPIIAP-Puebla-BT-220",
     {
         dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus "Alejo Peralta" Puebla (UPIIAP)',
@@ -5690,13 +5642,6 @@ const mapaFolios = new Map([
     {
         dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus "Alejo Peralta" Puebla (UPIIAP)',
         tipoDeBien: "Flota Vehicular"
-    }
-],
-[
-    "UPIIAP-Puebla-EL-267",
-    {
-        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus "Alejo Peralta" Puebla (UPIIAP)',
-        tipoDeBien: "Equipo de Laboratorio"
     }
 ],
 [
@@ -5767,13 +5712,6 @@ const mapaFolios = new Map([
     {
         dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Tlaxcala (UPIIT)',
         tipoDeBien: "Bienes Tics"
-    }
-],
-[
-    "UPIIT-Tlaxcala-EL-268",
-    {
-        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Tlaxcala (UPIIT)',
-        tipoDeBien: "Equipo de Laboratorio"
     }
 ],
 [
@@ -6438,6 +6376,7 @@ document.querySelectorAll("#tablaBody5 [data-relleno]").forEach(campo => {
 
 
 // V6  
+//
   const direccionEnlace="https://script.google.com/macros/s/AKfycbwGftGIEgkoj3eXcFHXFDOuKpWsoQdaivav-wBPdMP3k7CpR_TJyfhwxCv3qmbLvqa2YA/exec"
 
 // V7 
@@ -6635,14 +6574,14 @@ document.querySelectorAll(".check-verificacion").forEach(check => {
 const ejemplos = json.ejemplos;
     for(let index=1;index<3;index++){
    document.getElementById(`ProgramasE${index}`).textContent=ejemplos[`ProgramasE${index}`];   
-   document.getElementById(`UsuariosHAnio1E${index}`).textContent=ejemplos[`UsuariosHAnio1E${index}`];
-   document.getElementById(`UsuariosMAnio1E${index}`).textContent=ejemplos[`UsuariosMAnio1E${index}`];
    document.getElementById(`UsuariosHAnio2E${index}`).textContent=ejemplos[`UsuariosHAnio2E${index}`];
    document.getElementById(`UsuariosMAnio2E${index}`).textContent=ejemplos[`UsuariosMAnio2E${index}`];
    document.getElementById(`UsuariosHAnio3E${index}`).textContent=ejemplos[`UsuariosHAnio3E${index}`];
+   document.getElementById(`UsuariosMAnio1E${index}`).textContent=ejemplos[`UsuariosMAnio1E${index}`];
    document.getElementById(`UsuariosMAnio3E${index}`).textContent=ejemplos[`UsuariosMAnio3E${index}`];
    document.getElementById(`UsuariosHAnio4E${index}`).textContent=ejemplos[`UsuariosHAnio4E${index}`];
    document.getElementById(`UsuariosMAnio4E${index}`).textContent=ejemplos[`UsuariosMAnio4E${index}`];
+   document.getElementById(`UsuariosHAnio1E${index}`).textContent=ejemplos[`UsuariosHAnio1E${index}`];
    document.getElementById(`UsuariosHAnio5E${index}`).textContent=ejemplos[`UsuariosHAnio5E${index}`];
    document.getElementById(`UsuariosMAnio5E${index}`).textContent=ejemplos[`UsuariosMAnio5E${index}`];
 
@@ -8548,56 +8487,56 @@ document.getElementById(`EstadoRegular_T5E${index}`).textContent=ejemplos[`Estad
                              
 
 
-    document.getElementById("UsuariosHAnio1").textContent = encabezados.encabezado1;
-    document.getElementById("UsuariosMAnio1").textContent = encabezados.encabezado2;
-    document.getElementById("UsuariosHAnio2").textContent = encabezados.encabezado3;
-    document.getElementById("UsuariosMAnio2").textContent = encabezados.encabezado4;
-    document.getElementById("UsuariosHAnio3").textContent = encabezados.encabezado5;
-    document.getElementById("UsuariosMAnio3").textContent = encabezados.encabezado6;
-    document.getElementById("UsuariosHAnio1Obs").textContent = encabezados.encabezado1;
-    document.getElementById("UsuariosMAnio1Obs").textContent = encabezados.encabezado2;
-    document.getElementById("UsuariosHAnio2Obs").textContent = encabezados.encabezado3;
-    document.getElementById("UsuariosMAnio2Obs").textContent = encabezados.encabezado4;
-    document.getElementById("UsuariosHAnio3Obs").textContent = encabezados.encabezado5;
-    document.getElementById("UsuariosMAnio3Obs").textContent = encabezados.encabezado6;
+    document.getElementById("UsuariosHAnio1").value = encabezados.encabezado1;
+    document.getElementById("UsuariosMAnio1").value = encabezados.encabezado2;
+    document.getElementById("UsuariosHAnio2").value = encabezados.encabezado3;
+    document.getElementById("UsuariosMAnio2").value = encabezados.encabezado4;
+    document.getElementById("UsuariosHAnio3").value = encabezados.encabezado5;
+    document.getElementById("UsuariosMAnio3").value = encabezados.encabezado6;
+    document.getElementById("UsuariosHAnio1Obs").value = encabezados.encabezado1;
+    document.getElementById("UsuariosMAnio1Obs").value = encabezados.encabezado2;
+    document.getElementById("UsuariosHAnio2Obs").value = encabezados.encabezado3;
+    document.getElementById("UsuariosMAnio2Obs").value = encabezados.encabezado4;
+    document.getElementById("UsuariosHAnio3Obs").value = encabezados.encabezado5;
+    document.getElementById("UsuariosMAnio3Obs").value = encabezados.encabezado6;
     
 
 
-    document.getElementById("UsuariosHAnio4").textContent = encabezados.encabezado13;
-    document.getElementById("UsuariosMAnio4").textContent = encabezados.encabezado14;
-    document.getElementById("UsuariosHAnio5").textContent = encabezados.encabezado15;
-    document.getElementById("UsuariosMAnio5").textContent = encabezados.encabezado16;
+    document.getElementById("UsuariosHAnio4").value = encabezados.encabezado13;
+    document.getElementById("UsuariosMAnio4").value = encabezados.encabezado14;
+    document.getElementById("UsuariosHAnio5").value = encabezados.encabezado15;
+    document.getElementById("UsuariosMAnio5").value = encabezados.encabezado16;
     
-    document.getElementById("UsuariosHAnio4Obs").textContent = encabezados.encabezado13;
-    document.getElementById("UsuariosMAnio4Obs").textContent = encabezados.encabezado14;
-    document.getElementById("UsuariosHAnio5Obs").textContent = encabezados.encabezado15;
-    document.getElementById("UsuariosMAnio5Obs").textContent = encabezados.encabezado16;
+    document.getElementById("UsuariosHAnio4Obs").value = encabezados.encabezado13;
+    document.getElementById("UsuariosMAnio4Obs").value = encabezados.encabezado14;
+    document.getElementById("UsuariosHAnio5Obs").value = encabezados.encabezado15;
+    document.getElementById("UsuariosMAnio5Obs").value = encabezados.encabezado16;
     
 
-    document.getElementById("UsuariosAHAnio1").textContent = encabezados.encabezado7;
-    document.getElementById("UsuariosAMAnio1").textContent = encabezados.encabezado8;
-    document.getElementById("UsuariosAHAnio2").textContent = encabezados.encabezado9;
-    document.getElementById("UsuariosAMAnio2").textContent = encabezados.encabezado10;
-    document.getElementById("UsuariosAHAnio3").textContent = encabezados.encabezado11;
-    document.getElementById("UsuariosAMAnio3").textContent = encabezados.encabezado12,
+    document.getElementById("UsuariosAHAnio1").value = encabezados.encabezado7;
+    document.getElementById("UsuariosAMAnio1").value = encabezados.encabezado8;
+    document.getElementById("UsuariosAHAnio2").value = encabezados.encabezado9;
+    document.getElementById("UsuariosAMAnio2").value = encabezados.encabezado10;
+    document.getElementById("UsuariosAHAnio3").value = encabezados.encabezado11;
+    document.getElementById("UsuariosAMAnio3").value = encabezados.encabezado12,
     
-    document.getElementById("UsuariosAHAnio1Obs").textContent = encabezados.encabezado7;
-    document.getElementById("UsuariosAMAnio1Obs").textContent = encabezados.encabezado8;
-    document.getElementById("UsuariosAHAnio2Obs").textContent = encabezados.encabezado9;
-    document.getElementById("UsuariosAMAnio2Obs").textContent = encabezados.encabezado10;
-    document.getElementById("UsuariosAHAnio3Obs").textContent = encabezados.encabezado11;
-    document.getElementById("UsuariosAMAnio3Obs").textContent = encabezados.encabezado12;
+    document.getElementById("UsuariosAHAnio1Obs").value = encabezados.encabezado7;
+    document.getElementById("UsuariosAMAnio1Obs").value = encabezados.encabezado8;
+    document.getElementById("UsuariosAHAnio2Obs").value = encabezados.encabezado9;
+    document.getElementById("UsuariosAMAnio2Obs").value = encabezados.encabezado10;
+    document.getElementById("UsuariosAHAnio3Obs").value = encabezados.encabezado11;
+    document.getElementById("UsuariosAMAnio3Obs").value = encabezados.encabezado12;
 
 
-    document.getElementById("UsuariosAHAnio4").textContent = encabezados.encabezado17;
-    document.getElementById("UsuariosAMAnio4").textContent = encabezados.encabezado18;
-    document.getElementById("UsuariosAHAnio5").textContent = encabezados.encabezado19;
-    document.getElementById("UsuariosAMAnio5").textContent = encabezados.encabezado20;
+    document.getElementById("UsuariosAHAnio4").value = encabezados.encabezado17;
+    document.getElementById("UsuariosAMAnio4").value = encabezados.encabezado18;
+    document.getElementById("UsuariosAHAnio5").value = encabezados.encabezado19;
+    document.getElementById("UsuariosAMAnio5").value = encabezados.encabezado20;
     
-    document.getElementById("UsuariosAHAnio4Obs").textContent = encabezados.encabezado17;
-    document.getElementById("UsuariosAMAnio4Obs").textContent = encabezados.encabezado18;
-    document.getElementById("UsuariosAHAnio5Obs").textContent = encabezados.encabezado19;
-    document.getElementById("UsuariosAMAnio5Obs").textContent = encabezados.encabezado20;
+    document.getElementById("UsuariosAHAnio4Obs").value = encabezados.encabezado17;
+    document.getElementById("UsuariosAMAnio4Obs").value = encabezados.encabezado18;
+    document.getElementById("UsuariosAHAnio5Obs").value = encabezados.encabezado19;
+    document.getElementById("UsuariosAMAnio5Obs").value = encabezados.encabezado20;
 
 };
 
