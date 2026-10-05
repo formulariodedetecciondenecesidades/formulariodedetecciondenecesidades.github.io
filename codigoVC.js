@@ -6,7 +6,6 @@ const tbodyP = document.getElementById("tablaBodyP");
 const tbody4 = document.getElementById("tablaBody4");
 const tbodyC = document.getElementById("tablaCotizaciones");
 const tbody5 = document.getElementById("tablaBody5");
-
 const tbody7 = document.getElementById("tablaBody7");
 
 //--------------------------------------------------Para el Guardado de las URL-------------------------------------------------------
