@@ -6,6 +6,8 @@ const tbodyP = document.getElementById("tablaBodyP");
 const tbody4 = document.getElementById("tablaBody4");
 const tbodyC = document.getElementById("tablaCotizaciones");
 const tbody5 = document.getElementById("tablaBody5");
+
+
 const tbody7 = document.getElementById("tablaBody7");
 
 //--------------------------------------------------Para el Guardado de las URL-------------------------------------------------------
@@ -6750,7 +6752,7 @@ const form = document.getElementById("miFormulario");
   data.__filas3 = document.querySelectorAll("#tablaBody3 tr").length;
   data.__filas4 = document.querySelectorAll("#tablaBody4 tr").length;
   data.__filas5 = document.querySelectorAll("#tablaBody5 tr").length;
-  
+  data.numeroEnvio=numerodeEnvio; 
  // if(folioActual==null){
  //            folioActual = generarFolio();
  // }
@@ -9486,6 +9488,7 @@ document.addEventListener(
 
     }
 );
+
 
  
         
