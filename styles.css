@@ -703,8 +703,8 @@ a {
 
 .TablaCotizaciones th:nth-child(7),
 .TablaCotizaciones td:nth-child(7){
-    width: 15%;
-    min-width: 144px;
+    width: 8%;
+    min-width: 96px;
 }th {
   white-space: normal;   /* permite saltos de línea */
   word-break: break-word;
@@ -1881,9 +1881,6 @@ th:has(.informacion) {
 
     padding: 1px 3px;
 }
-
-
-
 
 
 
