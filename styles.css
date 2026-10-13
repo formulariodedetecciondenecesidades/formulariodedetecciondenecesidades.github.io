@@ -1654,7 +1654,7 @@ th:has(.informacion) {
     left: 25vw;
 
     width: 50vw !important;
-    height: 30vh !important;
+    height: fit-content !important;
 
     z-index: 10001;
 
@@ -1880,6 +1880,59 @@ th:has(.informacion) {
     margin: 0;
 
     padding: 1px 3px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.programa-menu {
+    display: none;
+
+    position: fixed;
+
+    width: 260px;
+    max-height: 300px;
+    overflow-y: auto;
+
+    background: white;
+    color: black;
+
+    border: 1px solid #999;
+    border-radius: 5px;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,.25);
+
+    padding: 10px;
+
+    z-index: 999999;
+}
+
+.programa-menu label {
+    display: block;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.programa-menu label:hover {
+    background: #eee;
+}
+.tabla_style td.celda-programa-multiple {
+    overflow: visible !important;
+    position: relative;
+}
+
+ button.programa-multiple-btn{
+    background-color: transparent;
+    border:none;
 }
 
 
