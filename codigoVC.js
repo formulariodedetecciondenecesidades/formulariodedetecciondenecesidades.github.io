@@ -458,7 +458,7 @@ function agregarFila2(){
             <input
                 name="Edificio_T2R${i}"
                 id="Edificio_T2R${i}"
-                class=""
+                class="paso"
                 aria-label="Edificio">
 
 
@@ -496,7 +496,7 @@ function agregarFila2(){
              <input
                    id="Nivel_T2R${i}"
                    name="Nivel_T2R${i}"
-                   class="input_tabla"
+                   class="input_tabla paso"
                    aria-label="Nivel"
             >
 
@@ -978,7 +978,7 @@ function agregarFila4(){
             <input
                 id="Espacio_T4R${i}"
                 name="Espacio_T4R${i}"
-                class=""
+                class="paso"
                 aria-label="Espacio">
 
             <input
