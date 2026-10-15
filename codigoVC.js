@@ -458,7 +458,7 @@ function agregarFila2(){
             <input
                 name="Edificio_T2R${i}"
                 id="Edificio_T2R${i}"
-                class="paso"
+                class=""
                 aria-label="Edificio">
 
 
@@ -496,7 +496,7 @@ function agregarFila2(){
              <input
                    id="Nivel_T2R${i}"
                    name="Nivel_T2R${i}"
-                   class="input_tabla paso"
+                   class="input_tabla"
                    aria-label="Nivel"
             >
 
@@ -944,6 +944,7 @@ function agregarFila4(){
             <input
                   type="hidden"
                   id="ProgramaAcademicoSeleccionados_T4R${i}"
+                  class="camposAuxiliaresdeTexto"
                   name="ProgramaAcademicoSeleccionados_T4R${i}"
             >
             
@@ -978,7 +979,7 @@ function agregarFila4(){
             <input
                 id="Espacio_T4R${i}"
                 name="Espacio_T4R${i}"
-                class="paso"
+                class=""
                 aria-label="Espacio">
 
             <input
@@ -4536,10 +4537,10 @@ const mapaFolios = new Map([
 
 
 
-function obtenerListaDependencias() {
+/*function obtenerListaDependencias() {
     return Array.from(siglasDependencias.keys());
 }
-
+*/
 
 
 
@@ -5179,12 +5180,12 @@ document.querySelectorAll("#tablaBody5 [data-relleno]").forEach(campo => {
 
 
 // V6  
-//const direccionEnlace="https://script.google.com/macros/s/AKfycbwGftGIEgkoj3eXcFHXFDOuKpWsoQdaivav-wBPdMP3k7CpR_TJyfhwxCv3qmbLvqa2YA/exec"
+//
+const direccionEnlace="https://script.google.com/macros/s/AKfycbwGftGIEgkoj3eXcFHXFDOuKpWsoQdaivav-wBPdMP3k7CpR_TJyfhwxCv3qmbLvqa2YA/exec"
 
 // V7 
 
-//
-const direccionEnlace="https://script.google.com/macros/s/AKfycbyrrLXQMsrqpSoPDWpkb4FCWwzxHjsVFTRmGEgajnz53ZTFpJOXEvK6PqGyDOrcJpE4/exec"
+//const direccionEnlace="https://script.google.com/macros/s/AKfycbyrrLXQMsrqpSoPDWpkb4FCWwzxHjsVFTRmGEgajnz53ZTFpJOXEvK6PqGyDOrcJpE4/exec"
 
 
 let folioActual=null;
@@ -5607,13 +5608,55 @@ const form = document.getElementById("miFormulario");
   });
 
   // Guardamos también el número de filas actuales
+
+  data.__filas1 =
+    document.querySelectorAll(
+        "#tablaBody tr:not(.ejemplo)"
+    ).length;
+
+data.__filas2 =
+    document.querySelectorAll(
+        "#tablaBody2 tr:not(.ejemplo)"
+    ).length;
+
+data.__filas3 =
+    document.querySelectorAll(
+        "#tablaBody3 tr:not(.ejemplo)"
+    ).length;
+
+data.__filasC =
+    document.querySelectorAll(
+        "#tablaCotizaciones tr:not(.ejemplo)"
+    ).length;
+
+data.__filas4 =
+    document.querySelectorAll(
+        "#tablaBody4 tr:not(.ejemplo):not(#filaTotalTabla4)"
+    ).length;
+
+data.__filas5 =
+    document.querySelectorAll(
+        "#tablaBody5 tr:not(.ejemplo)"
+    ).length;
+
+ 
+ 
+ 
+ /*
   data.__filas1 = document.querySelectorAll("#tablaBody tr").length;
   data.__filas2 = document.querySelectorAll("#tablaBody2 tr").length;
   data.__filas3 = document.querySelectorAll("#tablaBody3 tr").length;
   data.__filas4 = document.querySelectorAll("#tablaBody4 tr").length;
   data.__filas5 = document.querySelectorAll("#tablaBody5 tr").length;
+ */ 
+  
   data.numeroEnvio=numerodeEnvio; 
- // if(folioActual==null){
+ 
+ 
+ 
+ 
+ 
+  // if(folioActual==null){
  //            folioActual = generarFolio();
  // }
   data.__folio = folioActual;
@@ -5765,13 +5808,13 @@ function restaurarTabla(data) {
  
 
 
-  const filas1   = data.__filas1 || 10;
-  const filas1_1 = data.__filas1_1 || 10;
-  const filas2   = data.__filas2 || 10;
-  const filas3   = data.__filas3 || 10;
-  const filasC   = data.__filasC || 10;
-  const filas4   = data.__filas4 || 10;
-  const filas5   = data.__filas5 || 10;
+  const filas1   = data.__filas1 || 5;
+  const filas1_1 = data.__filas1_1 || 5;
+  const filas2   = data.__filas2 || 5;
+  const filas3   = data.__filas3 || 5;
+  const filasC   = data.__filasC || 5;
+  const filas4   = data.__filas4 || 5;
+  const filas5   = data.__filas5 || 5;
 
   /*
   const filas6   = data.__filas6 || 10;
@@ -6416,6 +6459,10 @@ actualizarTotalesTabla4();
 
 //  alert("ANtes de cargar Borrador"+folioActual);
 
+/*
+
+
+
 document.getElementById("cargarBorrador").addEventListener("click", async () => {
 //-------------------------- Borrador con  folio (Backend)   
   
@@ -6434,13 +6481,6 @@ document.getElementById("cargarBorrador").addEventListener("click", async () => 
    }
 
 
-/*
-  const folio = document.getElementById("folioInput").value.trim();
-  if (!folio) {
-    alert("⚠️ Ingresa un folio válido");
-    return;
-  }
-*/
 try {
     const res = await fetch(direccionEnlace, {
       method: "POST",
@@ -6483,9 +6523,6 @@ try {
   const tbody4 = document.getElementById("tablaBody4");
   const tbody5 = document.getElementById("tablaBody5");
 
-  /*
-  const tbody6 = document.getElementById("tablaBody6");
-  */
 
   tbody.innerHTML = "";
   tbody2.innerHTML = "";
@@ -6493,11 +6530,10 @@ try {
   tbodyC.innerHTML = "";
   tbody4.innerHTML = "";
   tbody5.innerHTML = "";
-  /*
-  tbody6.innerHTML = "";
-  
-  */
-  // Reconstruir filas
+
+
+
+// Reconstruir filas
 //  const filas = data.__filas || 10;
 //  for (let i = 1; i <= filas; i++) {
 //    agregarFila();
@@ -6508,16 +6544,8 @@ try {
 //      folioActual = folio;
       edicionActual=data.edicion;
 // Restaurar selects encadenados
-/*setSelectValue("secretaria", data.secretaria);
 
-setTimeout(() => {
-  setSelectValue("direccion", data.direccion);
 
-  setTimeout(() => {
-    setSelectValue("nivel", data.nivel);
-
-    setTimeout(() => {
-*/
 //-------------------------------  activa selects
 // folioValor.value=data.folio;
       setSelectValue("dependencia", data.dependencia);
@@ -6552,29 +6580,6 @@ let folioValor = document.getElementById("folioInput");
       
       // ⬇️ Ahora sí, restaurar la tabla
       restaurarTabla(data);
-/*
-for(let i =3;i<data.__filas4+2;i++){
-  
-  const estado = data[`ProgramaAcademico_T4R${i}RO`];
-  alert(estado===true || estado==="true");
-  alert(estado);
-  //alert(document.getElementById(`ProgramaAcademico_T4R${i}`).readOnly);
-
-
-
-  document.getElementById(`ProgramaAcademico_T4R${i}`).readOnly=estado === true || estado === "true";
-
-  }
-*/
-/*
-document.querySelectorAll(".check-verificacion").forEach(check => {
-
-    if (data.hasOwnProperty(check.name)) {
-        check.value= data[check.name];
-    }
-
-});
-*/
 
 document.querySelectorAll(".check-verificacion").forEach(check => {
 
@@ -6674,11 +6679,6 @@ document.getElementById(`EstadoRegular_T5E${index}`).textContent=ejemplos[`Estad
                            actualizarObligatoriedadFila(fila);
       });
 
-/*      
-      document.querySelectorAll("#tablaBody6 tr").forEach(fila => {
-                           actualizarObligatoriedadFila(fila);
-      });
-*/
 
 //    }, 0);
 //  }, 0);
@@ -6689,6 +6689,12 @@ document.getElementById(`EstadoRegular_T5E${index}`).textContent=ejemplos[`Estad
 }
   
 });
+
+
+
+
+
+
 
 
 document.getElementById("cargarRespuesta").addEventListener("click", async () => {
@@ -6710,12 +6716,6 @@ document.getElementById("cargarRespuesta").addEventListener("click", async () =>
 
 
 
-  /*-------- suprimido nuevo
-  if (!folio) {
-    alert("⚠️ Ingresa un folio válido");
-    return;
-  }
-*/
 
 
 
@@ -6761,18 +6761,13 @@ try {
   const tbodyC = document.getElementById("tablaCotizaciones");
   const tbody4 = document.getElementById("tablaBody4");
   const tbody5 = document.getElementById("tablaBody5");
-  /*
-  const tbody6 = document.getElementById("tablaBody6");
-  */
   tbody.innerHTML = "";
   tbody2.innerHTML = "";
   tbody3.innerHTML = "";
   tbodyC.innerHTML = "";
   tbody4.innerHTML = "";
   tbody5.innerHTML = "";
-  /*
-  tbody6.innerHTML = "";
-  */
+
   // Reconstruir filas
 //  const filas = data.__filas || 10;
 //  for (let i = 1; i <= filas; i++) {
@@ -6782,26 +6777,6 @@ try {
 folioActual=folio;
 edicionActual=data.edicion;
 numerodeEnvio=data.numeroEnvio;
-/*
-alert("ExistenciaDeCotizaciones:"+ExistenciaDeCotizaciones);
-   alert("ExistenciaDeCotizaciones_T4:"+ExistenciaDeCotizaciones_T4);
-  
-   alert("ExistenciaDeCotizacionesA2 :"+ExistenciaDeCotizacionesA2);
-   alert("ExistenciaDeCotizacionesA2_T4 :"+ExistenciaDeCotizacionesA2_T4);
-
-*/
-
-// Restaurar selects encadenados
-/*setSelectValue("secretaria", data.secretaria);
-
-setTimeout(() => {
-  setSelectValue("direccion", data.direccion);
-
-  setTimeout(() => {
-    setSelectValue("nivel", data.nivel);
-
-    setTimeout(() => {
-*/
       setSelectValue("dependencia", data.dependencia);
 
       Object.keys(data).forEach(name => {
@@ -6933,12 +6908,8 @@ document.getElementById(`EstadoRegular_T5E${index}`).textContent=ejemplos[`Estad
       document.querySelectorAll("#tablaBody5 tr").forEach(fila => {
                            actualizarObligatoriedadFila(fila);
       });
-      /*
-      document.querySelectorAll("#tablaBody6 tr").forEach(fila => {
-                           actualizarObligatoriedadFila(fila);
-      });
-*/
-//    }, 0);
+
+      //    }, 0);
 //  }, 0);
 //}, 0);
   alert("📂 Respuesta cargada correctamente");
@@ -6953,7 +6924,7 @@ document.getElementById(`EstadoRegular_T5E${index}`).textContent=ejemplos[`Estad
 
 
 
-
+*/
 
 
 
@@ -7100,37 +7071,12 @@ for (const archivo of archivosPlanos) {
 
 
 
-
-
-/*
-data.secretariaT = document.getElementById("secretaria").options[
-    document.getElementById("secretaria").selectedIndex
-].text;
-
-data.direccionT = document.getElementById("direccion").options[
-    document.getElementById("direccion").selectedIndex
-].text;
-
-data.nivelT = document.getElementById("nivel").options[
-    document.getElementById("nivel").selectedIndex
-].text;
-*/
 data.dependenciaT = document.getElementById("dependencia").options[
     document.getElementById("dependencia").selectedIndex
 ].text;
-/*
-alert("ExistenciaDeCotizaciones: "+ExistenciaDeCotizaciones);
 
 
-alert("ExistenciaDeCotizacionesA2: "+ExistenciaDeCotizacionesA2);
 
-alert("ExistenciaDeCotizaciones_T4: "+ExistenciaDeCotizaciones_T4);
-alert("ExistenciaDeCotizacionesA2_T4: "+ExistenciaDeCotizacionesA2_T4);
-
-
-//------------------lleando de las url
-
-alert("Antes ");*/
 Object.keys(urlCotizacionesActuales).forEach(name => {
              data[name] = urlCotizacionesActuales[name];
 /*             alert("data.envio:"+data.numeroEnvio);
@@ -7149,12 +7095,45 @@ Object.keys(urlCotizacionesActuales).forEach(name => {
 
 
   // Guardamos también el número de filas actuales
-  data.__filas1 = document.querySelectorAll("#tablaBody tr").length;
-  data.__filas2 = document.querySelectorAll("#tablaBody2 tr").length;
-  data.__filas3 = document.querySelectorAll("#tablaBody3 tr").length;
-  data.__filasC = document.querySelectorAll("#tablaCotizaciones tr").length;
-  data.__filas4 = document.querySelectorAll("#tablaBody4 tr").length;
-  data.__filas5 = document.querySelectorAll("#tablaBody5 tr").length;
+
+data.__filas1 =
+    document.querySelectorAll(
+        "#tablaBody tr:not(.ejemplo)"
+    ).length;
+
+data.__filas2 =
+    document.querySelectorAll(
+        "#tablaBody2 tr:not(.ejemplo)"
+    ).length;
+
+data.__filas3 =
+    document.querySelectorAll(
+        "#tablaBody3 tr:not(.ejemplo)"
+    ).length;
+
+data.__filasC =
+    document.querySelectorAll(
+        "#tablaCotizaciones tr:not(.ejemplo)"
+    ).length;
+
+data.__filas4 =
+    document.querySelectorAll(
+        "#tablaBody4 tr:not(.ejemplo):not(#filaTotalTabla4)"
+    ).length;
+
+data.__filas5 =
+    document.querySelectorAll(
+        "#tablaBody5 tr:not(.ejemplo)"
+    ).length;
+
+
+
+//  data.__filas1 = document.querySelectorAll("#tablaBody tr").length;
+//  data.__filas2 = document.querySelectorAll("#tablaBody2 tr").length;
+//  data.__filas3 = document.querySelectorAll("#tablaBody3 tr").length;
+//  data.__filasC = document.querySelectorAll("#tablaCotizaciones tr").length;
+//  data.__filas4 = document.querySelectorAll("#tablaBody4 tr").length;
+//  data.__filas5 = document.querySelectorAll("#tablaBody5 tr").length;
 
   /*
   data.__filas6 = document.querySelectorAll("#tablaBody6 tr").length;
