@@ -1934,8 +1934,17 @@ th:has(.informacion) {
     background-color: transparent;
     border:none;
 }
+.camposAuxiliaresdeTexto{
+    height: 20px !important;
+}
+legend.titulos{
+   margin-left: 0;
+    margin-right: auto;
 
-
+}
+button.pagina{
+height: 90px !important;
+}
 
 
 
