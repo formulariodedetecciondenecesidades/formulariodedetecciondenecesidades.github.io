@@ -459,7 +459,9 @@ function agregarFila2(){
                 name="Edificio_T2R${i}"
                 id="Edificio_T2R${i}"
                 class=""
-                aria-label="Edificio">
+                aria-label="Edificio"
+                readonly
+                >
 
 
 
@@ -468,7 +470,7 @@ function agregarFila2(){
                 class="paso check-verificacion"
                 readonly
                 id="Edificio_T2R${i}RO"
-                data-campo="Edificio_T2R${i}"
+                data-campo="Edificio_Select_T2R${i}"
             >
         </td>
 
@@ -498,6 +500,7 @@ function agregarFila2(){
                    name="Nivel_T2R${i}"
                    class="input_tabla"
                    aria-label="Nivel"
+                   readonly
             >
 
 
@@ -916,6 +919,7 @@ function agregarFila4(){
         <td>
              <button
         type="button"
+        id="botonMenu_T4R${i}"
         class="programa-multiple-btn"
         data-menu="menuPrograma_T4R${i}"
     >--Seleccionar programas--
@@ -955,7 +959,7 @@ function agregarFila4(){
                 type="text"
                 class="paso check-verificacion"
                 id="ProgramaAcademico_T4R${i}RO"
-                data-campo="menuPrograma_T4R${i}"
+                data-campo="botonMenu_T4R${i}"
                 readonly
             >
         </td>
@@ -1221,7 +1225,6 @@ function agregarFila4(){
 
             </div>
         </td>
-
 
 
 
@@ -5236,6 +5239,9 @@ setSelectValue(
         datos.tipoDeBien
     );
 
+let formularioVisible=document.getElementById("tablasFrame");
+
+formularioVisible.classList.remove("paso");
 
 
 try {    
@@ -5368,14 +5374,12 @@ document
 
 
 document.querySelectorAll(".check-verificacion").forEach(check => {
-
-     let campo = document.querySelector(`[name="${check.dataset.campo}"]`);
+    let selects=["botonMenu_T4R"]
+    let campo = document.querySelector(`[name="${check.dataset.campo}"]`);
     if (!campo){
           campo = document.querySelector(`[id="${check.dataset.campo}"]`);
         if (!campo) return;  
     } ;
-
-
 
 
     campo.readOnly = check.value === true || check.value === "true";
@@ -5388,6 +5392,26 @@ document.querySelectorAll(".check-verificacion").forEach(check => {
         check.value === "true";
 
     }
+    
+//    if(selects.includes(check.dataset.campo)){
+       if (
+    selects.some(prefijo =>
+        check.dataset.campo?.startsWith(prefijo)
+    )
+) {
+//         campo.disabled = check.value === true ||
+//        check.value === "true";
+
+       if((check.value === true)||(check.value === "true")){
+
+            campo.classList.add("paso");
+        }else{
+            campo.classList.remove("paso");
+        };  
+
+
+    };
+
 });
 
 
@@ -5518,7 +5542,19 @@ document.getElementById(`EstadoRegular_T5E${index}`).textContent=ejemplos[`Estad
 );
 
 */
+tbody4.addEventListener("change",function (e) {
 
+    if (
+        !e.target.name?.startsWith("precio_T4R") &&
+  //      !e.target.id?.startsWith("ProgramaAcademico_Select_T4R")&&
+        !e.target.name?.startsWith("precio2_T4R")
+    ) return;
+    
+
+    let precioInputF=e.target;
+    precioTotalMasIVA(precioInputF);
+
+});
 
       
 document.querySelectorAll(
@@ -7222,7 +7258,9 @@ const json = await res.json();
         aviso.style.color = "green";
             
         form.reset();
+        let formularioVisible=document.getElementById("tablasFrame");
 
+        formularioVisible.classList.add("paso");
     } else {
 
         alert("⚠️ Error al enviar los datos: " + json.message);
@@ -8327,6 +8365,8 @@ document.addEventListener(
 
     }
 );
+
+
 
 
 
