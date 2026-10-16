@@ -1932,7 +1932,7 @@ th:has(.informacion) {
 
  button.programa-multiple-btn{
     background-color: transparent;
-    border:none;
+    border-radius: 10px;
 }
 .camposAuxiliaresdeTexto{
     height: 20px !important;
@@ -1945,7 +1945,6 @@ legend.titulos{
 button.pagina{
 height: 90px !important;
 }
-
 
 
 
