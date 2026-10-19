@@ -4260,7 +4260,8 @@ const mapaFolios = new Map([
         dependencia: 'Escuela Superior de Medicina (ESM)',
         tipoDeBien: "Equipamento General (Capitulo 5000)"
     }
-],                    <td id="UsuariosHAnio5E2" title="Matrícula Hombres 5" class="ejemplo">
+],
+                    <td id="UsuariosHAnio5E2" title="Matrícula Hombres 5" class="ejemplo">
                                                                                  
                                                                              </td>
                                                                               <td  id="UsuariosMAnio5E2" title="Matrícula Mujeres 5" class="ejemplo">  
@@ -5358,6 +5359,7 @@ document.querySelectorAll("#tablaBody5 [data-relleno]").forEach(campo => {
 // V7 
 
 //
+
 const direccionEnlace="https://script.google.com/macros/s/AKfycbyrrLXQMsrqpSoPDWpkb4FCWwzxHjsVFTRmGEgajnz53ZTFpJOXEvK6PqGyDOrcJpE4/exec"
 
 
