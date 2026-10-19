@@ -4260,7 +4260,177 @@ const mapaFolios = new Map([
         dependencia: 'Escuela Superior de Medicina (ESM)',
         tipoDeBien: "Equipamento General (Capitulo 5000)"
     }
-],
+],                    <td id="UsuariosHAnio5E2" title="Matrícula Hombres 5" class="ejemplo">
+                                                                                 
+                                                                             </td>
+                                                                              <td  id="UsuariosMAnio5E2" title="Matrícula Mujeres 5" class="ejemplo">  
+                                                                             </td>
+
+                                                                         </tr>` ;
+                                                         tbody1.innerHTML = `<tr class="ejemplo">
+                                                                              <td title="Numero de Fila" class="ejemplo">
+                                                                                                                        
+                                                                              </td>
+
+                                                                               <td title="Número de Profesores Superior y Posgrado  "    id="NumProfE1" class="ejemplo">
+                                                                                   Número de Profesores Superior y Posgrado     
+                                                                              </td>
+                                                          
+                                                                              <td   id="UsuariosAHAnio1E1" title="Número de Profesores y Administrativos Hombres 1"  class="ejemplo" >
+                                                                              </td>
+                                                                                <td id="UsuariosAMAnio1E1" title="Número de Profesores y Administrativos Mujeres 1" class="ejemplo">
+                                                                                   
+                                                                              </td>
+                                                                              <td   id="UsuariosAHAnio2E1" title="Número de Profesores y Administrativos Hombres 2" class="ejemplo">
+                                                                                  
+                                                                             </td>
+                                                                              <td   id="UsuariosAMAnio2E1" title="Número de Profesores y Administrativos Mujeres 2" class="ejemplo">
+                                                                                  
+                                                                             </td>
+                                                                             <td    id="UsuariosAHAnio3E1" title="Número de Profesores y Administrativos Hombres 3" class="ejemplo">
+                                                                                  
+                                                                             </td>
+                                                                              <td   id="UsuariosAMAnio3E1" title="Número de Profesores y Administrativos Mujeres 3"class="ejemplo">
+                                                                                  
+                                                                             </td>
+                                                                              <td id="UsuariosAHAnio4E1" title="Número de Profesores y Administrativos Hombres 4"class="ejemplo">
+                                                                                  
+                                                                             </td>
+                                                                              <td   id="UsuariosAMAnio4E1" title="Número de Profesores y Administrativos Mujeres 4"class="ejemplo">
+                                                                                  
+                                                                             </td>
+                                                                              <td  id="UsuariosAHAnio5E1" title="Número de Profesores y Administrativos Hombres 5"class="ejemplo">
+                                                                                  
+                                                                             </td>
+                                                                              <td   id="UsuariosAMAnio5E1" title="Número de Profesores y Administrativos Mujeres 5"class="ejemplo">
+                                                                                  
+                                                                             </td>
+
+                                                                         </tr>
+                                                                         <tr class="ejemplo">
+                                                                              <td title="Numero de Fila" class="ejemplo">
+                                                                                                                        
+                                                                              </td>
+                                                                              <td title="Número de Profesores Superior y Posgrado  " id="NumProfE2" class="ejemplo">
+                                                                                   Número de Profesores Superior y Posgrado     
+                                                                              </td>
+                                                          
+                                                                              <td id="UsuariosAHAnio1E2" title="Número de Profesores y Administrativos Hombres 1" class="ejemplo">
+                                                                              </td>
+                                                                                <td id="UsuariosAMAnio1E2" title="Número de Profesores y Administrativos Mujeres 1" class="ejemplo">
+                                                                              
+                                                                              </td>
+                                                                              <td id="UsuariosAHAnio2E2" title="Número de Profesores y Administrativos Hombres 2" class="ejemplo">
+                                                                                 
+                                                                             </td>
+                                                                              <td  id="UsuariosAMAnio2E2" title="Número de Profesores y Administrativos Mujeres 2" class="ejemplo">
+                                                                                 
+                                                                             </td>
+                                                                             <td id="UsuariosAHAnio3E2" title="Número de Profesores y Administrativos Hombres 3" class="ejemplo">
+                                                                                  
+                                                                             </td>
+                                                                              <td  id="UsuariosAMAnio3E2" title="Número de Profesores y Administrativos Mujeres 3" class="ejemplo">
+                                                                                  
+                                                                             </td>
+                                                                              <td id="UsuariosAHAnio4E2" title="Número de Profesores y Administrativos Hombres 4" class="ejemplo">
+                                                                                  
+                                                                             </td>
+                                                                              <td  id="UsuariosAMAnio4E2" title="Número de Profesores y Administrativos Mujeres 4" class="ejemplo">
+                                                                                  
+                                                                             </td>
+                                                                              <td id="UsuariosAHAnio5E2" title="Número de Profesores y Administrativos Hombres 5" class="ejemplo">
+                                                                                  
+                                                                             </td>
+                                                                              <td  id="UsuariosAMAnio5E2" title="Número de Profesores y Administrativos Mujeres 5" class="ejemplo">
+                                                                                  
+                                                                             </td>
+                                                                             <tr>
+                                                                             `;
+  tbody2.innerHTML = `<tr class="ejemplo">
+                                                                   <td title="Numero de Fila" class="ejemplo">
+                                                                                                                        
+                                                                   </td>
+
+                                                                   <td title="Edificio" id="Edificio_T2E1" class="ejemplo">
+                                                                         
+                                                                   </td>
+                                               
+                                                                   <td title="Nivel" id="Nivel_T2E1" class="ejemplo">
+                                                                      
+                                                                   </td>   
+                               
+                                                                   <td title="Espacio" id="Espacio_T2E1" class="ejemplo">
+                                                                   </td>
+                                                                   <td title="Largo" id="Largo_T2E1" class="ejemplo">
+                                                                   </td>
+                                                                   <td title="Ancho" id="Ancho_T2E1" class="ejemplo">
+                                                                   </td>
+                               
+                                                                   <td title="Alumnos" id="Alumnos_T2E1" class="ejemplo">
+                                                                   </td> 
+                                                                   
+                                                                   <td title="HorasServicio" id="Horas_T2E1" class="ejemplo">
+                                                                   </td>
+                               
+                                                                   
+                                                              </tr>
+                               
+                                                              <tr class="ejemplo">
+                                                                 <td title="Numero de Fila" class="ejemplo">
+                                                                                                                        
+                                                                              </td>
+                                                                   <td title="Edificio" id="Edificio_T2E2" class="ejemplo">
+                                                                          
+                                                                   </td>
+                                               
+                                                                   <td title="Nivel" id="Nivel_T2E2" class="ejemplo">
+                                                                        
+                                                                   </td>   
+                               
+                                                                   <td title="Espacio" id="Espacio_T2E2" class="ejemplo">
+                                                                        
+                                                                   </td>
+                                                                   <td title="Largo" id="Largo_T2E2" class="ejemplo">
+                                                                   </td>
+                                                                   <td title="Ancho" id="Ancho_T2E2" class="ejemplo">
+                                                                       
+                                                                   </td>
+                               
+                                                                   <td title="Alumnos" id="Alumnos_T2E2" class="ejemplo">
+                                                                       
+                                                                   </td> 
+                                                                   
+                                                                   <td title="HorasServicio" id="Horas_T2E2" class="ejemplo">
+                                                                       
+                                                                   </td>
+                                                              </tr>`;
+  tbody3.innerHTML = `<tr class="ejemplo">
+                                                                <td title="Numero de Fila" class="ejemplo">
+                                                                                                                        
+                                                                              </td>
+
+                                                                 <td title="Edificio" id="Edificio_T3E1" class="ejemplo">
+                                                                          
+                                                                 </td>
+                                             
+                                                                 <td title="MetrosCuadrados" id="MetrosCuadrados_T3E1" class="ejemplo">
+                                                                       
+                                                                 </td>   
+                                                                 
+                                                                 
+                                                            </tr>
+                                                            <tr class="ejemplo">
+                                                                 <td title="Numero de Fila" class="ejemplo">
+                                                                                                                        
+                                                                              </td>
+                                                                 <td title="Edificio" id="Edificio_T3E2" class="ejemplo">
+                                                                       
+                                                                 </td>
+                                             
+                                                                 <td title="MetrosCuadrados" id="MetrosCuadrados_T3E2" class="ejemplo">
+                                                                       
+                                                                 </td>   
+                                                               
 [
     "ESM-FV-121",
     {
@@ -5183,12 +5353,12 @@ document.querySelectorAll("#tablaBody5 [data-relleno]").forEach(campo => {
 
 
 // V6  
-//
-const direccionEnlace="https://script.google.com/macros/s/AKfycbwGftGIEgkoj3eXcFHXFDOuKpWsoQdaivav-wBPdMP3k7CpR_TJyfhwxCv3qmbLvqa2YA/exec"
+//const direccionEnlace="https://script.google.com/macros/s/AKfycbwGftGIEgkoj3eXcFHXFDOuKpWsoQdaivav-wBPdMP3k7CpR_TJyfhwxCv3qmbLvqa2YA/exec"
 
 // V7 
 
-//const direccionEnlace="https://script.google.com/macros/s/AKfycbyrrLXQMsrqpSoPDWpkb4FCWwzxHjsVFTRmGEgajnz53ZTFpJOXEvK6PqGyDOrcJpE4/exec"
+//
+const direccionEnlace="https://script.google.com/macros/s/AKfycbyrrLXQMsrqpSoPDWpkb4FCWwzxHjsVFTRmGEgajnz53ZTFpJOXEvK6PqGyDOrcJpE4/exec"
 
 
 let folioActual=null;
@@ -5942,177 +6112,7 @@ function restaurarTabla(data) {
                                                                              </td>
                                                                               <td  id="UsuariosMAnio4E2" title="Matrícula Mujeres 4" class="ejemplo">  
                                                                              </td>
-                                                                             <td id="UsuariosHAnio5E2" title="Matrícula Hombres 5" class="ejemplo">
-                                                                                 
-                                                                             </td>
-                                                                              <td  id="UsuariosMAnio5E2" title="Matrícula Mujeres 5" class="ejemplo">  
-                                                                             </td>
-
-                                                                         </tr>` ;
-                                                         tbody1.innerHTML = `<tr class="ejemplo">
-                                                                              <td title="Numero de Fila" class="ejemplo">
-                                                                                                                        
-                                                                              </td>
-
-                                                                               <td title="Número de Profesores Superior y Posgrado  "    id="NumProfE1" class="ejemplo">
-                                                                                   Número de Profesores Superior y Posgrado     
-                                                                              </td>
-                                                          
-                                                                              <td   id="UsuariosAHAnio1E1" title="Número de Profesores y Administrativos Hombres 1"  class="ejemplo" >
-                                                                              </td>
-                                                                                <td id="UsuariosAMAnio1E1" title="Número de Profesores y Administrativos Mujeres 1" class="ejemplo">
-                                                                                   
-                                                                              </td>
-                                                                              <td   id="UsuariosAHAnio2E1" title="Número de Profesores y Administrativos Hombres 2" class="ejemplo">
-                                                                                  
-                                                                             </td>
-                                                                              <td   id="UsuariosAMAnio2E1" title="Número de Profesores y Administrativos Mujeres 2" class="ejemplo">
-                                                                                  
-                                                                             </td>
-                                                                             <td    id="UsuariosAHAnio3E1" title="Número de Profesores y Administrativos Hombres 3" class="ejemplo">
-                                                                                  
-                                                                             </td>
-                                                                              <td   id="UsuariosAMAnio3E1" title="Número de Profesores y Administrativos Mujeres 3"class="ejemplo">
-                                                                                  
-                                                                             </td>
-                                                                              <td id="UsuariosAHAnio4E1" title="Número de Profesores y Administrativos Hombres 4"class="ejemplo">
-                                                                                  
-                                                                             </td>
-                                                                              <td   id="UsuariosAMAnio4E1" title="Número de Profesores y Administrativos Mujeres 4"class="ejemplo">
-                                                                                  
-                                                                             </td>
-                                                                              <td  id="UsuariosAHAnio5E1" title="Número de Profesores y Administrativos Hombres 5"class="ejemplo">
-                                                                                  
-                                                                             </td>
-                                                                              <td   id="UsuariosAMAnio5E1" title="Número de Profesores y Administrativos Mujeres 5"class="ejemplo">
-                                                                                  
-                                                                             </td>
-
-                                                                         </tr>
-                                                                         <tr class="ejemplo">
-                                                                              <td title="Numero de Fila" class="ejemplo">
-                                                                                                                        
-                                                                              </td>
-                                                                              <td title="Número de Profesores Superior y Posgrado  " id="NumProfE2" class="ejemplo">
-                                                                                   Número de Profesores Superior y Posgrado     
-                                                                              </td>
-                                                          
-                                                                              <td id="UsuariosAHAnio1E2" title="Número de Profesores y Administrativos Hombres 1" class="ejemplo">
-                                                                              </td>
-                                                                                <td id="UsuariosAMAnio1E2" title="Número de Profesores y Administrativos Mujeres 1" class="ejemplo">
-                                                                              
-                                                                              </td>
-                                                                              <td id="UsuariosAHAnio2E2" title="Número de Profesores y Administrativos Hombres 2" class="ejemplo">
-                                                                                 
-                                                                             </td>
-                                                                              <td  id="UsuariosAMAnio2E2" title="Número de Profesores y Administrativos Mujeres 2" class="ejemplo">
-                                                                                 
-                                                                             </td>
-                                                                             <td id="UsuariosAHAnio3E2" title="Número de Profesores y Administrativos Hombres 3" class="ejemplo">
-                                                                                  
-                                                                             </td>
-                                                                              <td  id="UsuariosAMAnio3E2" title="Número de Profesores y Administrativos Mujeres 3" class="ejemplo">
-                                                                                  
-                                                                             </td>
-                                                                              <td id="UsuariosAHAnio4E2" title="Número de Profesores y Administrativos Hombres 4" class="ejemplo">
-                                                                                  
-                                                                             </td>
-                                                                              <td  id="UsuariosAMAnio4E2" title="Número de Profesores y Administrativos Mujeres 4" class="ejemplo">
-                                                                                  
-                                                                             </td>
-                                                                              <td id="UsuariosAHAnio5E2" title="Número de Profesores y Administrativos Hombres 5" class="ejemplo">
-                                                                                  
-                                                                             </td>
-                                                                              <td  id="UsuariosAMAnio5E2" title="Número de Profesores y Administrativos Mujeres 5" class="ejemplo">
-                                                                                  
-                                                                             </td>
-                                                                             <tr>
-                                                                             `;
-  tbody2.innerHTML = `<tr class="ejemplo">
-                                                                   <td title="Numero de Fila" class="ejemplo">
-                                                                                                                        
-                                                                   </td>
-
-                                                                   <td title="Edificio" id="Edificio_T2E1" class="ejemplo">
-                                                                         
-                                                                   </td>
-                                               
-                                                                   <td title="Nivel" id="Nivel_T2E1" class="ejemplo">
-                                                                      
-                                                                   </td>   
-                               
-                                                                   <td title="Espacio" id="Espacio_T2E1" class="ejemplo">
-                                                                   </td>
-                                                                   <td title="Largo" id="Largo_T2E1" class="ejemplo">
-                                                                   </td>
-                                                                   <td title="Ancho" id="Ancho_T2E1" class="ejemplo">
-                                                                   </td>
-                               
-                                                                   <td title="Alumnos" id="Alumnos_T2E1" class="ejemplo">
-                                                                   </td> 
-                                                                   
-                                                                   <td title="HorasServicio" id="Horas_T2E1" class="ejemplo">
-                                                                   </td>
-                               
-                                                                   
-                                                              </tr>
-                               
-                                                              <tr class="ejemplo">
-                                                                 <td title="Numero de Fila" class="ejemplo">
-                                                                                                                        
-                                                                              </td>
-                                                                   <td title="Edificio" id="Edificio_T2E2" class="ejemplo">
-                                                                          
-                                                                   </td>
-                                               
-                                                                   <td title="Nivel" id="Nivel_T2E2" class="ejemplo">
-                                                                        
-                                                                   </td>   
-                               
-                                                                   <td title="Espacio" id="Espacio_T2E2" class="ejemplo">
-                                                                        
-                                                                   </td>
-                                                                   <td title="Largo" id="Largo_T2E2" class="ejemplo">
-                                                                   </td>
-                                                                   <td title="Ancho" id="Ancho_T2E2" class="ejemplo">
-                                                                       
-                                                                   </td>
-                               
-                                                                   <td title="Alumnos" id="Alumnos_T2E2" class="ejemplo">
-                                                                       
-                                                                   </td> 
-                                                                   
-                                                                   <td title="HorasServicio" id="Horas_T2E2" class="ejemplo">
-                                                                       
-                                                                   </td>
-                                                              </tr>`;
-  tbody3.innerHTML = `<tr class="ejemplo">
-                                                                <td title="Numero de Fila" class="ejemplo">
-                                                                                                                        
-                                                                              </td>
-
-                                                                 <td title="Edificio" id="Edificio_T3E1" class="ejemplo">
-                                                                          
-                                                                 </td>
-                                             
-                                                                 <td title="MetrosCuadrados" id="MetrosCuadrados_T3E1" class="ejemplo">
-                                                                       
-                                                                 </td>   
-                                                                 
-                                                                 
-                                                            </tr>
-                                                            <tr class="ejemplo">
-                                                                 <td title="Numero de Fila" class="ejemplo">
-                                                                                                                        
-                                                                              </td>
-                                                                 <td title="Edificio" id="Edificio_T3E2" class="ejemplo">
-                                                                       
-                                                                 </td>
-                                             
-                                                                 <td title="MetrosCuadrados" id="MetrosCuadrados_T3E2" class="ejemplo">
-                                                                       
-                                                                 </td>   
-                                                                 
+                                                           
                                                                  
                                                             </tr>`;
   tbodyC.innerHTML = ``;
