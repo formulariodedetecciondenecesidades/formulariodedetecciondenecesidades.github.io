@@ -24,15 +24,17 @@ let nombresCotizacionesActuales = {};
 function agregarFila(){
 
     const tbody = document.getElementById("tablaBody");
-    const tbody1 = document.getElementById("tablaBody1_1");
+    
 
     const i = obtenerNumeroFila1();
-    const j = obtenerNumeroFila1_1();
+    
+    
     
 
 
     const fila = document.createElement("tr");
-    const fila1 = document.createElement("tr");
+    
+    
 
     fila.innerHTML = `
         <td>
@@ -227,8 +229,24 @@ function agregarFila(){
 
     `;
 
+     
+    tbody.appendChild(fila);
+    activarAutoExpand(fila);
+    
+}
 
-    fila1.innerHTML = `
+
+
+
+
+
+function agregarFila1_1(){
+
+const tbody = document.getElementById("tablaBody1_1");
+    const i = obtenerNumeroFila1_1();
+    const fila = document.createElement("tr");
+    
+    fila.innerHTML = `
         <td>
             ${i}
         </td>
@@ -419,13 +437,15 @@ function agregarFila(){
         ✕
     </button>
         </td>
-    `; 
+    `;
     tbody.appendChild(fila);
-    tbody1.appendChild(fila1);
-
     activarAutoExpand(fila);
-    activarAutoExpand(fila1);
 }
+
+
+
+
+
 
 
 // -----------------------Agregar fila tabla 3(cambiaron de nombre solo visualmente)
@@ -756,6 +776,17 @@ function agregarFilaP() {
         <td>
             ${i}
         </td>
+        <td class="paso">
+            <input
+                name="nombrePlanos_T3R${i}"
+                id="nombrePlanos_T3R${i}"
+
+                class="input_tabla "
+                aria-label="Nombre del Plano"
+                readonly
+            >
+
+        </td>
 
         <td>
 
@@ -767,11 +798,14 @@ function agregarFilaP() {
                     name="Planos_T3R${i}"
                     class="archivoInput planoFilaInput"
                     data-compa="urlPlanos_T3R${i}"
+                    data-compa2="nombreArchivoPlanos_T3R${i}"
+                    data-compa3="nombrePlanos_T3R${i}"
+
                     accept=".pdf,.xlsx,.doc,.docx,.png,.jpg,.rar,.zip"
                 >
 
                 <span
-                    class="nombreArchivo">
+                   id="nombreArchivoPlanos_T3R${i}" class="nombreArchivo">
                 </span>
 
 
@@ -843,7 +877,9 @@ function agregarFilaC(){
                 >
 
                 <span id="nombrearchivo_TC${i}$" class="nombreArchivo"></span>
-                 
+                
+
+
                 <textarea
                 id="urlCotizacionAdquisicionG1_TCR${i}"
                 name="urlCotizacionAdquisicionG1_TCR${i}"
@@ -906,7 +942,6 @@ function agregarFilaC(){
                 id="nombrearchivo2_TC${i}$"
                 class="nombreArchivo"></span>
 
-                <span class="nombreArchivo"></span>
                  
                 <textarea
                 id="urlCotizacionAdquisicionG2_TCR${i}"
@@ -1584,11 +1619,13 @@ function agregarFila5(){
                 //-------------------------Construccion de la Tabla
 
 
-for (let i = 1; i <= 10; i++) {
+for (let i = 1; i <= 5; i++) {
   agregarFila();
+  agregarFila1_1();
   agregarFila2();
   agregarFila3();
   agregarFilaC();
+  agregarFilaP();
   agregarFila4();
   agregarFila5();
 
@@ -1679,55 +1716,11 @@ function compartirValoresinputToSelects(){
 
 
 
-//---------------------------------------Funciones para cargar selects---------------------------------------------------------
-
-
-/*
-function compartirValoresSelects(){
-//         nivelS=document.getElementById("Nivel_Select_T2R${i}");
-  document.querySelectorAll('[id^="Nivel_Select_T2R"]').forEach(campo => {
-
-       let nivel=document.getElementById(campo.dataset.select);
-         nivel.value=campo.value;
-  })
-
-}
-*/
 
 
 //--------------------------Actualiza de la version visual del select al input real
 
 
-
-/*
-document.addEventListener(
-    "change",
-    function (e) {
-         
-       
-        if (!e.target.id?.startsWith("Nivel_Select_T2R")&&!e.target.id?.startsWith("ProgramaAcademico_Select_T4R")) return;
-
-    const campo = e.target;
-if(e.target.id?.startsWith("Nivel_Select_T2R")){
-    const nivel =
-        document.getElementById(campo.dataset.select);
-
-    if (nivel) {
-        nivel.value = campo.value;
-    }
-}
-if(e.target.id?.startsWith("ProgramaAcademico_Select_T4R")){
-    const programa = document.getElementById(campo.dataset.select);
-
-        if (programa) {
-            programa.value=campo.value;
-        }
-}
-
-
-}    
-);
-*/
 
 
 document.addEventListener("change", function (e) {
@@ -2402,6 +2395,9 @@ document.addEventListener("change", function(e) {
 });
 
 
+
+
+
 //--------------------------------- coppiar datos de tabla 4 a tabla5
 
 function copiarCampoT4aT5(origen) {
@@ -2451,12 +2447,213 @@ tbody4.addEventListener(
 
 
 
+function mostrarVistaPreviaGlobal(input) {
+
+    const file =
+        input.files[0];
+
+    if (!file) return;
+
+
+    const vista =
+        document.getElementById(
+            "vistaPrevia"
+        );
+
+    if (!vista) return;
+
+
+    // Si ya había una vista abierta
+    cerrarVistaPrevia();
+
+
+    // Recordamos dónde estaba originalmente
+    vista.previewOriginal = {
+
+        padre:
+            vista.parentElement,
+
+        siguiente:
+            vista.nextSibling
+    };
+
+
+    const fieldset =
+        document.createElement(
+            "fieldset"
+        );
+
+
+    fieldset.classList.add(
+        "fieldset-vista-previa"
+    );
+
+
+    const legend =
+        document.createElement(
+            "legend"
+        );
+
+
+    legend.textContent =
+        file.name;
+
+
+    fieldset.appendChild(
+        legend
+    );
+
+
+    // Mostrar nuestra vista
+    vista.classList.remove(
+        "paso"
+    );
+
+    vista.innerHTML = "";
+
+
+    const urlTemporal =
+        URL.createObjectURL(
+            file
+        );
+
+
+    if (
+        file.type.startsWith(
+            "image/"
+        )
+    ) {
+
+        vista.innerHTML = `
+            <img
+                src="${urlTemporal}"
+                class="previewImagen"
+                alt="Vista previa"
+            >
+        `;
+
+    } else if (
+        file.type ===
+        "application/pdf"
+    ) {
+
+        vista.innerHTML = `
+            <iframe
+                src="${urlTemporal}"
+                class="previewPDF"
+            ></iframe>
+        `;
+
+    } else {
+
+        vista.innerHTML = `
+            <div class="previewInfo">
+
+                <strong>
+                    ${file.name}
+                </strong>
+
+                <br><br>
+
+                No existe vista previa
+                para este tipo de archivo.
+
+            </div>
+        `;
+    }
+
+
+    fieldset.appendChild(
+        vista
+    );
+
+
+    // Igual que tus observaciones:
+    // lo sacamos del formulario
+    // y lo ponemos encima de todo.
+    document.body.appendChild(
+        fieldset
+    );
+}
+
+
+
+
+
+
+
+
+function cerrarVistaPrevia() {
+
+    const vista =
+        document.getElementById(
+            "vistaPrevia"
+        );
+
+    if (!vista) return;
+
+
+    const fieldset =
+        vista.closest(
+            ".fieldset-vista-previa"
+        );
+
+    if (!fieldset) return;
+
+
+    const original =
+        vista.previewOriginal;
+
+
+    vista.innerHTML = "";
+
+    vista.classList.add(
+        "paso"
+    );
+
+
+    if (original) {
+
+        if (
+            original.siguiente &&
+            original.siguiente.parentNode ===
+                original.padre
+        ) {
+
+            original.padre.insertBefore(
+                vista,
+                original.siguiente
+            );
+
+        } else {
+
+            original.padre.appendChild(
+                vista
+            );
+        }
+
+
+        delete vista.previewOriginal;
+    }
+
+
+    fieldset.remove();
+}
+
+
+
+
+
+
+
+
+
 
 
 //--------------------------------------------------Mecanica de archivos----------------------------------------------------------------------------------------------------
 
 
-
+/*
 document.addEventListener("click", (e) => {
 
     const boton = e.target.closest(".botonSeleccionarPlanos");
@@ -2484,7 +2681,7 @@ document.addEventListener("click", (e) => {
 
 });
 
-
+*/
 
 
 
@@ -2505,11 +2702,82 @@ document.addEventListener("change", (e) => {
     const file = input.files[0];
 
 
+
+    if (
+    input.matches(
+        ".planoFilaInput"
+    )
+) {
+    const nombreCampo =
+        input.dataset.compa3;
+
+    const campoNombre =
+        document.getElementById(
+            nombreCampo
+        );
+
+        if (campoNombre) {
+
+        campoNombre.value =
+            file.name;
+    }
+
+
+    nombres.innerHTML = "";
+
+
+    const item =
+        document.createElement("div");
+
+    item.classList.add(
+        "archivoItem"
+    );
+
+    item.inputArchivo =
+        input;
+
+
+    item.innerHTML = `
+        <div class="contnombre">
+
+            <span>
+                ${file.name}
+            </span>
+
+            <button
+                type="button"
+                class="borrarArchivo"
+            >
+                ❌
+            </button>
+            
+            
+            <button
+            type="button"
+            class="verArchivo"
+        >
+            👁 Vista previa
+        </button>
+
+
+        </div>
+    `;
+
+
+    nombres.appendChild(
+        item
+    );
+
+    return;
+}
+
     // =====================================================
     // PLANOS
     // Cada archivo queda guardado en SU PROPIO INPUT
     // =====================================================
 
+// --------------------------------------Logica de archivos multiple
+    /*
     if (input.matches(".archivoMultipleInput")) {
          const mensaje = contenedor.querySelector(".mensajeArchivos");
         // Nombre que tiene este input:
@@ -2589,7 +2857,7 @@ mensaje.textContent =
 
         return;
     }
-
+*/
 
     // =====================================================
     // COTIZACIONES
@@ -2610,6 +2878,19 @@ mensaje.textContent =
             <button type="button" class="borrarArchivo">
                 ❌
             </button>
+
+            
+
+            <button
+            type="button"
+            class="verArchivo"
+            >
+            👁 Vista previa
+        </button>
+
+
+
+
         </div>
     `;
 
@@ -2640,7 +2921,8 @@ document.addEventListener("click", (e) => {
     const nombres = contenedor.querySelector(".nombreArchivo");            
     
     //---------------------------------Planos------------------------------------------------
-                if (input.matches(".archivoMultipleInput")) {
+    /*      
+    if (input.matches(".archivoMultipleInput")) {
                                     const mensaje = contenedor.querySelector(".mensajeArchivos");
                                 
                                     // Borra el nombre + ❌
@@ -2685,6 +2967,82 @@ document.addEventListener("click", (e) => {
                                     }
                                       return;
                 }
+                */
+
+if (
+    input.matches(
+        ".planoFilaInput"
+    )
+) {
+
+    const urlCampo =
+        input.dataset.compa;
+
+
+    // Quitamos solamente
+    // el archivo NUEVO
+    input.value = "";
+
+
+    const urlAnterior =
+        urlCotizacionesActuales[
+            urlCampo
+        ] || "";
+
+
+    const campoURL =
+        document.getElementById(
+            urlCampo
+        );
+
+
+    if (campoURL) {
+        campoURL.value =
+            urlAnterior;
+    }
+
+
+    item.remove();
+
+
+    // Si ya había un plano guardado,
+    // volvemos a mostrar su enlace
+    if (urlAnterior) {
+
+        const numero =
+            input.name.match(
+                /Planos_T3R(\d+)/
+            )?.[1] || "";
+
+
+        const urlLimpia =
+            String(urlAnterior)
+                .replace(
+                    /^Plano_\d+:\s*/,
+                    ""
+                )
+                .trim();
+
+
+        nombres.innerHTML = `
+            <a
+                href="${urlLimpia}"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Plano ${numero}
+            </a>
+        `;
+
+    } else {
+
+        nombres.innerHTML = "";
+    }
+
+
+    return;
+}
+
 //-------------------------------Cotizaciones-----------------------------------------------------
 
 
@@ -2784,6 +3142,77 @@ document.addEventListener("click", (e) => {
 
 });
 
+//-----------------------------Vista previa ---------------------------------------------------------------------
+
+document.addEventListener("click", e => {
+
+    const boton =
+        e.target.closest(
+            ".verArchivo"
+        );
+
+    if (!boton) return;
+
+
+    const item =
+        boton.closest(
+            ".archivoItem"
+        );
+
+    if (!item) return;
+
+
+    const input =
+        item.inputArchivo;
+
+    if (!input) return;
+
+
+    mostrarVistaPreviaGlobal(
+        input
+    );
+});
+
+
+
+
+document.addEventListener(
+    "click",
+    e => {
+
+
+        // Si presionaste Vista previa,
+        // no la cierres.
+        if (
+            e.target.closest(
+                ".verArchivo"
+            )
+        ) {
+            return;
+        }
+
+
+        // Si estás interactuando
+        // dentro de la vista previa,
+        // tampoco.
+        if (
+            e.target.closest(
+                ".fieldset-vista-previa"
+            )
+        ) {
+            return;
+        }
+
+
+        cerrarVistaPrevia();
+    }
+);
+
+
+
+
+
+
 
 
 
@@ -2842,6 +3271,21 @@ document.getElementById("tablaBody").addEventListener("change", e => {
     agregarFila();
   }
 });
+
+
+
+
+document.getElementById("tablaBody1_1").addEventListener("change", e => {
+  if (!e.target.name?.startsWith("Programa_T1_1R")) return;
+
+  const filas = document.querySelectorAll("#tablaBody1_1 tr");
+  const ultimaFila = filas[filas.length - 1];
+
+  if (ultimaFila.contains(e.target)) {
+    agregarFila1_1();
+  }
+});
+
 document.getElementById("tablaBody2").addEventListener("change", e => {
   if (!e.target.id?.startsWith("Edificio_Select_T2R")) return;
 
@@ -2864,6 +3308,22 @@ document.getElementById("tablaBody3").addEventListener("change", e => {
     
   }
 });
+
+document.getElementById("tablaBodyP").addEventListener("change", e => {
+  if (!e.target.name?.startsWith("Planos_T3R")) return;
+
+  const filas = document.querySelectorAll("#tablaBodyP tr");
+  const ultimaFila = filas[filas.length - 1];
+
+  if (ultimaFila.contains(e.target)) {
+    agregarFilaP();
+    
+  }
+});
+
+
+
+
 
 
 
@@ -2932,18 +3392,6 @@ document
 
 
 
-/*
-document.getElementById("tablaBody5").addEventListener("change", e => {
-  if (!e.target.name?.startsWith("nombredelEquipo_T5R")) return;
-
-  const filas = document.querySelectorAll("#tablaBody5 tr");
-  const ultimaFila = filas[filas.length - 1];
-
-  if (ultimaFila.contains(e.target)) {
-    agregarFila5();
-  }
-});
-*/
 
 //Recuerda agregar esta misma funcion para cada tabla en caso de que las 4 tablas queden en la misma pagina cosa que aun no decido
 
@@ -4677,6 +5125,15 @@ document.getElementById("tablaBody").addEventListener("input", function (e) {
 
 
 
+document.getElementById("tablaBody1_1").addEventListener("input", function (e) {
+  if (!e.target.classList.contains("obligatorio")) return;
+
+  const fila = e.target.closest("tr");
+  actualizarObligatoriedadFila(fila);
+});
+
+
+
 document.getElementById("tablaBody2").addEventListener("input", function (e) {
   if (!e.target.classList.contains("obligatorio")) return;
 
@@ -4835,6 +5292,22 @@ function obtenerNumeroFila3(){
     return numero;
 //    return document.querySelectorAll("#tablaBody3 tr").length - 1;
 }
+
+
+
+
+
+function obtenerNumeroFilaP() {
+
+    const filas =
+        document.querySelectorAll(
+            "#tablaBodyP tr:not(.ejemplo)"
+        );
+
+    return filas.length + 1;
+}
+
+
 
 function obtenerNumeroFilaC(){
          const filas = document.querySelectorAll("#tablaCotizaciones tr");
@@ -5111,10 +5584,12 @@ document.getElementById("miFormulario").addEventListener("keydown", function (e)
 
 
 //---------------------------Generar Folio
+
+/*
 function generarFolio() {
    return Math.random().toString(36).substr(2, 8).toUpperCase();
 }
-
+*/
 
 
 
@@ -5306,9 +5781,7 @@ setSelectValue(
         datos.tipoDeBien
     );
 
-let formularioVisible=document.getElementById("tablasFrame");
 
-formularioVisible.classList.remove("paso");
 
 
 try {    
@@ -5330,8 +5803,10 @@ const data =json.data;
 
   // Limpiar tabla
   const tbody = document.getElementById("tablaBody");
+  const tbody1 = document.getElementById("tablaBody1_1");  
   const tbody2 = document.getElementById("tablaBody2");
   const tbody3 = document.getElementById("tablaBody3");
+  const tbodyP = document.getElementById("tablaBodyP");
   const tbodyC = document.getElementById("tablaCotizaciones");
   const tbody4 = document.getElementById("tablaBody4");
   const tbody5 = document.getElementById("tablaBody5");
@@ -5339,10 +5814,11 @@ const data =json.data;
   /*
   const tbody6 = document.getElementById("tablaBody6");
   */
-
-  tbody.innerHTML = "";
+  tbody.innerHTML  = "";
+  tbody1.innerHTML = "";
   tbody2.innerHTML = "";
   tbody3.innerHTML = "";
+  tbodyP.innerHTML = "";
   tbodyC.innerHTML = "";
   tbody4.innerHTML = "";
   tbody5.innerHTML = "";
@@ -5406,7 +5882,6 @@ setTimeout(() => {
       campo.style.height = campo.scrollHeight + "px";
     }
   });
-
 let folioValor = document.getElementById("folioInput");
  folioValor.value=folioActual;
 
@@ -5632,7 +6107,7 @@ document.querySelectorAll(
                   campo.value=origen.value;
     });
 
-
+/*
     alert(
     "Programa T5: " +
     document.getElementById("ProgramaAcademico_T5R1").value +
@@ -5641,7 +6116,7 @@ document.querySelectorAll(
     "\nEquipo T4: " +
     document.getElementById("nombredelEquipo_T5R1").value
 );
-
+*/
 /*                
                document
             .querySelectorAll(`[data-relleno="${origen.id}"]`)
@@ -5656,7 +6131,9 @@ document.querySelectorAll(
 
 
   alert("📂  datos de la solicitud cargados correctamente");
+  let formularioVisible=document.getElementById("tablasFrame");
 
+  formularioVisible.classList.remove("paso");
   folioActual = folio;
   folioCargado = true;
 
@@ -5716,8 +6193,13 @@ const form = document.getElementById("miFormulario");
     document.querySelectorAll(
         "#tablaBody tr:not(.ejemplo)"
     ).length;
+  data.__filas1_1 =
+    document.querySelectorAll(
+        "#tablaBody1_1 tr:not(.ejemplo)"
+    ).length;
+    
 
-data.__filas2 =
+  data.__filas2 =
     document.querySelectorAll(
         "#tablaBody2 tr:not(.ejemplo)"
     ).length;
@@ -5725,6 +6207,11 @@ data.__filas2 =
 data.__filas3 =
     document.querySelectorAll(
         "#tablaBody3 tr:not(.ejemplo)"
+    ).length;
+
+
+data.__filasP=document.querySelectorAll(
+        "#tablaBodyP tr:not(.ejemplo)"
     ).length;
 
 data.__filasC =
@@ -5792,7 +6279,19 @@ const res = await fetch(direccionEnlace, {
            json5: partes[4],   
            json6: partes[5],
            json7: partes[6],
-           json8:partes[7]
+           json8:partes[7],
+           json9:partes[8],
+           json10:partes[9],
+           json11: partes[10],
+           json12: partes[11],
+           json13: partes[12],
+           json14: partes[13],
+           json15: partes[14],   
+           json16: partes[15],
+           json17: partes[16],
+           json18:partes[17],
+           json19:partes[18],
+           json20:partes[19]
        })
     });
   
@@ -5915,19 +6414,18 @@ function restaurarTabla(data) {
   const filas1_1 = data.__filas1_1 || 5;
   const filas2   = data.__filas2 || 5;
   const filas3   = data.__filas3 || 5;
+  const filasP   = data.__filasP || 5;
   const filasC   = data.__filasC || 5;
   const filas4   = data.__filas4 || 5;
   const filas5   = data.__filas5 || 5;
 
-  /*
-  const filas6   = data.__filas6 || 10;
-  
-  */
+
 
   const tbody = document.getElementById("tablaBody");
   const tbody1 = document.getElementById("tablaBody1_1");
   const tbody2 = document.getElementById("tablaBody2");
   const tbody3 = document.getElementById("tablaBody3");
+  const tbodyP = document.getElementById("tablaBodyP");
   const tbodyC = document.getElementById("tablaCotizaciones"); 
   const tbody4 = document.getElementById("tablaBody4");
   const tbody5 = document.getElementById("tablaBody5");
@@ -6016,7 +6514,8 @@ function restaurarTabla(data) {
                                                                              </td>
 
                                                                          </tr>` ;
-                                                         tbody1.innerHTML = `<tr class="ejemplo">
+
+tbody1.innerHTML = `<tr class="ejemplo">
                                                                               <td title="Numero de Fila" class="ejemplo">
                                                                                                                         
                                                                               </td>
@@ -6453,29 +6952,34 @@ function restaurarTabla(data) {
   for (let i = 1; i <= filas1; i++) {
     agregarFila();
   }
+  for (let i = 1; i <= filas1_1; i++) {
+    agregarFila1_1();
+  }
   for (let i = 1; i <= filas2; i++) {
     agregarFila2();
   }
   for (let i = 1; i <= filas3; i++) {
     agregarFila3();
   }
+    for (let i = 1; i <= filasP; i++) {
+    agregarFilaP();
+  }
   for (let i = 1; i <= filasC; i++) {
     agregarFilaC();
   }
   for (let i = 1; i <= filas4; i++) {
     agregarFila4();
-  }
-  for (let i = 1; i <= filas5; i++) {
     agregarFila5();
   }
 
-
-
-  /*
-  for (let i = 1; i <= filas6; i++) {
-    agregarFila6();
+/* 
+  for (let i = 1; i <= filas5; i++) {
+    
   }
 */
+
+
+  
 
   Object.keys(data).forEach(name => {
     if (name.includes("__filas")) return;
@@ -6543,6 +7047,41 @@ document.querySelectorAll('[name^="CotizacionAdquisicionG"]').forEach(campo => {
    
 
 });
+
+document
+    .querySelectorAll(
+        ".planoFilaInput"
+    )
+    .forEach(campo => {
+
+        const claveUrl =campo.dataset.compa;
+        const idVisual =campo.dataset.compa2;
+        const claveNombre =campo.dataset.compa3;
+        const contenedorNombre =document.getElementById(idVisual);
+        const campoNombre =document.getElementById(claveNombre);
+        if (!contenedorNombre ||!campoNombre) {
+            return;
+        }
+        const url =data[claveUrl] || "";
+
+        const nombre =campoNombre.value || "";
+
+
+        if (!url ||!nombre) {
+            return;
+        }
+
+
+        contenedorNombre.innerHTML = `
+            <a
+                href="${url}"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                ${nombre}
+            </a>
+        `;
+    });
 
 
 crearFilaTotalTabla4();
@@ -7149,25 +7688,25 @@ const selectsTexto = [
 
 
 /*
-const archivosPlanos = formData.getAll("Planos_T3");
-data.planos = [];
+    const archivosPlanos = formData.getAll("Planos_T3"); 
+    data.planos = [];
 
-for (const archivo of archivosPlanos) {
+    for (const archivo of archivosPlanos) {
 
-  if (archivo.size === 0) continue;
+        if (archivo.size === 0) continue;
 
-  const base64 = await new Promise(resolve => {
-    const reader = new FileReader();
-    reader.onload = () => resolve(reader.result);
-    reader.readAsDataURL(archivo);
-  });
+             const base64 = await new Promise(resolve => {
+             const reader = new FileReader();
+             reader.onload = () => resolve(reader.result);
+             reader.readAsDataURL(archivo);
+        });
 
-  data.planos.push({
-    nombre: archivo.name,
-    tipo: archivo.type,
-    contenido: base64
-  });
-}
+        data.planos.push({
+        nombre: archivo.name,
+         tipo: archivo.type,
+        contenido: base64
+       });
+   }
 
 */
 
@@ -7203,6 +7742,10 @@ data.__filas1 =
     document.querySelectorAll(
         "#tablaBody tr:not(.ejemplo)"
     ).length;
+data.__filas1_1 =
+    document.querySelectorAll(
+        "#tablaBody1_1 tr:not(.ejemplo)"
+    ).length;    
 
 data.__filas2 =
     document.querySelectorAll(
@@ -7213,6 +7756,10 @@ data.__filas3 =
     document.querySelectorAll(
         "#tablaBody3 tr:not(.ejemplo)"
     ).length;
+data.__filasP =
+    document.querySelectorAll(
+        "#tablaBodyP tr:not(.ejemplo)"
+    ).length;    
 
 data.__filasC =
     document.querySelectorAll(
@@ -7293,7 +7840,19 @@ const res = await fetch(direccionEnlace, {
            json5: partes[4],   
            json6: partes[5],
            json7: partes[6],
-           json8:partes[7]
+           json8:partes[7],
+           json9:partes[8],
+           json10:partes[9],
+           json11: partes[10],
+           json12: partes[11],
+           json13: partes[12],
+           json14: partes[13],
+           json15: partes[14],   
+           json16: partes[15],
+           json17: partes[16],
+           json18:partes[17],
+           json19:partes[18],
+           json20:partes[19]
     })
 });
 
@@ -7669,7 +8228,7 @@ document.addEventListener("mouseup", function () {
 
 
 
-function dividirData(data, partes = 8) {
+function dividirData(data, partes = 20) {
 
     const json = JSON.stringify(data);
 
@@ -7711,7 +8270,20 @@ document.addEventListener("click", function (event) {
     renumerarFilas(tbody);
 });
 
+function actualizarNumeroReferencia(valor, nuevoNumero) {
 
+    if (!valor) return valor;
+
+    return valor
+        .replace(
+            /R\d+/,
+            `R${nuevoNumero}`
+        )
+        .replace(
+            /_TC\d+/,
+            `_TC${nuevoNumero}`
+        );
+}
 
 
 
@@ -7738,7 +8310,7 @@ function renumerarFilas(tbody) {
         if (celdaNumero) {
             celdaNumero.textContent = nuevoNumero;
         }
-
+/*
         fila.querySelectorAll("[name], [id]").forEach(elemento => {
 
             if (elemento.classList.contains("ejemplo")) return;
@@ -7757,8 +8329,80 @@ function renumerarFilas(tbody) {
                 );
             }
         });
+*/
+fila
+    .querySelectorAll("[name], [id]")
+    .forEach(elemento => {
 
-        fila.querySelectorAll("[data-campo]").forEach(elemento => {
+        if (
+            elemento.classList.contains("ejemplo")
+        ) return;
+
+
+        if (elemento.name) {
+
+            elemento.name =
+                actualizarNumeroReferencia(
+                    elemento.name,
+                    nuevoNumero
+                );
+        }
+
+
+        if (elemento.id) {
+
+            elemento.id =
+                actualizarNumeroReferencia(
+                    elemento.id,
+                    nuevoNumero
+                );
+        }
+   });
+
+
+
+   const referenciasData = [
+    "campo",
+    "precio",
+    "cant",
+    "select",
+    "compa",
+    "compa2",
+    "compa3",
+    "menu",
+    "input",
+    "seleccion",
+    "relleno"
+];
+
+
+referenciasData.forEach(clave => {
+
+    fila
+        .querySelectorAll(
+            `[data-${clave}]`
+        )
+        .forEach(elemento => {
+
+            elemento.dataset[clave] =
+                actualizarNumeroReferencia(
+                    elemento.dataset[clave],
+                    nuevoNumero
+                );
+        });
+});
+
+
+
+
+
+
+
+
+
+
+/*
+fila.querySelectorAll("[data-campo]").forEach(elemento => {
             elemento.dataset.campo =
                 elemento.dataset.campo.replace(
                     /R\d+/,
@@ -7780,7 +8424,7 @@ function renumerarFilas(tbody) {
                     /R\d+/,
                     `R${nuevoNumero}`
                 );
-        });
+        });*/
 
         // SOLO aumenta si fue una fila real
         nuevoNumero++;
@@ -7992,40 +8636,7 @@ function crearLeyenda(campo) {
 }
 
 
-/*
-
-
-document.addEventListener("click", function (e) {
-
-    
-const boton = e.target.closest(".informacion");
-
-
-    if (!boton) return;
-
-
-    const texto=boton.dataset.info;
-    
-    const recuadro=document.getElementById(texto);
-
-
-    
-    // Mostrar
-    recuadro.classList.remove("paso");
-    
-    recuadro.classList.add("campo-ampliadoI");
-
-   // Uno al lado del otro
-    recuadro.style.left = "10vw";
-    
-    recuadro.style.top = "25vh";
-    
-    // Leyendas
-    crearLeyenda(boton);
-    
-});
- 
-  */      
+      
 
 
 
@@ -8432,7 +9043,6 @@ document.addEventListener(
 
     }
 );
-
 
 
 
