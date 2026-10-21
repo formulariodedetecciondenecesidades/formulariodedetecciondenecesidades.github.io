@@ -2,6 +2,7 @@ const tbody  = document.getElementById("tablaBody");
 const tbody1 = document.getElementById("tablaBody1_1");
 const tbody2 = document.getElementById("tablaBody2");
 const tbody3 = document.getElementById("tablaBody3");
+const tbodyP = document.getElementById("tablaBodyP");
 const tbody4 = document.getElementById("tablaBody4");
 const tbodyC = document.getElementById("tablaCotizaciones");
 const tbody5 = document.getElementById("tablaBody5");
@@ -9,13 +10,8 @@ const tbody7 = document.getElementById("tablaBody7");
 
 function agregarFila(){
   const tbody = document.getElementById("tablaBody");
-  const tbody1 = document.getElementById("tablaBody1_1");
   const i = obtenerNumeroFila1();
-  const j = obtenerNumeroFila1_1();
-
   const fila = document.createElement("tr");
-  const fila1 = document.createElement("tr");
-  
 fila.innerHTML = `
 
     <td>
@@ -211,7 +207,26 @@ fila.innerHTML = `
     </td>
 `;
 
-fila1.innerHTML = `
+
+
+    tbody.appendChild(fila);
+    
+    activarAutoExpand(fila);
+}
+
+
+
+
+
+
+
+function agregarFila1_1(){
+
+const tbody = document.getElementById("tablaBody1_1");
+    const i = obtenerNumeroFila1_1();
+    const fila = document.createElement("tr");
+    
+    fila.innerHTML = `
 
     <td>
         ${i}
@@ -405,13 +420,18 @@ fila1.innerHTML = `
         >
     </td>
 `;
-
     tbody.appendChild(fila);
-    tbody1.appendChild(fila1);
-    
     activarAutoExpand(fila);
-    activarAutoExpand(fila1);
 }
+
+
+
+
+
+
+
+
+
 
 //*-----------------------Agregar fila tabla 3/Cambio de nombre visualmente*
 
@@ -630,11 +650,32 @@ function agregarFilaP(){
 
     const fila = document.createElement("tr");
 
-    fila.innerHTML = `<td>
+    fila.innerHTML = `
+     <td class="paso">
+            <input
+                name="nombrePlanos_T3R${i}"
+                id="nombrePlanos_T3R${i}"
+
+                class="input_tabla "
+                aria-label="Nombre del Plano"
+                readonly
+            >
+
+        </td>
+    
+    <td>
+            <span
+                   id="nombreArchivoPlanos_T3R${i}" 
+                   class="nombreArchivo"
+                   data-compa="urlPlanos_T3R${i}"
+                   data-compa3="nombrePlanos_T3R${i}"
+                    >
+                </span>
+
             <textarea
                 id="urlPlanos_T3R${i}"
                 name="urlPlanos_T3R${i}"
-                class="auto-expand input_tabla"
+                class="auto-expand input_tabla paso"
                 rows="1"
                 style="resize:none;"
                 aria-label="Url de los planos recibidos"
@@ -665,7 +706,9 @@ function agregarFilaC() {
         <td class="paso">
             <textarea
                 name="nombreCotizacion_TCR${i}"
+                id="nombreCotizacion_TCR${i}"
                 class="auto-expand input_tabla "
+                
                 rows="1"
                 style="resize:none;"
                 aria-label="Nombre de la Cotizacion"
@@ -673,9 +716,16 @@ function agregarFilaC() {
         </td>
 
         <td>
-            <textarea
+        
+        <span id="nombrearchivo_TC${i}$"
+              class="nombreArchivo"
+              data-compa="urlCotizacionAdquisicionG1_TCR${i}"
+              data-compa3="nombreCotizacion_TCR${i}"
+              ></span>
+        
+        <textarea
                 name="urlCotizacionAdquisicionG1_TCR${i}"
-                class="auto-expand input_tabla"
+                class="auto-expand input_tabla paso"
                 rows="1"
                 style="resize:none;"
                 aria-label="Url de las Cotizaciones"
@@ -705,6 +755,7 @@ function agregarFilaC() {
         <td class="paso">
             <textarea
                 name="nombreCotizacion2_TCR${i}"
+                  id="nombreCotizacion2_TCR${i}"
                 class="auto-expand input_tabla class="paso""
                 rows="1"
                 style="resize:none;"
@@ -713,9 +764,15 @@ function agregarFilaC() {
         </td>
 
         <td>
+            <span id="nombrearchivo2_TC${i}$"
+              class="nombreArchivo"
+              data-compa="urlCotizacionAdquisicionG2_TCR${i}"
+              data-compa3="nombreCotizacion2_TCR${i}"
+              ></span>
+
             <textarea
                 name="urlCotizacionAdquisicionG2_TCR${i}"
-                class="auto-expand input_tabla"
+                class=" paso auto-expand input_tabla"
                 rows="1"
                 style="resize:none;"
                 aria-label="Url de las Cotizaciones"
@@ -1341,9 +1398,10 @@ function agregarFila5() {
 //------------------------------------Construccion de tabla--------------------------
 
 
-for (let i = 1; i <= 10; i++) {
+for (let i = 1; i <= 5; i++) {
 
   agregarFila();
+  agregarFila1_1();
   agregarFila2();
   agregarFila3();
   agregarFilaC();
@@ -2076,7 +2134,6 @@ function copiarCampoT4aT5(origen) {
 //----------------------------------------Archivos y su mecanismo-----------------------------------------------------
 
 
-
 document.addEventListener("change", (e) => {
 
   if (!e.target.matches(".archivoInput")) return;
@@ -2185,6 +2242,22 @@ document.getElementById("tablaBody").addEventListener("change", e => {
     agregarFila();
   }
 });
+document.getElementById("tablaBody1_1").addEventListener("change", e => {
+
+        if (!e.target.name?.startsWith("Programa_T1_1R")) return;
+
+        const filas =document.querySelectorAll("#tablaBody1_1 tr");
+
+        const ultimaFila =filas[filas.length - 1];
+
+        if (ultimaFila.contains(e.target)
+        ) {
+            agregarFila1_1();
+        }
+    });
+
+
+
 document.getElementById("tablaBody2").addEventListener("change", e => {
   if (!e.target.name?.startsWith("Edificio_T2R")) return;
 
@@ -2219,12 +2292,19 @@ document.getElementById("tablaCotizaciones").addEventListener("change", e => {
     agregarFilaC();
   }
 });
+document.getElementById("tablaBodyP").addEventListener("change", e => {
+    if (!e.target.name?.startsWith("Planos_T3R")) return;
+  const filas = document.querySelectorAll("#tablaBodyP tr");
+  const ultimaFila = filas[filas.length - 1];
+
+  if (ultimaFila.contains(e.target)) {
+    agregarFilaP();
+  }
+});
 
 
 
-document
-  .getElementById("tablaBody4")
-  .addEventListener("change", e => {
+document.getElementById("tablaBody4").addEventListener("change", e => {
 
     if (!e.target.name?.startsWith("nombredelEquipo_T4R")) {
       return;
@@ -4505,8 +4585,10 @@ const data =json.data;
 
   // Limpiar tabla
   const tbody = document.getElementById("tablaBody");
+  const tbody1 = document.getElementById("tablaBody1_1");
   const tbody2 = document.getElementById("tablaBody2");
   const tbody3 = document.getElementById("tablaBody3");
+   const tbodyP = document.getElementById("tablaBodyP");
   const tbodyC = document.getElementById("tablaCotizaciones");
   const tbody4 = document.getElementById("tablaBody4");
   const tbody5 = document.getElementById("tablaBody5");
@@ -4514,8 +4596,10 @@ const data =json.data;
   const tbody6 = document.getElementById("tablaBody6");
 */
   tbody.innerHTML = "";
+  tbody1.innerHTML = "";
   tbody2.innerHTML = "";
   tbody3.innerHTML = "";
+  tbodyP.innerHTML = "";
   tbodyC.innerHTML = "";
   tbody4.innerHTML = "";
   tbody5.innerHTML = "";
@@ -4709,6 +4793,10 @@ data.__filas1 =
     document.querySelectorAll(
         "#tablaBody tr:not(.ejemplo)"
     ).length;
+data.__filas1_1 =
+    document.querySelectorAll(
+        "#tablaBody1_1 tr:not(.ejemplo)"
+    ).length;    
 
 data.__filas2 =
     document.querySelectorAll(
@@ -4720,10 +4808,18 @@ data.__filas3 =
         "#tablaBody3 tr:not(.ejemplo)"
     ).length;
 
+data.__filasP =
+    document.querySelectorAll(
+        "#tablaBodyP tr:not(.ejemplo)"
+    ).length;
+
+
 data.__filasC =
     document.querySelectorAll(
         "#tablaCotizaciones tr:not(.ejemplo)"
     ).length;
+
+
 
 data.__filas4 =
     document.querySelectorAll(
@@ -4781,7 +4877,19 @@ const res = await fetch(direccionEnlace, {
            json5: partes[4],   
            json6: partes[5],
            json7: partes[6],
-           json8:partes[7]
+           json8:partes[7],
+           json9:partes[8],
+           json10:partes[9],
+           json11: partes[10],
+           json12: partes[11],
+           json13: partes[12],
+           json14: partes[13],
+           json15: partes[14],   
+           json16: partes[15],
+           json17: partes[16],
+           json18:partes[17],
+           json19:partes[18],
+           json20:partes[19]
     })
 });
 
@@ -4939,6 +5047,7 @@ function restaurarTabla(data) {
 
 
   const filas1 = data.__filas1 || 5;
+  const filas1_1 = data.__filas1_1 || 5;
   const filas2 = data.__filas2 || 5;
   const filas3 = data.__filas3 || 5;
   const filasP = data.__filasP || 5;
@@ -4974,6 +5083,9 @@ function restaurarTabla(data) {
   */
   for (let i = 1; i <= filas1; i++) {
     agregarFila();
+  }
+  for (let i = 1; i <= filas1_1; i++) {
+    agregarFila1_1();
   }
   for (let i = 1; i <= filas2; i++) {
     agregarFila2();
@@ -5039,6 +5151,74 @@ function restaurarTabla(data) {
       campo.style.height = campo.scrollHeight + "px";
     }
   });
+
+
+
+
+   document.querySelectorAll('[id^="nombrearchivo_TC"]').forEach(campo => {
+         const url  = campo.dataset.compa;
+         const name = campo.dataset.compa3;
+         const nombre        =document.getElementById(name);
+          
+         
+         campo.innerHTML = `
+                   <a href="${data[url]}" target="_blank">
+                             ${nombre.value}
+                    </a>
+`;     
+   
+
+});
+document.querySelectorAll('[id^="nombrearchivo2_TC"]').forEach(campo => {
+         const url  = campo.dataset.compa;
+         const name = campo.dataset.compa3;
+         const nombre        =document.getElementById(name);
+          
+         
+         campo.innerHTML = `
+                   <a href="${data[url]}" target="_blank">
+                             ${nombre.value}
+                    </a>
+`;     
+   
+
+});
+
+
+
+
+document
+    .querySelectorAll(
+        '[id^="nombreArchivoPlanos_T3R"]').forEach(campo => {
+        const claveUrl =campo.dataset.compa;
+        const claveNombre =campo.dataset.compa3;;
+        const campoNombre =document.getElementById(claveNombre);
+        if (!campo ||!campoNombre) {
+            return;
+        }
+        const url =data[claveUrl] || "";
+
+        const nombre =campoNombre.value || "";
+
+
+        if (!url ||!nombre) {
+            return;
+        }
+
+
+        campo.innerHTML = `
+            <a
+                href="${url}"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                ${nombre}
+            </a>
+        `;
+    });
+
+
+
   // generarNivel();
   // generarDependencia();
        
@@ -5465,6 +5645,11 @@ data.__filas1 =
         "#tablaBody tr:not(.ejemplo)"
     ).length;
 
+data.__filas1_1 =
+    document.querySelectorAll(
+        "#tablaBody1_1 tr:not(.ejemplo)"
+    ).length;
+
 data.__filas2 =
     document.querySelectorAll(
         "#tablaBody2 tr:not(.ejemplo)"
@@ -5478,6 +5663,11 @@ data.__filas3 =
 data.__filasC =
     document.querySelectorAll(
         "#tablaCotizaciones tr:not(.ejemplo)"
+    ).length;
+
+data.__filasP =
+    document.querySelectorAll(
+        "#tablaBodyP tr:not(.ejemplo)"
     ).length;
 
 data.__filas4 =
@@ -5552,14 +5742,26 @@ const res = await fetch(direccionEnlace, {
     method: "POST",
     body: JSON.stringify({
         action: "EnviarFormulario",
-        json1: partes[0],
+           json1: partes[0],
            json2: partes[1],
            json3: partes[2],
            json4: partes[3],
            json5: partes[4],   
            json6: partes[5],
            json7: partes[6],
-           json8:partes[7]
+           json8:partes[7],
+           json9:partes[8],
+           json10:partes[9],
+           json11: partes[10],
+           json12: partes[11],
+           json13: partes[12],
+           json14: partes[13],
+           json15: partes[14],   
+           json16: partes[15],
+           json17: partes[16],
+           json18:partes[17],
+           json19:partes[18],
+           json20:partes[19]
     })
 });
 /*
@@ -6624,6 +6826,9 @@ document
         }
 
     });
+
+
+
 
 
 
