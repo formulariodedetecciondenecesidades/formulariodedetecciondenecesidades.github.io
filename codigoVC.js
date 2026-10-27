@@ -5142,7 +5142,1369 @@ const mapaFolios = new Map([
     "ESIME-Zacatenco-BG-014",
     {
         dependencia: 'Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Zacatenco',
-        tipoDeBien: "Equipamento General (Capitulo 5000)ndex}`        ).textContent     =ejemplos[`NumProfE${index}`        ]
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "ESIME-Zacatenco-FV-104",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Zacatenco',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "ESIQIE-BT-048",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Química E Industrias Extractivas (ESIQIE)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ESIQIE-BG-081",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Química E Industrias Extractivas (ESIQIE)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "ESIT-BT-059",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Textil (ESIT)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ESIT-BG-185",
+    {
+        dependencia: 'Escuela Superior de Ingeniería Textil (ESIT)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "ESIA-Tecamachalco-BG-071",
+    {
+        dependencia: 'Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Tecamachalco',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "ESIA-Ticoman-BG-051",
+    {
+        dependencia: 'Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Ticomán',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "ESIA-Ticoman-BT-052",
+    {
+        dependencia: 'Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Ticomán',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ESIA-Ticoman-FV-160",
+    {
+        dependencia: 'Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Ticomán',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "ESIA-Zacatenco-BT-069",
+    {
+        dependencia: 'Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Zacatenco',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ESIA-Zacatenco-FV-155",
+    {
+        dependencia: 'Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Zacatenco',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "ESM-BT-022",
+    {
+        dependencia: 'Escuela Superior de Medicina (ESM)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "ESM-BG-109",
+    {
+        dependencia: 'Escuela Superior de Medicina (ESM)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "ESM-FV-121",
+    {
+        dependencia: 'Escuela Superior de Medicina (ESM)',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "EST-BG-016",
+    {
+        dependencia: 'Escuela Superior de Turismo (EST)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "EST-BT-207",
+    {
+        dependencia: 'Escuela Superior de Turismo (EST)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "SA-BG-031",
+    {
+        dependencia: 'Secretaría Académica',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "SA-BT-040",
+    {
+        dependencia: 'Secretaría Académica',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "SA-FV-113",
+    {
+        dependencia: 'Secretaría Académica',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "SIIS-BG-197",
+    {
+        dependencia: 'Secretaría de Innovación E Integración Social',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "SIP-BG-173",
+    {
+        dependencia: 'Secretaría de Investigación y Posgrado',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "SIP-BT-174",
+    {
+        dependencia: 'Secretaría de Investigación y Posgrado',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "SIP-FV-175",
+    {
+        dependencia: 'Secretaría de Investigación y Posgrado',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "SG-BG-190",
+    {
+        dependencia: 'Secretaría General',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "SG-BT-211",
+    {
+        dependencia: 'Secretaría General',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "UPGPG-BT-218",
+    {
+        dependencia: 'Unidad Politécnica de Gestión con Perspectiva de Género (UPGPG)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "UPGPG-BG-219",
+    {
+        dependencia: 'Unidad Politécnica de Gestión con Perspectiva de Género (UPGPG)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "UPIBI-BG-053",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Biotecnología (UPIBI)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "UPIBI-BT-072",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Biotecnología (UPIBI)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "UPIBI-FV-168",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Biotecnología (UPIBI)',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "UPIEM-BT-045",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Energía y Movilidad (UPIEM)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "UPIEM-BG-083",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Energía y Movilidad (UPIEM)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "UPIEM-FV-178",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Energía y Movilidad (UPIEM)',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "UPIICSA-BT-015",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas (UPIICSA)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "UPIICSA-BG-054",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas (UPIICSA)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "UPIICSA-FV-140",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas (UPIICSA)',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "UPIIAP-Puebla-BT-220",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus "Alejo Peralta" Puebla (UPIIAP)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "UPIIAP-Puebla-BG-223",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus "Alejo Peralta" Puebla (UPIIAP)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "UPIIAP-Puebla-FV-225",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus "Alejo Peralta" Puebla (UPIIAP)',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "UPIIG-Guanajuato-BG-085",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Guanajuato (UPIIG)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "UPIIG-Guanajuato-BT-086",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Guanajuato (UPIIG)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "UPIIH-Hidalgo-BG-036",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Hidalgo (UPIIH)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "UPIIH-Hidalgo-BT-043",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Hidalgo (UPIIH)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "UPIIH-Hidalgo-FV-149",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Hidalgo (UPIIH)',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "UPIIP-Palenque-BG-027",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Palenque (UPIIP)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "UPIIP-Palenque-BT-042",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Palenque (UPIIP)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "UPIIP-Palenque-FV-144",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Palenque (UPIIP)',
+        tipoDeBien: "Flota Vehicular"
+    }
+],
+[
+    "UPIIT-Tlaxcala-BG-089",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Tlaxcala (UPIIT)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "UPIIT-Tlaxcala-BT-222",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Tlaxcala (UPIIT)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "UPIIZ-Zacatecas-BT-111",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Zacatecas (UPIIZ)',
+        tipoDeBien: "Bienes Tics"
+    }
+],
+[
+    "UPIIZ-Zacatecas-BG-118",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Zacatecas (UPIIZ)',
+        tipoDeBien: "Equipamento General (Capitulo 5000)"
+    }
+],
+[
+    "UPIIZ-Zacatecas-FV-183",
+    {
+        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Zacatecas (UPIIZ)',
+        tipoDeBien: "Flota Vehicular"
+    }
+]
+]);
+
+
+
+
+
+/*function obtenerListaDependencias() {
+    return Array.from(siglasDependencias.keys());
+}
+*/
+
+
+
+
+
+const opciones = [
+  ...new Set(
+    [...mapaFolios.values()]
+      .map(obj => obj.dependencia)
+  )
+];
+
+
+
+
+
+
+
+
+
+
+
+
+  opciones.forEach(value => {
+    const option = document.createElement("option");
+    option.value = value;
+    option.textContent = value;
+    dependenciaInput.appendChild(option);
+  });
+
+
+
+
+
+
+
+function actualizarObligatoriedadFila(fila) {
+  /*¨
+  const equipo = fila.querySelector(".obligatorio");
+  if (!equipo) return;
+
+  const tieneEquipo = equipo.value.trim() !== "";
+  const campos = fila.querySelectorAll("input, textarea, select");
+
+  campos.forEach(campo => {
+    if (tieneEquipo) {
+      campo.setAttribute("required", "required");
+    } else {
+      campo.removeAttribute("required");
+    }
+  });
+  */
+}
+
+
+//----------------Esta parte se encarga de detectar un cambio en las celdas de la tabla y cuando recibe un cambio que no es 
+//----------------en la clase obligatorio este no reacciona, en caso afirmativo cambio el estado de required
+//--------------------------------------** *------------------------------------------/
+
+document.getElementById("tablaBody").addEventListener("input", function (e) {
+  if (!e.target.classList.contains("obligatorio")) return;
+
+  const fila = e.target.closest("tr");
+  actualizarObligatoriedadFila(fila);
+});
+
+
+
+document.getElementById("tablaBody1_1").addEventListener("input", function (e) {
+  if (!e.target.classList.contains("obligatorio")) return;
+
+  const fila = e.target.closest("tr");
+  actualizarObligatoriedadFila(fila);
+});
+
+
+
+document.getElementById("tablaBody2").addEventListener("input", function (e) {
+  if (!e.target.classList.contains("obligatorio")) return;
+
+  const fila = e.target.closest("tr");
+  actualizarObligatoriedadFila(fila);
+});
+
+
+document.getElementById("tablaBody3").addEventListener("input", function (e) {
+  if (!e.target.classList.contains("obligatorio")) return;
+
+  const fila = e.target.closest("tr");
+  actualizarObligatoriedadFila(fila);
+});
+
+document.getElementById("tablaCotizaciones").addEventListener("input", function (e) {
+  if (!e.target.classList.contains("obligatorio")) return;
+  const fila = e.target.closest("tr");
+  actualizarObligatoriedadFila(fila);
+});
+
+
+
+
+
+
+document.getElementById("tablaBody4").addEventListener("input", function (e) {
+  if (!e.target.classList.contains("obligatorio")) return;
+
+  const fila = e.target.closest("tr");
+  actualizarObligatoriedadFila(fila);
+});
+
+
+
+
+
+
+
+document.getElementById("tablaBody5").addEventListener("input", function (e) {
+  if (!e.target.classList.contains("obligatorio")) return;
+
+  const fila = e.target.closest("tr");
+  actualizarObligatoriedadFila(fila);
+});
+
+
+  
+
+
+function obtenerNumeroFila1(){
+     const filas = document.querySelectorAll("#tablaBody tr");
+
+    let numero = 1;
+
+    filas.forEach(fila => {
+
+        // No contar ejemplos
+        if (
+            fila.classList.contains("ejemplo") ||
+            fila.querySelector(".ejemplo")
+        ) {
+            return;
+        }
+
+        // No contar total
+ /*       if (fila.id === "filaTotalTabla") {
+            return;
+        }
+*/
+        numero++;
+    });
+
+    return numero;
+
+    //  return document.querySelectorAll("#tablaBody tr").length -1;
+}
+function obtenerNumeroFila1_1(){
+      const filas = document.querySelectorAll("#tablaBody1_1 tr");
+
+    let numero = 1;
+
+    filas.forEach(fila => {
+
+        // No contar ejemplos
+        if (
+            fila.classList.contains("ejemplo") ||
+            fila.querySelector(".ejemplo")
+        ) {
+            return;
+        }
+
+        // No contar total
+ /*       if (fila.id === "filaTotalTabla") {
+            return;
+        }
+*/
+        numero++;
+    });
+
+    return numero;
+  //return document.querySelectorAll("#tablaBody1_1 tr").length -1;
+}
+
+
+function obtenerNumeroFila2(){
+       const filas = document.querySelectorAll("#tablaBody2 tr");
+
+    let numero = 1;
+
+    filas.forEach(fila => {
+
+        // No contar ejemplos
+        if (
+            fila.classList.contains("ejemplo") ||
+            fila.querySelector(".ejemplo")
+        ) {
+            return;
+        }
+
+        // No contar total
+ /*       if (fila.id === "filaTotalTabla") {
+            return;
+        }
+*/
+        numero++;
+    });
+
+    return numero;
+//  return document.querySelectorAll("#tablaBody2 tr").length - 1;
+}
+
+function obtenerNumeroFila3(){
+       const filas = document.querySelectorAll("#tablaBody3 tr");
+
+    let numero = 1;
+
+    filas.forEach(fila => {
+
+        // No contar ejemplos
+        if (
+            fila.classList.contains("ejemplo") ||
+            fila.querySelector(".ejemplo")
+        ) {
+            return;
+        }
+
+        // No contar total
+ /*       if (fila.id === "filaTotalTabla") {
+            return;
+        }
+*/
+        numero++;
+    });
+
+    return numero;
+//    return document.querySelectorAll("#tablaBody3 tr").length - 1;
+}
+
+
+
+
+
+function obtenerNumeroFilaP() {
+
+    const filas =
+        document.querySelectorAll(
+            "#tablaBodyP tr:not(.ejemplo)"
+        );
+
+    return filas.length + 1;
+}
+
+
+
+function obtenerNumeroFilaC(){
+         const filas = document.querySelectorAll("#tablaCotizaciones tr");
+
+    let numero = 1;
+
+    filas.forEach(fila => {
+
+        // No contar ejemplos
+        if (
+            fila.classList.contains("ejemplo") ||
+            fila.querySelector(".ejemplo")
+        ) {
+            return;
+        }
+
+        // No contar total
+ /*       if (fila.id === "filaTotalTabla") {
+            return;
+        }
+*/
+        numero++;
+    });
+
+    return numero;
+//    return document.querySelectorAll("#tablaCotizaciones tr").length + 1;
+}
+
+function obtenerNumeroFila4(){
+
+             const filas = document.querySelectorAll("#tablaBody4 tr");
+
+    let numero = 1;
+
+    filas.forEach(fila => {
+
+        // No contar ejemplos
+        if (
+            fila.classList.contains("ejemplo") ||
+            fila.querySelector(".ejemplo")
+        ) {
+            return;
+        }
+
+    // No contar total
+         if (fila.id === "filaTotalTabla4") {
+            return;
+        }
+
+        numero++;
+    });
+
+    return numero;
+
+//  return document.querySelectorAll("#tablaBody4 tr").length - 1;
+}
+
+function obtenerNumeroFila5(){
+
+     
+                const filas = document.querySelectorAll("#tablaBody5 tr");
+
+    let numero = 1;
+
+    filas.forEach(fila => {
+
+        // No contar ejemplos
+        if (
+            fila.classList.contains("ejemplo") ||
+            fila.querySelector(".ejemplo")
+        ) {
+            return;
+        }
+
+        // No contar total
+ /*       if (fila.id === "filaTotalTabla") {
+            return;
+        }
+*/
+        numero++;
+    });
+
+    return numero;
+
+//  return document.querySelectorAll("#tablaBody5 tr").length - 1;
+}
+
+
+
+
+function formatearMiles(input) {
+  // Quitar todo menos números y punto
+  let valor = input.value.replace(/[^0-9.]/g, "");
+
+  // Evitar más de un punto decimal
+  const partes = valor.split(".");
+  if (partes.length > 2) {
+    valor = partes[0] + "." + partes.slice(1).join("");
+  }
+  // Separar parte entera y decimal
+  let [entero, decimal] = valor.split(".");
+
+  // Agregar separador de miles
+  entero = entero.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+  input.value = decimal !== undefined
+    ? `${entero}.${decimal.slice(0,2)}`
+    : entero;
+}
+
+
+
+
+
+
+
+function crearFilaTotalTabla4() {
+
+  const tbody = document.getElementById("tablaBody4");
+
+  // Si ya existe, no crear otra
+  if (document.getElementById("filaTotalTabla4")) return;
+
+  const filaTotal = document.createElement("tr");
+
+  filaTotal.id = "filaTotalTabla4";
+  filaTotal.classList.add("fila-total");
+
+  filaTotal.innerHTML = `
+    <td></td>
+
+    <td colspan="4">
+      <strong>TOTAL</strong>
+    </td>
+
+    <td id="totalCantidad_T4"></td>
+
+    <td></td>
+    <td></td>
+
+    <td id="totalPrecio1_T4"></td>
+
+    <td id="totalPrecioIVA1_T4"></td>
+
+    <td></td>
+    <td class="paso"></td>
+
+    <td id="totalPrecio2_T4"></td>
+
+    <td id="totalPrecioIVA2_T4"></td>
+
+    <td></td>
+    <td class="paso"></td>
+  `;
+
+  tbody.appendChild(filaTotal);
+
+  actualizarTotalesTabla4();
+}
+
+
+function numeroSinFormato(valor) {
+
+  return Number(
+    String(valor || "").replace(/,/g, "")
+  ) || 0;
+}
+
+
+function formatoMilesNumero(numero) {
+
+  return numero.toLocaleString("en-US", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  });
+}
+
+
+
+
+function actualizarTotalesTabla4() {
+
+  let totalCantidad = 0;
+  let totalPrecio1 = 0;
+  let totalPrecioIVA1 = 0;
+  let totalPrecio2 = 0;
+  let totalPrecioIVA2 = 0;
+
+  document
+    .querySelectorAll('#tablaBody4 tr:not(#filaTotalTabla4)')
+    .forEach(fila => {
+
+      const cantidad =
+        fila.querySelector('[name^="cantidad_T4R"]');
+
+      const precio1 =
+        fila.querySelector('[name^="precio_T4R"]:not([name$="RO"])');
+
+      const precioIVA1 =
+        fila.querySelector('[name^="precioTotal_T4R"]');
+
+      const precio2 =
+        fila.querySelector('[name^="precio2_T4R"]:not([name$="RO"])');
+
+      const precioIVA2 =
+        fila.querySelector('[name^="precioTotal2_T4R"]');
+
+      if (cantidad) {
+        totalCantidad += numeroSinFormato(cantidad.value);
+      }
+
+      if (precio1) {
+        totalPrecio1 += numeroSinFormato(precio1.value);
+      }
+
+      if (precioIVA1) {
+        totalPrecioIVA1 += numeroSinFormato(precioIVA1.value);
+      }
+
+      if (precio2) {
+        totalPrecio2 += numeroSinFormato(precio2.value);
+      }
+
+      if (precioIVA2) {
+        totalPrecioIVA2 += numeroSinFormato(precioIVA2.value);
+      }
+    });
+
+
+  document.getElementById("totalCantidad_T4").textContent =
+    totalCantidad;
+
+  document.getElementById("totalPrecio1_T4").textContent =
+    "$" + formatoMilesNumero(totalPrecio1);
+
+  document.getElementById("totalPrecioIVA1_T4").textContent =
+    "$" + formatoMilesNumero(totalPrecioIVA1);
+
+  document.getElementById("totalPrecio2_T4").textContent =
+    "$" + formatoMilesNumero(totalPrecio2);
+
+  document.getElementById("totalPrecioIVA2_T4").textContent =
+    "$" + formatoMilesNumero(totalPrecioIVA2);
+}
+
+
+
+
+
+
+
+/*
+function activarAutoExpand(fila){
+  const textareas = fila.querySelectorAll(".auto-expand");
+  textareas.forEach(textarea => {
+    textarea.addEventListener("input", () => {
+      textarea.style.height = "auto";
+      textarea.style.height = textarea.scrollHeight + "px";
+    });
+  });
+}
+*/
+function ajustarAlturaTextarea(textarea) {
+
+    if (!textarea) return;
+
+    textarea.style.height = "auto";
+
+    textarea.style.height =
+        textarea.scrollHeight + "px";
+}
+
+function activarAutoExpand(fila) {
+
+    const textareas =
+        fila.querySelectorAll(
+            ".auto-expand"
+        );
+
+    textareas.forEach(textarea => {
+
+        textarea.addEventListener(
+            "input",
+            () => {
+
+                ajustarAlturaTextarea(
+                    textarea
+                );
+
+            }
+        );
+
+    });
+}
+
+function recalcularAutoExpand() {
+
+    document
+        .querySelectorAll(
+            "textarea.auto-expand"
+        )
+        .forEach(textarea => {
+
+            // Solo calcular los visibles
+            if (
+                textarea.offsetParent === null
+            ) {
+                return;
+            }
+
+            ajustarAlturaTextarea(
+                textarea
+            );
+
+        });
+}
+
+
+
+
+
+
+
+
+
+document.getElementById("miFormulario").addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+    }
+});
+
+
+
+
+//---------------------------Generar Folio
+
+/*
+function generarFolio() {
+   return Math.random().toString(36).substr(2, 8).toUpperCase();
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+function siguiente(numero,numeroActivar){
+
+  document
+    .getElementById(`paso${numero}`)
+    .classList.remove("activo");
+
+  document
+    .getElementById(`paso${numeroActivar}`)
+    .classList.add("activo");
+     requestAnimationFrame(() => {
+
+        recalcularAutoExpand();
+
+    }); 
+}
+
+
+function anterior(numero){
+
+  document
+    .getElementById(`paso${numero}`)
+    .classList.remove("activo");
+
+  document
+    .getElementById(`paso${numero-1}`)
+    .classList.add("activo");
+}
+function soloActivar(numero){
+if(document
+    .getElementById(`paso${numero}`)
+    .classList.contains("activo")){
+         document
+    .getElementById(`paso${numero}`)
+    .classList.remove("activo");    
+    }else{
+
+  document
+    .getElementById(`paso${numero}`)
+    .classList.add("activo");
+  }
+
+}
+
+
+
+
+
+
+function precioTotalMasIVA(precioInput) {
+      
+               
+        
+            let precioTotal=precioInput.dataset.precio;
+            let cantidad=precioInput.dataset.cant;
+        
+        
+        let cantidadInput=document
+        .getElementById(cantidad);
+        
+        let precioTotalinput=document
+        .getElementById(precioTotal);
+        
+       let valorUnitario = Number(
+                precioInput.value.replace(/,/g, "")
+              );
+                 precioTotal=valorUnitario*cantidadInput.value*1.16;
+                
+                precioTotalinput.value=precioTotal;
+                formatearMiles(precioTotalinput);
+                actualizarTotalesTabla4();    
+            }
+
+document.querySelectorAll(
+    '#tablaBody5 textarea[name^="ProgramaAcademico_T5R"], ' +
+    '#tablaBody5 textarea[name^="Espacio_T5R"],'+'#tablaBody5 textarea[name^="nombredelEquipo_T5R"]').forEach(campo=>{
+                  const origen = document.getElementById(campo.dataset.relleno);
+                  campo.value=origen.value;
+    });
+/*    
+document.querySelector(".Tabla4")
+               .addEventListener("change",function (event){
+    
+            const origen = event.target;    
+               document
+            .querySelectorAll(`[data-relleno="${origen.id}"]`)
+            .forEach(destino => {
+                destino.value = origen.value;
+            });
+                
+               precioTotalMasIVA(event.target);
+
+               });
+
+*/
+
+
+
+
+/*
+document
+        .getElementById(precioTotal);
+document.querySelectorAll("#tablaBody5 [data-relleno]").forEach(campo => {
+
+    const nombreOrigen = campo.dataset.relleno;
+
+    const campoOrigen = document.querySelector(
+        `[name="${nombreOrigen}"]`
+    );
+
+    if (!campoOrigen) return;
+
+    campo.value = campoOrigen.value;
+
+    if (campo.tagName === "TEXTAREA") {
+        campo.style.height = "auto";
+        campo.style.height = campo.scrollHeight + "px";
+    }
+});               
+
+*/
+
+
+
+
+
+
+
+
+// V6  
+//const direccionEnlace="https://script.google.com/macros/s/AKfycbwGftGIEgkoj3eXcFHXFDOuKpWsoQdaivav-wBPdMP3k7CpR_TJyfhwxCv3qmbLvqa2YA/exec"
+
+// V7 
+
+//const direccionEnlace="https://script.google.com/macros/s/AKfycbyrrLXQMsrqpSoPDWpkb4FCWwzxHjsVFTRmGEgajnz53ZTFpJOXEvK6PqGyDOrcJpE4/exec"
+
+//V8 
+// 
+const direccionEnlace="https://script.google.com/macros/s/AKfycby9jNmixia074z8R6NI03VzvQii_rmHJ7xaoHKQ9X3OwWeYZB94cqkN6cewmbNzqTnq/exec"
+
+
+
+let folioActual=null;
+let edicionActual=null;
+let numerodeEnvio=0;
+let ExistenciaDeCotizaciones=false;
+let folioCargado = false;
+
+
+let ExistenciaDeCotizaciones_T4=false;
+
+
+let ExistenciaDeCotizacionesA2=false;
+
+
+
+let ExistenciaDeCotizacionesA2_T4=false;
+
+//--------------------------------------Cargar UltimaVersion
+
+async function cargarDatosPorFolio() {
+    mostrarEstadoCarga("Cargando solicitud por folio");
+    const folio = document
+        .getElementById("folioInput")
+        .value
+        .trim();
+
+    if (!folio) {
+        alert("Ingrese un folio.");
+        return;
+    }
+    folioActual=folio;
+    const datos = mapaFolios.get(folio);
+
+    if (!datos) {
+        alert("Folio no encontrado.");
+        return;
+    }
+
+    // Cargar dependencia
+setSelectValue(
+        "dependencia",
+        datos.dependencia
+    );
+
+    setSelectValue(
+        "tipoDeSolicitud",
+        datos.tipoDeBien
+    );
+
+
+
+
+try {    
+    const res = await fetch(direccionEnlace, {
+    method: "POST",
+    body: JSON.stringify({
+        action: "cargarUltimaVersion",
+        dependencia:datos.dependencia,
+        tipoDeBien:datos.tipoDeBien
+    })
+});
+
+const json = await res.json();
+const data =json.data;
+
+// alert(data.dependencia + "  su funcion y accion funcionan bien.Hora de la actualizacion:" + data.fechaModificacion +". el Origen es un" + json.origen );
+
+  const form = document.getElementById("miFormulario");
+
+  // Limpiar tabla
+  const tbody = document.getElementById("tablaBody");
+  const tbody1 = document.getElementById("tablaBody1_1");  
+  const tbody2 = document.getElementById("tablaBody2");
+  const tbody3 = document.getElementById("tablaBody3");
+  const tbodyP = document.getElementById("tablaBodyP");
+  const tbodyC = document.getElementById("tablaCotizaciones");
+  const tbody4 = document.getElementById("tablaBody4");
+  const tbody5 = document.getElementById("tablaBody5");
+
+  /*
+  const tbody6 = document.getElementById("tablaBody6");
+  */
+  tbody.innerHTML  = "";
+  tbody1.innerHTML = "";
+  tbody2.innerHTML = "";
+  tbody3.innerHTML = "";
+  tbodyP.innerHTML = "";
+  tbodyC.innerHTML = "";
+  tbody4.innerHTML = "";
+  tbody5.innerHTML = "";
+  /*
+  tbody6.innerHTML = "";
+  
+  */
+  // Reconstruir filas
+//  const filas = data.__filas || 10;
+//  for (let i = 1; i <= filas; i++) {
+//    agregarFila();
+//  }
+
+//alert("despues de cargar Borrador"+folioActual);
+
+//      folioActual = folio;
+      edicionActual=data.edicion;
+      numerodeEnvio=data.numeroEnvio;
+// Restaurar selects encadenados
+/*setSelectValue("secretaria", data.secretaria);
+
+setTimeout(() => {
+  setSelectValue("direccion", data.direccion);
+
+  setTimeout(() => {
+    setSelectValue("nivel", data.nivel);
+
+    setTimeout(() => {
+*/
+//-------------------------------  activa selects
+// folioValor.value=data.folio;
+      setSelectValue("dependencia", data.dependencia);
+      Object.keys(data).forEach(name => {
+                          if (name.includes("__filas")) return;
+                          if(name.includes("url")){
+                                        urlCotizacionesActuales[name] = data[name];
+                                        //alert("data:"+data[name]);
+                                        //alert("urlcot"+urlCotizacionesActuales[name]);
+                          };
+                          if (
+                               name.startsWith("nombreCotizacion_TCR") ||
+                               name.startsWith("nombreCotizacion2_TCR")
+                              ) {
+
+                               nombresCotizacionesActuales[name] = data[name];
+                       
+                          }
+                          if (name.includes("R")) return; //quitamos los campos de la tabla
+                          if(name.includes("secretaria")) return;
+                          if(name.includes("direccion")) return; 
+                          if(name.includes("nivel")) return; 
+                          if(name.includes("dependencia")) return;
+//                          if(name.includes("folio")) return; 
+                          const campo = document.querySelector(`[name="${name}"]`);
+                          if (!campo) return;
+                          
+    campo.value = data[name];
+
+    if (campo.tagName === "TEXTAREA") {
+      campo.style.height = "auto";
+      campo.style.height = campo.scrollHeight + "px";
+    }
+  });
+let folioValor = document.getElementById("folioInput");
+ folioValor.value=folioActual;
+
+
+      
+      // ⬇️ Ahora sí, restaurar la tabla
+      restaurarTabla(data);
+actualizarOpcionesProgramas();
+actualizarOpcionesEspacios();
+actualizarOpcionesCotizacion1();
+actualizarOpcionesCotizacion2();
+actualizarOpcionesEdificio();
+actualizarSelects(data);
+compartirValoresinputToSelects();
+restaurarClavesTabla2(data);
+// compartirValoresSelects();
+
+
+      document.querySelectorAll("textarea.auto-expand").forEach(textarea => {
+    textarea.style.height = "auto";
+    textarea.style.height = textarea.scrollHeight + "px";
+});
+
+
+document
+    .querySelectorAll(".Tabla4 .unitario")
+    .forEach(precioInput => {
+        precioTotalMasIVA(precioInput);
+    });
+
+
+
+
+document.querySelectorAll(".check-verificacion").forEach(check => {
+    let selects=["botonMenu_T4R"]
+    let campo = document.querySelector(`[name="${check.dataset.campo}"]`);
+    if (!campo){
+          campo = document.querySelector(`[id="${check.dataset.campo}"]`);
+        if (!campo) return;  
+    } ;
+
+
+    campo.readOnly = check.value === true || check.value === "true";
+        
+
+    if (campo.tagName === "SELECT") {
+
+        // Caso SELECT
+        campo.disabled = check.value === true ||
+        check.value === "true";
+
+    }
+    
+//    if(selects.includes(check.dataset.campo)){
+       if (
+    selects.some(prefijo =>
+        check.dataset.campo?.startsWith(prefijo)
+    )
+) {
+//         campo.disabled = check.value === true ||
+//        check.value === "true";
+
+       if((check.value === true)||(check.value === "true")){
+
+            campo.classList.add("paso");
+        }else{
+            campo.classList.remove("paso");
+        };  
+
+
+    };
+
+});
+
+
+//document.getElementById("especificaciones").readOnly =    data.especificacionesRO ?? false;
+
+      
+const ejemplos = json.ejemplos;
+    for(let index=1;index<3;index++){
+   document.getElementById(`ProgramasE${index}`).textContent=ejemplos[`ProgramasE${index}`];   
+   document.getElementById(`UsuariosHAnio2E${index}`).textContent=ejemplos[`UsuariosHAnio2E${index}`];
+   document.getElementById(`UsuariosMAnio2E${index}`).textContent=ejemplos[`UsuariosMAnio2E${index}`];
+   document.getElementById(`UsuariosHAnio3E${index}`).textContent=ejemplos[`UsuariosHAnio3E${index}`];
+   document.getElementById(`UsuariosMAnio1E${index}`).textContent=ejemplos[`UsuariosMAnio1E${index}`];
+   document.getElementById(`UsuariosMAnio3E${index}`).textContent=ejemplos[`UsuariosMAnio3E${index}`];
+   document.getElementById(`UsuariosHAnio4E${index}`).textContent=ejemplos[`UsuariosHAnio4E${index}`];
+   document.getElementById(`UsuariosMAnio4E${index}`).textContent=ejemplos[`UsuariosMAnio4E${index}`];
+   document.getElementById(`UsuariosHAnio1E${index}`).textContent=ejemplos[`UsuariosHAnio1E${index}`];
+   document.getElementById(`UsuariosHAnio5E${index}`).textContent=ejemplos[`UsuariosHAnio5E${index}`];
+   document.getElementById(`UsuariosMAnio5E${index}`).textContent=ejemplos[`UsuariosMAnio5E${index}`];
+
+ document.getElementById(`NumProfE${index}`        ).textContent     =ejemplos[`NumProfE${index}`        ]
  document.getElementById(`UsuariosAHAnio1E${index}`).textContent=ejemplos[`UsuariosAHAnio1E${index}`]
  document.getElementById(`UsuariosAMAnio1E${index}`).textContent=ejemplos[`UsuariosAMAnio1E${index}`]
  document.getElementById(`UsuariosAHAnio2E${index}`).textContent=ejemplos[`UsuariosAHAnio2E${index}`]
@@ -7665,1369 +9027,7 @@ fila.querySelectorAll("[data-campo]").forEach(elemento => {
 
         fila.querySelectorAll("[data-precio]").forEach(elemento => {
             elemento.dataset.precio =
-                elemento.dataset.prec"
-    }
-],
-[
-    "ESIME-Zacatenco-FV-104",
-    {
-        dependencia: 'Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Zacatenco',
-        tipoDeBien: "Flota Vehicular"
-    }
-],
-[
-    "ESIQIE-BT-048",
-    {
-        dependencia: 'Escuela Superior de Ingeniería Química E Industrias Extractivas (ESIQIE)',
-        tipoDeBien: "Bienes Tics"
-    }
-],
-[
-    "ESIQIE-BG-081",
-    {
-        dependencia: 'Escuela Superior de Ingeniería Química E Industrias Extractivas (ESIQIE)',
-        tipoDeBien: "Equipamento General (Capitulo 5000)"
-    }
-],
-[
-    "ESIT-BT-059",
-    {
-        dependencia: 'Escuela Superior de Ingeniería Textil (ESIT)',
-        tipoDeBien: "Bienes Tics"
-    }
-],
-[
-    "ESIT-BG-185",
-    {
-        dependencia: 'Escuela Superior de Ingeniería Textil (ESIT)',
-        tipoDeBien: "Equipamento General (Capitulo 5000)"
-    }
-],
-[
-    "ESIA-Tecamachalco-BG-071",
-    {
-        dependencia: 'Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Tecamachalco',
-        tipoDeBien: "Equipamento General (Capitulo 5000)"
-    }
-],
-[
-    "ESIA-Ticoman-BG-051",
-    {
-        dependencia: 'Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Ticomán',
-        tipoDeBien: "Equipamento General (Capitulo 5000)"
-    }
-],
-[
-    "ESIA-Ticoman-BT-052",
-    {
-        dependencia: 'Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Ticomán',
-        tipoDeBien: "Bienes Tics"
-    }
-],
-[
-    "ESIA-Ticoman-FV-160",
-    {
-        dependencia: 'Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Ticomán',
-        tipoDeBien: "Flota Vehicular"
-    }
-],
-[
-    "ESIA-Zacatenco-BT-069",
-    {
-        dependencia: 'Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Zacatenco',
-        tipoDeBien: "Bienes Tics"
-    }
-],
-[
-    "ESIA-Zacatenco-FV-155",
-    {
-        dependencia: 'Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Zacatenco',
-        tipoDeBien: "Flota Vehicular"
-    }
-],
-[
-    "ESM-BT-022",
-    {
-        dependencia: 'Escuela Superior de Medicina (ESM)',
-        tipoDeBien: "Bienes Tics"
-    }
-],
-[
-    "ESM-BG-109",
-    {
-        dependencia: 'Escuela Superior de Medicina (ESM)',
-        tipoDeBien: "Equipamento General (Capitulo 5000)"
-    }
-],
-[
-    "ESM-FV-121",
-    {
-        dependencia: 'Escuela Superior de Medicina (ESM)',
-        tipoDeBien: "Flota Vehicular"
-    }
-],
-[
-    "EST-BG-016",
-    {
-        dependencia: 'Escuela Superior de Turismo (EST)',
-        tipoDeBien: "Equipamento General (Capitulo 5000)"
-    }
-],
-[
-    "EST-BT-207",
-    {
-        dependencia: 'Escuela Superior de Turismo (EST)',
-        tipoDeBien: "Bienes Tics"
-    }
-],
-[
-    "SA-BG-031",
-    {
-        dependencia: 'Secretaría Académica',
-        tipoDeBien: "Equipamento General (Capitulo 5000)"
-    }
-],
-[
-    "SA-BT-040",
-    {
-        dependencia: 'Secretaría Académica',
-        tipoDeBien: "Bienes Tics"
-    }
-],
-[
-    "SA-FV-113",
-    {
-        dependencia: 'Secretaría Académica',
-        tipoDeBien: "Flota Vehicular"
-    }
-],
-[
-    "SIIS-BG-197",
-    {
-        dependencia: 'Secretaría de Innovación E Integración Social',
-        tipoDeBien: "Equipamento General (Capitulo 5000)"
-    }
-],
-[
-    "SIP-BG-173",
-    {
-        dependencia: 'Secretaría de Investigación y Posgrado',
-        tipoDeBien: "Equipamento General (Capitulo 5000)"
-    }
-],
-[
-    "SIP-BT-174",
-    {
-        dependencia: 'Secretaría de Investigación y Posgrado',
-        tipoDeBien: "Bienes Tics"
-    }
-],
-[
-    "SIP-FV-175",
-    {
-        dependencia: 'Secretaría de Investigación y Posgrado',
-        tipoDeBien: "Flota Vehicular"
-    }
-],
-[
-    "SG-BG-190",
-    {
-        dependencia: 'Secretaría General',
-        tipoDeBien: "Equipamento General (Capitulo 5000)"
-    }
-],
-[
-    "SG-BT-211",
-    {
-        dependencia: 'Secretaría General',
-        tipoDeBien: "Bienes Tics"
-    }
-],
-[
-    "UPGPG-BT-218",
-    {
-        dependencia: 'Unidad Politécnica de Gestión con Perspectiva de Género (UPGPG)',
-        tipoDeBien: "Bienes Tics"
-    }
-],
-[
-    "UPGPG-BG-219",
-    {
-        dependencia: 'Unidad Politécnica de Gestión con Perspectiva de Género (UPGPG)',
-        tipoDeBien: "Equipamento General (Capitulo 5000)"
-    }
-],
-[
-    "UPIBI-BG-053",
-    {
-        dependencia: 'Unidad Profesional Interdisciplinaria de Biotecnología (UPIBI)',
-        tipoDeBien: "Equipamento General (Capitulo 5000)"
-    }
-],
-[
-    "UPIBI-BT-072",
-    {
-        dependencia: 'Unidad Profesional Interdisciplinaria de Biotecnología (UPIBI)',
-        tipoDeBien: "Bienes Tics"
-    }
-],
-[
-    "UPIBI-FV-168",
-    {
-        dependencia: 'Unidad Profesional Interdisciplinaria de Biotecnología (UPIBI)',
-        tipoDeBien: "Flota Vehicular"
-    }
-],
-[
-    "UPIEM-BT-045",
-    {
-        dependencia: 'Unidad Profesional Interdisciplinaria de Energía y Movilidad (UPIEM)',
-        tipoDeBien: "Bienes Tics"
-    }
-],
-[
-    "UPIEM-BG-083",
-    {
-        dependencia: 'Unidad Profesional Interdisciplinaria de Energía y Movilidad (UPIEM)',
-        tipoDeBien: "Equipamento General (Capitulo 5000)"
-    }
-],
-[
-    "UPIEM-FV-178",
-    {
-        dependencia: 'Unidad Profesional Interdisciplinaria de Energía y Movilidad (UPIEM)',
-        tipoDeBien: "Flota Vehicular"
-    }
-],
-[
-    "UPIICSA-BT-015",
-    {
-        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas (UPIICSA)',
-        tipoDeBien: "Bienes Tics"
-    }
-],
-[
-    "UPIICSA-BG-054",
-    {
-        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas (UPIICSA)',
-        tipoDeBien: "Equipamento General (Capitulo 5000)"
-    }
-],
-[
-    "UPIICSA-FV-140",
-    {
-        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas (UPIICSA)',
-        tipoDeBien: "Flota Vehicular"
-    }
-],
-[
-    "UPIIAP-Puebla-BT-220",
-    {
-        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus "Alejo Peralta" Puebla (UPIIAP)',
-        tipoDeBien: "Bienes Tics"
-    }
-],
-[
-    "UPIIAP-Puebla-BG-223",
-    {
-        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus "Alejo Peralta" Puebla (UPIIAP)',
-        tipoDeBien: "Equipamento General (Capitulo 5000)"
-    }
-],
-[
-    "UPIIAP-Puebla-FV-225",
-    {
-        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus "Alejo Peralta" Puebla (UPIIAP)',
-        tipoDeBien: "Flota Vehicular"
-    }
-],
-[
-    "UPIIG-Guanajuato-BG-085",
-    {
-        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Guanajuato (UPIIG)',
-        tipoDeBien: "Equipamento General (Capitulo 5000)"
-    }
-],
-[
-    "UPIIG-Guanajuato-BT-086",
-    {
-        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Guanajuato (UPIIG)',
-        tipoDeBien: "Bienes Tics"
-    }
-],
-[
-    "UPIIH-Hidalgo-BG-036",
-    {
-        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Hidalgo (UPIIH)',
-        tipoDeBien: "Equipamento General (Capitulo 5000)"
-    }
-],
-[
-    "UPIIH-Hidalgo-BT-043",
-    {
-        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Hidalgo (UPIIH)',
-        tipoDeBien: "Bienes Tics"
-    }
-],
-[
-    "UPIIH-Hidalgo-FV-149",
-    {
-        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Hidalgo (UPIIH)',
-        tipoDeBien: "Flota Vehicular"
-    }
-],
-[
-    "UPIIP-Palenque-BG-027",
-    {
-        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Palenque (UPIIP)',
-        tipoDeBien: "Equipamento General (Capitulo 5000)"
-    }
-],
-[
-    "UPIIP-Palenque-BT-042",
-    {
-        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Palenque (UPIIP)',
-        tipoDeBien: "Bienes Tics"
-    }
-],
-[
-    "UPIIP-Palenque-FV-144",
-    {
-        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Palenque (UPIIP)',
-        tipoDeBien: "Flota Vehicular"
-    }
-],
-[
-    "UPIIT-Tlaxcala-BG-089",
-    {
-        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Tlaxcala (UPIIT)',
-        tipoDeBien: "Equipamento General (Capitulo 5000)"
-    }
-],
-[
-    "UPIIT-Tlaxcala-BT-222",
-    {
-        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Tlaxcala (UPIIT)',
-        tipoDeBien: "Bienes Tics"
-    }
-],
-[
-    "UPIIZ-Zacatecas-BT-111",
-    {
-        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Zacatecas (UPIIZ)',
-        tipoDeBien: "Bienes Tics"
-    }
-],
-[
-    "UPIIZ-Zacatecas-BG-118",
-    {
-        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Zacatecas (UPIIZ)',
-        tipoDeBien: "Equipamento General (Capitulo 5000)"
-    }
-],
-[
-    "UPIIZ-Zacatecas-FV-183",
-    {
-        dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Zacatecas (UPIIZ)',
-        tipoDeBien: "Flota Vehicular"
-    }
-]
-]);
-
-
-
-
-
-/*function obtenerListaDependencias() {
-    return Array.from(siglasDependencias.keys());
-}
-*/
-
-
-
-
-
-const opciones = [
-  ...new Set(
-    [...mapaFolios.values()]
-      .map(obj => obj.dependencia)
-  )
-];
-
-
-
-
-
-
-
-
-
-
-
-
-  opciones.forEach(value => {
-    const option = document.createElement("option");
-    option.value = value;
-    option.textContent = value;
-    dependenciaInput.appendChild(option);
-  });
-
-
-
-
-
-
-
-function actualizarObligatoriedadFila(fila) {
-  /*¨
-  const equipo = fila.querySelector(".obligatorio");
-  if (!equipo) return;
-
-  const tieneEquipo = equipo.value.trim() !== "";
-  const campos = fila.querySelectorAll("input, textarea, select");
-
-  campos.forEach(campo => {
-    if (tieneEquipo) {
-      campo.setAttribute("required", "required");
-    } else {
-      campo.removeAttribute("required");
-    }
-  });
-  */
-}
-
-
-//----------------Esta parte se encarga de detectar un cambio en las celdas de la tabla y cuando recibe un cambio que no es 
-//----------------en la clase obligatorio este no reacciona, en caso afirmativo cambio el estado de required
-//--------------------------------------** *------------------------------------------/
-
-document.getElementById("tablaBody").addEventListener("input", function (e) {
-  if (!e.target.classList.contains("obligatorio")) return;
-
-  const fila = e.target.closest("tr");
-  actualizarObligatoriedadFila(fila);
-});
-
-
-
-document.getElementById("tablaBody1_1").addEventListener("input", function (e) {
-  if (!e.target.classList.contains("obligatorio")) return;
-
-  const fila = e.target.closest("tr");
-  actualizarObligatoriedadFila(fila);
-});
-
-
-
-document.getElementById("tablaBody2").addEventListener("input", function (e) {
-  if (!e.target.classList.contains("obligatorio")) return;
-
-  const fila = e.target.closest("tr");
-  actualizarObligatoriedadFila(fila);
-});
-
-
-document.getElementById("tablaBody3").addEventListener("input", function (e) {
-  if (!e.target.classList.contains("obligatorio")) return;
-
-  const fila = e.target.closest("tr");
-  actualizarObligatoriedadFila(fila);
-});
-
-document.getElementById("tablaCotizaciones").addEventListener("input", function (e) {
-  if (!e.target.classList.contains("obligatorio")) return;
-  const fila = e.target.closest("tr");
-  actualizarObligatoriedadFila(fila);
-});
-
-
-
-
-
-
-document.getElementById("tablaBody4").addEventListener("input", function (e) {
-  if (!e.target.classList.contains("obligatorio")) return;
-
-  const fila = e.target.closest("tr");
-  actualizarObligatoriedadFila(fila);
-});
-
-
-
-
-
-
-
-document.getElementById("tablaBody5").addEventListener("input", function (e) {
-  if (!e.target.classList.contains("obligatorio")) return;
-
-  const fila = e.target.closest("tr");
-  actualizarObligatoriedadFila(fila);
-});
-
-
-  
-
-
-function obtenerNumeroFila1(){
-     const filas = document.querySelectorAll("#tablaBody tr");
-
-    let numero = 1;
-
-    filas.forEach(fila => {
-
-        // No contar ejemplos
-        if (
-            fila.classList.contains("ejemplo") ||
-            fila.querySelector(".ejemplo")
-        ) {
-            return;
-        }
-
-        // No contar total
- /*       if (fila.id === "filaTotalTabla") {
-            return;
-        }
-*/
-        numero++;
-    });
-
-    return numero;
-
-    //  return document.querySelectorAll("#tablaBody tr").length -1;
-}
-function obtenerNumeroFila1_1(){
-      const filas = document.querySelectorAll("#tablaBody1_1 tr");
-
-    let numero = 1;
-
-    filas.forEach(fila => {
-
-        // No contar ejemplos
-        if (
-            fila.classList.contains("ejemplo") ||
-            fila.querySelector(".ejemplo")
-        ) {
-            return;
-        }
-
-        // No contar total
- /*       if (fila.id === "filaTotalTabla") {
-            return;
-        }
-*/
-        numero++;
-    });
-
-    return numero;
-  //return document.querySelectorAll("#tablaBody1_1 tr").length -1;
-}
-
-
-function obtenerNumeroFila2(){
-       const filas = document.querySelectorAll("#tablaBody2 tr");
-
-    let numero = 1;
-
-    filas.forEach(fila => {
-
-        // No contar ejemplos
-        if (
-            fila.classList.contains("ejemplo") ||
-            fila.querySelector(".ejemplo")
-        ) {
-            return;
-        }
-
-        // No contar total
- /*       if (fila.id === "filaTotalTabla") {
-            return;
-        }
-*/
-        numero++;
-    });
-
-    return numero;
-//  return document.querySelectorAll("#tablaBody2 tr").length - 1;
-}
-
-function obtenerNumeroFila3(){
-       const filas = document.querySelectorAll("#tablaBody3 tr");
-
-    let numero = 1;
-
-    filas.forEach(fila => {
-
-        // No contar ejemplos
-        if (
-            fila.classList.contains("ejemplo") ||
-            fila.querySelector(".ejemplo")
-        ) {
-            return;
-        }
-
-        // No contar total
- /*       if (fila.id === "filaTotalTabla") {
-            return;
-        }
-*/
-        numero++;
-    });
-
-    return numero;
-//    return document.querySelectorAll("#tablaBody3 tr").length - 1;
-}
-
-
-
-
-
-function obtenerNumeroFilaP() {
-
-    const filas =
-        document.querySelectorAll(
-            "#tablaBodyP tr:not(.ejemplo)"
-        );
-
-    return filas.length + 1;
-}
-
-
-
-function obtenerNumeroFilaC(){
-         const filas = document.querySelectorAll("#tablaCotizaciones tr");
-
-    let numero = 1;
-
-    filas.forEach(fila => {
-
-        // No contar ejemplos
-        if (
-            fila.classList.contains("ejemplo") ||
-            fila.querySelector(".ejemplo")
-        ) {
-            return;
-        }
-
-        // No contar total
- /*       if (fila.id === "filaTotalTabla") {
-            return;
-        }
-*/
-        numero++;
-    });
-
-    return numero;
-//    return document.querySelectorAll("#tablaCotizaciones tr").length + 1;
-}
-
-function obtenerNumeroFila4(){
-
-             const filas = document.querySelectorAll("#tablaBody4 tr");
-
-    let numero = 1;
-
-    filas.forEach(fila => {
-
-        // No contar ejemplos
-        if (
-            fila.classList.contains("ejemplo") ||
-            fila.querySelector(".ejemplo")
-        ) {
-            return;
-        }
-
-    // No contar total
-         if (fila.id === "filaTotalTabla4") {
-            return;
-        }
-
-        numero++;
-    });
-
-    return numero;
-
-//  return document.querySelectorAll("#tablaBody4 tr").length - 1;
-}
-
-function obtenerNumeroFila5(){
-
-     
-                const filas = document.querySelectorAll("#tablaBody5 tr");
-
-    let numero = 1;
-
-    filas.forEach(fila => {
-
-        // No contar ejemplos
-        if (
-            fila.classList.contains("ejemplo") ||
-            fila.querySelector(".ejemplo")
-        ) {
-            return;
-        }
-
-        // No contar total
- /*       if (fila.id === "filaTotalTabla") {
-            return;
-        }
-*/
-        numero++;
-    });
-
-    return numero;
-
-//  return document.querySelectorAll("#tablaBody5 tr").length - 1;
-}
-
-
-
-
-function formatearMiles(input) {
-  // Quitar todo menos números y punto
-  let valor = input.value.replace(/[^0-9.]/g, "");
-
-  // Evitar más de un punto decimal
-  const partes = valor.split(".");
-  if (partes.length > 2) {
-    valor = partes[0] + "." + partes.slice(1).join("");
-  }
-  // Separar parte entera y decimal
-  let [entero, decimal] = valor.split(".");
-
-  // Agregar separador de miles
-  entero = entero.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-
-  input.value = decimal !== undefined
-    ? `${entero}.${decimal.slice(0,2)}`
-    : entero;
-}
-
-
-
-
-
-
-
-function crearFilaTotalTabla4() {
-
-  const tbody = document.getElementById("tablaBody4");
-
-  // Si ya existe, no crear otra
-  if (document.getElementById("filaTotalTabla4")) return;
-
-  const filaTotal = document.createElement("tr");
-
-  filaTotal.id = "filaTotalTabla4";
-  filaTotal.classList.add("fila-total");
-
-  filaTotal.innerHTML = `
-    <td></td>
-
-    <td colspan="4">
-      <strong>TOTAL</strong>
-    </td>
-
-    <td id="totalCantidad_T4"></td>
-
-    <td></td>
-    <td></td>
-
-    <td id="totalPrecio1_T4"></td>
-
-    <td id="totalPrecioIVA1_T4"></td>
-
-    <td></td>
-    <td class="paso"></td>
-
-    <td id="totalPrecio2_T4"></td>
-
-    <td id="totalPrecioIVA2_T4"></td>
-
-    <td></td>
-    <td class="paso"></td>
-  `;
-
-  tbody.appendChild(filaTotal);
-
-  actualizarTotalesTabla4();
-}
-
-
-function numeroSinFormato(valor) {
-
-  return Number(
-    String(valor || "").replace(/,/g, "")
-  ) || 0;
-}
-
-
-function formatoMilesNumero(numero) {
-
-  return numero.toLocaleString("en-US", {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2
-  });
-}
-
-
-
-
-function actualizarTotalesTabla4() {
-
-  let totalCantidad = 0;
-  let totalPrecio1 = 0;
-  let totalPrecioIVA1 = 0;
-  let totalPrecio2 = 0;
-  let totalPrecioIVA2 = 0;
-
-  document
-    .querySelectorAll('#tablaBody4 tr:not(#filaTotalTabla4)')
-    .forEach(fila => {
-
-      const cantidad =
-        fila.querySelector('[name^="cantidad_T4R"]');
-
-      const precio1 =
-        fila.querySelector('[name^="precio_T4R"]:not([name$="RO"])');
-
-      const precioIVA1 =
-        fila.querySelector('[name^="precioTotal_T4R"]');
-
-      const precio2 =
-        fila.querySelector('[name^="precio2_T4R"]:not([name$="RO"])');
-
-      const precioIVA2 =
-        fila.querySelector('[name^="precioTotal2_T4R"]');
-
-      if (cantidad) {
-        totalCantidad += numeroSinFormato(cantidad.value);
-      }
-
-      if (precio1) {
-        totalPrecio1 += numeroSinFormato(precio1.value);
-      }
-
-      if (precioIVA1) {
-        totalPrecioIVA1 += numeroSinFormato(precioIVA1.value);
-      }
-
-      if (precio2) {
-        totalPrecio2 += numeroSinFormato(precio2.value);
-      }
-
-      if (precioIVA2) {
-        totalPrecioIVA2 += numeroSinFormato(precioIVA2.value);
-      }
-    });
-
-
-  document.getElementById("totalCantidad_T4").textContent =
-    totalCantidad;
-
-  document.getElementById("totalPrecio1_T4").textContent =
-    "$" + formatoMilesNumero(totalPrecio1);
-
-  document.getElementById("totalPrecioIVA1_T4").textContent =
-    "$" + formatoMilesNumero(totalPrecioIVA1);
-
-  document.getElementById("totalPrecio2_T4").textContent =
-    "$" + formatoMilesNumero(totalPrecio2);
-
-  document.getElementById("totalPrecioIVA2_T4").textContent =
-    "$" + formatoMilesNumero(totalPrecioIVA2);
-}
-
-
-
-
-
-
-
-/*
-function activarAutoExpand(fila){
-  const textareas = fila.querySelectorAll(".auto-expand");
-  textareas.forEach(textarea => {
-    textarea.addEventListener("input", () => {
-      textarea.style.height = "auto";
-      textarea.style.height = textarea.scrollHeight + "px";
-    });
-  });
-}
-*/
-function ajustarAlturaTextarea(textarea) {
-
-    if (!textarea) return;
-
-    textarea.style.height = "auto";
-
-    textarea.style.height =
-        textarea.scrollHeight + "px";
-}
-
-function activarAutoExpand(fila) {
-
-    const textareas =
-        fila.querySelectorAll(
-            ".auto-expand"
-        );
-
-    textareas.forEach(textarea => {
-
-        textarea.addEventListener(
-            "input",
-            () => {
-
-                ajustarAlturaTextarea(
-                    textarea
-                );
-
-            }
-        );
-
-    });
-}
-
-function recalcularAutoExpand() {
-
-    document
-        .querySelectorAll(
-            "textarea.auto-expand"
-        )
-        .forEach(textarea => {
-
-            // Solo calcular los visibles
-            if (
-                textarea.offsetParent === null
-            ) {
-                return;
-            }
-
-            ajustarAlturaTextarea(
-                textarea
-            );
-
-        });
-}
-
-
-
-
-
-
-
-
-
-document.getElementById("miFormulario").addEventListener("keydown", function (e) {
-    if (e.key === "Enter") {
-      e.preventDefault();
-    }
-});
-
-
-
-
-//---------------------------Generar Folio
-
-/*
-function generarFolio() {
-   return Math.random().toString(36).substr(2, 8).toUpperCase();
-}
-*/
-
-
-
-
-
-
-
-
-
-
-
-function siguiente(numero,numeroActivar){
-
-  document
-    .getElementById(`paso${numero}`)
-    .classList.remove("activo");
-
-  document
-    .getElementById(`paso${numeroActivar}`)
-    .classList.add("activo");
-     requestAnimationFrame(() => {
-
-        recalcularAutoExpand();
-
-    }); 
-}
-
-
-function anterior(numero){
-
-  document
-    .getElementById(`paso${numero}`)
-    .classList.remove("activo");
-
-  document
-    .getElementById(`paso${numero-1}`)
-    .classList.add("activo");
-}
-function soloActivar(numero){
-if(document
-    .getElementById(`paso${numero}`)
-    .classList.contains("activo")){
-         document
-    .getElementById(`paso${numero}`)
-    .classList.remove("activo");    
-    }else{
-
-  document
-    .getElementById(`paso${numero}`)
-    .classList.add("activo");
-  }
-
-}
-
-
-
-
-
-
-function precioTotalMasIVA(precioInput) {
-      
-               
-        
-            let precioTotal=precioInput.dataset.precio;
-            let cantidad=precioInput.dataset.cant;
-        
-        
-        let cantidadInput=document
-        .getElementById(cantidad);
-        
-        let precioTotalinput=document
-        .getElementById(precioTotal);
-        
-       let valorUnitario = Number(
-                precioInput.value.replace(/,/g, "")
-              );
-                 precioTotal=valorUnitario*cantidadInput.value*1.16;
-                
-                precioTotalinput.value=precioTotal;
-                formatearMiles(precioTotalinput);
-                actualizarTotalesTabla4();    
-            }
-
-document.querySelectorAll(
-    '#tablaBody5 textarea[name^="ProgramaAcademico_T5R"], ' +
-    '#tablaBody5 textarea[name^="Espacio_T5R"],'+'#tablaBody5 textarea[name^="nombredelEquipo_T5R"]').forEach(campo=>{
-                  const origen = document.getElementById(campo.dataset.relleno);
-                  campo.value=origen.value;
-    });
-/*    
-document.querySelector(".Tabla4")
-               .addEventListener("change",function (event){
-    
-            const origen = event.target;    
-               document
-            .querySelectorAll(`[data-relleno="${origen.id}"]`)
-            .forEach(destino => {
-                destino.value = origen.value;
-            });
-                
-               precioTotalMasIVA(event.target);
-
-               });
-
-*/
-
-
-
-
-/*
-document
-        .getElementById(precioTotal);
-document.querySelectorAll("#tablaBody5 [data-relleno]").forEach(campo => {
-
-    const nombreOrigen = campo.dataset.relleno;
-
-    const campoOrigen = document.querySelector(
-        `[name="${nombreOrigen}"]`
-    );
-
-    if (!campoOrigen) return;
-
-    campo.value = campoOrigen.value;
-
-    if (campo.tagName === "TEXTAREA") {
-        campo.style.height = "auto";
-        campo.style.height = campo.scrollHeight + "px";
-    }
-});               
-
-*/
-
-
-
-
-
-
-
-
-// V6  
-//const direccionEnlace="https://script.google.com/macros/s/AKfycbwGftGIEgkoj3eXcFHXFDOuKpWsoQdaivav-wBPdMP3k7CpR_TJyfhwxCv3qmbLvqa2YA/exec"
-
-// V7 
-
-//const direccionEnlace="https://script.google.com/macros/s/AKfycbyrrLXQMsrqpSoPDWpkb4FCWwzxHjsVFTRmGEgajnz53ZTFpJOXEvK6PqGyDOrcJpE4/exec"
-
-//V8 
-// 
-const direccionEnlace="https://script.google.com/macros/s/AKfycby9jNmixia074z8R6NI03VzvQii_rmHJ7xaoHKQ9X3OwWeYZB94cqkN6cewmbNzqTnq/exec"
-
-
-
-let folioActual=null;
-let edicionActual=null;
-let numerodeEnvio=0;
-let ExistenciaDeCotizaciones=false;
-let folioCargado = false;
-
-
-let ExistenciaDeCotizaciones_T4=false;
-
-
-let ExistenciaDeCotizacionesA2=false;
-
-
-
-let ExistenciaDeCotizacionesA2_T4=false;
-
-//--------------------------------------Cargar UltimaVersion
-
-async function cargarDatosPorFolio() {
-    mostrarEstadoCarga("Cargando solicitud por folio");
-    const folio = document
-        .getElementById("folioInput")
-        .value
-        .trim();
-
-    if (!folio) {
-        alert("Ingrese un folio.");
-        return;
-    }
-    folioActual=folio;
-    const datos = mapaFolios.get(folio);
-
-    if (!datos) {
-        alert("Folio no encontrado.");
-        return;
-    }
-
-    // Cargar dependencia
-setSelectValue(
-        "dependencia",
-        datos.dependencia
-    );
-
-    setSelectValue(
-        "tipoDeSolicitud",
-        datos.tipoDeBien
-    );
-
-
-
-
-try {    
-    const res = await fetch(direccionEnlace, {
-    method: "POST",
-    body: JSON.stringify({
-        action: "cargarUltimaVersion",
-        dependencia:datos.dependencia,
-        tipoDeBien:datos.tipoDeBien
-    })
-});
-
-const json = await res.json();
-const data =json.data;
-
-// alert(data.dependencia + "  su funcion y accion funcionan bien.Hora de la actualizacion:" + data.fechaModificacion +". el Origen es un" + json.origen );
-
-  const form = document.getElementById("miFormulario");
-
-  // Limpiar tabla
-  const tbody = document.getElementById("tablaBody");
-  const tbody1 = document.getElementById("tablaBody1_1");  
-  const tbody2 = document.getElementById("tablaBody2");
-  const tbody3 = document.getElementById("tablaBody3");
-  const tbodyP = document.getElementById("tablaBodyP");
-  const tbodyC = document.getElementById("tablaCotizaciones");
-  const tbody4 = document.getElementById("tablaBody4");
-  const tbody5 = document.getElementById("tablaBody5");
-
-  /*
-  const tbody6 = document.getElementById("tablaBody6");
-  */
-  tbody.innerHTML  = "";
-  tbody1.innerHTML = "";
-  tbody2.innerHTML = "";
-  tbody3.innerHTML = "";
-  tbodyP.innerHTML = "";
-  tbodyC.innerHTML = "";
-  tbody4.innerHTML = "";
-  tbody5.innerHTML = "";
-  /*
-  tbody6.innerHTML = "";
-  
-  */
-  // Reconstruir filas
-//  const filas = data.__filas || 10;
-//  for (let i = 1; i <= filas; i++) {
-//    agregarFila();
-//  }
-
-//alert("despues de cargar Borrador"+folioActual);
-
-//      folioActual = folio;
-      edicionActual=data.edicion;
-      numerodeEnvio=data.numeroEnvio;
-// Restaurar selects encadenados
-/*setSelectValue("secretaria", data.secretaria);
-
-setTimeout(() => {
-  setSelectValue("direccion", data.direccion);
-
-  setTimeout(() => {
-    setSelectValue("nivel", data.nivel);
-
-    setTimeout(() => {
-*/
-//-------------------------------  activa selects
-// folioValor.value=data.folio;
-      setSelectValue("dependencia", data.dependencia);
-      Object.keys(data).forEach(name => {
-                          if (name.includes("__filas")) return;
-                          if(name.includes("url")){
-                                        urlCotizacionesActuales[name] = data[name];
-                                        //alert("data:"+data[name]);
-                                        //alert("urlcot"+urlCotizacionesActuales[name]);
-                          };
-                          if (
-                               name.startsWith("nombreCotizacion_TCR") ||
-                               name.startsWith("nombreCotizacion2_TCR")
-                              ) {
-
-                               nombresCotizacionesActuales[name] = data[name];
-                       
-                          }
-                          if (name.includes("R")) return; //quitamos los campos de la tabla
-                          if(name.includes("secretaria")) return;
-                          if(name.includes("direccion")) return; 
-                          if(name.includes("nivel")) return; 
-                          if(name.includes("dependencia")) return;
-//                          if(name.includes("folio")) return; 
-                          const campo = document.querySelector(`[name="${name}"]`);
-                          if (!campo) return;
-                          
-    campo.value = data[name];
-
-    if (campo.tagName === "TEXTAREA") {
-      campo.style.height = "auto";
-      campo.style.height = campo.scrollHeight + "px";
-    }
-  });
-let folioValor = document.getElementById("folioInput");
- folioValor.value=folioActual;
-
-
-      
-      // ⬇️ Ahora sí, restaurar la tabla
-      restaurarTabla(data);
-actualizarOpcionesProgramas();
-actualizarOpcionesEspacios();
-actualizarOpcionesCotizacion1();
-actualizarOpcionesCotizacion2();
-actualizarOpcionesEdificio();
-actualizarSelects(data);
-compartirValoresinputToSelects();
-restaurarClavesTabla2(data);
-// compartirValoresSelects();
-
-
-      document.querySelectorAll("textarea.auto-expand").forEach(textarea => {
-    textarea.style.height = "auto";
-    textarea.style.height = textarea.scrollHeight + "px";
-});
-
-
-document
-    .querySelectorAll(".Tabla4 .unitario")
-    .forEach(precioInput => {
-        precioTotalMasIVA(precioInput);
-    });
-
-
-
-
-document.querySelectorAll(".check-verificacion").forEach(check => {
-    let selects=["botonMenu_T4R"]
-    let campo = document.querySelector(`[name="${check.dataset.campo}"]`);
-    if (!campo){
-          campo = document.querySelector(`[id="${check.dataset.campo}"]`);
-        if (!campo) return;  
-    } ;
-
-
-    campo.readOnly = check.value === true || check.value === "true";
-        
-
-    if (campo.tagName === "SELECT") {
-
-        // Caso SELECT
-        campo.disabled = check.value === true ||
-        check.value === "true";
-
-    }
-    
-//    if(selects.includes(check.dataset.campo)){
-       if (
-    selects.some(prefijo =>
-        check.dataset.campo?.startsWith(prefijo)
-    )
-) {
-//         campo.disabled = check.value === true ||
-//        check.value === "true";
-
-       if((check.value === true)||(check.value === "true")){
-
-            campo.classList.add("paso");
-        }else{
-            campo.classList.remove("paso");
-        };  
-
-
-    };
-
-});
-
-
-//document.getElementById("especificaciones").readOnly =    data.especificacionesRO ?? false;
-
-      
-const ejemplos = json.ejemplos;
-    for(let index=1;index<3;index++){
-   document.getElementById(`ProgramasE${index}`).textContent=ejemplos[`ProgramasE${index}`];   
-   document.getElementById(`UsuariosHAnio2E${index}`).textContent=ejemplos[`UsuariosHAnio2E${index}`];
-   document.getElementById(`UsuariosMAnio2E${index}`).textContent=ejemplos[`UsuariosMAnio2E${index}`];
-   document.getElementById(`UsuariosHAnio3E${index}`).textContent=ejemplos[`UsuariosHAnio3E${index}`];
-   document.getElementById(`UsuariosMAnio1E${index}`).textContent=ejemplos[`UsuariosMAnio1E${index}`];
-   document.getElementById(`UsuariosMAnio3E${index}`).textContent=ejemplos[`UsuariosMAnio3E${index}`];
-   document.getElementById(`UsuariosHAnio4E${index}`).textContent=ejemplos[`UsuariosHAnio4E${index}`];
-   document.getElementById(`UsuariosMAnio4E${index}`).textContent=ejemplos[`UsuariosMAnio4E${index}`];
-   document.getElementById(`UsuariosHAnio1E${index}`).textContent=ejemplos[`UsuariosHAnio1E${index}`];
-   document.getElementById(`UsuariosHAnio5E${index}`).textContent=ejemplos[`UsuariosHAnio5E${index}`];
-   document.getElementById(`UsuariosMAnio5E${index}`).textContent=ejemplos[`UsuariosMAnio5E${index}`];
-
- document.getElementById(`NumProfE${iio.replace(
+                elemento.dataset.precio.replace(
                     /R\d+/,
                     `R${nuevoNumero}`
                 );
@@ -9658,7 +9658,6 @@ document.addEventListener(
 
     }
 );
-
 
  
         
