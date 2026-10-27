@@ -447,6 +447,24 @@ function agregarFila2() {
         <td>
             ${i}
         </td>
+        
+        <td>
+            <input
+                name="LOC_Edificio_T2R${i}"
+                id="LOC_Edificio_T2R${i}"
+                class="tabla_select"
+                data-completar="LOCEdificioS_T2R${i}"
+                aria-label="LOC_Edificio"
+                >
+            <input
+                name="LOC_Edificio_T2R${i}RO"
+                type="checkbox"
+                class="check-verificacion"
+                id="LOC_Edificio_T2R${i}RO"
+                data-campo="LOC_Edificio_T2R${i}"
+            >    
+        </td>
+
 
         <td>
             <select
@@ -471,22 +489,24 @@ function agregarFila2() {
 
         <td>
             <select
+                id  ="Nivel_T2R${i}"
                 name="Nivel_T2R${i}"
                 class="input_tabla"
+                data-completar="LOCNivelS_T2R${i}"
                 aria-label="Nivel"
             >
                 <option value="">-- Selecciona un nivel --</option>
-                <option value="Nivel 1">Nivel 1</option>
-                <option value="Nivel 2">Nivel 2</option>
-                <option value="Nivel 3">Nivel 3</option>
-                <option value="Nivel 4">Nivel 4</option>
-                <option value="Nivel 5">Nivel 5</option>
-                <option value="Nivel 6">Nivel 6</option>
-                <option value="Nivel 7">Nivel 7</option>
-                <option value="Nivel 8">Nivel 8</option>
-                <option value="Nivel 9">Nivel 9</option>
-                <option value="Nivel 10">Nivel 10</option>
-                <option value="Nivel 11">Nivel 11</option>
+                <option value="Nivel 1" data-Valor2="N1">Nivel 1</option>
+                <option value="Nivel 2" data-Valor2="N2">Nivel 2</option>
+                <option value="Nivel 3" data-Valor2="N3">Nivel 3</option>
+                <option value="Nivel 4" data-Valor2="N4">Nivel 4</option>
+                <option value="Nivel 5" data-Valor2="N5">Nivel 5</option>
+                <option value="Nivel 6" data-Valor2="N6">Nivel 6</option>
+                <option value="Nivel 7" data-Valor2="N7">Nivel 7</option>
+                <option value="Nivel 8" data-Valor2="N8">Nivel 8</option>
+                <option value="Nivel 9" data-Valor2="N9">Nivel 9</option>
+                <option value="Nivel 10" data-Valor2="N10" >Nivel 10</option>
+                <option value="Nivel 11" data-Valor2="N11" >Nivel 11</option>
             </select>
 
             <input
@@ -497,9 +517,44 @@ function agregarFila2() {
                 data-campo="Nivel_Select_T2R${i}"
             >
         </td>
-
         <td>
             <input
+                id="LOCEspacio_T2R${i}"
+                name="LOCEspacio_T2R${i}"
+                class="input_tabla"
+                data-completar="LOCEspacioS_T2R${i}"
+                aria-label="LOCEspacio"
+            >
+
+            <input
+                name="LOCEspacio_T2R${i}RO"
+                type="checkbox"
+                class="check-verificacion"
+                id="LOCEspacio_T2R${i}RO"
+                data-campo="LOCEspacio_T2R${i}"
+            >
+        </td>
+
+
+
+        <td>
+             <span class="claves" id="LOCEdificioS_T2R${i}"></span>
+            <span class="claves" >-</span>
+            <span class="claves" id="LOCNivelS_T2R${i}"></span>
+            <span class="claves" >-</span>
+            <span class="claves" id="LOCEspacioS_T2R${i}"></span>
+            <input
+                name="Espacio_Visible_T2R${i}"
+                id="Espacio_Visible_T2R${i}"
+                class="input_tabla "
+                data-edificio="LOCEdificioS_T2R${i}"
+                data-nivel="LOCNivelS_T2R${i}"
+                data-espacio="LOCEspacioS_T2R${i}"
+                data-espacio2="Espacio_T2R${i}"
+                aria-label="Espacio"
+            >
+            <input
+                id="Espacio_T2R${i}"
                 name="Espacio_T2R${i}"
                 class="input_tabla"
                 aria-label="Espacio"
@@ -857,7 +912,7 @@ function agregarFila4() {
             <textarea
                       id="ProgramaAcademico_T4R${i}"
                       name="ProgramaAcademico_T4R${i}"
-                      class="input_tabla"
+                      class="input_tabla programasAcademicosM auto-expand "
                       rows="3"
                       readonly
             ></textarea>
@@ -1264,7 +1319,7 @@ function agregarFila5() {
 <td>
             <textarea
                 name="ProgramaAcademico_T5R${i}"
-                class="auto-expand input_tabla obligatorio"
+                class="auto-expand input_tabla obligatorio programasAcademicosM"
                 rows="1"
                 style="resize:none;"
                 aria-label="Programa Académico"
@@ -1310,7 +1365,7 @@ function agregarFila5() {
             
             <textarea
                 id="Especificaciones_T5R${i}"
-                name="especificaciones_T5R${i}"
+                name="Especificaciones_T5R${i}"
                 class="auto-expand input_tabla expandible"
                 rows="1"
                 style="resize:none;"
@@ -1318,11 +1373,11 @@ function agregarFila5() {
             </textarea>
 
             <input
-                name="especificaciones_T5R${i}RO"
+                name="Especificaciones_T5R${i}RO"
                 type="checkbox"
                 class="check-verificacion"
-                id="especificaciones_T5R${i}RO"
-                data-campo="especificaciones_T5R${i}"
+                id="Especificaciones_T5R${i}RO"
+                data-campo="Especificaciones_T5R${i}"
             >
         </td>
 
@@ -1345,24 +1400,7 @@ function agregarFila5() {
 
         </td>
 
-        <td class="cantidadCol">
-
-            <input
-                type="number"
-                name="cantidadBuen_estado_T5R${i}"
-                class="input_tabla"
-                aria-label="Cantidad en buen estado"
-            >
-
-            <input
-                name="cantidadBuen_estado_T5R${i}RO"
-                type="checkbox"
-                class="check-verificacion"
-                id="cantidadBuen_estado_T5R${i}RO"
-                data-campo="cantidadBuen_estado_T5R${i}"
-            >
-
-        </td>
+        
 
         <td class="cantidadCol">
 
@@ -1379,6 +1417,24 @@ function agregarFila5() {
                 class="check-verificacion"
                 id="cantidadRegular_estado_T5R${i}RO"
                 data-campo="cantidadRegular_estado_T5R${i}"
+            >
+
+        </td>
+        <td class="cantidadCol">
+
+            <input
+                type="number"
+                name="cantidadBuen_estado_T5R${i}"
+                class="input_tabla"
+                aria-label="Cantidad en buen estado"
+            >
+
+            <input
+                name="cantidadBuen_estado_T5R${i}RO"
+                type="checkbox"
+                class="check-verificacion"
+                id="cantidadBuen_estado_T5R${i}RO"
+                data-campo="cantidadBuen_estado_T5R${i}"
             >
 
         </td>
@@ -1413,9 +1469,123 @@ for (let i = 1; i <= 5; i++) {
 
 crearFilaTotalTabla4();
 
+//--------------------------------------------generacion de nombres con claves de edificio, nivel y espacio(LOC) 
+
+document.addEventListener("change", e => {
+
+    if (!e.target.id?.startsWith("LOC_Edificio_T2R") && !e.target.id?.startsWith("LOCEspacio_T2R")) return;
+     let campo=e.target;
+     let campoLLenar=e.target.dataset.completar;
+     let inputxLLenar=document.getElementById(campoLLenar);
+     inputxLLenar.textContent=campo.value;
+     
+
+});
+document.addEventListener("change", e => {
+
+    if (!e.target.id?.startsWith("Nivel_T2R")) return;
+     let campo=e.target;
+     let campoLLenar=e.target.dataset.completar;
+     let inputxLLenar=document.getElementById(campoLLenar);
+     inputxLLenar.textContent=campo.selectedOptions[0].dataset.valor2;
+     
+
+});
+
+document.addEventListener("change", e => {
+
+    if (!e.target.id?.startsWith("Espacio_Visible_T2R")) return;
+     let campo=e.target;
+     
+     let edificioI=campo.dataset.edificio;
+     let nivelI=campo.dataset.nivel;
+     let espacioI=campo.dataset.espacio;
+     let espacioInput=campo.dataset.espacio2;
+     let inputEdificioS=document.getElementById(edificioI);
+     let inputNivelS   =document.getElementById(nivelI);   
+     let inputEspacioS =document.getElementById(espacioI);
+     let inputEspacioI =document.getElementById(espacioInput);  
+     inputEspacioI.value=inputEdificioS.textContent+"-"+inputNivelS.textContent+"-"+inputEspacioS.textContent+" "+campo.value;
+
+});
 
 
 
+function restaurarClavesTabla2(data = {}) {
+
+    document.querySelectorAll(
+        "#tablaBody2 tr:not(.ejemplo)"
+    ).forEach(fila => {
+
+        // Campo que conserva el nivel guardado
+        const nivelGuardado = fila.querySelector(
+            '[name^="Nivel_T2R"]:not(.check-verificacion)'
+        );
+
+        if (!nivelGuardado) return;
+
+        const valorNivel = String(
+            data[nivelGuardado.name] ?? nivelGuardado.value ?? ""
+        ).trim();
+
+        // Compatible con Registro y Revisión
+        const selectorNivel = fila.querySelector(
+            'select[id^="Nivel_Select_T2R"], select[id^="Nivel_T2R"]'
+        );
+
+        if (selectorNivel) {
+            selectorNivel.value = valorNivel;
+        }
+
+        // Buscar data-valor2 en la opción correspondiente
+        const opcion = Array.from(
+            selectorNivel?.options ?? []
+        ).find(option => option.value === valorNivel);
+
+        const coincidencia = valorNivel.match(/^Nivel\s*(\d+)$/i);
+
+        const claveNivel =
+            opcion?.dataset.valor2 ??
+            (coincidencia ? `N${coincidencia[1]}` : "");
+
+        // Recuperar los tres spans
+        const spanEdificio = fila.querySelector(
+            '[id^="LOCEdificioS_T2R"]'
+        );
+
+        const spanNivel = fila.querySelector(
+            '[id^="LOCNivelS_T2R"]'
+        );
+
+        const spanEspacio = fila.querySelector(
+            '[id^="LOCEspacioS_T2R"]'
+        );
+
+        // Recuperar los campos originales
+        const campoEdificio = fila.querySelector(
+            'input[id^="LOC_Edificio_T2R"]:not(.check-verificacion)'
+        );
+
+        const campoEspacio = fila.querySelector(
+            'input[id^="LOCEspacio_T2R"]:not(.check-verificacion)'
+        );
+
+        if (spanEdificio) {
+            spanEdificio.textContent =
+                campoEdificio?.value ?? "";
+        }
+
+        if (spanNivel) {
+            spanNivel.textContent = claveNivel;
+        }
+
+        if (spanEspacio) {
+            spanEspacio.textContent =
+                campoEspacio?.value ?? "";
+        }
+
+    });
+}
 
 
 
@@ -1551,7 +1721,7 @@ tbody.addEventListener("change", e => {
 
 
 
-
+/*
 tbody.addEventListener("change", e => {
 
     if (!e.target.name?.startsWith("Programa_T1R")) return;
@@ -1559,6 +1729,7 @@ tbody.addEventListener("change", e => {
     actualizarOpcionesProgramas();
 });
 
+*/
 
 function actualizarOpcionesEdificio() {
 
@@ -1629,7 +1800,9 @@ function actualizarOpcionesEspacios() {
 
         if (!valor) return;
 
-        espacios.push(valor);
+        if(!espacios.includes(valor)){
+            espacios.push(valor);
+        }
     });
     tbody4.querySelectorAll(
         'select[name^="Espacio_T4R"]'
@@ -1973,6 +2146,8 @@ function actualizarSelects(data){
 }
 
 
+
+/*
 document.addEventListener("click", function(e) {
 
     const boton =
@@ -2042,6 +2217,275 @@ document.addEventListener("click", function(e) {
         });
 
 });
+*/
+
+function cerrarMenusProgramas() {
+
+    document
+        .querySelectorAll(".programa-menu")
+        .forEach(menu => {
+
+            menu.style.display = "none";
+            menu.style.visibility = "";
+
+        });
+
+
+    document
+        .querySelectorAll(".programa-multiple-btn")
+        .forEach(boton => {
+
+            boton.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+        });
+}
+
+
+
+function posicionarMenuProgramas(
+    boton,
+    menu
+) {
+
+    const margen = 6;
+
+    const rect =
+        boton.getBoundingClientRect();
+
+
+    // -------------------------------------------------
+    // Primero lo mostramos invisible
+    // para poder medir su altura real.
+    // -------------------------------------------------
+
+    menu.style.display = "block";
+    menu.style.visibility = "hidden";
+
+    menu.style.width =
+        rect.width + "px";
+
+    menu.style.minWidth =
+        rect.width + "px";
+
+    menu.style.maxHeight =
+        "300px";
+
+
+    const altoMenu =
+        Math.min(
+            menu.scrollHeight,
+            300
+        );
+
+
+    const espacioAbajo =
+        window.innerHeight -
+        rect.bottom -
+        margen;
+
+
+    const espacioArriba =
+        rect.top -
+        margen;
+
+
+    // -------------------------------------------------
+    // Si abajo no cabe,
+    // pero arriba tenemos más espacio,
+    // abrimos hacia arriba.
+    // -------------------------------------------------
+
+    const abrirArriba =
+        espacioAbajo < altoMenu &&
+        espacioArriba > espacioAbajo;
+
+
+    const espacioDisponible =
+        abrirArriba
+            ? espacioArriba
+            : espacioAbajo;
+
+
+    menu.style.maxHeight =
+        Math.max(
+            60,
+            Math.min(
+                300,
+                espacioDisponible - 4
+            )
+        ) + "px";
+
+
+    // -------------------------------------------------
+    // Evitar que se salga lateralmente de la pantalla
+    // -------------------------------------------------
+
+    let izquierda =
+        rect.left;
+
+
+    const anchoMenu =
+        rect.width;
+
+
+    if (
+        izquierda +
+        anchoMenu >
+        window.innerWidth -
+        margen
+    ) {
+
+        izquierda =
+            window.innerWidth -
+            anchoMenu -
+            margen;
+    }
+
+
+    if (izquierda < margen) {
+
+        izquierda =
+            margen;
+    }
+
+
+    menu.style.left =
+        izquierda + "px";
+
+
+    // -------------------------------------------------
+    // Arriba / abajo
+    // -------------------------------------------------
+
+    if (abrirArriba) {
+
+        menu.style.top = "auto";
+
+        menu.style.bottom =
+            (
+                window.innerHeight -
+                rect.top +
+                4
+            ) + "px";
+
+    } else {
+
+        menu.style.bottom = "auto";
+
+        menu.style.top =
+            (rect.bottom + 4) +
+            "px";
+    }
+
+
+    menu.style.visibility =
+        "visible";
+}
+
+
+
+document.addEventListener(
+    "click",
+    function(e) {
+
+        const boton =
+            e.target.closest(
+                ".programa-multiple-btn"
+            );
+
+
+        // =============================================
+        // ABRIR / CERRAR
+        // =============================================
+
+        if (boton) {
+
+            e.stopPropagation();
+
+
+            const menu =
+                document.getElementById(
+                    boton.dataset.menu
+                );
+
+
+            if (!menu) return;
+
+
+            const estabaAbierto =
+                menu.style.display ===
+                "block";
+
+
+            cerrarMenusProgramas();
+
+
+            // Si ya estaba abierto,
+            // solamente lo cerramos.
+            if (estabaAbierto) {
+                return;
+            }
+
+
+            // Sacarlo físicamente de la tabla.
+            // Esto evita que el overflow
+            // de la tabla lo recorte.
+            if (
+                menu.parentElement !==
+                document.body
+            ) {
+
+                document.body.appendChild(
+                    menu
+                );
+            }
+
+
+            posicionarMenuProgramas(
+                boton,
+                menu
+            );
+
+
+            boton.setAttribute(
+                "aria-expanded",
+                "true"
+            );
+
+
+            return;
+        }
+
+
+        // =============================================
+        // CLIC DENTRO DEL MENÚ
+        // NO LO CERRAMOS
+        // =============================================
+
+        if (
+            e.target.closest(
+                ".programa-menu"
+            )
+        ) {
+            return;
+        }
+
+
+        // =============================================
+        // CLIC FUERA
+        // =============================================
+
+        cerrarMenusProgramas();
+
+    }
+);
+
+
+
+
 
                               //----------------------------Guadar valores-----------------------------------------------------
 
@@ -2083,6 +2527,14 @@ document.addEventListener("change", function(e) {
 
     destino.value =
     seleccionados.join("\n");
+    destino.dispatchEvent(
+    new Event(
+        "input",
+        {
+            bubbles: true
+        }
+    )
+);
     copiarCampoT4aT5(destino);
  //   destino.value =
  //       seleccionados.join(" | ");
@@ -4112,7 +4564,7 @@ document
 
 
 function actualizarObligatoriedadFila(fila) {
-  const equipo = fila.querySelector(".obligatorio");
+ /*const equipo = fila.querySelector(".obligatorio");
   if (!equipo) return;
 
   const tieneEquipo = equipo.value.trim() !== "";
@@ -4125,6 +4577,7 @@ function actualizarObligatoriedadFila(fila) {
       campo.removeAttribute("required");
     }
   });
+*/  
 }
 
 
@@ -4410,11 +4863,11 @@ function actualizarTotalesTabla4() {
 
 
 
+//------------------------------ajuste automatico de textarea grandes-----------------------------------------------------------
 
 
 
-
-
+/*
 function activarAutoExpand(fila){
   const textareas = fila.querySelectorAll(".auto-expand");
   textareas.forEach(textarea => {
@@ -4424,6 +4877,70 @@ function activarAutoExpand(fila){
     });
   });
 }
+*/
+
+
+
+function ajustarAlturaTextarea(textarea) {
+
+    if (!textarea) return;
+
+    textarea.style.height = "auto";
+
+    textarea.style.height =
+        textarea.scrollHeight + "px";
+}
+
+function activarAutoExpand(fila) {
+
+    const textareas =
+        fila.querySelectorAll(
+            ".auto-expand"
+        );
+
+    textareas.forEach(textarea => {
+
+        textarea.addEventListener(
+            "input",
+            () => {
+
+                ajustarAlturaTextarea(
+                    textarea
+                );
+
+            }
+        );
+
+    });
+}
+
+function recalcularAutoExpand() {
+
+    document
+        .querySelectorAll(
+            "textarea.auto-expand"
+        )
+        .forEach(textarea => {
+
+            // Solo calcular los visibles
+            if (
+                textarea.offsetParent === null
+            ) {
+                return;
+            }
+
+            ajustarAlturaTextarea(
+                textarea
+            );
+
+        });
+}
+
+
+
+
+
+
 
 
 
@@ -4462,6 +4979,12 @@ function siguiente(numero,numeroActivar){
   document
     .getElementById(`paso${numeroActivar}`)
     .classList.add("activo");
+
+     requestAnimationFrame(() => {
+
+        recalcularAutoExpand();
+
+    }); 
 }
 
 
@@ -4542,8 +5065,12 @@ document.querySelector(".Tabla4").addEventListener("change",function (event){
 
 
 // V7 
+// const direccionEnlace="https://script.google.com/macros/s/AKfycbyrrLXQMsrqpSoPDWpkb4FCWwzxHjsVFTRmGEgajnz53ZTFpJOXEvK6PqGyDOrcJpE4/exec"
+
+
+//V8 
 // 
-const direccionEnlace="https://script.google.com/macros/s/AKfycbyrrLXQMsrqpSoPDWpkb4FCWwzxHjsVFTRmGEgajnz53ZTFpJOXEvK6PqGyDOrcJpE4/exec"
+const direccionEnlace="https://script.google.com/macros/s/AKfycby9jNmixia074z8R6NI03VzvQii_rmHJ7xaoHKQ9X3OwWeYZB94cqkN6cewmbNzqTnq/exec"
 
 
 let folioActual=null;
@@ -4561,7 +5088,7 @@ let ExistenciaDeCotizacionesA2_T4=false;
 
 
 document.getElementById("cargarFolio").addEventListener("click", async function () {   
-    
+    mostrarEstadoCarga("Cargando solicitud por folio");
     const folio = document.getElementById("folioInput").value.trim();
 
     const dependencia = document.getElementById("dependencia").value.trim();
@@ -4667,7 +5194,7 @@ Object.keys(data).forEach(name => {
       actualizarOpcionesCotizacion2();
 
       actualizarSelects(data);
-
+      restaurarClavesTabla2(data);
       
 
       document
@@ -4740,6 +5267,7 @@ Object.keys(data).forEach(name => {
 //    }, 0);
 //  }, 0);
 //  }, 0);
+terminarEstadoCarga("Cargando solicitud por folio");
   alert("📂 Datos cargados correctamente");
   folioCargado=true;
 } catch (e) {
@@ -4767,7 +5295,7 @@ let temporizadorAutoguardado ;
 
 
 async function guardarBorradorAutomatico(mostrarAlerta = false) {
-  
+    
     if (!folioCargado) {
         return;
     }
@@ -4954,6 +5482,64 @@ function mostrarEstadoGuardado(mensaje) {
         toast.classList.remove("mostrar");
     }, 2500);
 }
+let temporizadorEspera;
+
+function mostrarEstadoCarga(mensaje) {
+
+    const toast =
+        document.getElementById("estadoCarga");
+
+    toast.textContent = mensaje;
+
+    toast.classList.add("mostrar");
+
+    let puntos = 0;
+
+    clearInterval(temporizadorEspera);
+
+    temporizadorEspera =
+        setInterval(() => {
+
+            puntos =
+                (puntos + 1) % 4;
+
+            toast.textContent =
+                mensaje +
+                ".".repeat(puntos);
+
+        }, 500);
+}
+/*function mostrarEstadoCarga(mensaje) {
+
+    const toast = document.getElementById("estadoGuardado");
+
+    toast.textContent = mensaje;
+    toast.classList.add("mostrar");
+}
+*/
+
+
+function terminarEstadoCarga(mensaje) {
+
+    const toast = document.getElementById("estadoCarga");
+
+    toast.classList.remove("mostrar");
+               
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -5022,8 +5608,9 @@ setInterval(() => {
 
 
   document.getElementById("guardarBorrador").addEventListener("click", () => {
-
+        mostrarEstadoCarga("Guardando borrador de solicitud GRACIAS POR ESPERAR");
         guardarBorradorAutomatico(true);
+        terminarEstadoCarga("Guardando borrador de solicitud GRACIAS POR ESPERAR");
 
     });
 
@@ -5243,7 +5830,7 @@ document
 crearFilaTotalTabla4();
 actualizarTotalesTabla4();
 
-
+restaurarClavesTabla2(data);
 
 
 }
@@ -5580,7 +6167,7 @@ document.getElementById("Enviar").addEventListener("click", async function(e) {
                 }
        //**
        
-
+mostrarEstadoCarga("Enviando las observaciones de la solicitud GRACIAS POR ESPERAR...");
 
 
 //const formData = new FormData(this);
@@ -5785,6 +6372,7 @@ const res = await fetch(direccionEnlace, {
 
 
     if (json.success) {
+        terminarEstadoCarga("Cargando solicitud por folio");
         folioCargado = false;
         if(numerodeEnvio==2){
         alert(`✅ Tus observaciones han sido correctamente Enviadas. Tu folio es: ${folioActual}`);
@@ -5818,7 +6406,9 @@ const res = await fetch(direccionEnlace, {
 
 document.getElementById("cargarAnio").addEventListener("click", async () => {
    
-
+  mostrarEstadoCarga("cargando el año de los encabezados de la tabla de matricula, GRACIAS POR ESPERAR");
+        
+        
   const data = {};
 
 
@@ -5850,7 +6440,7 @@ const res = await fetch(direccionEnlace, {
 
 
         if (json.success) {
-            
+                           terminarEstadoCarga("Guardando borrador de solicitud GRACIAS POR ESPERAR");
                            alert("✅ Año actualizado correctamente");
 
         } else {
@@ -6128,7 +6718,7 @@ function dividirData(data, partes = 8) {
 }
 
 document.getElementById("convertirSolicitudes").addEventListener("click", async () => {
-
+    mostrarEstadoCarga("cargando la base de solicitudes del PIDN a la base de borradores, GRACIAS POR ESPERAR");
     if (!confirm("¿Deseas convertir las solicitudes en borradores?")) {
         return;
     }
@@ -6145,6 +6735,7 @@ document.getElementById("convertirSolicitudes").addEventListener("click", async 
         const json = await res.json();
 
         if(json.success){
+            terminarEstadoCarga("cargando el año de los encabezados de la tabla de matricula, GRACIAS POR ESPERAR");
             alert("✅ " + json.message);
         }else{
             alert("⚠️ " + json.message);
@@ -6760,7 +7351,7 @@ document.addEventListener("click", function (e) {
 document
     .getElementById("exportarExcel")
     .addEventListener("click", async function () {
-
+        mostrarEstadoCarga("Creando FDN a su version de excel, GRACIAS POR ESPERAR");
         const folio =
             document
                 .getElementById("folioInput")
@@ -6774,6 +7365,10 @@ document
          const numerodeEnvio =
             document
                 .getElementById("Envio")
+                .value
+                .trim();
+        const equipamento =document
+                .getElementById("tipoDeSolicitud")
                 .value
                 .trim();       
 
@@ -6808,12 +7403,26 @@ document
                     "No se pudo crear el Excel."
                 );
             }
+            terminarEstadoCarga("cargando el año de los encabezados de la tabla de matricula, GRACIAS POR ESPERAR");
+             const linkExcel =
+                 document.getElementById("FDN_EXCEL");
+             
+             linkExcel.href =
+                 resultado.data.url;
+             
+             /*linkExcel.target =
+                 "_blank";
+             
+             linkExcel.rel =
+                 "noopener noreferrer";
+             */
+             linkExcel.textContent =
+                 `FDN-${dependencia}_${equipamento}`;
 
-
-            window.open(
-                resultado.data.url,
-                "_blank"
-            );
+//            window.open(
+//                resultado.data.url,
+//                "_blank"
+//            );
 
         } catch (error) {
 
