@@ -660,6 +660,17 @@
                                                                 <th title="Numero de Fila">
                                                                                                                         
                                                                   </th>
+                                                                   <th title=" LOC Edificio">
+                                                                        LOC del Edificio    
+                                                                                   <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsLOCEdificioDPO_T2"
+                                                                                         data-duda="DudaLOCEdificioDep_T2">
+                                                                                          Observaciones
+                                                                                   </button>
+                                                                      </th>
+
                                                                    <th title="Edificio">
                                                                         Nombre del Edificio    
                                                                         <button
@@ -681,7 +692,18 @@
                                                                                           Observaciones
                                                                                    </button>
                                                                    </th>   
-                               
+                                                                   
+                                                                    <th title="LOCEspacio">
+                                                                        LOC-Espacio 
+                                                                                   <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsLOCEspacioDPO_T2"
+                                                                                         data-duda="DudaLOCEspacioDep_T2">
+                                                                                          Observaciones
+                                                                                   </button>
+                                                                   </th>
+
                                                                    <th title="Espacio">
                                                                         Espacio (Aulas, Laboratorios, Área administrativa, etc.)
                                                                         <button
@@ -1259,6 +1281,7 @@
                                                                          <button
                                                                                          class="abrir-observaciones"
                                                                                          type="button"
+                                                                                         aria-label="Especificaciones y Desempeño Operativo"
                                                                                         data-observacion="ObsEspecificaciones_T5"
                                                                                          data-duda="DudaEspecificaciones_T5">
                                                                                           Observaciones
@@ -1270,8 +1293,21 @@
                                                                          <button
                                                                                          class="abrir-observaciones"
                                                                                          type="button"
+                                                                                         aria-label="Cuantos equipos en mal estado (obsoletos, a remplazar)"
                                                                                         data-observacion="ObsMalEstado_T5"
                                                                                          data-duda="DudaMalEstado_T5">
+                                                                                          Observaciones
+                                                                                   </button> 
+                                                                    </th>
+                                                                    
+                                                                    
+                                                                    <th title="Cuantos equipos  en estado regular (útiles)">
+                                                                         Cuantos equipos  en estado regular (útiles)
+                                                                         <button
+                                                                                         class="abrir-observaciones"
+                                                                                         type="button"
+                                                                                        data-observacion="ObsEstadoRegular_T5"
+                                                                                         data-duda="DudaEstadoRegular_T5">
                                                                                           Observaciones
                                                                                    </button> 
                                                                     </th>
@@ -1284,19 +1320,7 @@
                                                                                          data-duda="DudaBuenEstado_T5">
                                                                                           Observaciones
                                                                                    </button> 
-                                                                    </th>
-                                                                    
-                                                                    <th title="Cuantos equipos  en estado regular (útiles)">
-                                                                         Cuantos equipos  en estado regular (útiles)
-                                                                         <button
-                                                                                         class="abrir-observaciones"
-                                                                                         type="button"
-                                                                                        data-observacion="ObsEstadoRegular_T5"
-                                                                                         data-duda="DudaEstadoRegular_T5">
-                                                                                          Observaciones
-                                                                                   </button> 
-                                                                    </th>
-                                                                     
+                                                                    </th> 
                                                                </tr>
                                                         </thead>
                                 
@@ -1886,6 +1910,24 @@
 
                     <tbody> 
                               <tr>
+                                     <tr>
+                                     <td> LOC del Edificio</td>
+                                     <td><textarea name="ObsLOCEdificioDPO_T2" 
+                                                   class="auto-expand input_tabla obligatorio" 
+                                                   rows="1" 
+                                                   style="resize:none;" 
+                                                   aria-label="Observaciones de  LOC del Edificio de la DPO"
+                                                    readonly></textarea>
+                                    </td>
+                                     <td><textarea name="DudaLOCEdificioDep_T2"
+                                                   class="auto-expand input_tabla obligatorio" 
+                                                   rows="1" 
+                                                   style="resize:none;"
+                                                    aria-label="Duda de LOC del Edificio de la Dependencia"
+                                                    ></textarea>
+                                    </td>
+                              </tr>
+
                                      <td> Nombre del Edificio</td>
                                      <td><textarea name="ObsEdificioDPO_T2" 
                                                    class="auto-expand input_tabla obligatorio" 
@@ -1917,6 +1959,22 @@
                                                       style="resize:none;" 
                                                       aria-label="Duda de Nivel (Planta) de la Dependencia"
                                                        readonly></textarea>
+                                     </td>
+                              </tr>
+                              <tr>
+                                     <td>LOC Espacio (Aulas,Laboratorios,Area Administrativa,etc)</td>
+                                     <td><textarea name="ObsLOCEspacioDPO_T2" 
+                                                    class="auto-expand input_tabla obligatorio" 
+                                                    rows="1" style="resize:none;" 
+                                                    aria-label="Observaciones del LOC del Espacio de la DPO"
+                                                     readonly></textarea>
+                                    </td>
+                                      <td><textarea name="DudaLOCEspacioDep_T2"
+                                                    class="auto-expand input_tabla obligatorio"
+                                                     rows="1"
+                                                      style="resize:none;" 
+                                                      aria-label="Duda del LOC del Espacio de la Dependencia"
+                                                      ></textarea>
                                      </td>
                               </tr>
 
@@ -2689,13 +2747,14 @@
 
 
 </div>
+<a readonly id="FDN_EXCEL" class="FDN_Excel"></a>
 
 <p id="aviso" class="Aviso"></p>
 
    
 </form>
 
-
+<div id="estadoCarga" class="toast-carga"></div>
 <div id="estadoGuardado" class="toast-guardado"></div>
 </body>
 
