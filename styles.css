@@ -4,6 +4,14 @@
     padding: 0;
 }
 
+.pruebaSelect {
+    /* display: block;  visible */
+    display: none;/*   oculto */
+}
+
+
+
+
 body, html {
     margin: 0;
     padding: 0;
@@ -675,7 +683,54 @@ a {
     width: 20%!important;
     min-width:80px;
     max-width: 200px;
+
 }
+
+.TablaP td:nth-child(1){
+    height:auto !important;
+}
+
+.TablaP th:nth-child(2),
+.TablaP td:nth-child(2){
+    width: 20%!important;
+    min-width:80px;
+    max-width: 200px;
+
+}
+
+.TablaP td:nth-child(2){
+    height:auto !important;
+}
+
+
+.TablaP tbody tr {
+    height: auto !important;
+}
+
+.TablaP tbody td {
+    height: auto !important;
+    padding: 5px 6px;
+    vertical-align: middle;
+}
+
+.TablaP .contenedorArchivo {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
+    min-height: 30px;
+}
+
+.TablaP .borrarArchivo,
+.TablaP .verArchivo {
+    width: auto;
+    height: 26px;
+    margin: 0;
+    padding: 3px 7px;
+}
+
+
+
 
 .TablaCotizaciones th:nth-child(1),
 .TablaCotizaciones td:nth-child(1){
@@ -1285,7 +1340,6 @@ th {
     text-align: left;
     font-weight: normal;
 }
-
 .buscar-filtro {
     width: 100%;
     box-sizing: border-box;
@@ -1418,6 +1472,7 @@ th {
 
 .Tabla3yPlanos{
     display:flex;
+    align-items: flex-start;
 }
 
 
@@ -2319,6 +2374,78 @@ button.programa-multiple-btn::after {
     min-height: 40px !important;
 }
 
+
+
+.fieldset-vista-previa {
+    position: fixed !important;
+}
+
+.cerrar-vista-previa {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+
+    width: 38px !important;
+    height: 38px !important;
+    margin: 0 !important;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #611232;
+    color: white;
+    border: none;
+    border-radius: 50%;
+
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.cerrar-vista-previa:hover {
+    background-color: #9d2449;
+}
+
+.fieldset-vista-previa legend {
+    max-width: calc(100% - 60px);
+    overflow-wrap: anywhere;
+}
+
+.fieldset-vista-previa .vistaPreviaArchivo {
+    height: calc(100% - 32px);
+}
+
+.vistaPreviaArchivo {
+    padding: 12px;
+    color: #000;
+}
+.espacioVisible{
+    display:inline-flex;
+}
+
+
+.espacio-eleccion-t4 {
+    display: grid;
+    grid-template-columns:
+        minmax(180px, 2fr)
+        minmax(130px, 1fr);
+    gap: 8px;
+    align-items: center;
+}
+
+.espacio-eleccion-t4 select {
+    min-width: 0;
+}
+
+.clave-espacio-t4 {
+    background-color: #f4f0e6;
+    color: #611232;
+    font-weight: 600;
+    text-align: center;
+    cursor: default;
+}
 
 
 
