@@ -10,6 +10,8 @@ const tbody7 = document.getElementById("tablaBody7");
 
 //--------------------------------------------------Para el Guardado de las URL-------------------------------------------------------
 
+
+
 let urlCotizacionesActuales={};
 let nombresCotizacionesActuales = {};
 
@@ -488,7 +490,7 @@ function agregarFila2(){
             <input
                 name="Edificio_T2R${i}"
                 id="Edificio_T2R${i}"
-                class=""
+                class="pruebaSelect"
                 aria-label="Edificio"
                 readonly
                 >
@@ -529,7 +531,7 @@ function agregarFila2(){
              <input
                    id="Nivel_T2R${i}"
                    name="Nivel_T2R${i}"
-                   class="input_tabla"
+                   class="input_tabla pruebaSelect"
                    aria-label="Nivel"
                    readonly
             >
@@ -567,6 +569,7 @@ function agregarFila2(){
 
 
         <td>
+        <div class="espacioVisible">
             <span class="claves" id="LOCEdificioS_T2R${i}"></span>
             <span class="claves" >-</span>
             <span class="claves" id="LOCNivelS_T2R${i}"></span>
@@ -582,11 +585,11 @@ function agregarFila2(){
                 data-espacio2="Espacio_T2R${i}"
                 aria-label="Espacio"
             >
-            
+        </div>    
             <input
                 id="Espacio_T2R${i}"
                 name="Espacio_T2R${i}"
-                class="input_tabla "
+                class="input_tabla pruebaSelect"
                 aria-label="Espacio"
             >
 
@@ -1116,6 +1119,17 @@ function agregarFila4(){
         
 
         <td>
+            
+           <div class="espacio-eleccion-t4">
+
+            <input
+                   type="text"
+                   id="ClaveEspacio_Visible_T4R${i}"
+                   class="input_tabla clave-espacio-t4"
+                   placeholder="Clave"
+                   aria-label="Clave del espacio"
+                   readonly
+            >
             <select
                 id="Espacio_Select_T4R${i}"
                 class="tabla_select"
@@ -1129,10 +1143,15 @@ function agregarFila4(){
 
             </select>
 
-            <input
+
+             </div>
+            
+            
+            
+             <input
                 id="Espacio_T4R${i}"
                 name="Espacio_T4R${i}"
-                class=""
+                class="pruebaSelect"
                 aria-label="Espacio">
 
             <input
@@ -1770,6 +1789,27 @@ document.addEventListener("change", e => {
      let inputxLLenar=document.getElementById(campoLLenar);
      inputxLLenar.textContent=campo.value;
      
+     let elemento;
+     if(inputxLLenar.id?.startsWith("LOCEdificioS_T2R")){
+        elemento = document.querySelector(`[data-edificio="${inputxLLenar.id}"]`);
+     }
+     if(inputxLLenar.id?.startsWith("LOCEspacioS_T2R")){
+        elemento = document.querySelector(`[data-espacio="${inputxLLenar.id}"]`);
+     }
+     
+     
+     let edificioI=elemento.dataset.edificio;
+     let nivelI=elemento.dataset.nivel;
+     let espacioI=elemento.dataset.espacio;
+     let espacioInput=elemento.dataset.espacio2;
+     let inputEdificioS=document.getElementById(edificioI);
+     let inputNivelS   =document.getElementById(nivelI);   
+     let inputEspacioS =document.getElementById(espacioI);
+     let inputEspacioI =document.getElementById(espacioInput);  
+     inputEspacioI.value=inputEdificioS.textContent+"-"+inputNivelS.textContent+"-"+inputEspacioS.textContent+" "+elemento.value;
+
+     actualizarOpcionesEspacios();
+
 
 });
 document.addEventListener("change", e => {
@@ -1779,8 +1819,19 @@ document.addEventListener("change", e => {
      let campoLLenar=e.target.dataset.completar;
      let inputxLLenar=document.getElementById(campoLLenar);
      inputxLLenar.textContent=campo.selectedOptions[0].dataset.valor2;
-     
 
+       let elemento = document.querySelector(`[data-nivel="${inputxLLenar.id}"]`);
+
+     let edificioI=elemento.dataset.edificio;
+     let nivelI=elemento.dataset.nivel;
+     let espacioI=elemento.dataset.espacio;
+     let espacioInput=elemento.dataset.espacio2;
+     let inputEdificioS=document.getElementById(edificioI);
+     let inputNivelS   =document.getElementById(nivelI);   
+     let inputEspacioS =document.getElementById(espacioI);
+     let inputEspacioI =document.getElementById(espacioInput);  
+     inputEspacioI.value=inputEdificioS.textContent+"-"+inputNivelS.textContent+"-"+inputEspacioS.textContent+" "+elemento.value;
+     actualizarOpcionesEspacios();
 });
 
 document.addEventListener("change", e => {
@@ -1797,7 +1848,7 @@ document.addEventListener("change", e => {
      let inputEspacioS =document.getElementById(espacioI);
      let inputEspacioI =document.getElementById(espacioInput);  
      inputEspacioI.value=inputEdificioS.textContent+"-"+inputNivelS.textContent+"-"+inputEspacioS.textContent+" "+campo.value;
-
+     actualizarOpcionesEspacios();
 });
 
 
@@ -1908,17 +1959,28 @@ document.addEventListener("change", function (e) {
 
     if (destino) {
         destino.value = campo.value;
-         if (
-            destino.id.startsWith(
-                "Espacio_T4R"
-            )
-        ) {
+        
+        
+        /* if (destino.id.startsWith("Espacio_T4R")
+            
+          ) {
+              
+             }
+        */
+       if (campo.id.startsWith("Espacio_Select_T4R")) {
 
-            copiarCampoT4aT5(
-                destino
-            );
+        const campoClave = campo.closest("td").querySelector(
+            ".clave-espacio-t4"
+        );
+
+        if (campoClave) {
+            campoClave.value =
+                campo.selectedOptions[0]?.dataset.clave ?? "";
         }
+        copiarCampoT4aT5(destino);
     }
+
+   }
 
 });
 
@@ -2143,11 +2205,17 @@ tbody3.addEventListener("change", e => {
 
 
 
+
 //-----------------------------------------selects- tabla 4.Espacio-------------------------------------------------
 
+
+
+
+/* V oldie
 function actualizarOpcionesEspacios() {
 
     const espacios = [];
+
 
     tbody2.querySelectorAll('[name^="Espacio_T2R"]').forEach(input => {
          if (input.classList.contains("check-verificacion")) return;
@@ -2159,6 +2227,7 @@ function actualizarOpcionesEspacios() {
         }
              
     });
+
 
 
     tbody4.querySelectorAll(
@@ -2181,6 +2250,128 @@ function actualizarOpcionesEspacios() {
         });
 
         select.value = valorActual;
+    });
+}
+*/
+
+//----------------------------------------Nueva funcion----------------------------------
+
+function actualizarOpcionesEspacios(data = null) {
+
+    const espacios = [];
+
+    // Leer espacios reales de Tabla 2
+    tbody2.querySelectorAll("tr").forEach(fila => {
+
+        const nombre = fila.querySelector(
+            'input[id^="Espacio_Visible_T2R"]:not([id$="RO"])'
+        );
+
+        const completo = fila.querySelector(
+            'input[id^="Espacio_T2R"]:not([id$="RO"])'
+        );
+
+        if (!nombre || !completo) return;
+
+        const texto = nombre.value.trim();
+        const valor = completo.value.trim();
+
+        if (!texto || !valor) return;
+
+        // Recuperar la clave que ya muestran tus spans
+        const edificio = fila.querySelector(
+            '[id^="LOCEdificioS_T2R"]'
+        )?.textContent.trim() ?? "";
+
+        const nivel = fila.querySelector(
+            '[id^="LOCNivelS_T2R"]'
+        )?.textContent.trim() ?? "";
+
+        const espacio = fila.querySelector(
+            '[id^="LOCEspacioS_T2R"]'
+        )?.textContent.trim() ?? "";
+
+        const clave =
+            edificio && nivel && espacio
+                ? `${edificio}-${nivel}-${espacio}`
+                : "";
+
+        espacios.push({
+            origen: completo.id,
+            nombre: texto,
+            valor: valor,
+            clave: clave
+        });
+    });
+
+    // Actualizar selectores de Tabla 4
+    tbody4.querySelectorAll(
+        'select[id^="Espacio_Select_T4R"], ' +
+        'select[name^="Espacio_T4R"]'
+    ).forEach(select => {
+
+        // En Registro existe un input auxiliar.
+        // En Revisión el propio select guarda el valor.
+        const campoReal = select.dataset.select
+            ? document.getElementById(select.dataset.select)
+            : select;
+
+        if (!campoReal) return;
+
+        // Identificar el espacio que estaba seleccionado
+        const origenAnterior =
+            select.selectedOptions[0]?.dataset.origen ?? "";
+
+        const valorGuardado =
+            data?.[campoReal.name] ?? campoReal.value;
+
+        // Reconstruir las opciones
+        select.innerHTML =
+            '<option value="">-- Selecciona un espacio --</option>';
+
+        espacios.forEach(espacio => {
+
+            const option = document.createElement("option");
+
+            // Se muestra solo el nombre
+            option.textContent = espacio.nombre;
+
+            // Se conserva el valor completo
+            option.value = espacio.valor;
+
+            // Identifica la fila de Tabla 2
+            option.dataset.origen = espacio.origen;
+
+            // Clave para el campo contiguo
+            option.dataset.clave = espacio.clave;
+
+            select.appendChild(option);
+        });
+
+        // Priorizar la misma fila aunque cambie su clave
+        const elegido =
+            espacios.find(e => e.origen === origenAnterior) ??
+            espacios.find(e => e.valor === valorGuardado);
+
+        select.value = elegido?.valor ?? "";
+
+        // Mostrar la clave junto al selector
+        const campoClave = select.closest("td")?.querySelector(
+            ".clave-espacio-t4"
+        );
+
+        if (campoClave) {
+            campoClave.value = elegido?.clave ?? "";
+        }
+
+        // Sincronizar el campo de envío en Registro
+        if (campoReal !== select) {
+            campoReal.value = select.value;
+        }
+
+        // Sincronizar Tabla 5
+        copiarCampoT4aT5(campoReal);
+
     });
 }
 
@@ -2977,6 +3168,9 @@ function mostrarVistaPreviaGlobal(input) {
             file
         );
 
+    vista.previewUrl = urlTemporal;
+
+
 
     if (
         file.type.startsWith(
@@ -3004,7 +3198,63 @@ function mostrarVistaPreviaGlobal(input) {
             ></iframe>
         `;
 
+
+
+
+
+
+         } else if (/\.docx$/i.test(file.name)) {
+
+        vista.textContent = "Cargando documento Word...";
+
+        if (!window.mammoth || !window.DOMPurify) {
+            vista.textContent =
+                "No se pudieron cargar las bibliotecas para visualizar Word.";
+        } else {
+
+            file.arrayBuffer()
+                .then(buffer => {
+                    return mammoth.convertToHtml({
+                        arrayBuffer: buffer
+                    });
+                })
+                .then(resultado => {
+
+                    // Evitar modificar una vista que ya fue cerrada
+                    if (!vista.isConnected ||
+                        vista.closest(".fieldset-vista-previa") !== fieldset) {
+                        return;
+                    }
+
+                    vista.innerHTML =
+                        DOMPurify.sanitize(resultado.value);
+
+                })
+                .catch(error => {
+
+                    console.error("Error leyendo Word:", error);
+
+                    if (vista.isConnected) {
+                        vista.textContent =
+                            "No fue posible visualizar este documento Word.";
+                    }
+
+                });
+        }
+
     } else {
+
+        vista.textContent =
+            "No existe vista previa para este tipo de archivo.";
+
+    }
+
+
+
+
+
+
+/*    } else {
 
         vista.innerHTML = `
             <div class="previewInfo">
@@ -3021,7 +3271,7 @@ function mostrarVistaPreviaGlobal(input) {
             </div>
         `;
     }
-
+*/
 
     fieldset.appendChild(
         vista
@@ -3034,6 +3284,25 @@ function mostrarVistaPreviaGlobal(input) {
     document.body.appendChild(
         fieldset
     );
+    
+    const botonCerrar = document.createElement("button");
+
+botonCerrar.type = "button";
+botonCerrar.className = "cerrar-vista-previa";
+botonCerrar.textContent = "✕";
+botonCerrar.title = "Cerrar vista previa";
+botonCerrar.setAttribute("aria-label", "Cerrar vista previa");
+
+botonCerrar.addEventListener("click", () => {
+    cerrarVistaPrevia();
+});
+
+fieldset.appendChild(botonCerrar);
+
+
+
+
+
 }
 
 
@@ -3063,7 +3332,10 @@ function cerrarVistaPrevia() {
 
     const original =
         vista.previewOriginal;
-
+    if (vista.previewUrl) {
+    URL.revokeObjectURL(vista.previewUrl);
+    delete vista.previewUrl;
+    }
 
     vista.innerHTML = "";
 
@@ -6255,11 +6527,11 @@ document.querySelectorAll("#tablaBody5 [data-relleno]").forEach(campo => {
 
 // V7 
 
-//const direccionEnlace="https://script.google.com/macros/s/AKfycbyrrLXQMsrqpSoPDWpkb4FCWwzxHjsVFTRmGEgajnz53ZTFpJOXEvK6PqGyDOrcJpE4/exec"
+//
+const direccionEnlace="https://script.google.com/macros/s/AKfycbyrrLXQMsrqpSoPDWpkb4FCWwzxHjsVFTRmGEgajnz53ZTFpJOXEvK6PqGyDOrcJpE4/exec"
 
 //V8 
-// 
-const direccionEnlace="https://script.google.com/macros/s/AKfycby9jNmixia074z8R6NI03VzvQii_rmHJ7xaoHKQ9X3OwWeYZB94cqkN6cewmbNzqTnq/exec"
+// const direccionEnlace="https://script.google.com/macros/s/AKfycby9jNmixia074z8R6NI03VzvQii_rmHJ7xaoHKQ9X3OwWeYZB94cqkN6cewmbNzqTnq/exec"
 
 
 
@@ -6282,6 +6554,8 @@ let ExistenciaDeCotizacionesA2_T4=false;
 //--------------------------------------Cargar UltimaVersion
 
 async function cargarDatosPorFolio() {
+    urlCotizacionesActuales = {};
+    nombresCotizacionesActuales = {};
     mostrarEstadoCarga("Cargando solicitud por folio");
     const folio = document
         .getElementById("folioInput")
@@ -6419,6 +6693,19 @@ let folioValor = document.getElementById("folioInput");
       
       // ⬇️ Ahora sí, restaurar la tabla
       restaurarTabla(data);
+document.querySelectorAll('[id^="Espacio_Visible_T2R"]').forEach(campo=>{
+     let edificioI=campo.dataset.edificio;
+     let nivelI=campo.dataset.nivel;
+     let espacioI=campo.dataset.espacio;
+     let espacioInput=campo.dataset.espacio2;
+     let inputEdificioS=document.getElementById(edificioI);
+     let inputNivelS   =document.getElementById(nivelI);   
+     let inputEspacioS =document.getElementById(espacioI);
+     let inputEspacioI =document.getElementById(espacioInput);  
+     inputEspacioI.value=inputEdificioS.textContent+"-"+inputNivelS.textContent+"-"+inputEspacioS.textContent+" "+campo.value;
+
+});
+      
 actualizarOpcionesProgramas();
 actualizarOpcionesEspacios();
 actualizarOpcionesCotizacion1();
@@ -6504,17 +6791,17 @@ const ejemplos = json.ejemplos;
    document.getElementById(`UsuariosHAnio5E${index}`).textContent=ejemplos[`UsuariosHAnio5E${index}`];
    document.getElementById(`UsuariosMAnio5E${index}`).textContent=ejemplos[`UsuariosMAnio5E${index}`];
 
- document.getElementById(`NumProfE${index}`        ).textContent     =ejemplos[`NumProfE${index}`        ]
- document.getElementById(`UsuariosAHAnio1E${index}`).textContent=ejemplos[`UsuariosAHAnio1E${index}`]
- document.getElementById(`UsuariosAMAnio1E${index}`).textContent=ejemplos[`UsuariosAMAnio1E${index}`]
- document.getElementById(`UsuariosAHAnio2E${index}`).textContent=ejemplos[`UsuariosAHAnio2E${index}`]
- document.getElementById(`UsuariosAMAnio2E${index}`).textContent=ejemplos[`UsuariosAMAnio2E${index}`]
- document.getElementById(`UsuariosAHAnio3E${index}`).textContent=ejemplos[`UsuariosAHAnio3E${index}`]
- document.getElementById(`UsuariosAMAnio3E${index}`).textContent=ejemplos[`UsuariosAMAnio3E${index}`]
- document.getElementById(`UsuariosAHAnio4E${index}`).textContent=ejemplos[`UsuariosAHAnio4E${index}`]
- document.getElementById(`UsuariosAMAnio4E${index}`).textContent=ejemplos[`UsuariosAMAnio4E${index}`]
- document.getElementById(`UsuariosAHAnio5E${index}`).textContent=ejemplos[`UsuariosAHAnio5E${index}`]
- document.getElementById(`UsuariosAMAnio5E${index}`).textContent=ejemplos[`UsuariosAMAnio5E${index}`]
+ document.getElementById(`NumProfE${index}`         ).textContent=ejemplos[`NumProfE${index}`];
+ document.getElementById(`UsuariosAHAnio1E${index}`).textContent=ejemplos[`UsuariosAHAnio1E${index}`];
+ document.getElementById(`UsuariosAMAnio1E${index}`).textContent=ejemplos[`UsuariosAMAnio1E${index}`];
+ document.getElementById(`UsuariosAHAnio2E${index}`).textContent=ejemplos[`UsuariosAHAnio2E${index}`];
+ document.getElementById(`UsuariosAMAnio2E${index}`).textContent=ejemplos[`UsuariosAMAnio2E${index}`];
+ document.getElementById(`UsuariosAHAnio3E${index}`).textContent=ejemplos[`UsuariosAHAnio3E${index}`];
+ document.getElementById(`UsuariosAMAnio3E${index}`).textContent=ejemplos[`UsuariosAMAnio3E${index}`];
+ document.getElementById(`UsuariosAHAnio4E${index}`).textContent=ejemplos[`UsuariosAHAnio4E${index}`];
+ document.getElementById(`UsuariosAMAnio4E${index}`).textContent=ejemplos[`UsuariosAMAnio4E${index}`];
+ document.getElementById(`UsuariosAHAnio5E${index}`).textContent=ejemplos[`UsuariosAHAnio5E${index}`];
+ document.getElementById(`UsuariosAMAnio5E${index}`).textContent=ejemplos[`UsuariosAMAnio5E${index}`];
 
 document.getElementById(`Edificio_T2E${index}`).textContent= ejemplos[`Edificio_T2E${index}`];
 document.getElementById(`Nivel_T2E${index}`   ).textContent= ejemplos[`Nivel_T2E${index}`   ];
@@ -6637,6 +6924,9 @@ document.querySelectorAll(
                   campo.value=origen.value;
     });
 
+
+
+
             
                
 
@@ -6651,6 +6941,7 @@ document.querySelectorAll(
   folioCargado = true;
 
 } catch (e) {
+    terminarEstadoCarga("Cargando solicitud por folio");
     alert("⚠️ Error de conexión al cargar los datos");
 }
   
@@ -6695,8 +6986,102 @@ const form = document.getElementById("miFormulario");
 
   const data = {};
 
+
+  //------------------------------separar cotizaciones----------------------------
+
+const nombresConfirmados = {
+    1: new Set(),
+    2: new Set()
+};
+
+// Reconocer las cotizaciones previamente confirmadas
+Object.entries(nombresCotizacionesActuales).forEach(
+    ([claveNombre, nombre]) => {
+
+        const match = claveNombre.match(
+            /^nombreCotizacion(2)?_TCR(\d+)$/
+        );
+
+        if (!match) return;
+
+        const grupo = match[1] ? 2 : 1;
+        const fila = match[2];
+
+        const claveURL =
+            `urlCotizacionAdquisicionG${grupo}_TCR${fila}`;
+
+        const urlConfirmada =
+            urlCotizacionesActuales[claveURL];
+
+        if (urlConfirmada && nombre) {
+            nombresConfirmados[grupo].add(
+                String(nombre).trim()
+            );
+        }
+    }
+);
+
+
+//-------------------------------------------------------------------------------------------
+
+
+
   formData.forEach((value, key) => {
-    if (value instanceof File) return;
+      
+     if (value instanceof File) return;
+
+    // Nombres de la tabla de cotizaciones
+    const match = key.match(
+        /^nombreCotizacion(2)?_TCR(\d+)$/
+    );
+
+    if (match) {
+
+        const grupo = match[1] ? 2 : 1;
+        const fila = match[2];
+
+        const claveURL =
+            `urlCotizacionAdquisicionG${grupo}_TCR${fila}`;
+
+        const urlAnterior =
+            urlCotizacionesActuales[claveURL] || "";
+
+        const nombreAnterior =
+            nombresCotizacionesActuales[key] || "";
+
+        data[key] =
+            urlAnterior && nombreAnterior
+                ? nombreAnterior
+                : "";
+
+        return;
+    }
+
+    // Asociaciones de cotizaciones en Tabla 4
+    const matchT4 = key.match(
+        /^nombreCotizacion(2)?_T4R\d+$/
+    );
+
+    if (matchT4) {
+
+        const grupo = matchT4[1] ? 2 : 1;
+        const nombre = String(value).trim();
+
+        data[key] = nombresConfirmados[grupo].has(nombre)
+            ? nombre
+            : "";
+
+        return;
+    }
+    
+
+
+
+    
+
+
+
+    
     data[key] = value;
   });
 
@@ -6930,9 +7315,9 @@ setInterval(() => {
 
 
 document.getElementById("guardarBorrador").addEventListener("click", () => {
-
+        mostrarEstadoCarga("Guardando borrador de solicitud GRACIAS POR ESPERAR");
         guardarBorradorAutomatico(true);
-
+        terminarEstadoCarga("Guardando borrador de solicitud GRACIAS POR ESPERAR");
     });
 
 
@@ -7654,7 +8039,7 @@ document
 crearFilaTotalTabla4();
 actualizarTotalesTabla4();
 restaurarClavesTabla2(data);
-
+actualizarOpcionesEspacios(data);
 }
 
 
@@ -8456,13 +8841,13 @@ const json = await res.json();
 
         formularioVisible.classList.add("paso");
     } else {
-
+        terminarEstadoCarga("Cargando solicitud por folio");
         alert("⚠️ Error al enviar los datos: " + json.message);
 
     }
 
 } catch (e) {
-
+    terminarEstadoCarga("Cargando solicitud por folio");
     console.error(e);
     alert("⚠️ Error de conexión: " + e.message);
 
@@ -9659,6 +10044,5 @@ document.addEventListener(
     }
 );
 
- 
         
 
