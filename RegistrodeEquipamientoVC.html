@@ -1733,7 +1733,7 @@
                                                       
 
                                                      </tbody> 
-             
+            </table> 
              
                                                      <table class="tabla_style TablaP" title="Tabla de Planos">
                                                     <thead>
@@ -1760,8 +1760,8 @@
                                                                                   <button
                                                                                          class="abrir-observaciones"
                                                                                          type="button"
-                                                                                        data-observacion="ObsProgramaAcademicoDPO"
-                                                                                         data-duda="DudaProgramaAcademicoDep">
+                                                                                        data-observacion="ObsPlanosDPO"
+                                                                                         data-duda="DudaPlanosDep">
                                                                                           Observaciones
                                                                                    </button>
                                                                  </th>
@@ -3715,6 +3715,21 @@
                                                       ></textarea>
                                      </td>
                               </tr>
+                    
+                              <td>Planos</td>
+                                     <td><textarea name="ObsPlanosDPO" 
+                                                    class="auto-expand input_tabla obligatorio" 
+                                                    rows="1" style="resize:none;" 
+                                                    aria-label="Observaciones de los planos de la DPO"
+                                                     readonly></textarea>
+                                    </td>
+                                      <td><textarea name="DudaPlanosDep"
+                                                    class="auto-expand input_tabla obligatorio"
+                                                     rows="1"
+                                                      style="resize:none;" 
+                                                      aria-label="Duda de los planos de la dependencia"
+                                                      ></textarea>
+                                     </td>
 
                     </tbody>
                     </table>
@@ -4379,6 +4394,9 @@
 <div id="estadoGuardado" class="toast-guardado"></div>
 </body>
 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.13.0/mammoth.browser.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.4.10/purify.min.js"></script>
 <script src="codigoVC.js"></script>   
 
 
