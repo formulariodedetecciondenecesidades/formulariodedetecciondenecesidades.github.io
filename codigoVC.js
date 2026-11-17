@@ -571,9 +571,9 @@ function agregarFila2(){
         <td>
         <div class="espacioVisible">
             <span class="claves" id="LOCEdificioS_T2R${i}"></span>
-            <span class="claves" >-</span>
+            <span  >-</span>
             <span class="claves" id="LOCNivelS_T2R${i}"></span>
-            <span class="claves" >-</span>
+            <span  >-</span>
             <span class="claves" id="LOCEspacioS_T2R${i}"></span>
             <input
                 name="Espacio_Visible_T2R${i}"
@@ -1902,6 +1902,41 @@ function restaurarClavesTabla2(data = {}) {
             '[id^="LOCEspacioS_T2R"]'
         );
 
+//---------------------------------------------------------------------
+const nombreEspacio = fila.querySelector(
+    '[id^="Espacio_Visible_T2R"]'
+)?.value.trim() ?? "";
+
+const espacioCompleto = fila.querySelector(
+    'input[id^="Espacio_T2R"]'
+);
+
+const claves = [
+    spanEdificio?.textContent.trim(),
+    spanNivel?.textContent.trim(),
+    spanEspacio?.textContent.trim()
+];
+
+const clave = claves.every(Boolean)
+    ? claves.join("-")
+    : "";
+
+if (espacioCompleto) {
+    espacioCompleto.value = nombreEspacio
+        ? `${clave ? clave + " " : ""}${nombreEspacio}`
+        : "";
+}
+
+
+
+
+
+
+
+
+
+
+//-------------------------------------------------------------------------------------------------------------------------------
         // Recuperar los campos originales
         const campoEdificio = fila.querySelector(
             'input[id^="LOC_Edificio_T2R"]:not(.check-verificacion)'
@@ -1969,6 +2004,40 @@ document.addEventListener("change", function (e) {
         */
        if (campo.id.startsWith("Espacio_Select_T4R")) {
 
+    campo.setCustomValidity("");
+
+    const clave = campo.selectedOptions[0]?.dataset.clave ?? "";
+
+    if (campo.value && !clave) {
+
+        campo.setCustomValidity(
+            "⚠️ Completa las claves LOC del edificio, nivel y espacio en la Tabla 2."
+        );
+
+        campo.reportValidity();
+    }
+}
+/*       if (e.target.id?.startsWith("Espacio_Select_T4R")){
+              const fila=campo.closest("tr");
+              const LocEdificio = fila.querySelector(`[id^="LOCEdificioS_T2R"]`);
+              const LocNivel = fila.querySelector(`[id^="LOCNivelS_T2R"]`);
+              const LocEspacio = fila.querySelector(`[id^="LOCEspacioS_T2R"]`);
+       
+               if (
+                            !LocEdificio?.textContent.trim() ||
+                            !LocNivel?.textContent.trim() ||
+                            !LocEspacio?.textContent.trim()) {
+                            campo.setCustomValidity(
+                            "⚠️ Completa los rubros de LOC del edificio,nivel y LOC-espacio."
+                            );
+
+                            campo.reportValidity();
+                            return;
+               }
+            }      
+*/        
+        if (campo.id.startsWith("Espacio_Select_T4R")) {
+ 
         const campoClave = campo.closest("td").querySelector(
             ".clave-espacio-t4"
         );
@@ -2306,8 +2375,7 @@ function actualizarOpcionesEspacios(data = null) {
 
     // Actualizar selectores de Tabla 4
     tbody4.querySelectorAll(
-        'select[id^="Espacio_Select_T4R"], ' +
-        'select[name^="Espacio_T4R"]'
+        'select[id^="Espacio_Select_T4R"], ' +   'select[name^="Espacio_T4R"]'
     ).forEach(select => {
 
         // En Registro existe un input auxiliar.
@@ -5780,7 +5848,209 @@ const mapaFolios = new Map([
         dependencia: 'Unidad Profesional Interdisciplinaria de Ingeniería, Campus Zacatecas (UPIIZ)',
         tipoDeBien: "Flota Vehicular"
     }
-]
+],
+["CII-BT-237",{"dependencia":"Coordinación de Imagen Institucional","tipoDeBien":"Bienes Tics"}],
+["CII-FV-238",{"dependencia":"Coordinación de Imagen Institucional","tipoDeBien":"Flota Vehicular"}],
+["CGPII-FV-239",{"dependencia":"Coordinación General de Planeación E Información Institucional","tipoDeBien":"Flota Vehicular"}],
+["DG-FV-240",{"dependencia":"Dirección General","tipoDeBien":"Flota Vehicular"}],
+["OAG-BG-241",{"dependencia":"Oficina del Abogado General","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["OAG-BT-242",{"dependencia":"Oficina del Abogado General","tipoDeBien":"Bienes Tics"}],
+["OAG-FV-243",{"dependencia":"Oficina del Abogado General","tipoDeBien":"Flota Vehicular"}],
+["SAD-BG-244",{"dependencia":"Secretaría de Administración","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["SAD-BT-245",{"dependencia":"Secretaría de Administración","tipoDeBien":"Bienes Tics"}],
+["SAD-FV-246",{"dependencia":"Secretaría de Administración","tipoDeBien":"Flota Vehicular"}],
+["CENAC-BG-247",{"dependencia":"Centro Nacional de Cálculo (CENAC)","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["CENAC-BT-248",{"dependencia":"Centro Nacional de Cálculo (CENAC)","tipoDeBien":"Bienes Tics"}],
+["CENAC-FV-249",{"dependencia":"Centro Nacional de Cálculo (CENAC)","tipoDeBien":"Flota Vehicular"}],
+["SIIS-BT-250",{"dependencia":"Secretaría de Innovación E Integración Social","tipoDeBien":"Bienes Tics"}],
+["SIIS-FV-251",{"dependencia":"Secretaría de Innovación E Integración Social","tipoDeBien":"Flota Vehicular"}],
+["SSE-BG-252",{"dependencia":"Secretaría de Servicios Educativos","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["SSE-BT-253",{"dependencia":"Secretaría de Servicios Educativos","tipoDeBien":"Bienes Tics"}],
+["SSE-FV-254",{"dependencia":"Secretaría de Servicios Educativos","tipoDeBien":"Flota Vehicular"}],
+["SG-FV-255",{"dependencia":"Secretaría General","tipoDeBien":"Flota Vehicular"}],
+["DII-BG-256",{"dependencia":"Dirección de Información Institucional","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["DII-FV-257",{"dependencia":"Dirección de Información Institucional","tipoDeBien":"Flota Vehicular"}],
+["DPO-BG-258",{"dependencia":"Dirección de Planeación y Organización","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["DPO-FV-259",{"dependencia":"Dirección de Planeación y Organización","tipoDeBien":"Flota Vehicular"}],
+["CPS-BG-260",{"dependencia":"Coordinación Politécnica para la Sustentabilidad","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["CPS-BT-261",{"dependencia":"Coordinación Politécnica para la Sustentabilidad","tipoDeBien":"Bienes Tics"}],
+["CPS-FV-262",{"dependencia":"Coordinación Politécnica para la Sustentabilidad","tipoDeBien":"Flota Vehicular"}],
+["DAJ-BT-263",{"dependencia":"Dirección de Asuntos Jurídicos","tipoDeBien":"Bienes Tics"}],
+["DAJ-FV-264",{"dependencia":"Dirección de Asuntos Jurídicos","tipoDeBien":"Flota Vehicular"}],
+["DCTR-BG-265",{"dependencia":"Dirección de Convenios y Trámite Registral","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["DCTR-BT-266",{"dependencia":"Dirección de Convenios y Trámite Registral","tipoDeBien":"Bienes Tics"}],
+["DCTR-FV-267",{"dependencia":"Dirección de Convenios y Trámite Registral","tipoDeBien":"Flota Vehicular"}],
+["DLCT-BG-268",{"dependencia":"Dirección de Legislación, Consulta y Transparencia","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["DLCT-BT-269",{"dependencia":"Dirección de Legislación, Consulta y Transparencia","tipoDeBien":"Bienes Tics"}],
+["DLCT-FV-270",{"dependencia":"Dirección de Legislación, Consulta y Transparencia","tipoDeBien":"Flota Vehicular"}],
+["CECyT1-BG-271",{"dependencia":"Centro de Estudios Científicos y Tecnológicos (CECYT 1) “Gonzalo Vázquez Vela”","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["CECyT1-BT-272",{"dependencia":"Centro de Estudios Científicos y Tecnológicos (CECYT 1) “Gonzalo Vázquez Vela”","tipoDeBien":"Bienes Tics"}],
+["CECyT1-FV-273",{"dependencia":"Centro de Estudios Científicos y Tecnológicos (CECYT 1) “Gonzalo Vázquez Vela”","tipoDeBien":"Flota Vehicular"}],
+["CECyT2-FV-274",{"dependencia":"Centro de Estudios Científicos y Tecnológicos (CECYT 2) \"Miguel Bernard\"","tipoDeBien":"Flota Vehicular"}],
+["CECyT5-BG-275",{"dependencia":"Centro de Estudios Científicos y Tecnológicos (CECYT 5) “Benito Juárez”","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["CECyT5-BT-276",{"dependencia":"Centro de Estudios Científicos y Tecnológicos (CECYT 5) “Benito Juárez”","tipoDeBien":"Bienes Tics"}],
+["CECyT5-FV-277",{"dependencia":"Centro de Estudios Científicos y Tecnológicos (CECYT 5) “Benito Juárez”","tipoDeBien":"Flota Vehicular"}],
+["CECyT6-BG-278",{"dependencia":"Centro de Estudios Científicos y Tecnológicos (CECYT 6) “Miguel Othón De Mendizábal”","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["CECyT6-BT-279",{"dependencia":"Centro de Estudios Científicos y Tecnológicos (CECYT 6) “Miguel Othón De Mendizábal”","tipoDeBien":"Bienes Tics"}],
+["CECyT6-FV-280",{"dependencia":"Centro de Estudios Científicos y Tecnológicos (CECYT 6) “Miguel Othón De Mendizábal”","tipoDeBien":"Flota Vehicular"}],
+["CECyT7-BT-281",{"dependencia":"Centro de Estudios Científicos y Tecnológicos (CECYT 7) \"Cuauhtémoc\"","tipoDeBien":"Bienes Tics"}],
+["CECyT7-FV-282",{"dependencia":"Centro de Estudios Científicos y Tecnológicos (CECYT 7) \"Cuauhtémoc\"","tipoDeBien":"Flota Vehicular"}],
+["CECyT8-FV-283",{"dependencia":"Centro de Estudios Científicos y Tecnológicos (CECYT 8) \"Narciso Bassols\"","tipoDeBien":"Flota Vehicular"}],
+["CECyT9-BG-284",{"dependencia":"Centro de Estudios Científicos y Tecnológicos (CECYT 9) “Juan De Dios Bátiz”","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["CECyT9-BT-285",{"dependencia":"Centro de Estudios Científicos y Tecnológicos (CECYT 9) “Juan De Dios Bátiz”","tipoDeBien":"Bienes Tics"}],
+["CECyT9-FV-286",{"dependencia":"Centro de Estudios Científicos y Tecnológicos (CECYT 9) “Juan De Dios Bátiz”","tipoDeBien":"Flota Vehicular"}],
+["CECyT10-FV-287",{"dependencia":"Centro de Estudios Científicos y Tecnológicos (CECYT 10) \"Carlos Vallejo Márquez\"","tipoDeBien":"Flota Vehicular"}],
+["CECyT11-BG-288",{"dependencia":"Centro de Estudios Cientificos y Tecnológicos (CECYT 11) \"Wilfrido Massieu\"","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["CECyT11-FV-289",{"dependencia":"Centro de Estudios Cientificos y Tecnológicos (CECYT 11) \"Wilfrido Massieu\"","tipoDeBien":"Flota Vehicular"}],
+["CECyT12-FV-290",{"dependencia":"Centro de Estudios Científicos y Tecnológicos (CECYT 12) \"José María Morelos\"","tipoDeBien":"Flota Vehicular"}],
+["CECyT13-BT-291",{"dependencia":"Centro de Estudios Científicos y Tecnológicos (CECYT 13) \"Ricardo Flores Magón\"","tipoDeBien":"Bienes Tics"}],
+["CECyT13-FV-292",{"dependencia":"Centro de Estudios Científicos y Tecnológicos (CECYT 13) \"Ricardo Flores Magón\"","tipoDeBien":"Flota Vehicular"}],
+["CECyT14-BG-293",{"dependencia":"Centro de Estudios Científicos y Tecnológicos (CECYT 14) “Luis Enrique Erro”","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["CECyT14-BT-294",{"dependencia":"Centro de Estudios Científicos y Tecnológicos (CECYT 14) “Luis Enrique Erro”","tipoDeBien":"Bienes Tics"}],
+["CECyT14-FV-295",{"dependencia":"Centro de Estudios Científicos y Tecnológicos (CECYT 14) “Luis Enrique Erro”","tipoDeBien":"Flota Vehicular"}],
+["CECyT15-BG-296",{"dependencia":"Centro de Estudios Científicos y Tecnológicos (CECYT 15) \"Diódoro Antúnez Echegaray\"","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["CECyT15-FV-297",{"dependencia":"Centro de Estudios Científicos y Tecnológicos (CECYT 15) \"Diódoro Antúnez Echegaray\"","tipoDeBien":"Flota Vehicular"}],
+["CECyT16-BG-298",{"dependencia":"Centro de Estudios Científicos y Tecnológicos (CECYT 16) “Hidalgo”","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["CECyT16-BT-299",{"dependencia":"Centro de Estudios Científicos y Tecnológicos (CECYT 16) “Hidalgo”","tipoDeBien":"Bienes Tics"}],
+["CECyT16-FV-300",{"dependencia":"Centro de Estudios Científicos y Tecnológicos (CECYT 16) “Hidalgo”","tipoDeBien":"Flota Vehicular"}],
+["CECyT17-BG-301",{"dependencia":"Centro de Estudios Científicos y Tecnológicos (CECyT 17) \"León, Guanajuato\"","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["CECyT17-FV-302",{"dependencia":"Centro de Estudios Científicos y Tecnológicos (CECyT 17) \"León, Guanajuato\"","tipoDeBien":"Flota Vehicular"}],
+["CECyT20-FV-303",{"dependencia":"Centro de Estudios Científicos y Tecnológicos (CECYT 20) \"Natalia Serdán Alatriste\"","tipoDeBien":"Flota Vehicular"}],
+["ESIME-Azcapotzalco-FV-304",{"dependencia":"Escuela Superior de Ingeniería Mecánica y Eléctrica (ESIME), Unidad Azcapotzalco","tipoDeBien":"Flota Vehicular"}],
+["ESIA-Tecamachalco-FV-305",{"dependencia":"Escuela Superior de Ingeniería y Arquitectura (ESIA), Unidad Tecamachalco","tipoDeBien":"Flota Vehicular"}],
+["ESIT-FV-306",{"dependencia":"Escuela Superior de Ingeniería Textil (ESIT)","tipoDeBien":"Flota Vehicular"}],
+["ESIQIE-BG-307",{"dependencia":"Escuela Superior de Ingeniería Química E Industrias Extractivas (ESIQIE)","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["ESIQIE-BT-308",{"dependencia":"Escuela Superior de Ingeniería Química E Industrias Extractivas (ESIQIE)","tipoDeBien":"Bienes Tics"}],
+["ESIQIE-FV-309",{"dependencia":"Escuela Superior de Ingeniería Química E Industrias Extractivas (ESIQIE)","tipoDeBien":"Flota Vehicular"}],
+["ESFM-FV-310",{"dependencia":"Escuela Superior de Física y Matemáticas (ESFM)","tipoDeBien":"Flota Vehicular"}],
+["ESCOM-FV-311",{"dependencia":"Escuela Superior de Cómputo (ESCOM)","tipoDeBien":"Flota Vehicular"}],
+["ENCB-FV-312",{"dependencia":"Escuela Nacional de Ciencias Biológicas (ENCB)","tipoDeBien":"Flota Vehicular"}],
+["ESEO-FV-313",{"dependencia":"Escuela Superior de Enfermería y Obstetricia (ESEO)","tipoDeBien":"Flota Vehicular"}],
+["CICS-SantoTomas-FV-314",{"dependencia":"Centro Interdisciplinario de Ciencias de la Salud, Unidad Santo Tomás (CICS UST)","tipoDeBien":"Flota Vehicular"}],
+["ESCA-SantoTomas-FV-315",{"dependencia":"Escuela Superior de Comercio y Administración (ESCA), Unidad Santo Tomás","tipoDeBien":"Flota Vehicular"}],
+["ESE-FV-316",{"dependencia":"Escuela Superior de Economía (ESE)","tipoDeBien":"Flota Vehicular"}],
+["EST-FV-317",{"dependencia":"Escuela Superior de Turismo (EST)","tipoDeBien":"Flota Vehicular"}],
+["ENBA-FV-318",{"dependencia":"Escuela Nacional de Biblioteconomía y Archivonomía (ENBA)","tipoDeBien":"Flota Vehicular"}],
+["UPIITA-BG-319",{"dependencia":"Unidad Profesional Interdisciplinaria de Ingeniería y Tecnologías Avanzadas (UPIITA)","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["UPIITA-BT-320",{"dependencia":"Unidad Profesional Interdisciplinaria de Ingeniería y Tecnologías Avanzadas (UPIITA)","tipoDeBien":"Bienes Tics"}],
+["UPIITA-FV-321",{"dependencia":"Unidad Profesional Interdisciplinaria de Ingeniería y Tecnologías Avanzadas (UPIITA)","tipoDeBien":"Flota Vehicular"}],
+["UPIIG-Guanajuato-FV-322",{"dependencia":"Unidad Profesional Interdisciplinaria de Ingeniería, Campus Guanajuato (UPIIG)","tipoDeBien":"Flota Vehicular"}],
+["UPIIC-Coahuila-BG-323",{"dependencia":"Unidad Profesional Interdisciplinaria de Ingeniería, Campus Coahuila (UPIIC)","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["UPIIC-Coahuila-BT-324",{"dependencia":"Unidad Profesional Interdisciplinaria de Ingeniería, Campus Coahuila (UPIIC)","tipoDeBien":"Bienes Tics"}],
+["UPIIC-Coahuila-FV-325",{"dependencia":"Unidad Profesional Interdisciplinaria de Ingeniería, Campus Coahuila (UPIIC)","tipoDeBien":"Flota Vehicular"}],
+["UPIIT-Tlaxcala-FV-326",{"dependencia":"Unidad Profesional Interdisciplinaria de Ingeniería, Campus Tlaxcala (UPIIT)","tipoDeBien":"Flota Vehicular"}],
+["CENLEX-Zacatenco-FV-327",{"dependencia":"Centro de Lenguas Extranjeras (CENLEX), Unidad Zacatenco","tipoDeBien":"Flota Vehicular"}],
+["CENLEX-SantoTomas-FV-328",{"dependencia":"Centro de Lenguas Extranjeras (CENLEX), Unidad Santo Tomás","tipoDeBien":"Flota Vehicular"}],
+["DEV-BG-329",{"dependencia":"Dirección de Educación Virtual","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["DEV-FV-330",{"dependencia":"Dirección de Educación Virtual","tipoDeBien":"Flota Vehicular"}],
+["DFIE-FV-331",{"dependencia":"Dirección de Formación e Innovación Educativa","tipoDeBien":"Flota Vehicular"}],
+["DIEMS-BG-332",{"dependencia":"Dirección de Educación Media Superior","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["DCH-BG-333",{"dependencia":"Dirección de Capital Humano","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["DCH-FV-334",{"dependencia":"Dirección de Capital Humano","tipoDeBien":"Flota Vehicular"}],
+["DPP-BT-335",{"dependencia":"Dirección de Programación y Presupuesto","tipoDeBien":"Bienes Tics"}],
+["DPP-FV-336",{"dependencia":"Dirección de Programación y Presupuesto","tipoDeBien":"Flota Vehicular"}],
+["DRF-BG-337",{"dependencia":"Dirección de Recursos Financieros","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["DRF-BT-338",{"dependencia":"Dirección de Recursos Financieros","tipoDeBien":"Bienes Tics"}],
+["DRF-FV-339",{"dependencia":"Dirección de Recursos Financieros","tipoDeBien":"Flota Vehicular"}],
+["DRMI-FV-340",{"dependencia":"Dirección de Recursos Materiales E Infraestructura","tipoDeBien":"Flota Vehicular"}],
+["DSG-BG-341",{"dependencia":"Dirección de Servicios Generales","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["DSG-BT-342",{"dependencia":"Dirección de Servicios Generales","tipoDeBien":"Bienes Tics"}],
+["DSG-FV-343",{"dependencia":"Dirección de Servicios Generales","tipoDeBien":"Flota Vehicular"}],
+["CCDI-BG-344",{"dependencia":"Coordinación de Centros de Desarrollo Infantil","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["CCDI-BT-345",{"dependencia":"Coordinación de Centros de Desarrollo Infantil","tipoDeBien":"Bienes Tics"}],
+["CCDI-FV-346",{"dependencia":"Coordinación de Centros de Desarrollo Infantil","tipoDeBien":"Flota Vehicular"}],
+["DCC-FV-347",{"dependencia":"Dirección de Cómputo y Comunicaciones","tipoDeBien":"Flota Vehicular"}],
+["DSI-BG-348",{"dependencia":"Dirección de sistemas informáticos","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["DSI-BT-349",{"dependencia":"Dirección de sistemas informáticos","tipoDeBien":"Bienes Tics"}],
+["DSI-FV-350",{"dependencia":"Dirección de sistemas informáticos","tipoDeBien":"Flota Vehicular"}],
+["DRI-BG-351",{"dependencia":"Dirección de Relaciones Internacionales","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["DRI-FV-352",{"dependencia":"Dirección de Relaciones Internacionales","tipoDeBien":"Flota Vehicular"}],
+["DSETT-BG-353",{"dependencia":"Dirección de Servicios Empresariales y Transferencia Tecnológica","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["DSETT-BT-354",{"dependencia":"Dirección de Servicios Empresariales y Transferencia Tecnológica","tipoDeBien":"Bienes Tics"}],
+["DSETT-FV-355",{"dependencia":"Dirección de Servicios Empresariales y Transferencia Tecnológica","tipoDeBien":"Flota Vehicular"}],
+["DIET-BG-356",{"dependencia":"Dirección de Incubación de Empresas Tecnológicas","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["DIET-FV-357",{"dependencia":"Dirección de Incubación de Empresas Tecnológicas","tipoDeBien":"Flota Vehicular"}],
+["DPITT-BG-358",{"dependencia":"Dirección de Prospectiva e Inteligencia Tecnológica Tecnópoli","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["DPITT-BT-359",{"dependencia":"Dirección de Prospectiva e Inteligencia Tecnológica Tecnópoli","tipoDeBien":"Bienes Tics"}],
+["DPITT-FV-360",{"dependencia":"Dirección de Prospectiva e Inteligencia Tecnológica Tecnópoli","tipoDeBien":"Flota Vehicular"}],
+["CVDR-CajemeSonora-BG-361",{"dependencia":"Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Cajeme -Sonora","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["CVDR-CajemeSonora-BT-362",{"dependencia":"Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Cajeme -Sonora","tipoDeBien":"Bienes Tics"}],
+["CVDR-CajemeSonora-FV-363",{"dependencia":"Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Cajeme -Sonora","tipoDeBien":"Flota Vehicular"}],
+["CVDR-Campeche-FV-364",{"dependencia":"Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Campeche","tipoDeBien":"Flota Vehicular"}],
+["CVDR-Cancun-FV-365",{"dependencia":"Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Cancún","tipoDeBien":"Flota Vehicular"}],
+["CVDR-Culiacan-BG-366",{"dependencia":"Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Culiacán","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["CVDR-Culiacan-FV-367",{"dependencia":"Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Culiacán","tipoDeBien":"Flota Vehicular"}],
+["CVDR-Durango-BG-368",{"dependencia":"Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Durango","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["CVDR-Durango-BT-369",{"dependencia":"Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Durango","tipoDeBien":"Bienes Tics"}],
+["CVDR-Durango-FV-370",{"dependencia":"Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Durango","tipoDeBien":"Flota Vehicular"}],
+["CVDR-LosMochis-BG-371",{"dependencia":"Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Los Mochis","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["CVDR-LosMochis-BT-372",{"dependencia":"Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Los Mochis","tipoDeBien":"Bienes Tics"}],
+["CVDR-LosMochis-FV-373",{"dependencia":"Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Los Mochis","tipoDeBien":"Flota Vehicular"}],
+["CVDR-Morelia-BG-374",{"dependencia":"Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Morelia","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["CVDR-Morelia-BT-375",{"dependencia":"Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Morelia","tipoDeBien":"Bienes Tics"}],
+["CVDR-Morelia-FV-376",{"dependencia":"Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Morelia","tipoDeBien":"Flota Vehicular"}],
+["CVDR-Tampico-BG-377",{"dependencia":"Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Tampico","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["CVDR-Tampico-BT-378",{"dependencia":"Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Tampico","tipoDeBien":"Bienes Tics"}],
+["CVDR-Tampico-FV-379",{"dependencia":"Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Tampico","tipoDeBien":"Flota Vehicular"}],
+["CVDR-Tijuana-BG-380",{"dependencia":"Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Tijuana","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["CVDR-Tijuana-BT-381",{"dependencia":"Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Tijuana","tipoDeBien":"Bienes Tics"}],
+["CVDR-Tijuana-FV-382",{"dependencia":"Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Tijuana","tipoDeBien":"Flota Vehicular"}],
+["CVDR-Tlaxcala-BG-383",{"dependencia":"Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Tlaxcala","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["CVDR-Tlaxcala-BT-384",{"dependencia":"Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Tlaxcala","tipoDeBien":"Bienes Tics"}],
+["CVDR-Tlaxcala-FV-385",{"dependencia":"Centro de Vinculación y Desarrollo Regional (CVDR), Unidad Tlaxcala","tipoDeBien":"Flota Vehicular"}],
+["CIITA-CiudadJuarez-BG-386",{"dependencia":"Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Cuidad Juárez, Chihuahua","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["CIITA-CiudadJuarez-BT-387",{"dependencia":"Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Cuidad Juárez, Chihuahua","tipoDeBien":"Bienes Tics"}],
+["CIITA-CiudadJuarez-FV-388",{"dependencia":"Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Cuidad Juárez, Chihuahua","tipoDeBien":"Flota Vehicular"}],
+["CIITA-Papantla-BG-389",{"dependencia":"Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Papantla, Veracruz","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["CIITA-Papantla-BT-390",{"dependencia":"Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Papantla, Veracruz","tipoDeBien":"Bienes Tics"}],
+["CIITA-Papantla-FV-391",{"dependencia":"Centro de Innovación e Integración de Tecnologías Avanzadas (CIITA), Unidad Papantla, Veracruz","tipoDeBien":"Flota Vehicular"}],
+["DP-BG-392",{"dependencia":"Dirección de Posgrado","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["DP-BT-393",{"dependencia":"Dirección de Posgrado","tipoDeBien":"Bienes Tics"}],
+["DP-FV-394",{"dependencia":"Dirección de Posgrado","tipoDeBien":"Flota Vehicular"}],
+["DI-BG-395",{"dependencia":"Dirección de Investigación","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["DI-BT-396",{"dependencia":"Dirección de Investigación","tipoDeBien":"Bienes Tics"}],
+["DI-FV-397",{"dependencia":"Dirección de Investigación","tipoDeBien":"Flota Vehicular"}],
+["CIIEMAD-FV-398",{"dependencia":"Centro Interdisciplinario de Investigación y Estudios Sobre Medio Ambiente y Desarrollo (CIIEMAD)","tipoDeBien":"Flota Vehicular"}],
+["CIIDIR-Durango-FV-399",{"dependencia":"Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Durango","tipoDeBien":"Flota Vehicular"}],
+["CIIDIR-Sinaloa-BG-400",{"dependencia":"Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Sinaloa","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["CIIDIR-Sinaloa-BT-401",{"dependencia":"Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Sinaloa","tipoDeBien":"Bienes Tics"}],
+["CIIDIR-Sinaloa-FV-402",{"dependencia":"Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Sinaloa","tipoDeBien":"Flota Vehicular"}],
+["CIIDIR-Michoacan-BG-403",{"dependencia":"Centro Interdisciplinario de Investigación para El Desarrollo Integral Regional (CIIDIR), Unidad Michoacán","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["CIIDIR-Michoacan-FV-404",{"dependencia":"Centro Interdisciplinario de Investigación para El Desarrollo Integral Regional (CIIDIR), Unidad Michoacán","tipoDeBien":"Flota Vehicular"}],
+["CIIDIR-Oaxaca-FV-405",{"dependencia":"Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional (CIIDIR), Unidad Oaxaca","tipoDeBien":"Flota Vehicular"}],
+["CEPROBI-FV-406",{"dependencia":"Centro de Desarrollo de Productos Bióticos (CEPROBI)","tipoDeBien":"Flota Vehicular"}],
+["CBG-BG-407",{"dependencia":"Centro de Biotecnología Genómica (CBG)","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["CBG-FV-408",{"dependencia":"Centro de Biotecnología Genómica (CBG)","tipoDeBien":"Flota Vehicular"}],
+["CICATA-Legaria-FV-409",{"dependencia":"Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Legaría","tipoDeBien":"Flota Vehicular"}],
+["CICATA-Morelos-FV-410",{"dependencia":"Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA), Unidad Morelos","tipoDeBien":"Flota Vehicular"}],
+["CIC-FV-411",{"dependencia":"Centro de Investigación en Computación (CIC)","tipoDeBien":"Flota Vehicular"}],
+["CITEDI-FV-412",{"dependencia":"Centro de Investigación y Desarrollo de Tecnología Digital (CITEDI)","tipoDeBien":"Flota Vehicular"}],
+["CIECAS-FV-413",{"dependencia":"Centro de Investigaciones Económicas, Administrativas y Sociales (CIECAS)","tipoDeBien":"Flota Vehicular"}],
+["CIBA-Tlaxcala-FV-414",{"dependencia":"Centro de Investigación en Biotecnología Aplicada, IPN-tlaxcala (CIBA)","tipoDeBien":"Flota Vehicular"}],
+["CIDETEC-BG-415",{"dependencia":"Centro de Innovación y Desarrollo Tecnológico En Cómputo (CIDETEC)","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["CIDETEC-BT-416",{"dependencia":"Centro de Innovación y Desarrollo Tecnológico En Cómputo (CIDETEC)","tipoDeBien":"Bienes Tics"}],
+["CIDETEC-FV-417",{"dependencia":"Centro de Innovación y Desarrollo Tecnológico En Cómputo (CIDETEC)","tipoDeBien":"Flota Vehicular"}],
+["CIITEC-BG-418",{"dependencia":"Centro de Investigación e Innovación Tecnológica (CIITEC)","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["CIITEC-BT-419",{"dependencia":"Centro de Investigación e Innovación Tecnológica (CIITEC)","tipoDeBien":"Bienes Tics"}],
+["CIITEC-FV-420",{"dependencia":"Centro de Investigación e Innovación Tecnológica (CIITEC)","tipoDeBien":"Flota Vehicular"}],
+["CMP+L-FV-421",{"dependencia":"Centro Mexicano para la Producción Más Limpia (CMP+L)","tipoDeBien":"Flota Vehicular"}],
+["CDA-BG-422",{"dependencia":"Centro de Desarrollo Aeroespacial (CDA)","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["CDA-BT-423",{"dependencia":"Centro de Desarrollo Aeroespacial (CDA)","tipoDeBien":"Bienes Tics"}],
+["CDA-FV-424",{"dependencia":"Centro de Desarrollo Aeroespacial (CDA)","tipoDeBien":"Flota Vehicular"}],
+["DAE-Escolar-BG-425",{"dependencia":"Dirección de Administración Escolar","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["DAE-Escolar-BT-426",{"dependencia":"Dirección de Administración Escolar","tipoDeBien":"Bienes Tics"}],
+["DAE-Escolar-FV-427",{"dependencia":"Dirección de Administración Escolar","tipoDeBien":"Flota Vehicular"}],
+["DAE-BG-428",{"dependencia":"Dirección de Apoyo a Estudiantes","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["DAE-BT-429",{"dependencia":"Dirección de Apoyo a Estudiantes","tipoDeBien":"Bienes Tics"}],
+["DAE-FV-430",{"dependencia":"Dirección de Apoyo a Estudiantes","tipoDeBien":"Flota Vehicular"}],
+["DDC-FV-431",{"dependencia":"Dirección de Difusión Cultural","tipoDeBien":"Flota Vehicular"}],
+["DAD-BG-432",{"dependencia":"Dirección de Actividades Deportivas","tipoDeBien":"Equipamento General (Capitulo 5000)"}],
+["DAD-BT-433",{"dependencia":"Dirección de Actividades Deportivas","tipoDeBien":"Bienes Tics"}],
+["DAD-FV-434",{"dependencia":"Dirección de Actividades Deportivas","tipoDeBien":"Flota Vehicular"}],
+["DBP-FV-435",{"dependencia":"Dirección de Bibliotecas y Publicaciones","tipoDeBien":"Flota Vehicular"}],
+["UPGPG-FV-436",{"dependencia":"Unidad Politécnica de Gestión con Perspectiva de Género (UPGPG)","tipoDeBien":"Flota Vehicular"}],
+["DDP-FV-437",{"dependencia":"Defensoría de los Derechos Politécnicos","tipoDeBien":"Flota Vehicular"}],
+
 ]);
 
 
@@ -6459,11 +6729,17 @@ function precioTotalMasIVA(precioInput) {
        let valorUnitario = Number(
                 precioInput.value.replace(/,/g, "")
               );
-                 precioTotal=valorUnitario*cantidadInput.value*1.16;
+                // precioTotal=valorUnitario*cantidadInput.value*1.16;
                 
-                precioTotalinput.value=precioTotal;
-                formatearMiles(precioTotalinput);
-                actualizarTotalesTabla4();    
+                //precioTotalinput.value=precioTotal;
+                //formatearMiles(precioTotalinput);
+                precioTotal = valorUnitario * cantidadInput.value * 1.16;
+
+                precioTotalinput.value = formatoMilesNumero(precioTotal);
+                
+                actualizarTotalesTabla4();
+
+
             }
 
 document.querySelectorAll(
@@ -6527,11 +6803,11 @@ document.querySelectorAll("#tablaBody5 [data-relleno]").forEach(campo => {
 
 // V7 
 
-//
-const direccionEnlace="https://script.google.com/macros/s/AKfycbyrrLXQMsrqpSoPDWpkb4FCWwzxHjsVFTRmGEgajnz53ZTFpJOXEvK6PqGyDOrcJpE4/exec"
+//const direccionEnlace="https://script.google.com/macros/s/AKfycbyrrLXQMsrqpSoPDWpkb4FCWwzxHjsVFTRmGEgajnz53ZTFpJOXEvK6PqGyDOrcJpE4/exec"
 
 //V8 
-// const direccionEnlace="https://script.google.com/macros/s/AKfycby9jNmixia074z8R6NI03VzvQii_rmHJ7xaoHKQ9X3OwWeYZB94cqkN6cewmbNzqTnq/exec"
+//
+ const direccionEnlace="https://script.google.com/macros/s/AKfycby9jNmixia074z8R6NI03VzvQii_rmHJ7xaoHKQ9X3OwWeYZB94cqkN6cewmbNzqTnq/exec"
 
 
 
@@ -6598,8 +6874,66 @@ try {
     })
 });
 
+
+
 const json = await res.json();
-const data =json.data;
+
+/*
+if (!json.success || !json.data) {
+    alert(
+        "Este folio está asignado, pero todavía no tiene " +
+        "ninguna solicitud ni borrador registrado, esta disponible para su correcto llenado."
+    );
+    let formularioVisible=document.getElementById("tablasFrame");
+        formularioVisible.classList.remove("paso");
+        folioActual = folio;
+        folioCargado = true;
+        terminarEstadoCarga("Cargando solicitud por folio");
+    return;
+}
+*/
+
+
+
+if (!res.ok) {
+    throw new Error("Error al consultar la solicitud");
+}
+
+const esNuevo = json.data == null;
+
+const data = esNuevo 
+        ? {
+        __folio: folio,
+        dependencia: datos.dependencia,
+        tipoDeSolicitud: datos.tipoDeBien,
+        numeroEnvio: 0,
+        edicion: null,
+
+        __filas1: 1,
+        __filas1_1: 1,
+        __filas2: 1,
+        __filas3: 1,
+        __filasP: 1,
+        __filasC: 1,
+        __filas4: 1,
+        __filas5: 1
+    }
+    : json.data;
+
+if (esNuevo) {
+    document.getElementById("miFormulario").reset();
+
+    ultimoBorradorGuardado = "";
+    urlCotizacionesActuales = {};
+    nombresCotizacionesActuales = {};
+}
+
+
+// const data =json.data;
+
+
+
+
 
 // alert(data.dependencia + "  su funcion y accion funcionan bien.Hora de la actualizacion:" + data.fechaModificacion +". el Origen es un" + json.origen );
 
@@ -6707,13 +7041,16 @@ document.querySelectorAll('[id^="Espacio_Visible_T2R"]').forEach(campo=>{
 });
       
 actualizarOpcionesProgramas();
-actualizarOpcionesEspacios();
+
 actualizarOpcionesCotizacion1();
 actualizarOpcionesCotizacion2();
 actualizarOpcionesEdificio();
 actualizarSelects(data);
 compartirValoresinputToSelects();
 restaurarClavesTabla2(data);
+
+actualizarOpcionesEspacios();
+
 // compartirValoresSelects();
 
 
@@ -6843,13 +7180,32 @@ const total = precio * cantidad * 1.16;
 //  alert(precio);
 document.getElementById(
     `PrecioTotal_T4E${index}`
-).textContent = total;
+).textContent = formatoMilesNumero(total);
 
 document.getElementById(`NombreArch_T4E${index}`).textContent= ejemplos[`NombreArch_T4E${index}`];     
 
 document.getElementById(`Cotizacion_T4E${index}`).textContent= ejemplos[`Cotizacion_T4E${index}`];       
 document.getElementById(`PrecioUnitario2_T4E${index}`).textContent=formatoMilesNumero(ejemplos[`PrecioUnitario2_T4E${index}`]);
-document.getElementById(`PrecioTotal2_T4E${index}`).textContent= ejemplos[`PrecioUnitario2_T4E${index}`]*ejemplos[`Cantidad_T4E${index}`]*1.16
+
+
+const precio2 = numeroSinFormato(ejemplos[`PrecioUnitario2_T4E${index}`]
+);
+
+//document.getElementById(`PrecioTotal2_T4E${index}`).textContent = formatoMilesNumero(precio2 * cantidad * 1.16);
+
+const total2 = precio2 * cantidad * 1.16;
+//  alert(precio);
+document.getElementById(`PrecioTotal2_T4E${index}`).textContent = formatoMilesNumero(total2);
+
+
+
+
+
+
+// document.getElementById(`PrecioTotal2_T4E${index}`).textContent= numeroSinFormato(ejemplos[`PrecioUnitario2_T4E${index}`])*numeroSinFormato(ejemplos[`Cantidad_T4E${index}`])*1.16
+
+
+
 document.getElementById(`NombreArch2_T4E${index}`).textContent= ejemplos[`NombreArch2_T4E${index}`];  
 document.getElementById(`Cotizacion2_T4E${index}`).textContent=ejemplos[`Cotizacion2_T4E${index}`];
 
@@ -6906,12 +7262,19 @@ tbody4.addEventListener("change",function (e) {
     if (
         !e.target.name?.startsWith("precio_T4R") &&
   //      !e.target.id?.startsWith("ProgramaAcademico_Select_T4R")&&
-        !e.target.name?.startsWith("precio2_T4R")
+        !e.target.name?.startsWith("precio2_T4R")&&
+        !e.target.name?.startsWith("cantidad_T4R")
+
     ) return;
     
-
+    
     let precioInputF=e.target;
-    precioTotalMasIVA(precioInputF);
+           precioTotalMasIVA(precioInputF);
+    const precios = document.querySelectorAll(`[data-cant="${precioInputF.id}"]`);    
+    precios.forEach(element => {
+                                   precioTotalMasIVA(element);
+                               });
+
 
 });
 
@@ -10043,6 +10406,7 @@ document.addEventListener(
 
     }
 );
+
 
         
 
