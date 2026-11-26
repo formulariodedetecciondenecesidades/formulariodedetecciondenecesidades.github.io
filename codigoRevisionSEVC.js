@@ -5577,8 +5577,8 @@ const esNuevo = json.data == null;
 const data = esNuevo 
         ? {
         __folio: folio,
-        dependencia: datos.dependencia,
-        tipoDeSolicitud: datos.tipoDeBien,
+        dependencia: dependencia,
+        tipoDeSolicitud: tipoDeEquipamento,
         numeroEnvio: 0,
         edicion: null,
 
